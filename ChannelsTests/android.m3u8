@@ -1,0 +1,126 @@
+#EXTM3U url-tvg="http://tvguide.sibset.ru/channels/program/jtv.zip" url-img="http://tvguide.sibset.ru/channels/borpas_icons.zip" tvg-shift=+07
+
+#EXTINF: -1 id="9104" tvg-name="9104" tvg-logo="9104" group-title="Эфирные", Первый канал
+http://94.hlstv.nsk.211.ru/239.211.0.1.m3u8
+#EXTINF: -1 id="1004" tvg-name="1004" tvg-logo="1004" group-title="Эфирные", Россия 1
+http://94.hlstv.nsk.211.ru/239.211.0.2.m3u8
+#EXTINF: -1 id="9101" tvg-name="9101" tvg-logo="9101" group-title="Эфирные", Матч!
+http://94.hlstv.nsk.211.ru/239.211.0.3.m3u8
+#EXTINF: -1 id="9103" tvg-name="9103" tvg-logo="9103" group-title="Эфирные", НТВ
+http://94.hlstv.nsk.211.ru/239.211.0.4.m3u8
+#EXTINF: -1 id="1013" tvg-name="1013" tvg-logo="1013" group-title="Эфирные", 5 канал
+http://94.hlstv.nsk.211.ru/239.211.0.5.m3u8
+#EXTINF: -1 id="1018" tvg-name="1018" tvg-logo="1018" group-title="Эфирные", Россия К
+http://94.hlstv.nsk.211.ru/239.211.0.6.m3u8
+#EXTINF: -1 id="1016" tvg-name="1016" tvg-logo="1016" group-title="Эфирные", Россия 24
+http://94.hlstv.nsk.211.ru/239.211.0.7.m3u8
+#EXTINF: -1 id="9109" tvg-name="9109" tvg-logo="9109" group-title="Эфирные", Карусель
+http://94.hlstv.nsk.211.ru/239.211.0.8.m3u8
+#EXTINF: -1 id="3518" tvg-name="3518" tvg-logo="3518" group-title="Эфирные", ОТР
+http://94.hlstv.nsk.211.ru/239.211.0.9.m3u8
+#EXTINF: -1 id="9105" tvg-name="9105" tvg-logo="9105" group-title="Эфирные", ТВЦ
+http://94.hlstv.nsk.211.ru/239.211.0.10.m3u8
+#EXTINF: -1 id="9112" tvg-name="9112" tvg-logo="9112" group-title="Эфирные", Рен
+http://94.hlstv.nsk.211.ru/239.211.0.11.m3u8
+#EXTINF: -1 id="9110" tvg-name="9110" tvg-logo="9110" group-title="Эфирные", Спас
+http://94.hlstv.nsk.211.ru/239.211.0.12.m3u8
+#EXTINF: -1 id="1005" tvg-name="1005" tvg-logo="1005" group-title="Эфирные", СТС
+http://94.hlstv.nsk.211.ru/239.211.0.13.m3u8
+#EXTINF: -1 id="9106" tvg-name="9106" tvg-logo="9106" group-title="Эфирные", Домашний
+http://94.hlstv.nsk.211.ru/239.211.0.14.m3u8
+#EXTINF: -1 id="1002" tvg-name="1002" tvg-logo="1002" group-title="Эфирные", ТВ3
+http://94.hlstv.nsk.211.ru/239.211.0.15.m3u8
+#EXTINF: -1 id="3480" tvg-name="3480" tvg-logo="3480" group-title="Эфирные", Пятница
+http://94.hlstv.nsk.211.ru/239.211.0.16.m3u8
+#EXTINF: -1 id="9113" tvg-name="9113" tvg-logo="9113" group-title="Эфирные", Звезда
+http://94.hlstv.nsk.211.ru/239.211.0.17.m3u8
+#EXTINF: -1 id="9102" tvg-name="9102" tvg-logo="9102" group-title="Эфирные", Мир
+http://94.hlstv.nsk.211.ru/239.211.0.18.m3u8
+#EXTINF: -1 id="1003" tvg-name="1003" tvg-logo="1003" group-title="Эфирные", ТНТ
+http://94.hlstv.nsk.211.ru/239.211.0.19.m3u8
+#EXTINF: -1 id="9111" tvg-name="9111" tvg-logo="9111" group-title="Эфирные", МУЗ-ТВ
+http://94.hlstv.nsk.211.ru/239.211.0.20.m3u8
+#EXTINF: -1 id="1009" tvg-name="1009" tvg-logo="1009" group-title="Эфирные", ОТС
+http://94.hlstv.nsk.211.ru/239.211.211.23.m3u8
+#EXTINF: -1 id="3474" tvg-name="3474" tvg-logo="3474" group-title="Эфирные", Че
+http://94.hlstv.nsk.211.ru/239.211.211.100.m3u8
+#EXTINF: -1 id="1015" tvg-name="1015" tvg-logo="1015" group-title="Эфирные", Ю-ТВ
+http://94.hlstv.nsk.211.ru/239.211.211.29.m3u8
+#EXTINF: -1 id="9040" tvg-name="9040" tvg-logo="9040" group-title="Эфирные", Ювелирочка
+http://94.hlstv.nsk.211.ru/239.211.211.121.m3u8
+#EXTINF: -1 id="1010" tvg-name="1010" tvg-logo="1010" group-title="Эфирные", Дисней
+http://94.hlstv.nsk.211.ru/239.211.211.24.m3u8
+#EXTINF: -1 id="9150" tvg-name="9150" tvg-logo="9150" group-title="Эфирные", РБК
+http://94.hlstv.nsk.211.ru/239.211.0.41.m3u8
+#EXTINF: -1 id="3529" tvg-name="3529" tvg-logo="3529" group-title="Эфирные", 8 канал
+http://94.hlstv.nsk.211.ru/239.211.211.177.m3u8
+#EXTINF: -1 id="9149" tvg-name="9149" tvg-logo="9149" group-title="Эфирные", Shop and Show
+http://94.hlstv.nsk.211.ru/239.211.211.152.m3u8
+#EXTINF: -1 id="3595" tvg-name="3595" tvg-logo="3595" group-title="Эфирные", 49 канал
+http://94.hlstv.nsk.211.ru/239.211.211.28.m3u8
+#EXTINF: -1 id="9067" tvg-name="9067" tvg-logo="9067" group-title="Эфирные", СТС-Мир
+http://94.hlstv.nsk.211.ru/239.211.211.18.m3u8
+#EXTINF: -1 id="9182" tvg-name="9182" tvg-logo="9182" group-title="Эфирные", Наша Тема
+http://94.hlstv.nsk.211.ru/239.211.211.172.m3u8
+#EXTINF: -1 id="3598" tvg-name="3598" tvg-logo="3598" group-title="Новости и общество", Союз
+http://94.hlstv.nsk.211.ru/239.211.211.56.m3u8
+#EXTINF: -1 id="3585" tvg-name="3585" tvg-logo="3585" group-title="Новости и общество", Новосибирские Новости
+http://94.hlstv.nsk.211.ru/239.211.211.75.m3u8
+#EXTINF: -1 id="7002" tvg-name="7002" tvg-logo="7002" group-title="Развлекательные и Хобби", Paramount Comedy
+http://94.hlstv.nsk.211.ru/239.211.211.73.m3u8
+#EXTINF: -1 id="9090" tvg-name="9090" tvg-logo="9090" group-title="Развлекательные и Хобби", Spike
+http://94.hlstv.nsk.211.ru/239.211.211.149.m3u8
+#EXTINF: -1 id="3018" tvg-name="3018" tvg-logo="3018" group-title="Развлекательные и Хобби", Театр
+http://94.hlstv.nsk.211.ru/239.211.211.110.m3u8
+#EXTINF: -1 id="9123" tvg-name="9123" tvg-logo="9123" group-title="Кино и сериалы", Супер
+http://94.hlstv.nsk.211.ru/239.211.211.151.m3u8
+#EXTINF: -1 id="9153" tvg-name="9153" tvg-logo="9153" group-title="Кино и сериалы", Русский детектив
+http://94.hlstv.nsk.211.ru/239.211.211.95.m3u8
+#EXTINF: -1 id="9158" tvg-name="9158" tvg-logo="9158" group-title="Кино и сериалы", Индийское кино
+http://94.hlstv.nsk.211.ru/239.211.211.154.m3u8
+#EXTINF: -1 id="9019" tvg-name="9019" tvg-logo="9019" group-title="Кино и сериалы", Настоящее Страшное ТВ
+http://94.hlstv.nsk.211.ru/239.211.211.107.m3u8
+#EXTINF: -1 id="9017" tvg-name="9017" tvg-logo="9017" group-title="Кино и сериалы", CINEMA
+http://94.hlstv.nsk.211.ru/239.211.211.106.m3u8
+#EXTINF: -1 id="3440" tvg-name="3440" tvg-logo="3440" group-title="HD каналы", Первый Канал HD
+http://94.hlstv.nsk.211.ru/239.211.200.1.m3u8
+#EXTINF: -1 id="3426" tvg-name="3426" tvg-logo="3426" group-title="HD каналы", Россия HD
+http://94.hlstv.nsk.211.ru/239.211.200.2.m3u8
+#EXTINF: -1 id="9006" tvg-name="9006" tvg-logo="9006" group-title="HD каналы", HD Life
+http://94.hlstv.nsk.211.ru/239.211.200.6.m3u8
+#EXTINF: -1 id="3432" tvg-name="3432" tvg-logo="3432" group-title="HD каналы", Nickelodeon HD
+http://94.hlstv.nsk.211.ru/239.211.200.8.m3u8
+#EXTINF: -1 id="3560" tvg-name="3560" tvg-logo="3560" group-title="HD каналы", MTV-live HD
+http://94.hlstv.nsk.211.ru/239.211.200.9.m3u8
+#EXTINF: -1 id="3405" tvg-name="3405" tvg-logo="3405" group-title="HD каналы", Матч! Игра HD
+http://94.hlstv.nsk.211.ru/239.211.200.11.m3u8
+#EXTINF: -1 id="3414" tvg-name="3414" tvg-logo="3414" group-title="HD каналы", КХЛ ТВ HD
+http://94.hlstv.nsk.211.ru/239.211.200.12.m3u8
+#EXTINF: -1 id="3438" tvg-name="3438" tvg-logo="3438" group-title="HD каналы", Еда HD
+http://94.hlstv.nsk.211.ru/239.211.200.14.m3u8
+#EXTINF: -1 id="3434" tvg-name="3434" tvg-logo="3434" group-title="HD каналы", Nat Geo Wild HD
+http://94.hlstv.nsk.211.ru/239.211.200.15.m3u8
+#EXTINF: -1 id="3429" tvg-name="3429" tvg-logo="3429" group-title="HD каналы", National Geographic HD
+http://94.hlstv.nsk.211.ru/239.211.200.16.m3u8
+#EXTINF: -1 id="3435" tvg-name="3435" tvg-logo="3435" group-title="HD каналы", Fox HD
+http://94.hlstv.nsk.211.ru/239.211.200.17.m3u8
+#EXTINF: -1 id="3431" tvg-name="3431" tvg-logo="3431" group-title="HD каналы", Fox Life HD
+http://94.hlstv.nsk.211.ru/239.211.200.18.m3u8
+#EXTINF: -1 id="3586" tvg-name="3586" tvg-logo="3586" group-title="HD каналы", Russian Travel Guide HD
+http://94.hlstv.nsk.211.ru/239.211.200.20.m3u8
+#EXTINF: -1 id="3562" tvg-name="3562" tvg-logo="3562" group-title="HD каналы", Планета HD
+http://94.hlstv.nsk.211.ru/239.211.200.19.m3u8
+#EXTINF: -1 id="9025" tvg-name="9025" tvg-logo="9025" group-title="HD каналы", Приключения HD
+http://94.hlstv.nsk.211.ru/239.211.200.23.m3u8
+#EXTINF: -1 id="9089" tvg-name="9089" tvg-logo="9089" group-title="HD каналы", Русский роман HD
+http://94.hlstv.nsk.211.ru/239.211.200.29.m3u8
+#EXTINF: -1 id="9171" tvg-name="9171" tvg-logo="9171" group-title="HD каналы", ОТС HD
+http://94.hlstv.nsk.211.ru/239.211.200.41.m3u8
+#EXTINF: -1 id="9154" tvg-name="9154" tvg-logo="9154" group-title="HD каналы", Наша Сибирь HD
+http://94.hlstv.nsk.211.ru/239.211.200.30.m3u8
+#EXTINF: -1 id="9167" tvg-name="9167" tvg-logo="9167" group-title="HD каналы", EuropaPlus TV HD
+http://94.hlstv.nsk.211.ru/239.211.200.37.m3u8
+#EXTINF: -1 id="9168" tvg-name="9168" tvg-logo="9168" group-title="HD каналы", O2 TV HD
+http://94.hlstv.nsk.211.ru/239.211.200.36.m3u8
+#EXTINF: -1 id="9173" tvg-name="9173" tvg-logo="9173" group-title="HD каналы", МИР 24 HD
+http://94.hlstv.nsk.211.ru/239.211.200.40.m3u8

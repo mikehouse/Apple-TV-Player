@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		32EBBB313D57DB81AFA4F518 /* Pods_Apple_TV_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67EE9624CFF22F3AEAC77938 /* Pods_Apple_TV_Player.framework */; };
+		82DDEAF4253E1D2C00F3B1EE /* M3UItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DDEAF3253E1D2C00F3B1EE /* M3UItem.swift */; };
+		82DDEAF7253E1D4000F3B1EE /* M3U.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DDEAF6253E1D4000F3B1EE /* M3U.swift */; };
+		82DDEB06253E2A4300F3B1EE /* ChannelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DDEB05253E2A4300F3B1EE /* ChannelsTests.swift */; };
+		82DDEB08253E2A4400F3B1EE /* Channels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F3D29A2538E6650021BB2E /* Channels.framework */; };
+		82DDEB11253E2A8F00F3B1EE /* android.m3u8 in Resources */ = {isa = PBXBuildFile; fileRef = 82DDEB10253E2A8F00F3B1EE /* android.m3u8 */; };
 		82F3D26C2538D9AC0021BB2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3D26B2538D9AC0021BB2E /* AppDelegate.swift */; };
 		82F3D26E2538D9AC0021BB2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3D26D2538D9AC0021BB2E /* ViewController.swift */; };
 		82F3D2732538D9AD0021BB2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82F3D2722538D9AD0021BB2E /* Assets.xcassets */; };
@@ -20,6 +25,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		82DDEB09253E2A4400F3B1EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82F3D2602538D9AC0021BB2E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 82F3D2992538E6650021BB2E;
+			remoteInfo = Channels;
+		};
 		82F3D29F2538E6650021BB2E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 82F3D2602538D9AC0021BB2E /* Project object */;
@@ -46,6 +58,12 @@
 /* Begin PBXFileReference section */
 		67EE9624CFF22F3AEAC77938 /* Pods_Apple_TV_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Apple_TV_Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69AA6ED0172F5C85F7F821E2 /* Pods-Apple-TV-Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apple-TV-Player.release.xcconfig"; path = "Target Support Files/Pods-Apple-TV-Player/Pods-Apple-TV-Player.release.xcconfig"; sourceTree = "<group>"; };
+		82DDEAF3253E1D2C00F3B1EE /* M3UItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3UItem.swift; sourceTree = "<group>"; };
+		82DDEAF6253E1D4000F3B1EE /* M3U.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3U.swift; sourceTree = "<group>"; };
+		82DDEB03253E2A4300F3B1EE /* ChannelsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChannelsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		82DDEB05253E2A4300F3B1EE /* ChannelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsTests.swift; sourceTree = "<group>"; };
+		82DDEB07253E2A4400F3B1EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82DDEB10253E2A8F00F3B1EE /* android.m3u8 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = android.m3u8; sourceTree = "<group>"; };
 		82F3D2682538D9AC0021BB2E /* Apple-TV-Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Apple-TV-Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82F3D26B2538D9AC0021BB2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82F3D26D2538D9AC0021BB2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +84,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		82DDEB00253E2A4300F3B1EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82DDEB08253E2A4400F3B1EE /* Channels.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		82F3D2652538D9AC0021BB2E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -102,11 +128,47 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		82DDEAEF253E1BE400F3B1EE /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				82DDEAF2253E1C1B00F3B1EE /* Common */,
+				82DDEAF0253E1BFD00F3B1EE /* m3u */,
+			);
+			path = Parsers;
+			sourceTree = "<group>";
+		};
+		82DDEAF0253E1BFD00F3B1EE /* m3u */ = {
+			isa = PBXGroup;
+			children = (
+				82DDEAF6253E1D4000F3B1EE /* M3U.swift */,
+				82DDEAF3253E1D2C00F3B1EE /* M3UItem.swift */,
+			);
+			path = m3u;
+			sourceTree = "<group>";
+		};
+		82DDEAF2253E1C1B00F3B1EE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		82DDEB04253E2A4300F3B1EE /* ChannelsTests */ = {
+			isa = PBXGroup;
+			children = (
+				82DDEB10253E2A8F00F3B1EE /* android.m3u8 */,
+				82DDEB05253E2A4300F3B1EE /* ChannelsTests.swift */,
+				82DDEB07253E2A4400F3B1EE /* Info.plist */,
+			);
+			path = ChannelsTests;
+			sourceTree = "<group>";
+		};
 		82F3D25F2538D9AC0021BB2E = {
 			isa = PBXGroup;
 			children = (
 				82F3D26A2538D9AC0021BB2E /* Apple-TV-Player */,
 				82F3D29B2538E6650021BB2E /* Channels */,
+				82DDEB04253E2A4300F3B1EE /* ChannelsTests */,
 				82F3D2692538D9AC0021BB2E /* Products */,
 				47E0FE7437F72A44E302E88A /* Pods */,
 				7282139F61CEA9109ED48C63 /* Frameworks */,
@@ -118,6 +180,7 @@
 			children = (
 				82F3D2682538D9AC0021BB2E /* Apple-TV-Player.app */,
 				82F3D29A2538E6650021BB2E /* Channels.framework */,
+				82DDEB03253E2A4300F3B1EE /* ChannelsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,6 +240,7 @@
 		82F3D2AC2538E81E0021BB2E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				82DDEAEF253E1BE400F3B1EE /* Parsers */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -203,6 +267,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		82DDEB02253E2A4300F3B1EE /* ChannelsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82DDEB0D253E2A4400F3B1EE /* Build configuration list for PBXNativeTarget "ChannelsTests" */;
+			buildPhases = (
+				82DDEAFF253E2A4300F3B1EE /* Sources */,
+				82DDEB00253E2A4300F3B1EE /* Frameworks */,
+				82DDEB01253E2A4300F3B1EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				82DDEB0A253E2A4400F3B1EE /* PBXTargetDependency */,
+			);
+			name = ChannelsTests;
+			productName = ChannelsTests;
+			productReference = 82DDEB03253E2A4300F3B1EE /* ChannelsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		82F3D2672538D9AC0021BB2E /* Apple-TV-Player */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 82F3D27A2538D9AD0021BB2E /* Build configuration list for PBXNativeTarget "Apple-TV-Player" */;
@@ -250,11 +332,15 @@
 				LastSwiftUpdateCheck = 1210;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
+					82DDEB02253E2A4300F3B1EE = {
+						CreatedOnToolsVersion = 12.1;
+					};
 					82F3D2672538D9AC0021BB2E = {
 						CreatedOnToolsVersion = 12.1;
 					};
 					82F3D2992538E6650021BB2E = {
 						CreatedOnToolsVersion = 12.1;
+						LastSwiftMigration = 1210;
 					};
 				};
 			};
@@ -273,11 +359,20 @@
 			targets = (
 				82F3D2672538D9AC0021BB2E /* Apple-TV-Player */,
 				82F3D2992538E6650021BB2E /* Channels */,
+				82DDEB02253E2A4300F3B1EE /* ChannelsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		82DDEB01253E2A4300F3B1EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82DDEB11253E2A8F00F3B1EE /* android.m3u8 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		82F3D2662538D9AC0021BB2E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -324,6 +419,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		82DDEAFF253E2A4300F3B1EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82DDEB06253E2A4300F3B1EE /* ChannelsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		82F3D2642538D9AC0021BB2E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -337,12 +440,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82DDEAF4253E1D2C00F3B1EE /* M3UItem.swift in Sources */,
+				82DDEAF7253E1D4000F3B1EE /* M3U.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		82DDEB0A253E2A4400F3B1EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 82F3D2992538E6650021BB2E /* Channels */;
+			targetProxy = 82DDEB09253E2A4400F3B1EE /* PBXContainerItemProxy */;
+		};
 		82F3D2A02538E6650021BB2E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 82F3D2992538E6650021BB2E /* Channels */;
@@ -363,6 +473,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		82DDEB0B253E2A4400F3B1EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ChannelsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.noveo.tm.ChannelsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Debug;
+		};
+		82DDEB0C253E2A4400F3B1EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ChannelsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.noveo.tm.ChannelsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Release;
+		};
 		82F3D2782538D9AD0021BB2E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -485,6 +629,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 82F3D2832538DCF50021BB2E /* Debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -496,7 +641,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 13.0;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = Debug;
 		};
@@ -504,6 +649,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 82F3D2842538DD060021BB2E /* Release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -515,7 +661,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 13.0;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 			};
 			name = Release;
 		};
@@ -523,6 +669,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 82F3D2A92538E70F0021BB2E /* Debug-Channels.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -538,9 +685,10 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 13.0;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -550,6 +698,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 82F3D2A92538E70F0021BB2E /* Debug-Channels.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -567,7 +716,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 13.0;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -576,6 +725,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		82DDEB0D253E2A4400F3B1EE /* Build configuration list for PBXNativeTarget "ChannelsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82DDEB0B253E2A4400F3B1EE /* Debug */,
+				82DDEB0C253E2A4400F3B1EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		82F3D2632538D9AC0021BB2E /* Build configuration list for PBXProject "Apple-TV-Player" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -1,4 +1,4 @@
-platform :tvos, '13.0'
+platform :tvos, '14.0'
 
 target 'Apple-TV-Player' do
 

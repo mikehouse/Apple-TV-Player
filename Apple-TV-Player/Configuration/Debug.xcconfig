@@ -1,0 +1,14 @@
+//
+//  Debug.xcconfig
+//  Apple-TV-Player
+//
+//  Created by Mikhail Demidov on 16.10.2020.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+PRODUCT_BUNDLE_IDENTIFIER = example.apple.com
+DEVELOPMENT_TEAM = FFFFFFFFFF;
+
+#include "../../Pods/Target Support Files/Pods-Apple-TV-Player/Pods-Apple-TV-Player.debug.xcconfig"

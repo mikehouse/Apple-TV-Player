@@ -1,0 +1,6 @@
+.idea/*
+Pods/*
+.DS_Store
+Apple-TV-Player.xcodeproj/xcuserdata/*
+Apple-TV-Player.xcodeproj/project.xcworkspace/xcuserdata/*
+Apple-TV-Player.xcworkspace/xcuserdata/*

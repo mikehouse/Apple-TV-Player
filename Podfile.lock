@@ -1,16 +1,24 @@
 PODS:
+  - Reusable (4.1.1):
+    - Reusable/Storyboard (= 4.1.1)
+    - Reusable/View (= 4.1.1)
+  - Reusable/Storyboard (4.1.1)
+  - Reusable/View (4.1.1)
   - TVVLCKit (3.3.14)
 
 DEPENDENCIES:
+  - Reusable
   - TVVLCKit
 
 SPEC REPOS:
   trunk:
+    - Reusable
     - TVVLCKit
 
 SPEC CHECKSUMS:
+  Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
   TVVLCKit: aa7c0f34d6ae19e33838c3dcad594578364fd513
 
-PODFILE CHECKSUM: ba2e8b90f7b999438699303e613a5fc3a21dc3a6
+PODFILE CHECKSUM: 375c64aa6edeaf8a2b8a1498a68493dcf0e5064f
 
 COCOAPODS: 1.9.2

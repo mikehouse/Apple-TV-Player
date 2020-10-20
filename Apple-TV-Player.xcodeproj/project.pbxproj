@@ -3,11 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		32EBBB313D57DB81AFA4F518 /* Pods_Apple_TV_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67EE9624CFF22F3AEAC77938 /* Pods_Apple_TV_Player.framework */; };
+		828E3FEE253F67B2003D4EFC /* FileSystemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E3FED253F67B2003D4EFC /* FileSystemManager.swift */; };
+		828E3FF7253F6FF1003D4EFC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E3FF6253F6FF1003D4EFC /* HomeViewController.swift */; };
+		828E3FFD253F704B003D4EFC /* FailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E3FFC253F704B003D4EFC /* FailureViewController.swift */; };
+		828E4001253F7382003D4EFC /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 828E4000253F7382003D4EFC /* HomeViewController.storyboard */; };
+		828E4006253F7818003D4EFC /* TextInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E4005253F7818003D4EFC /* TextInputViewController.swift */; };
+		828E4012253F850A003D4EFC /* PlaylistCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E4010253F850A003D4EFC /* PlaylistCellView.swift */; };
+		828E4013253F850A003D4EFC /* PlaylistCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828E4011253F850A003D4EFC /* PlaylistCellView.xib */; };
+		828E401A253F851E003D4EFC /* AddPlaylistCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E4018253F851E003D4EFC /* AddPlaylistCellView.swift */; };
+		828E401B253F851E003D4EFC /* AddPlaylistCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828E4019253F851E003D4EFC /* AddPlaylistCellView.xib */; };
+		828E4020253F852F003D4EFC /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E401E253F852F003D4EFC /* SettingsCellView.swift */; };
+		828E4021253F852F003D4EFC /* SettingsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828E401F253F852F003D4EFC /* SettingsCellView.xib */; };
 		82DDEAF4253E1D2C00F3B1EE /* M3UItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DDEAF3253E1D2C00F3B1EE /* M3UItem.swift */; };
 		82DDEAF7253E1D4000F3B1EE /* M3U.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DDEAF6253E1D4000F3B1EE /* M3U.swift */; };
 		82DDEB06253E2A4300F3B1EE /* ChannelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DDEB05253E2A4300F3B1EE /* ChannelsTests.swift */; };
@@ -21,7 +32,6 @@
 		82F3D2A22538E6650021BB2E /* Channels.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82F3D29A2538E6650021BB2E /* Channels.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		82F3D2B02538E9220021BB2E /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 82F3D2B22538E9220021BB2E /* Localization.strings */; };
 		82F3D2BA2538EABC0021BB2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82F3D2B92538EABC0021BB2E /* LaunchScreen.storyboard */; };
-		82F3D2BD2538EAC40021BB2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82F3D2BC2538EAC40021BB2E /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +68,17 @@
 /* Begin PBXFileReference section */
 		67EE9624CFF22F3AEAC77938 /* Pods_Apple_TV_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Apple_TV_Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69AA6ED0172F5C85F7F821E2 /* Pods-Apple-TV-Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apple-TV-Player.release.xcconfig"; path = "Target Support Files/Pods-Apple-TV-Player/Pods-Apple-TV-Player.release.xcconfig"; sourceTree = "<group>"; };
+		828E3FED253F67B2003D4EFC /* FileSystemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemManager.swift; sourceTree = "<group>"; };
+		828E3FF6253F6FF1003D4EFC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		828E3FFC253F704B003D4EFC /* FailureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailureViewController.swift; sourceTree = "<group>"; };
+		828E4000253F7382003D4EFC /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
+		828E4005253F7818003D4EFC /* TextInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputViewController.swift; sourceTree = "<group>"; };
+		828E4010253F850A003D4EFC /* PlaylistCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistCellView.swift; sourceTree = "<group>"; };
+		828E4011253F850A003D4EFC /* PlaylistCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaylistCellView.xib; sourceTree = "<group>"; };
+		828E4018253F851E003D4EFC /* AddPlaylistCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistCellView.swift; sourceTree = "<group>"; };
+		828E4019253F851E003D4EFC /* AddPlaylistCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPlaylistCellView.xib; sourceTree = "<group>"; };
+		828E401E253F852F003D4EFC /* SettingsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
+		828E401F253F852F003D4EFC /* SettingsCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCellView.xib; sourceTree = "<group>"; };
 		82DDEAF3253E1D2C00F3B1EE /* M3UItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3UItem.swift; sourceTree = "<group>"; };
 		82DDEAF6253E1D4000F3B1EE /* M3U.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3U.swift; sourceTree = "<group>"; };
 		82DDEB03253E2A4300F3B1EE /* ChannelsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChannelsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,7 +100,6 @@
 		82F3D2B12538E9220021BB2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localization.strings; sourceTree = "<group>"; };
 		82F3D2B62538E9600021BB2E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localization.strings; sourceTree = "<group>"; };
 		82F3D2B92538EABC0021BB2E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		82F3D2BC2538EAC40021BB2E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A294316A2E8D0347BCFF7F70 /* Pods-Apple-TV-Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apple-TV-Player.debug.xcconfig"; path = "Target Support Files/Pods-Apple-TV-Player/Pods-Apple-TV-Player.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +146,78 @@
 				67EE9624CFF22F3AEAC77938 /* Pods_Apple_TV_Player.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		828E3FEC253F6778003D4EFC /* FileSystem */ = {
+			isa = PBXGroup;
+			children = (
+				828E3FED253F67B2003D4EFC /* FileSystemManager.swift */,
+			);
+			path = FileSystem;
+			sourceTree = "<group>";
+		};
+		828E3FF3253F6EEB003D4EFC /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				828E3FF4253F6F1E003D4EFC /* Home */,
+				828E3FF5253F6F9A003D4EFC /* Failure */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		828E3FF4253F6F1E003D4EFC /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				828E400F253F84D5003D4EFC /* SettingsCell */,
+				828E400E253F84C4003D4EFC /* AddPlaylistCell */,
+				828E400D253F84B7003D4EFC /* PlaylistCell */,
+				828E3FF6253F6FF1003D4EFC /* HomeViewController.swift */,
+				828E4000253F7382003D4EFC /* HomeViewController.storyboard */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		828E3FF5253F6F9A003D4EFC /* Failure */ = {
+			isa = PBXGroup;
+			children = (
+				828E3FFC253F704B003D4EFC /* FailureViewController.swift */,
+			);
+			path = Failure;
+			sourceTree = "<group>";
+		};
+		828E4004253F77F7003D4EFC /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				828E4005253F7818003D4EFC /* TextInputViewController.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		828E400D253F84B7003D4EFC /* PlaylistCell */ = {
+			isa = PBXGroup;
+			children = (
+				828E4010253F850A003D4EFC /* PlaylistCellView.swift */,
+				828E4011253F850A003D4EFC /* PlaylistCellView.xib */,
+			);
+			path = PlaylistCell;
+			sourceTree = "<group>";
+		};
+		828E400E253F84C4003D4EFC /* AddPlaylistCell */ = {
+			isa = PBXGroup;
+			children = (
+				828E4018253F851E003D4EFC /* AddPlaylistCellView.swift */,
+				828E4019253F851E003D4EFC /* AddPlaylistCellView.xib */,
+			);
+			path = AddPlaylistCell;
+			sourceTree = "<group>";
+		};
+		828E400F253F84D5003D4EFC /* SettingsCell */ = {
+			isa = PBXGroup;
+			children = (
+				828E401E253F852F003D4EFC /* SettingsCellView.swift */,
+				828E401F253F852F003D4EFC /* SettingsCellView.xib */,
+			);
+			path = SettingsCell;
 			sourceTree = "<group>";
 		};
 		82DDEAEF253E1BE400F3B1EE /* Parsers */ = {
@@ -188,7 +280,9 @@
 		82F3D26A2538D9AC0021BB2E /* Apple-TV-Player */ = {
 			isa = PBXGroup;
 			children = (
-				82F3D2BC2538EAC40021BB2E /* Main.storyboard */,
+				828E4004253F77F7003D4EFC /* UIComponents */,
+				828E3FF3253F6EEB003D4EFC /* Flows */,
+				828E3FEC253F6778003D4EFC /* FileSystem */,
 				82F3D26B2538D9AC0021BB2E /* AppDelegate.swift */,
 				82F3D26D2538D9AC0021BB2E /* ViewController.swift */,
 				82F3D2822538DCC90021BB2E /* Configuration */,
@@ -294,6 +388,7 @@
 				82F3D2652538D9AC0021BB2E /* Frameworks */,
 				82F3D2662538D9AC0021BB2E /* Resources */,
 				82F3D2A32538E6650021BB2E /* Embed Frameworks */,
+				27E4E2D9C27C07DE3F25D4F7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -377,10 +472,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				828E401B253F851E003D4EFC /* AddPlaylistCellView.xib in Resources */,
+				828E4021253F852F003D4EFC /* SettingsCellView.xib in Resources */,
+				828E4001253F7382003D4EFC /* HomeViewController.storyboard in Resources */,
 				82F3D2BA2538EABC0021BB2E /* LaunchScreen.storyboard in Resources */,
 				82F3D2B02538E9220021BB2E /* Localization.strings in Resources */,
+				828E4013253F850A003D4EFC /* PlaylistCellView.xib in Resources */,
 				82F3D2732538D9AD0021BB2E /* Assets.xcassets in Resources */,
-				82F3D2BD2538EAC40021BB2E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +492,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		27E4E2D9C27C07DE3F25D4F7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Apple-TV-Player/Pods-Apple-TV-Player-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Apple-TV-Player/Pods-Apple-TV-Player-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Apple-TV-Player/Pods-Apple-TV-Player-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8E8518305C559811FF0E02F5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -433,6 +548,13 @@
 			files = (
 				82F3D26E2538D9AC0021BB2E /* ViewController.swift in Sources */,
 				82F3D26C2538D9AC0021BB2E /* AppDelegate.swift in Sources */,
+				828E401A253F851E003D4EFC /* AddPlaylistCellView.swift in Sources */,
+				828E4012253F850A003D4EFC /* PlaylistCellView.swift in Sources */,
+				828E3FEE253F67B2003D4EFC /* FileSystemManager.swift in Sources */,
+				828E4020253F852F003D4EFC /* SettingsCellView.swift in Sources */,
+				828E3FF7253F6FF1003D4EFC /* HomeViewController.swift in Sources */,
+				828E4006253F7818003D4EFC /* TextInputViewController.swift in Sources */,
+				828E3FFD253F704B003D4EFC /* FailureViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,80 @@
+#EXTM3U
+#EXT-INETRA-CHANNEL-INF: channel-id=36942372 recordable=false
+#EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=false access=allowed 
+#EXTINF:-1 cn-id=36942372 cn-records=0, Paramount Comedy HD
+http://tv.novotelecom.ru/channel/paramount_comedy_hd/592/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
+
+#EXT-INETRA-CHANNEL-INF: channel-id=10338251 recordable=true
+#EXT-INETRA-STREAM-INF: has-timeshift=true access=allowed 
+#EXTINF:-1 cn-id=10338251 cn-records=1, РЕН-ТВ
+http://tv.novotelecom.ru/channel/rentv/219/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
+
+#EXT-INETRA-CHANNEL-INF: channel-id=10338262 recordable=true
+#EXT-INETRA-STREAM-INF: crop=0:95 has-timeshift=true access=allowed 
+#EXTINF:-1 cn-id=10338262 cn-records=1, СТС
+http://tv.novotelecom.ru/channel/sts/229/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
+
+#EXT-INETRA-CHANNEL-INF: channel-id=17406909 recordable=false
+#EXT-INETRA-STREAM-INF: has-timeshift=false access=allowed 
+#EXTINF:-1 cn-id=17406909 cn-records=0, Europa Plus TV
+http://tv.novotelecom.ru/channel/europaplustv/297/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
+
+#EXT-INETRA-CHANNEL-INF: channel-id=98123482 recordable=true
+#EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=true access=allowed 
+#EXTINF:-1 cn-id=98123482 cn-records=1, ТНТ HD
+http://tv.novotelecom.ru/channel/tnt_hd/609/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
+
+#EXT-INETRA-CHANNEL-INF: channel-id=21381677 recordable=true
+#EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=true access=allowed 
+#EXTINF:-1 cn-id=21381677 cn-records=1, Первый HD
+http://tv.novotelecom.ru/channel/1kanal_hd/387/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
+
+#EXT-INETRA-CHANNEL-INF: channel-id=10338255 recordable=true
+#EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=true access=allowed 
+#EXTINF:-1 cn-id=10338255 cn-records=1, Домашний
+http://tv.novotelecom.ru/channel/domashny/223/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
+
+#EXT-INETRA-CHANNEL-INF: channel-id=10338230 recordable=true
+#EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=true access=allowed 
+#EXTINF:-1 cn-id=10338230 cn-records=1, Пятница
+http://tv.novotelecom.ru/channel/friday/205/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
+
+#EXT-INETRA-CHANNEL-INF: channel-id=10338221 recordable=true
+#EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=true access=allowed 
+#EXTINF:-1 cn-id=10338221 cn-records=1, Че
+http://tv.novotelecom.ru/channel/perec/201/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
+
+#EXT-INETRA-CHANNEL-INF: channel-id=34498202 recordable=false
+#EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=false access=allowed 
+#EXTINF:-1 cn-id=34498202 cn-records=0, СТС love
+http://tv.novotelecom.ru/channel/sts_love/375/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
+
+#EXT-INETRA-CHANNEL-INF: channel-id=17003392 recordable=true
+#EXT-INETRA-STREAM-INF: has-timeshift=true access=allowed 
+#EXTINF:-1 cn-id=17003392 cn-records=1, Русский роман
+http://tv.novotelecom.ru/channel/russian_roman/250/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
+
+#EXT-INETRA-CHANNEL-INF: channel-id=10338218 recordable=true
+#EXT-INETRA-STREAM-INF: has-timeshift=true access=allowed 
+#EXTINF:-1 cn-id=10338218 cn-records=1, Кинокомедия
+http://tv.novotelecom.ru/channel/comedytv/199/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
+
+#EXT-INETRA-CHANNEL-INF: channel-id=43469689 recordable=true
+#EXT-INETRA-STREAM-INF: has-timeshift=true access=allowed 
+#EXTINF:-1 cn-id=43469689 cn-records=1, Русский детектив
+http://tv.novotelecom.ru/channel/russkiy_detektiv/369/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
+
+#EXT-INETRA-CHANNEL-INF: channel-id=22615442 recordable=true
+#EXT-INETRA-STREAM-INF: has-timeshift=true access=allowed 
+#EXTINF:-1 cn-id=22615442 cn-records=1, Настоящее страшное Телевидение
+http://tv.novotelecom.ru/channel/nstv/357/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
+
+#EXT-INETRA-CHANNEL-INF: channel-id=17406898 recordable=true
+#EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=true access=allowed 
+#EXTINF:-1 cn-id=17406898 cn-records=1, Кухня ТВ
+http://tv.novotelecom.ru/channel/kitchentv/272/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
+
+#EXT-INETRA-CHANNEL-INF: channel-id=70096620 recordable=true
+#EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=true access=allowed 
+#EXTINF:-1 cn-id=70096620 group-title="Музыка" cn-records=1, ТНТ MUSIC
+http://tv.novotelecom.ru/channel/tnt_music/212/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1

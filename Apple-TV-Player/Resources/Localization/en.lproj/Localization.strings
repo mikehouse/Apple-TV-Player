@@ -1,10 +1,18 @@
-/* 
+/*
   Localization.strings
   Apple-TV-Player
 
   Created by Mikhail Demidov on 16.10.2020.
-  
+
 */
 
 "Error" = "Error";
 "Ok" = "Ok";
+"Add playlist" = "Add playlist";
+"Add" = "Add";
+"Cancel" = "Cancel";
+"Add playlist url (required) and its name (optional)" = "Add playlist url (required) and its name (optional)";
+"HD Channels" = "HD Channels";
+"No channels found." = "No channels found.";
+"Invalid M3U file format." = "Invalid M3U file format.";
+"Invalid M3U header." = "Invalid M3U header.";

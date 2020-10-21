@@ -18,7 +18,8 @@ public final class M3U {
 }
 
 public extension M3U {
-    func parse() throws {
+    @discardableResult
+    func parse() throws -> [M3UItem] {
         if Thread.isMainThread {
             os_log(.info, "Non UI task called on UI thread.")
         }
@@ -54,7 +55,7 @@ public extension M3U {
             let start = line.range(of: "group-title=")
             let end = line.range(of: ",")
             var group: String?
-            if start.length != NSNotFound, end.length != NSNotFound {
+            if start.location != NSNotFound, end.location != NSNotFound {
                 group = line.substring(with: NSRange(
                     location: start.location + start.length + 1,
                     length: end.location - 2 - (start.location + start.length)))
@@ -75,6 +76,7 @@ public extension M3U {
         }
         
         self.items = items
+        return items
     }
 }
 

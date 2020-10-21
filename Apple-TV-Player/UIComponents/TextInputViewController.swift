@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TextInputViewController: UIAlertController {
+class TextInputViewController: UIAlertController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -20,11 +20,17 @@ extension TextInputViewController {
 }
 
 extension TextInputViewController {
-    func addOkAction(title: String, completion: ((UIAlertAction) -> Void)?) {
-        addAction(UIAlertAction(title: title, style: .default, handler: completion))
+    @discardableResult
+    func addOkAction(title: String, completion: ((UIAlertAction) -> Void)?) -> UIAlertAction {
+        let action = UIAlertAction(title: title, style: .default, handler: completion)
+        addAction(action)
+        return action
     }
     
-    func addCancelAction(title: String, completion: ((UIAlertAction) -> Void)?) {
-        addAction(UIAlertAction(title: title, style: .cancel, handler: completion))
+    @discardableResult
+    func addCancelAction(title: String, completion: ((UIAlertAction) -> Void)?) -> UIAlertAction {
+        let action = UIAlertAction(title: title, style: .cancel, handler: completion)
+        addAction(action)
+        return action
     }
 }

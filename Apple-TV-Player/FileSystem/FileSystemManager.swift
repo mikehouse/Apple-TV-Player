@@ -53,6 +53,10 @@ extension FileSystemManager {
                 .components(separatedBy: ".").first == named
         }.first
     }
+    
+    func remove(file: URL) throws {
+        try fileManager.removeItem(at: file)
+    }
 }
 
 private extension FileSystemManager {

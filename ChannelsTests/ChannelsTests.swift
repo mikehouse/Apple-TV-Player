@@ -50,7 +50,7 @@ final class ChannelsTests: XCTestCase {
                 title: "ТНТ MUSIC",
                 url: URL(string: "http://tv.novotelecom.ru/channel/tnt_music/212/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1")!,
                 group: "Музыка")
-            XCTAssertEqual(m3u.items.last, expected) // TODO: fix this!
+            XCTAssertEqual(m3u.items.last, expected)
         }
     }
 }

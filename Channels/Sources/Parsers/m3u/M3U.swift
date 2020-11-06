@@ -48,20 +48,74 @@ public extension M3U {
             defer {
                 i += 1
             }
-            let line: NSString = lines[i] as NSString
+            let line = lines[i]
             guard line.hasPrefix(Directive.extinf.rawValue) else {
                 continue
             }
-            let start = line.range(of: "group-title=")
-            let end = line.range(of: ",")
-            var group: String?
-            if start.location != NSNotFound, end.location != NSNotFound {
-                group = line.substring(with: NSRange(
-                    location: start.location + start.length + 1,
-                    length: end.location - 2 - (start.location + start.length)))
+            var tagStart = 0
+            var tags: [NSRange] = []
+            var skipSplit = true
+            var skipSplit2 = false
+            for (idx, ch) in line.enumerated() {
+                if idx <= Directive.extinf.rawValue.count {
+                    // skip prefix.
+                    continue
+                }
+                if idx == line.count - 1 {
+                    if tagStart != 0 && idx - tagStart != 1 {
+                        tags.append(.init(
+                            location: tagStart + 1,
+                            length: idx - tagStart))
+                    }
+                    continue
+                }
+                if (ch == " ") {
+                    if tagStart != 0 {
+                        if skipSplit {
+                            // case tag with white spaces.
+                            continue
+                        }
+                        if idx - tagStart == 1 {
+                            tagStart = idx
+                            // case when two white spaces in row.
+                        } else {
+                            tags.append(.init(
+                                location: tagStart + 1,
+                                length: idx - tagStart))
+                            tagStart = idx
+                            skipSplit = true
+                            skipSplit2 = false
+                        }
+                    } else {
+                        tagStart = idx
+                    }
+                } else {
+                    if ch == "=" {
+                        skipSplit = false
+                    } else if ch == "\"" {
+                        if !skipSplit2 {
+                            skipSplit2 = true
+                            skipSplit = true
+                        } else {
+                            skipSplit = false
+                        }
+                    }
+                }
             }
-            let title = line.components(separatedBy: ",").last.map(Self.trimStart(of:))
-                ?? NSLocalizedString("title not found.", comment: "")
+            var group: String?
+            var title: String = NSLocalizedString("title not found.", comment: "")
+            let nsstring = line as NSString
+            for range in tags {
+                let tag = nsstring.substring(with: range)
+                if tag.contains(M3U.Directive.title.rawValue) {
+                    group = tag.components(separatedBy: "=")[1]
+                        .replacingOccurrences(of: "\"", with: "")
+                        .replacingOccurrences(of: ",", with: "")
+                    group = group.map({ $0.trimmingCharacters(in: .whitespaces) })
+                } else if !tag.contains("=") {
+                    title = tag.trimmingCharacters(in: .whitespaces)
+                }
+            }
             i += 1
             guard i < lines.count else {
                 break
@@ -85,17 +139,6 @@ private extension M3U {
         case extm3u = "#EXTM3U"
         case extinf = "#EXTINF"
         case http
-        case title = "group-title"
-    }
-    
-    static func trimStart(of string: String) -> String {
-        guard !string.isEmpty else {
-            return string
-        }
-        var i = 0
-        while string[string.index(string.startIndex, offsetBy: i)..<string.index(string.startIndex, offsetBy: i + 1)] == " " {
-            i += 1
-        }
-        return String(string[string.index(string.startIndex, offsetBy: i)...])
+        case title = "group-title="
     }
 }

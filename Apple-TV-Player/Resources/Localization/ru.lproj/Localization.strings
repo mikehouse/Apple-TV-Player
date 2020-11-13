@@ -16,3 +16,5 @@
 "No channels found." = "Каналы не найдены.";
 "Invalid M3U file format." = "Невалидный M3U файл формат.";
 "Invalid M3U header." = "Невалидный M3U заголовок.";
+"No channels found." = "Список каналов пуст.";
+"Others" = "Остальные";

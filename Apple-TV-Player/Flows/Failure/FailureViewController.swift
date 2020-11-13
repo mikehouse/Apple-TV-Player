@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import os
 
 final class FailureViewController: UIAlertController {
     
@@ -19,6 +20,10 @@ final class FailureViewController: UIAlertController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    deinit {
+        os_log(.debug, "deinit %s", String(describing: self))
     }
 }
 

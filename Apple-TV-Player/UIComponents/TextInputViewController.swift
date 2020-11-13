@@ -6,10 +6,15 @@
 //
 
 import UIKit
+import os
 
 class TextInputViewController: UIAlertController {
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    deinit {
+        os_log(.debug, "deinit %s", String(describing: self))
     }
 }
 

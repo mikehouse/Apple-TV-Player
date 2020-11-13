@@ -26,8 +26,12 @@
 		82DDEB06253E2A4300F3B1EE /* ChannelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DDEB05253E2A4300F3B1EE /* ChannelsTests.swift */; };
 		82DDEB08253E2A4400F3B1EE /* Channels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F3D29A2538E6650021BB2E /* Channels.framework */; };
 		82DDEB11253E2A8F00F3B1EE /* android.m3u8 in Resources */ = {isa = PBXBuildFile; fileRef = 82DDEB10253E2A8F00F3B1EE /* android.m3u8 */; };
+		82F0469E255EF9140052E2E8 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F0469D255EF9140052E2E8 /* PlaylistViewController.swift */; };
+		82F046A2255EF9280052E2E8 /* PlaylistViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82F046A1255EF9280052E2E8 /* PlaylistViewController.storyboard */; };
+		82F046A7255EFA8A0052E2E8 /* PlaylistChannelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F046A6255EFA8A0052E2E8 /* PlaylistChannelViewCell.swift */; };
+		82F046AD255EFA9B0052E2E8 /* PlaylistChannelViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82F046AC255EFA9B0052E2E8 /* PlaylistChannelViewCell.xib */; };
+		82F046B0255F07C70052E2E8 /* plst.m3u in Resources */ = {isa = PBXBuildFile; fileRef = 822A58CA2540C4CC0061813F /* plst.m3u */; };
 		82F3D26C2538D9AC0021BB2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3D26B2538D9AC0021BB2E /* AppDelegate.swift */; };
-		82F3D26E2538D9AC0021BB2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3D26D2538D9AC0021BB2E /* ViewController.swift */; };
 		82F3D2732538D9AD0021BB2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82F3D2722538D9AD0021BB2E /* Assets.xcassets */; };
 		82F3D29E2538E6650021BB2E /* Channels.h in Headers */ = {isa = PBXBuildFile; fileRef = 82F3D29C2538E6650021BB2E /* Channels.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		82F3D2A12538E6650021BB2E /* Channels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F3D29A2538E6650021BB2E /* Channels.framework */; };
@@ -89,9 +93,12 @@
 		82DDEB05253E2A4300F3B1EE /* ChannelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsTests.swift; sourceTree = "<group>"; };
 		82DDEB07253E2A4400F3B1EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82DDEB10253E2A8F00F3B1EE /* android.m3u8 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = android.m3u8; sourceTree = "<group>"; };
+		82F0469D255EF9140052E2E8 /* PlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
+		82F046A1255EF9280052E2E8 /* PlaylistViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlaylistViewController.storyboard; sourceTree = "<group>"; };
+		82F046A6255EFA8A0052E2E8 /* PlaylistChannelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistChannelViewCell.swift; sourceTree = "<group>"; };
+		82F046AC255EFA9B0052E2E8 /* PlaylistChannelViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaylistChannelViewCell.xib; sourceTree = "<group>"; };
 		82F3D2682538D9AC0021BB2E /* Apple-TV-Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Apple-TV-Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82F3D26B2538D9AC0021BB2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		82F3D26D2538D9AC0021BB2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		82F3D2722538D9AD0021BB2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82F3D2772538D9AD0021BB2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82F3D2832538DCF50021BB2E /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
@@ -171,6 +178,7 @@
 		828E3FF3253F6EEB003D4EFC /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				82F0469C255EF8E50052E2E8 /* Playlist */,
 				828E3FF4253F6F1E003D4EFC /* Home */,
 				828E3FF5253F6F9A003D4EFC /* Failure */,
 			);
@@ -269,6 +277,25 @@
 			path = ChannelsTests;
 			sourceTree = "<group>";
 		};
+		82F0469C255EF8E50052E2E8 /* Playlist */ = {
+			isa = PBXGroup;
+			children = (
+				82F046A5255EFA450052E2E8 /* ChannelCell */,
+				82F0469D255EF9140052E2E8 /* PlaylistViewController.swift */,
+				82F046A1255EF9280052E2E8 /* PlaylistViewController.storyboard */,
+			);
+			path = Playlist;
+			sourceTree = "<group>";
+		};
+		82F046A5255EFA450052E2E8 /* ChannelCell */ = {
+			isa = PBXGroup;
+			children = (
+				82F046A6255EFA8A0052E2E8 /* PlaylistChannelViewCell.swift */,
+				82F046AC255EFA9B0052E2E8 /* PlaylistChannelViewCell.xib */,
+			);
+			path = ChannelCell;
+			sourceTree = "<group>";
+		};
 		82F3D25F2538D9AC0021BB2E = {
 			isa = PBXGroup;
 			children = (
@@ -294,11 +321,10 @@
 		82F3D26A2538D9AC0021BB2E /* Apple-TV-Player */ = {
 			isa = PBXGroup;
 			children = (
+				82F3D26B2538D9AC0021BB2E /* AppDelegate.swift */,
 				828E4004253F77F7003D4EFC /* UIComponents */,
 				828E3FF3253F6EEB003D4EFC /* Flows */,
 				828E3FEC253F6778003D4EFC /* FileSystem */,
-				82F3D26B2538D9AC0021BB2E /* AppDelegate.swift */,
-				82F3D26D2538D9AC0021BB2E /* ViewController.swift */,
 				82F3D2822538DCC90021BB2E /* Configuration */,
 				82F3D2812538DC8D0021BB2E /* Resources */,
 			);
@@ -487,9 +513,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82F046AD255EFA9B0052E2E8 /* PlaylistChannelViewCell.xib in Resources */,
 				828E401B253F851E003D4EFC /* AddPlaylistCellView.xib in Resources */,
 				828E4021253F852F003D4EFC /* SettingsCellView.xib in Resources */,
 				828E4001253F7382003D4EFC /* HomeViewController.storyboard in Resources */,
+				82F046B0255F07C70052E2E8 /* plst.m3u in Resources */,
+				82F046A2255EF9280052E2E8 /* PlaylistViewController.storyboard in Resources */,
 				82F3D2BA2538EABC0021BB2E /* LaunchScreen.storyboard in Resources */,
 				82F3D2B02538E9220021BB2E /* Localization.strings in Resources */,
 				828E4013253F850A003D4EFC /* PlaylistCellView.xib in Resources */,
@@ -562,15 +591,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				822A58C42540AF4A0061813F /* AddPlaylistViewController.swift in Sources */,
-				82F3D26E2538D9AC0021BB2E /* ViewController.swift in Sources */,
 				82F3D26C2538D9AC0021BB2E /* AppDelegate.swift in Sources */,
 				828E401A253F851E003D4EFC /* AddPlaylistCellView.swift in Sources */,
 				828E4012253F850A003D4EFC /* PlaylistCellView.swift in Sources */,
 				828E3FEE253F67B2003D4EFC /* FileSystemManager.swift in Sources */,
 				828E4020253F852F003D4EFC /* SettingsCellView.swift in Sources */,
+				82F0469E255EF9140052E2E8 /* PlaylistViewController.swift in Sources */,
 				828E3FF7253F6FF1003D4EFC /* HomeViewController.swift in Sources */,
 				828E4006253F7818003D4EFC /* TextInputViewController.swift in Sources */,
 				828E3FFD253F704B003D4EFC /* FailureViewController.swift in Sources */,
+				82F046A7255EFA8A0052E2E8 /* PlaylistChannelViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

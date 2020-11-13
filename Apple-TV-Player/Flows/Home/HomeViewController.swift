@@ -148,8 +148,31 @@ extension HomeViewController: UITableViewDelegate {
             return
         }
         switch item {
-        case .playlist:
-            break
+        case .playlist(let name):
+            DispatchQueue.global().async {
+                guard let url = try? self.fsManager.file(named: name) else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    self.setTableViewProgressView(enabled: true)
+                }
+                let playlist = M3U(url: url)
+                do {
+                    try playlist.parse()
+                    DispatchQueue.main.async {
+                        let playlistVC = PlaylistViewController.instantiate()
+                        playlistVC.playlist = playlist
+                        self.present(playlistVC, animated: true) {
+                            self.setTableViewProgressView(enabled: false)
+                        }
+                    }
+                } catch {
+                    self.present(error: error)
+                    DispatchQueue.main.async {
+                        self.setTableViewProgressView(enabled: false)
+                    }
+                }
+            }
         case .addPlaylist:
             let vc = AddPlaylistViewController(title: "",
                 message: NSLocalizedString(
@@ -165,7 +188,9 @@ extension HomeViewController: UITableViewDelegate {
                     let name = name ?? url.lastPathComponent
                     
                     do {
-                        DispatchQueue.main.async { self.setTableViewProgressView(enabled: true) }
+                        DispatchQueue.main.async {
+                            self.setTableViewProgressView(enabled: true)
+                        }
                         let file = try fsManager.download(file: url, name: name)
                         do {
                             if try M3U(url: file).parse().isEmpty {
@@ -182,8 +207,10 @@ extension HomeViewController: UITableViewDelegate {
                         os_log(.error, "\(error as NSError)")
                         self.present(error: error)
                     }
-    
-                    DispatchQueue.main.async { self.setTableViewProgressView(enabled: false) }
+                    
+                    DispatchQueue.main.async {
+                        self.setTableViewProgressView(enabled: false)
+                    }
                 }
             }
             self.present(vc, animated: true)

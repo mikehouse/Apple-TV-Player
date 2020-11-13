@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="17156" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DoA-hh-dKr">
+    <device id="appleTV" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Playlist View Controller-->
+        <scene sceneID="CaS-wI-dIn">
+            <objects>
+                <viewController id="DoA-hh-dKr" customClass="PlaylistViewController" customModule="Apple_TV_Player" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DTE-vN-y2I"/>
+                        <viewControllerLayoutGuide type="bottom" id="hpD-QU-OI7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="51T-06-GXQ">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="pna-2x-7au">
+                                <rect key="frame" x="80" y="60" width="653" height="960"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="h0O-L6-s10"/>
+                        <constraints>
+                            <constraint firstItem="h0O-L6-s10" firstAttribute="bottom" secondItem="pna-2x-7au" secondAttribute="bottom" id="BFb-lL-BcG"/>
+                            <constraint firstItem="pna-2x-7au" firstAttribute="width" secondItem="51T-06-GXQ" secondAttribute="width" multiplier="0.34" id="fTW-ar-UNs"/>
+                            <constraint firstItem="pna-2x-7au" firstAttribute="top" secondItem="h0O-L6-s10" secondAttribute="top" id="obB-if-MLa"/>
+                            <constraint firstItem="pna-2x-7au" firstAttribute="leading" secondItem="h0O-L6-s10" secondAttribute="leading" id="xwn-us-BVb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="pna-2x-7au" id="40M-07-FiN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jt4-Ws-Ubd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="495" y="-154"/>
+        </scene>
+    </scenes>
+</document>

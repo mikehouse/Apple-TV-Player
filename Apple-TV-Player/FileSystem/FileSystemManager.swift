@@ -10,6 +10,7 @@ import os
 
 final class FileSystemManager {
     private let fileManager = FileManager.default
+    private let nameSeparator = "."
 }
 
 extension FileSystemManager {
@@ -41,17 +42,19 @@ extension FileSystemManager {
     }
     
     func filesNames() throws -> [String] {
-        try files().compactMap { url in
-            url.lastPathComponent
-                .components(separatedBy: ".").first
-        }
+        try files().map(name(of:))
     }
     
     func file(named: String) throws -> URL? {
-        try files().filter { url in
-            url.lastPathComponent
-                .components(separatedBy: ".").first == named
-        }.first
+        try files().first(where :{ url in
+            self.name(of: url) == named
+        })
+    }
+    
+    private func name(of file: URL) -> String {
+        file.lastPathComponent
+            .components(separatedBy: nameSeparator)
+            .dropLast(1).joined(separator: nameSeparator)
     }
     
     func remove(file: URL) throws {

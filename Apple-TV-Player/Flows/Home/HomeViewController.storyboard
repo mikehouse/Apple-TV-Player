@@ -20,12 +20,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="yYm-C5-b1Y">
-                                <rect key="frame" x="576" y="60" width="768" height="1020"/>
+                                <rect key="frame" x="576" y="60" width="768" height="960"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3wg-nB-Azu"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="yYm-C5-b1Y" secondAttribute="bottom" id="BXL-te-q4E"/>
+                            <constraint firstItem="3wg-nB-Azu" firstAttribute="bottom" secondItem="yYm-C5-b1Y" secondAttribute="bottom" id="BXL-te-q4E"/>
                             <constraint firstItem="yYm-C5-b1Y" firstAttribute="width" secondItem="wg0-8U-1m9" secondAttribute="width" multiplier="0.4" id="OsB-U3-Lmz"/>
                             <constraint firstItem="yYm-C5-b1Y" firstAttribute="centerX" secondItem="wg0-8U-1m9" secondAttribute="centerX" id="ZgL-vh-cWY"/>
                             <constraint firstItem="yYm-C5-b1Y" firstAttribute="top" secondItem="3wg-nB-Azu" secondAttribute="top" id="jeq-vE-StV"/>

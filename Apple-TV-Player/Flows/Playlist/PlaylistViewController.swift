@@ -17,13 +17,10 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     var playlist: M3U?
     
     private lazy var dataSource = DataSource(tableView: self.tableView) { tableView, indexPath, row in
-        switch row {
-        case .channel(let channel):
-            let cell = tableView.dequeueReusableCell(
-                for: indexPath, cellType: PlaylistChannelViewCell.self)
-            cell.textLabel?.text = channel
-            return cell
-        }
+        let cell = tableView.dequeueReusableCell(
+            for: indexPath, cellType: PlaylistChannelViewCell.self)
+        cell.textLabel?.text = row.title
+        return cell
     }
     
     override func viewDidLoad() {
@@ -48,8 +45,17 @@ private extension PlaylistViewController {
             }
         }
     }
-    enum Row: Hashable {
-        case channel(String)
+    struct Row: Hashable {
+        let channel: URL
+        let title: String
+    
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(title)
+        }
+    
+        static func ==(lhs: Row, rhs: Row) -> Bool {
+            return lhs.title == rhs.title
+        }
     }
 }
 
@@ -83,7 +89,7 @@ private extension PlaylistViewController {
             var titles: [String?] = []
             
             for channel in playlist {
-                let row = Row.channel(channel.title)
+                let row = Row(channel: channel.url, title: channel.title)
                 if let section = sections.first(where: { $0.has(channel.group) }) {
                     channels[section] = (channels[section] ?? []) + [row]
                 } else {
@@ -128,5 +134,11 @@ extension PlaylistViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        if let channel = dataSource.itemIdentifier(for: indexPath) {
+            let videoPlayer = ChannelPlayerViewController.instantiate()
+            videoPlayer.url = channel.channel
+            self.present(videoPlayer, animated: true)
+        }
     }
 }

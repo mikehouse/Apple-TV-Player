@@ -14,7 +14,7 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     
     @IBOutlet private var tableView: UITableView!
     
-    var playlist: M3U?
+    var playlist: Playlist<M3UItem>?
     
     private lazy var dataSource = DataSource(tableView: self.tableView) { tableView, indexPath, row in
         let cell = tableView.dequeueReusableCell(
@@ -77,7 +77,7 @@ private extension PlaylistViewController {
     
     func loadPlaylist() {
         DispatchQueue.global(qos: .userInitiated).async {
-            guard let playlist = self.playlist?.items, !playlist.isEmpty else {
+            guard let playlist = self.playlist?.channels, !playlist.isEmpty else {
                 DispatchQueue.main.async {
                     self.tableView.backgroundView = self.emptyPlaylistBackgroundView()
                 }

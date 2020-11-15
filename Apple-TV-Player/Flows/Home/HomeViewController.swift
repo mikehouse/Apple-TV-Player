@@ -159,9 +159,21 @@ extension HomeViewController: UITableViewDelegate {
                 let playlist = M3U(url: url)
                 do {
                     try playlist.parse()
+                    
+                    /* Todo: set filter on separate future screen. */
+                    let framework = Bundle(for: M3U.self)
+                    let bundle = Bundle(url: framework.url(forResource: "ChannelsPackages", withExtension: "bundle")!)!
+                    let channelsURLs: [URL] = [
+                        bundle.url(forResource: "Базовый", withExtension: "txt")!,
+                        bundle.url(forResource: "Кино и Сериалы", withExtension: "txt")!,
+                        bundle.url(forResource: "Стартовый", withExtension: "txt")!
+                    ]
+                    let filter = M3UChannelFilter(acceptChannelsLists: channelsURLs)
+                    let known = filter.filter(playlist: .init(channels: playlist.items))
+                    
                     DispatchQueue.main.async {
                         let playlistVC = PlaylistViewController.instantiate()
-                        playlistVC.playlist = playlist
+                        playlistVC.playlist = known
                         self.present(playlistVC, animated: true) {
                             self.setTableViewProgressView(enabled: false)
                         }

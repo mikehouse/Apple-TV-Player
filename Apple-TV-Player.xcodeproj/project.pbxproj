@@ -10,6 +10,11 @@
 		32EBBB313D57DB81AFA4F518 /* Pods_Apple_TV_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67EE9624CFF22F3AEAC77938 /* Pods_Apple_TV_Player.framework */; };
 		822A58C42540AF4A0061813F /* AddPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822A58C32540AF4A0061813F /* AddPlaylistViewController.swift */; };
 		822A58CB2540C4CC0061813F /* plst.m3u in Resources */ = {isa = PBXBuildFile; fileRef = 822A58CA2540C4CC0061813F /* plst.m3u */; };
+		826BBC6725615FBD003A69CA /* ChannelFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826BBC6625615FBD003A69CA /* ChannelFilter.swift */; };
+		826BBC6E256160EB003A69CA /* M3UChannelFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826BBC6D256160EB003A69CA /* M3UChannelFilter.swift */; };
+		826BBC72256162D6003A69CA /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826BBC71256162D6003A69CA /* Playlist.swift */; };
+		826BBC76256162E6003A69CA /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826BBC75256162E6003A69CA /* Channel.swift */; };
+		826BBC7F2561C299003A69CA /* ChannelsPackages.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 826BBC7E2561C299003A69CA /* ChannelsPackages.bundle */; };
 		82742D24255FDC08001B2B25 /* ChannelPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82742D23255FDC08001B2B25 /* ChannelPlayerViewController.swift */; };
 		82742D28255FDC12001B2B25 /* ChannelPlayerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82742D27255FDC12001B2B25 /* ChannelPlayerViewController.storyboard */; };
 		828E3FEE253F67B2003D4EFC /* FileSystemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E3FED253F67B2003D4EFC /* FileSystemManager.swift */; };
@@ -78,6 +83,11 @@
 		69AA6ED0172F5C85F7F821E2 /* Pods-Apple-TV-Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apple-TV-Player.release.xcconfig"; path = "Target Support Files/Pods-Apple-TV-Player/Pods-Apple-TV-Player.release.xcconfig"; sourceTree = "<group>"; };
 		822A58C32540AF4A0061813F /* AddPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistViewController.swift; sourceTree = "<group>"; };
 		822A58CA2540C4CC0061813F /* plst.m3u */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plst.m3u; sourceTree = "<group>"; };
+		826BBC6625615FBD003A69CA /* ChannelFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelFilter.swift; sourceTree = "<group>"; };
+		826BBC6D256160EB003A69CA /* M3UChannelFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3UChannelFilter.swift; sourceTree = "<group>"; };
+		826BBC71256162D6003A69CA /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		826BBC75256162E6003A69CA /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		826BBC7E2561C299003A69CA /* ChannelsPackages.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ChannelsPackages.bundle; sourceTree = "<group>"; };
 		82742D23255FDC08001B2B25 /* ChannelPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelPlayerViewController.swift; sourceTree = "<group>"; };
 		82742D27255FDC12001B2B25 /* ChannelPlayerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChannelPlayerViewController.storyboard; sourceTree = "<group>"; };
 		828E3FED253F67B2003D4EFC /* FileSystemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemManager.swift; sourceTree = "<group>"; };
@@ -169,6 +179,47 @@
 				822A58C32540AF4A0061813F /* AddPlaylistViewController.swift */,
 			);
 			path = AddPlaylist;
+			sourceTree = "<group>";
+		};
+		826BBC6525615F84003A69CA /* FIlters */ = {
+			isa = PBXGroup;
+			children = (
+				826BBC6625615FBD003A69CA /* ChannelFilter.swift */,
+				826BBC6C256160CC003A69CA /* m3u */,
+			);
+			path = FIlters;
+			sourceTree = "<group>";
+		};
+		826BBC6C256160CC003A69CA /* m3u */ = {
+			isa = PBXGroup;
+			children = (
+				826BBC6D256160EB003A69CA /* M3UChannelFilter.swift */,
+			);
+			path = m3u;
+			sourceTree = "<group>";
+		};
+		826BBC7B2561C220003A69CA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				826BBC7C2561C23C003A69CA /* IpTvProvider */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		826BBC7C2561C23C003A69CA /* IpTvProvider */ = {
+			isa = PBXGroup;
+			children = (
+				826BBC7D2561C264003A69CA /* 2090000 */,
+			);
+			path = IpTvProvider;
+			sourceTree = "<group>";
+		};
+		826BBC7D2561C264003A69CA /* 2090000 */ = {
+			isa = PBXGroup;
+			children = (
+				826BBC7E2561C299003A69CA /* ChannelsPackages.bundle */,
+			);
+			path = 2090000;
 			sourceTree = "<group>";
 		};
 		82742D22255FDB6C001B2B25 /* ChannelPlayer */ = {
@@ -368,6 +419,7 @@
 		82F3D29B2538E6650021BB2E /* Channels */ = {
 			isa = PBXGroup;
 			children = (
+				826BBC7B2561C220003A69CA /* Resources */,
 				82F3D2AC2538E81E0021BB2E /* Sources */,
 				82F3D2A82538E6CF0021BB2E /* Configuration */,
 				82F3D29C2538E6650021BB2E /* Channels.h */,
@@ -388,6 +440,9 @@
 		82F3D2AC2538E81E0021BB2E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				826BBC71256162D6003A69CA /* Playlist.swift */,
+				826BBC75256162E6003A69CA /* Channel.swift */,
+				826BBC6525615F84003A69CA /* FIlters */,
 				82DDEAEF253E1BE400F3B1EE /* Parsers */,
 			);
 			path = Sources;
@@ -545,6 +600,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				826BBC7F2561C299003A69CA /* ChannelsPackages.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,8 +680,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				826BBC6725615FBD003A69CA /* ChannelFilter.swift in Sources */,
+				826BBC76256162E6003A69CA /* Channel.swift in Sources */,
+				826BBC6E256160EB003A69CA /* M3UChannelFilter.swift in Sources */,
 				82DDEAF4253E1D2C00F3B1EE /* M3UItem.swift in Sources */,
 				82DDEAF7253E1D4000F3B1EE /* M3U.swift in Sources */,
+				826BBC72256162D6003A69CA /* Playlist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

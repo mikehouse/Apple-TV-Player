@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct M3UItem: Equatable {
+public struct M3UItem: Equatable, Channel {
     public let title: String
     public let url: URL
     public let group: String?

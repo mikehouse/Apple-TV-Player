@@ -9,11 +9,18 @@ import Foundation
 import os
 
 public final class M3U {
-    public let url: URL
+    private let url: URL?
+    private let data: Data
     private(set) public var items: [M3UItem] = []
     
     public init(url: URL) {
         self.url = url
+        self.data = Data()
+    }
+    
+    public init(data: Data) {
+        self.data = data
+        self.url = nil
     }
 }
 
@@ -24,7 +31,8 @@ public extension M3U {
             os_log(.info, "Non UI task called on UI thread.")
         }
         
-        let string = try String(contentsOf: url)
+        let data = try url.map({ try Data(contentsOf: $0) }) ?? self.data
+        let string = String(data: data, encoding: .utf8)!
         let lines = string.components(separatedBy: .newlines)
         guard let firstLine = lines.first else {
             let error = NSError(domain: "com.tv.player", code: -1, userInfo: [

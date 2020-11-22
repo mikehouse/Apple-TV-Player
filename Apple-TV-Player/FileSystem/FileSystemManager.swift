@@ -10,35 +10,26 @@ import os
 
 final class FileSystemManager {
     private let fileManager = FileManager.default
+    private let localStorage = LocalStorage()
+    private let compressor = PiedPiper()
+    private let domain = LocalStorage.Domain.playlist
     private let nameSeparator = "."
 }
 
 extension FileSystemManager {
-    // Skip name validation. It's user's fault for invalid name's symbols.
+    @discardableResult
     func download(file: URL, name: String) throws -> URL {
         checkMainThread()
-        let filesDir = try prepareFS()
         let content = try Data(contentsOf: file);
-        let destination = filesDir.appendingPathComponent(name, isDirectory: false)
-        try? fileManager.removeItem(at: destination)
-        try content.write(to: destination, options: [.atomic])
-        return destination
+        let url = URL(fileURLWithPath: "playlist://\(name)")
+        let compressed = try compressor.compress(data: content)
+        localStorage.add(data: compressed, for: url, domain: domain)
+        return url
     }
     
     func files() throws -> [URL] {
         checkMainThread()
-        let root = try prepareFS()
-        let attributes: [URLResourceKey] = [.isHiddenKey, .isRegularFileKey]
-        let files = try fileManager.contentsOfDirectory(
-            at: root, includingPropertiesForKeys:attributes)
-        return files.filter { url in
-            guard let resources = try? url.resourceValues(forKeys: Set(attributes)),
-                  let isHidden = resources.isHidden, !isHidden,
-                  let isRegularFile = resources.isRegularFile, isRegularFile else {
-                return false
-            }
-            return true
-        }
+        return localStorage.domainKeysURLs(domain)
     }
     
     func filesNames() throws -> [String] {
@@ -51,6 +42,17 @@ extension FileSystemManager {
         })
     }
     
+    func content(of path: URL) -> Data? {
+        if let data = localStorage.getData(path, domain: domain) {
+            do {
+                return try compressor.decompress(data: data)
+            } catch {
+                os_log(.error, "decompress error: %s", String(describing: error))
+            }
+        }
+        return nil
+    }
+    
     private func name(of file: URL) -> String {
         file.lastPathComponent
             .components(separatedBy: nameSeparator)
@@ -58,16 +60,11 @@ extension FileSystemManager {
     }
     
     func remove(file: URL) throws {
-        try fileManager.removeItem(at: file)
+        localStorage.remove(for: file, domain: domain)
     }
 }
 
 private extension FileSystemManager {
-    func prepareFS() throws -> URL {
-        try fileManager.url(for: .applicationSupportDirectory,
-            in: .userDomainMask, appropriateFor: nil, create: true)
-    }
-    
     func checkMainThread() {
         if Thread.isMainThread {
             os_log(.info, "File system operation(s) is(are) ran on UI thread.")

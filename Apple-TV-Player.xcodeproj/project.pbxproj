@@ -33,6 +33,10 @@
 		82DDEB06253E2A4300F3B1EE /* ChannelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DDEB05253E2A4300F3B1EE /* ChannelsTests.swift */; };
 		82DDEB08253E2A4400F3B1EE /* Channels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F3D29A2538E6650021BB2E /* Channels.framework */; };
 		82DDEB11253E2A8F00F3B1EE /* android.m3u8 in Resources */ = {isa = PBXBuildFile; fileRef = 82DDEB10253E2A8F00F3B1EE /* android.m3u8 */; };
+		82E82D3A256A5B2000E3D250 /* PiedPiper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E82D39256A5B2000E3D250 /* PiedPiper.swift */; };
+		82E82D51256A6A8100E3D250 /* Apple_TV_PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E82D50256A6A8100E3D250 /* Apple_TV_PlayerTests.swift */; };
+		82E82D70256A7ACF00E3D250 /* plst.m3u in Resources */ = {isa = PBXBuildFile; fileRef = 822A58CA2540C4CC0061813F /* plst.m3u */; };
+		82E82D78256A7D4E00E3D250 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E82D77256A7D4E00E3D250 /* LocalStorage.swift */; };
 		82F0469E255EF9140052E2E8 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F0469D255EF9140052E2E8 /* PlaylistViewController.swift */; };
 		82F046A2255EF9280052E2E8 /* PlaylistViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82F046A1255EF9280052E2E8 /* PlaylistViewController.storyboard */; };
 		82F046A7255EFA8A0052E2E8 /* PlaylistChannelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F046A6255EFA8A0052E2E8 /* PlaylistChannelViewCell.swift */; };
@@ -54,6 +58,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 82F3D2992538E6650021BB2E;
 			remoteInfo = Channels;
+		};
+		82E82D53256A6A8100E3D250 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82F3D2602538D9AC0021BB2E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 82F3D2672538D9AC0021BB2E;
+			remoteInfo = "Apple-TV-Player";
 		};
 		82F3D29F2538E6650021BB2E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -107,6 +118,15 @@
 		82DDEB05253E2A4300F3B1EE /* ChannelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsTests.swift; sourceTree = "<group>"; };
 		82DDEB07253E2A4400F3B1EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82DDEB10253E2A8F00F3B1EE /* android.m3u8 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = android.m3u8; sourceTree = "<group>"; };
+		82E82D39256A5B2000E3D250 /* PiedPiper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiedPiper.swift; sourceTree = "<group>"; };
+		82E82D4E256A6A8100E3D250 /* Apple-TV-PlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Apple-TV-PlayerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		82E82D50256A6A8100E3D250 /* Apple_TV_PlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apple_TV_PlayerTests.swift; sourceTree = "<group>"; };
+		82E82D52256A6A8100E3D250 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82E82D77256A7D4E00E3D250 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		82E82D7D256A93B900E3D250 /* Debug-Apple-TV-PlayerTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-Apple-TV-PlayerTests.xcconfig"; sourceTree = "<group>"; };
+		82E82D7E256A93C800E3D250 /* Release-Apple-TV-PlayerTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Apple-TV-PlayerTests.xcconfig"; sourceTree = "<group>"; };
+		82E82D86256A941000E3D250 /* Debug-ChannelsTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-ChannelsTests.xcconfig"; sourceTree = "<group>"; };
+		82E82D87256A941F00E3D250 /* Release-ChannelsTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-ChannelsTests.xcconfig"; sourceTree = "<group>"; };
 		82F0469D255EF9140052E2E8 /* PlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		82F046A1255EF9280052E2E8 /* PlaylistViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlaylistViewController.storyboard; sourceTree = "<group>"; };
 		82F046A6255EFA8A0052E2E8 /* PlaylistChannelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistChannelViewCell.swift; sourceTree = "<group>"; };
@@ -134,6 +154,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				82DDEB08253E2A4400F3B1EE /* Channels.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82E82D4B256A6A8100E3D250 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +262,8 @@
 			isa = PBXGroup;
 			children = (
 				828E3FED253F67B2003D4EFC /* FileSystemManager.swift */,
+				82E82D39256A5B2000E3D250 /* PiedPiper.swift */,
+				82E82D77256A7D4E00E3D250 /* LocalStorage.swift */,
 			);
 			path = FileSystem;
 			sourceTree = "<group>";
@@ -334,12 +363,41 @@
 		82DDEB04253E2A4300F3B1EE /* ChannelsTests */ = {
 			isa = PBXGroup;
 			children = (
+				82E82D85256A93EF00E3D250 /* Configuration */,
 				822A58CA2540C4CC0061813F /* plst.m3u */,
 				82DDEB10253E2A8F00F3B1EE /* android.m3u8 */,
 				82DDEB05253E2A4300F3B1EE /* ChannelsTests.swift */,
 				82DDEB07253E2A4400F3B1EE /* Info.plist */,
 			);
 			path = ChannelsTests;
+			sourceTree = "<group>";
+		};
+		82E82D4F256A6A8100E3D250 /* Apple-TV-PlayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				82E82D7C256A937200E3D250 /* Configuration */,
+				82E82D50256A6A8100E3D250 /* Apple_TV_PlayerTests.swift */,
+				82E82D52256A6A8100E3D250 /* Info.plist */,
+			);
+			path = "Apple-TV-PlayerTests";
+			sourceTree = "<group>";
+		};
+		82E82D7C256A937200E3D250 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				82E82D7D256A93B900E3D250 /* Debug-Apple-TV-PlayerTests.xcconfig */,
+				82E82D7E256A93C800E3D250 /* Release-Apple-TV-PlayerTests.xcconfig */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		82E82D85256A93EF00E3D250 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				82E82D86256A941000E3D250 /* Debug-ChannelsTests.xcconfig */,
+				82E82D87256A941F00E3D250 /* Release-ChannelsTests.xcconfig */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 		82F0469C255EF8E50052E2E8 /* Playlist */ = {
@@ -365,6 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				82F3D26A2538D9AC0021BB2E /* Apple-TV-Player */,
+				82E82D4F256A6A8100E3D250 /* Apple-TV-PlayerTests */,
 				82F3D29B2538E6650021BB2E /* Channels */,
 				82DDEB04253E2A4300F3B1EE /* ChannelsTests */,
 				82F3D2692538D9AC0021BB2E /* Products */,
@@ -379,6 +438,7 @@
 				82F3D2682538D9AC0021BB2E /* Apple-TV-Player.app */,
 				82F3D29A2538E6650021BB2E /* Channels.framework */,
 				82DDEB03253E2A4300F3B1EE /* ChannelsTests.xctest */,
+				82E82D4E256A6A8100E3D250 /* Apple-TV-PlayerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -488,6 +548,24 @@
 			productReference = 82DDEB03253E2A4300F3B1EE /* ChannelsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		82E82D4D256A6A8100E3D250 /* Apple-TV-PlayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82E82D55256A6A8100E3D250 /* Build configuration list for PBXNativeTarget "Apple-TV-PlayerTests" */;
+			buildPhases = (
+				82E82D4A256A6A8100E3D250 /* Sources */,
+				82E82D4B256A6A8100E3D250 /* Frameworks */,
+				82E82D4C256A6A8100E3D250 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				82E82D54256A6A8100E3D250 /* PBXTargetDependency */,
+			);
+			name = "Apple-TV-PlayerTests";
+			productName = "Apple-TV-PlayerTests";
+			productReference = 82E82D4E256A6A8100E3D250 /* Apple-TV-PlayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		82F3D2672538D9AC0021BB2E /* Apple-TV-Player */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 82F3D27A2538D9AD0021BB2E /* Build configuration list for PBXNativeTarget "Apple-TV-Player" */;
@@ -533,14 +611,19 @@
 		82F3D2602538D9AC0021BB2E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1210;
+				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					82DDEB02253E2A4300F3B1EE = {
 						CreatedOnToolsVersion = 12.1;
 					};
+					82E82D4D256A6A8100E3D250 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 82F3D2672538D9AC0021BB2E;
+					};
 					82F3D2672538D9AC0021BB2E = {
 						CreatedOnToolsVersion = 12.1;
+						LastSwiftMigration = 1220;
 					};
 					82F3D2992538E6650021BB2E = {
 						CreatedOnToolsVersion = 12.1;
@@ -562,6 +645,7 @@
 			projectRoot = "";
 			targets = (
 				82F3D2672538D9AC0021BB2E /* Apple-TV-Player */,
+				82E82D4D256A6A8100E3D250 /* Apple-TV-PlayerTests */,
 				82F3D2992538E6650021BB2E /* Channels */,
 				82DDEB02253E2A4300F3B1EE /* ChannelsTests */,
 			);
@@ -575,6 +659,14 @@
 			files = (
 				822A58CB2540C4CC0061813F /* plst.m3u in Resources */,
 				82DDEB11253E2A8F00F3B1EE /* android.m3u8 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82E82D4C256A6A8100E3D250 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82E82D70256A7ACF00E3D250 /* plst.m3u in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,6 +749,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		82E82D4A256A6A8100E3D250 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82E82D51256A6A8100E3D250 /* Apple_TV_PlayerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		82F3D2642538D9AC0021BB2E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -666,7 +766,9 @@
 				828E401A253F851E003D4EFC /* AddPlaylistCellView.swift in Sources */,
 				828E4012253F850A003D4EFC /* PlaylistCellView.swift in Sources */,
 				828E3FEE253F67B2003D4EFC /* FileSystemManager.swift in Sources */,
+				82E82D78256A7D4E00E3D250 /* LocalStorage.swift in Sources */,
 				828E4020253F852F003D4EFC /* SettingsCellView.swift in Sources */,
+				82E82D3A256A5B2000E3D250 /* PiedPiper.swift in Sources */,
 				82F0469E255EF9140052E2E8 /* PlaylistViewController.swift in Sources */,
 				82742D24255FDC08001B2B25 /* ChannelPlayerViewController.swift in Sources */,
 				828E3FF7253F6FF1003D4EFC /* HomeViewController.swift in Sources */,
@@ -697,6 +799,11 @@
 			target = 82F3D2992538E6650021BB2E /* Channels */;
 			targetProxy = 82DDEB09253E2A4400F3B1EE /* PBXContainerItemProxy */;
 		};
+		82E82D54256A6A8100E3D250 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 82F3D2672538D9AC0021BB2E /* Apple-TV-Player */;
+			targetProxy = 82E82D53256A6A8100E3D250 /* PBXContainerItemProxy */;
+		};
 		82F3D2A02538E6650021BB2E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 82F3D2992538E6650021BB2E /* Channels */;
@@ -719,6 +826,7 @@
 /* Begin XCBuildConfiguration section */
 		82DDEB0B253E2A4400F3B1EE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82E82D86256A941000E3D250 /* Debug-ChannelsTests.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ChannelsTests/Info.plist;
@@ -727,7 +835,6 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.noveo.tm.ChannelsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -736,6 +843,7 @@
 		};
 		82DDEB0C253E2A4400F3B1EE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82E82D87256A941F00E3D250 /* Release-ChannelsTests.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ChannelsTests/Info.plist;
@@ -744,10 +852,49 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.noveo.tm.ChannelsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Release;
+		};
+		82E82D56256A6A8100E3D250 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82E82D7D256A93B900E3D250 /* Debug-Apple-TV-PlayerTests.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Apple-TV-PlayerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Apple-TV-Player.app/Apple-TV-Player";
+				TVOS_DEPLOYMENT_TARGET = 14.2;
+			};
+			name = Debug;
+		};
+		82E82D57256A6A8100E3D250 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82E82D7E256A93C800E3D250 /* Release-Apple-TV-PlayerTests.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Apple-TV-PlayerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Apple-TV-Player.app/Apple-TV-Player";
+				TVOS_DEPLOYMENT_TARGET = 14.2;
 			};
 			name = Release;
 		};
@@ -876,6 +1023,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "$(SRCROOT)/Apple-TV-Player/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -883,6 +1031,8 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 14.0;
@@ -896,6 +1046,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "$(SRCROOT)/Apple-TV-Player/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -903,6 +1054,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 14.0;
@@ -940,7 +1092,7 @@
 		};
 		82F3D2A52538E6650021BB2E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 82F3D2A92538E70F0021BB2E /* Debug-Channels.xcconfig */;
+			baseConfigurationReference = 82F3D2AA2538E7430021BB2E /* Release-Channels.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -974,6 +1126,15 @@
 			buildConfigurations = (
 				82DDEB0B253E2A4400F3B1EE /* Debug */,
 				82DDEB0C253E2A4400F3B1EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82E82D55256A6A8100E3D250 /* Build configuration list for PBXNativeTarget "Apple-TV-PlayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82E82D56256A6A8100E3D250 /* Debug */,
+				82E82D57256A6A8100E3D250 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

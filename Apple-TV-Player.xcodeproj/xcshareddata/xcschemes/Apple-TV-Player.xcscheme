@@ -27,6 +27,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "82E82D4D256A6A8100E3D250"
+               BuildableName = "Apple-TV-PlayerTests.xctest"
+               BlueprintName = "Apple-TV-PlayerTests"
+               ReferencedContainer = "container:Apple-TV-Player.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -56,6 +66,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "82F3D2672538D9AC0021BB2E"
+            BuildableName = "Apple-TV-Player.app"
+            BlueprintName = "Apple-TV-Player"
+            ReferencedContainer = "container:Apple-TV-Player.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

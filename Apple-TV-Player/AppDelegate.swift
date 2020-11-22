@@ -16,16 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         #if DEBUG
-            let fileManager = FileManager.default
-            if let dest = try? fileManager.url(for: .applicationSupportDirectory,
-                in: .userDomainMask, appropriateFor: nil, create: true),
-               let playlist = Bundle.main.url(forResource: "plst", withExtension: "m3u") {
-                let new = dest.appendingPathComponent(playlist.lastPathComponent, isDirectory: false)
-                try? fileManager.removeItem(at: new)
-                try? fileManager.copyItem(at: playlist, to: new)
+            let fileManager = FileSystemManager()
+            if let playlist = Bundle.main.url(forResource: "plst", withExtension: "m3u") {
+                do {
+                    try fileManager.download(file: playlist, name: "2090000.ru")
+                } catch {
+                    os_log(.error, "playlist download error: %s", String(describing: error))
+                }
             }
         #endif
-        
         return true
     }
 }

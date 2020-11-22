@@ -150,13 +150,14 @@ extension HomeViewController: UITableViewDelegate {
         switch item {
         case .playlist(let name):
             DispatchQueue.global().async {
-                guard let url = try? self.fsManager.file(named: name) else {
+                guard let url = try? self.fsManager.file(named: name),
+                      let data = self.fsManager.content(of: url) else {
                     return
                 }
                 DispatchQueue.main.async {
                     self.setTableViewProgressView(enabled: true)
                 }
-                let playlist = M3U(url: url)
+                let playlist = M3U(data: data)
                 do {
                     try playlist.parse()
                     

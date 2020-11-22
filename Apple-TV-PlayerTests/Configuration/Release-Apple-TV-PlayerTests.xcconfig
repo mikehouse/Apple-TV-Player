@@ -1,0 +1,12 @@
+//
+//  Release-Apple-TV-PlayerTests.xcconfig
+//  Apple-TV-Player
+//
+//  Created by Mikhail Demidov on 22.11.2020.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+PRODUCT_BUNDLE_IDENTIFIER = example.apple.com.Apple-TV-PlayerTests;
+DEVELOPMENT_TEAM = FFFFFFFFFF;

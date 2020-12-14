@@ -74,7 +74,7 @@
 		82F3D29E2538E6650021BB2E /* Channels.h in Headers */ = {isa = PBXBuildFile; fileRef = 82F3D29C2538E6650021BB2E /* Channels.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		82F3D2A12538E6650021BB2E /* Channels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F3D29A2538E6650021BB2E /* Channels.framework */; };
 		82F3D2A22538E6650021BB2E /* Channels.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82F3D29A2538E6650021BB2E /* Channels.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		82F3D2B02538E9220021BB2E /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 82F3D2B22538E9220021BB2E /* Localization.strings */; };
+		82F3D2B02538E9220021BB2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 82F3D2B22538E9220021BB2E /* Localizable.strings */; };
 		82F3D2BA2538EABC0021BB2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82F3D2B92538EABC0021BB2E /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -199,8 +199,8 @@
 		82F3D29D2538E6650021BB2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82F3D2A92538E70F0021BB2E /* Debug-Channels.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-Channels.xcconfig"; sourceTree = "<group>"; };
 		82F3D2AA2538E7430021BB2E /* Release-Channels.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Channels.xcconfig"; sourceTree = "<group>"; };
-		82F3D2B12538E9220021BB2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localization.strings; sourceTree = "<group>"; };
-		82F3D2B62538E9600021BB2E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localization.strings; sourceTree = "<group>"; };
+		82F3D2B12538E9220021BB2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		82F3D2B62538E9600021BB2E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		82F3D2B92538EABC0021BB2E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A294316A2E8D0347BCFF7F70 /* Pods-Apple-TV-Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apple-TV-Player.debug.xcconfig"; path = "Target Support Files/Pods-Apple-TV-Player/Pods-Apple-TV-Player.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -654,7 +654,7 @@
 		82F3D2B82538EA860021BB2E /* Localization */ = {
 			isa = PBXGroup;
 			children = (
-				82F3D2B22538E9220021BB2E /* Localization.strings */,
+				82F3D2B22538E9220021BB2E /* Localizable.strings */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -829,7 +829,7 @@
 				82F046A2255EF9280052E2E8 /* PlaylistViewController.storyboard in Resources */,
 				82F3D2BA2538EABC0021BB2E /* LaunchScreen.storyboard in Resources */,
 				82742D28255FDC12001B2B25 /* ChannelPlayerViewController.storyboard in Resources */,
-				82F3D2B02538E9220021BB2E /* Localization.strings in Resources */,
+				82F3D2B02538E9220021BB2E /* Localizable.strings in Resources */,
 				820AC4742572E7D600932015 /* ProviderBundleCellView.xib in Resources */,
 				820AC44D2572E43900932015 /* SelectProviderCellView.xib in Resources */,
 				828E4013253F850A003D4EFC /* PlaylistCellView.xib in Resources */,
@@ -982,13 +982,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		82F3D2B22538E9220021BB2E /* Localization.strings */ = {
+		82F3D2B22538E9220021BB2E /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				82F3D2B12538E9220021BB2E /* en */,
 				82F3D2B62538E9600021BB2E /* ru */,
 			);
-			name = Localization.strings;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

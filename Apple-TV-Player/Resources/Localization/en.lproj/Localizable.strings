@@ -1,11 +1,3 @@
-/*
-  Localization.strings
-  Apple-TV-Player
-
-  Created by Mikhail Demidov on 16.10.2020.
-
-*/
-
 "Error" = "Error";
 "Ok" = "Ok";
 "Add playlist" = "Add playlist";
@@ -21,3 +13,4 @@
 "No Ip Tv providers found." = "No Ip Tv providers found.";
 "No bundles available." = "No bundles available.";
 "List of Ip tv providers" = "List of Ip tv providers";
+"Settings" = "Settings";

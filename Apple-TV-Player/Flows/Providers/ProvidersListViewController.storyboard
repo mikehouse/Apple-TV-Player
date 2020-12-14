@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="17506" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8qb-Ip-wep">
+    <device id="appleTV" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Providers List View Controller-->
+        <scene sceneID="nD3-kw-oTK">
+            <objects>
+                <viewController id="8qb-Ip-wep" customClass="ProvidersListViewController" customModule="Apple_TV_Player" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="niY-pK-WTm"/>
+                        <viewControllerLayoutGuide type="bottom" id="chS-FD-g4v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="58h-Be-d7d">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="KZO-A8-NMA">
+                                <rect key="frame" x="576" y="60" width="768" height="960"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5A0-hY-BNT"/>
+                        <constraints>
+                            <constraint firstItem="KZO-A8-NMA" firstAttribute="width" secondItem="58h-Be-d7d" secondAttribute="width" multiplier="0.4" id="8bX-Rf-ZWl"/>
+                            <constraint firstItem="KZO-A8-NMA" firstAttribute="centerX" secondItem="58h-Be-d7d" secondAttribute="centerX" id="9Ep-Jy-lzl"/>
+                            <constraint firstItem="5A0-hY-BNT" firstAttribute="bottom" secondItem="KZO-A8-NMA" secondAttribute="bottom" id="ef8-hD-hFi"/>
+                            <constraint firstItem="KZO-A8-NMA" firstAttribute="top" secondItem="5A0-hY-BNT" secondAttribute="top" id="oGe-Qf-cFe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="KZO-A8-NMA" id="j1s-Rj-gov"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xu9-UI-scs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="121" y="-232"/>
+        </scene>
+    </scenes>
+</document>

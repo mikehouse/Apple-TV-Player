@@ -21,6 +21,12 @@ final class HomeViewController: UIViewController {
                 for: indexPath, cellType: PlaylistCellView.self)
             cell.textLabel?.text = name
             return cell
+        case .providers(let provider):
+            let cell = tableView.dequeueReusableCell(
+                for: indexPath, cellType: PlaylistCellView.self)
+            cell.textLabel?.text = provider.name
+            cell.imageView?.image = provider.icon.map(UIImage.init(cgImage:))
+            return cell
         case .addPlaylist:
             let cell = tableView.dequeueReusableCell(
                 for: indexPath, cellType: AddPlaylistCellView.self)
@@ -36,6 +42,8 @@ final class HomeViewController: UIViewController {
         }
     }
     private let fsManager = FileSystemManager()
+    private var providers: [IpTvProvider] = []
+    private let storage = LocalStorage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +53,7 @@ final class HomeViewController: UIViewController {
         tableView.register(cellType: SettingsCellView.self)
         tableView.register(cellType: AddPlaylistCellView.self)
         tableView.register(cellType: PlaylistCellView.self)
+        tableView.register(cellType: SelectProviderCellView.self)
 
         reloadUI()
     }
@@ -63,8 +72,16 @@ private extension HomeViewController {
             var items: [Section: [Row]] = [
                 .addPlaylist: [.addPlaylist],
                 .settings: [.settings],
-                .playlists: []
+                .playlists: [],
+                .providers: []
             ]
+            do {
+                self.providers = try IpTvProviderKind.builtInProviders().map(IpTvProviders.kind(of:))
+                items[.providers] = self.providers.map({ Row.providers($0.kind) })
+            } catch {
+                os_log(.error, "\(error as NSError)")
+                self.present(error: error)
+            }
             do {
                 items[.playlists] = try fsManager.filesNames().map(Row.playlist)
             } catch {
@@ -76,9 +93,12 @@ private extension HomeViewController {
                 var snapshot = dataSource.snapshot()
                 snapshot.appendSections(Section.allCases)
                 snapshot.appendItems(items[.playlists] ?? [], toSection: .playlists)
+                snapshot.appendItems(items[.providers] ?? [], toSection: .providers)
                 snapshot.appendItems(items[.addPlaylist] ?? [], toSection: .addPlaylist)
                 snapshot.appendItems(items[.settings] ?? [], toSection: .settings)
                 dataSource.apply(snapshot, animatingDifferences: true)
+    
+                self.navigateToLatestProvider()
             }
         }
     }
@@ -117,17 +137,34 @@ private extension HomeViewController {
         progress.startAnimating()
         return view
     }
+    
+    @discardableResult
+    func navigateToLatestProvider() -> Bool {
+        if let provider = self.storage.getValue(.current, domain: .common),
+           let item = IpTvProviderKind.builtInProviders().first(where: { $0.id == provider }) {
+            let row = Row.providers(item)
+            let snapshot = dataSource.snapshot()
+            if let section = snapshot.indexOfSection(.providers),
+               let row = snapshot.indexOfItem(row) {
+                let path = IndexPath(row: row, section: section)
+                navigate(to: path)
+            }
+        }
+        return false
+    }
 }
 
 private extension HomeViewController {
     enum Section: Hashable, CaseIterable {
         case playlists
+        case providers
         case addPlaylist
         case settings
     }
     
     enum Row: Hashable {
         case playlist(String) // name serves as unique id also.
+        case providers(IpTvProviderKind)
         case addPlaylist
         case settings
     }
@@ -138,12 +175,15 @@ private extension HomeViewController {
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        tableView.bounds.height / 6
+        UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        navigate(to: indexPath)
+    }
+    
+    private func navigate(to indexPath: IndexPath) {
         guard let item = dataSource.itemIdentifier(for: indexPath) else {
             return
         }
@@ -157,24 +197,13 @@ extension HomeViewController: UITableViewDelegate {
                 DispatchQueue.main.async {
                     self.setTableViewProgressView(enabled: true)
                 }
-                let playlist = M3U(data: data)
+                
                 do {
-                    try playlist.parse()
-                    
-                    /* Todo: set filter on separate future screen. */
-                    let framework = Bundle(for: M3U.self)
-                    let bundle = Bundle(url: framework.url(forResource: "ChannelsPackages", withExtension: "bundle")!)!
-                    let channelsURLs: [URL] = [
-                        bundle.url(forResource: "Базовый", withExtension: "txt")!,
-                        bundle.url(forResource: "Кино и Сериалы", withExtension: "txt")!,
-                        bundle.url(forResource: "Стартовый", withExtension: "txt")!
-                    ]
-                    let filter = M3UChannelFilter(acceptChannelsLists: channelsURLs)
-                    let known = filter.filter(playlist: .init(channels: playlist.items))
-                    
+                    let tvProvider = try IpTvProviders.kind(of: .dynamic(m3u: data, name: name))
+                    let playlist = PlaylistItem(channels: tvProvider.bundles.flatMap({ $0.playlist.channels }))
                     DispatchQueue.main.async {
                         let playlistVC = PlaylistViewController.instantiate()
-                        playlistVC.playlist = known
+                        playlistVC.playlist = playlist
                         self.present(playlistVC, animated: true) {
                             self.setTableViewProgressView(enabled: false)
                         }
@@ -184,6 +213,24 @@ extension HomeViewController: UITableViewDelegate {
                     DispatchQueue.main.async {
                         self.setTableViewProgressView(enabled: false)
                     }
+                }
+            }
+        case .providers(let providerKind):
+            DispatchQueue.global(qos: .userInitiated).async {
+                let provider = self.providers.first(where: { $0.kind.id == providerKind.id })!
+                let bundlesIds = self.storage.array(domain: .list(.provider(providerKind.id)))
+                let bundles = provider.bundles.filter({ bundlesIds.contains($0.id) })
+                let bundlesForSure = bundles.isEmpty ? provider.baseBundles : bundles
+                let fav = provider.favChannels.map(\.id)
+                let channels: [Channel] = bundlesForSure.flatMap({ $0.playlist.channels })
+                let favChannels: [Channel] = fav.compactMap({ f in channels.first(where: { $0.id == f }) })
+                let remainsChannels: [Channel] = channels.filter({ !fav.contains($0.id) })
+                let playlist = PlaylistItem(channels: favChannels + remainsChannels)
+                DispatchQueue.main.async {
+                    let playlistVC = PlaylistViewController.instantiate()
+                    playlistVC.playlist = playlist
+                    playlistVC.programmes = IpTvProgrammesProviders.make(for: provider.kind)
+                    self.present(playlistVC, animated: true)
                 }
             }
         case .addPlaylist:
@@ -228,7 +275,11 @@ extension HomeViewController: UITableViewDelegate {
             }
             self.present(vc, animated: true)
         case .settings:
-            break
+            let vc = SettingsViewController.instantiate()
+            vc.providers = self.providers
+            self.present(vc, animated: true)
         }
     }
+    
+    private struct PlaylistItem: Playlist { let channels: [Channel] }
 }

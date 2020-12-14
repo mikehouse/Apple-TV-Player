@@ -1,85 +1,72 @@
-Sony Sci-Fi
+Мульт
+НТН24
 Уникум
-Music Box Russia
-О2ТВ
-Мосфильм.Золотая коллекция
-Nickelodeon
-DTX
-2x2
-TLC
-МУЛЬТ
-Живая планета
-MTV Club
-В гостях у сказки
-ЖАРА
-СТС-МИР
-Animal Planet
 Мама
-Bridge TV
-Da Vinci
-Индийское кино
-Discovery
-Усадьба
-TVXXI
-EuroNews
-КХЛ]
-RU.TV
-Fashion TV
-Живи
-National Geographic
-Кинокомедия
-Т24
-Футбол
-HDL
-MTV Live HD
-Сарафан
-Шансон ТВ
+TLC
 Русский роман
-Дом кино
-Оружие
-Авто плюс
-Ля-минор
-Fashion One HD
-365 Дней
-Europa Plus TV
-Кухня ТВ
-Fox Life HD
-Fox HD
-Sony Channel HD
-Телекафе
-ВРЕМЯ
-Успех
-Психология
-Bridge TV Русский хит
-А1
-Russia Today Doc HD
-Русский детектив
-Мир HD
-КтоКуда
-Матч HD
-ТНТ4
-Открытый Мир
-Наша Сибирь HD
-Russia Today HD
-Ретро
+Т24
+Живая планета
 Viasat History
+Viasat Explorer
+Viasat Nature
+Discovery Channel
+Animal Planet
+DTX
+National Geographic
+Da Vinci
+TV1000
+TV1000 Русское кино
+TV1000 Action
+A1
+Sony Sci-Fi
+TV XXI
+Кинокомедия
+Русский детектив
+Дом кино
+Иллюзион+
+Дорама
 Мультимузыка
+Euronews
+2x2
+Живи
+#КтоКуда
+Усадьба
+Сарафан
+Кухня ТВ
+Психология
+Успех
+Ретро
+Авто плюс
+Оружие
+Телекафе
+ТНТ4
+Супер
+Бобёр
+Тонус
+RU.TV
+Russian Music Box
+Bridge TV
+Шансон ТВ
+Bridge TV Русский Хит
+Europa Plus TV
+Ля-Минор
+Футбол
+КХЛ ТВ
+МАТЧ ТВ HD
+FOX HD
+FOX Life HD
+МИР Premium HD
+1HD Music Television
+Russia Today HD
+Russia Today Doc HD
+Наша Сибирь HD
+Sony Channel HD
+Nickelodeon
 Fan HD
+В гостях у сказки
+о2тв
+ЖАРА
 Победа HD
 Наша Тема HD
-Ювелирия ТВ
-1HD Music Television
-Bridge TV Hits
-Бобёр
-Зоо ТВ
-Иллюзион+
-Кинопоказ
-Тонус
-Театр
-TV1000 Action
-Viasat Nature
-TV1000
-TV 1000 Русское кино
-Viasat Explorer
-НТН 24
 Новосибирские новости
+Ювелирия ТВ

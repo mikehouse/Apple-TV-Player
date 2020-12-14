@@ -18,3 +18,6 @@
 "Invalid M3U header." = "Невалидный M3U заголовок.";
 "No channels found." = "Список каналов пуст.";
 "Others" = "Остальные";
+"No Ip Tv providers found." = "Список доступных провайдеров пуст.";
+"No bundles available." = "Список пакетов каналов пуст.";
+"List of Ip tv providers" = "Список поставщиков цифрового ТВ";

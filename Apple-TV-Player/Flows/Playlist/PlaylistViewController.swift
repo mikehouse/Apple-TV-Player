@@ -13,13 +13,19 @@ import Channels
 final class PlaylistViewController: UIViewController, StoryboardBased {
     
     @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var programmesStackView: UIStackView!
     
-    var playlist: Playlist<M3UItem>?
+    var playlist: Playlist?
+    var programmes: IpTvProgrammesProvider?
     
-    private lazy var dataSource = DataSource(tableView: self.tableView) { tableView, indexPath, row in
+    private var currentFocusPath: IndexPath?
+    
+    private lazy var channelICO: ChannelICOProvider = ChannelICO(locale: "ru")
+    private lazy var dataSource = DataSource(tableView: self.tableView) { [unowned self] tableView, indexPath, row in
         let cell = tableView.dequeueReusableCell(
             for: indexPath, cellType: PlaylistChannelViewCell.self)
-        cell.textLabel?.text = row.title
+        cell.textLabel?.text = row.channel.name
+        cell.imageView?.image = self.channelICO.ico(for: row.channel).map(UIImage.init(cgImage:))
         return cell
     }
     
@@ -28,6 +34,15 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     
         configureTableView()
         loadPlaylist()
+        programmes?.load { [weak self] error in
+            if let error = error {
+                os_log(.error, "\(error as NSObject)")
+            } else {
+                DispatchQueue.main.async {
+                    self?.updateProgrammesInfo()
+                }
+            }
+        }
     }
     
     deinit {
@@ -37,34 +52,24 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
 
 private extension PlaylistViewController {
     enum Section: Hashable {
-        case channels(String?)
-        func has(_ str: String?) -> Bool {
-            switch self {
-            case .channels(let s):
-                return s == str
-            }
-        }
+        case main
     }
     struct Row: Hashable {
-        let channel: URL
-        let title: String
+        let channel: Channel
+        var id: AnyHashable { channel.id }
     
         func hash(into hasher: inout Hasher) {
-            hasher.combine(title)
+            hasher.combine(id)
         }
     
         static func ==(lhs: Row, rhs: Row) -> Bool {
-            return lhs.title == rhs.title
+            return lhs.id == rhs.id
         }
     }
 }
 
 private extension PlaylistViewController {
     final class DataSource: UITableViewDiffableDataSource<Section, Row> {
-        var sectionsTitles: [String?] = []
-        override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-            sectionsTitles[section] ?? NSLocalizedString("Others", comment: "")
-        }
     }
 }
 
@@ -84,30 +89,17 @@ private extension PlaylistViewController {
                 return
             }
             
-            var sections: [Section] = [] // to keep order in dict.
-            var channels: [Section:[Row]] = [:]
-            var titles: [String?] = []
-            
+            var channels: [Row] = []
             for channel in playlist {
-                let row = Row(channel: channel.url, title: channel.title)
-                if let section = sections.first(where: { $0.has(channel.group) }) {
-                    channels[section] = (channels[section] ?? []) + [row]
-                } else {
-                    let section = Section.channels(channel.group)
-                    sections.append(section)
-                    channels[section] = [row]
-                    titles.append(channel.group)
-                }
+                let _ = self.channelICO.ico(for: channel) // fill the cache.
+                channels.append(Row(channel: channel))
             }
             
-            DispatchQueue.main.async { [sections, channels, titles] in
+            DispatchQueue.main.async { [channels] in
                 var snapshot = self.dataSource.snapshot()
                 snapshot.deleteAllItems()
-                snapshot.appendSections(sections)
-                for section in sections {
-                    snapshot.appendItems(channels[section] ?? [], toSection: section)
-                }
-                self.dataSource.sectionsTitles = titles
+                snapshot.appendSections([.main])
+                snapshot.appendItems(channels, toSection: .main)
                 self.dataSource.apply(snapshot, animatingDifferences: true)
             }
         }
@@ -129,7 +121,13 @@ private extension PlaylistViewController {
 
 extension PlaylistViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        tableView.bounds.height / 10
+        UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext,
+                   with coordinator: UIFocusAnimationCoordinator) {
+        self.currentFocusPath = context.nextFocusedIndexPath
+        self.updateProgrammesInfo()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -137,8 +135,59 @@ extension PlaylistViewController: UITableViewDelegate {
         
         if let channel = dataSource.itemIdentifier(for: indexPath) {
             let videoPlayer = ChannelPlayerViewController.instantiate()
-            videoPlayer.url = channel.channel
+            videoPlayer.url = channel.channel.stream
             self.present(videoPlayer, animated: true)
         }
     }
+}
+
+private extension PlaylistViewController {
+    func updateProgrammesInfo() {
+        if let path = self.currentFocusPath, let item = dataSource.itemIdentifier(for: path) {
+            self.currentFocusPath = path
+            
+            programmesStackView.arrangedSubviews.forEach(programmesStackView.removeArrangedSubview)
+            programmesStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
+            programmesStackView.subviews.forEach({$0.removeFromSuperview()})
+    
+            var index = NSNotFound
+            
+            let list: [String] = self.programmes?.list(for: item.channel) ?? []
+            if let now = self.nowHourAndMinutesDate() {
+                for (idx, line) in list.enumerated() {
+                    let time = String(line[..<line.index(line.startIndex, offsetBy: 5)])
+                    guard let date = Self.dateFormatter.date(from: time) else { continue }
+                    if now < date || (Calendar.current.component(.hour, from: date) < 3
+                        && Calendar.current.component(.hour, from: now) > 3) {
+                        index = idx == 0 ? idx : idx - 1
+                        break
+                    }
+                }
+            }
+            
+            for (idx, line) in list.enumerated() {
+                let label = UILabel()
+                label.text = line
+                label.numberOfLines = 0
+                programmesStackView.addArrangedSubview(label)
+                if index == idx {
+                    label.textColor = UIColor.systemGreen
+                }
+            }
+        }
+    }
+    
+    func nowHourAndMinutesDate() -> Date? {
+        let now = Date()
+        let hour = Calendar.current.component(.hour, from: now)
+        let minutes = Calendar.current.component(.minute, from: now)
+        let time = String(format: "%.2d:%.2d", hour, minutes)
+        return Self.dateFormatter.date(from: "\(time)")
+    }
+    
+    private static let dateFormatter: DateFormatter = {
+        let fmt = DateFormatter()
+        fmt.dateFormat = "HH:mm"
+        return fmt
+    }()
 }

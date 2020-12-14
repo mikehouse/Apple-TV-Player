@@ -8,4 +8,8 @@
 import Foundation
 
 public protocol Channel {
+    var name: String {get}
+    var id: AnyHashable {get}
+    var stream: URL {get}
+    var group: String? {get}
 }

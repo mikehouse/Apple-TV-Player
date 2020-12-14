@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        #if DEBUG
+        /*#if DEBUG
             let fileManager = FileSystemManager()
             if let playlist = Bundle.main.url(forResource: "plst", withExtension: "m3u") {
                 do {
@@ -24,7 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     os_log(.error, "playlist download error: %s", String(describing: error))
                 }
             }
-        #endif
+        #endif*/
+         print(FileManager.default.temporaryDirectory.deletingLastPathComponent())
         return true
     }
 }

@@ -7,10 +7,14 @@
 
 import Foundation
 
+private let lock = NSLock()
+
 final class LocalStorage {
     private let storage = UserDefaults.standard
     
     func remove(_ domain: Domain) {
+        lock.lock()
+        defer {lock.unlock()}
         storage.set(nil, forKey: domain.rawValue)
     }
     
@@ -36,6 +40,14 @@ final class LocalStorage {
         add(value: data, for: key, to: domain)
     }
     
+    func add(value: AnyHashable, for key: String, domain: Domain) {
+        add(value: value, for: key, to: domain)
+    }
+    
+    func add(value: AnyHashable, for key: CommonKeys, domain: Domain) {
+        add(value: value, for: key.rawValue, to: domain)
+    }
+    
     func remove(for key: URL, domain: Domain) {
         remove(for: key.absoluteString, domain: domain)
     }
@@ -44,19 +56,33 @@ final class LocalStorage {
         add(value: Optional<Never>.none, for: key, to: domain)
     }
     
+    func remove(for key: CommonKeys, domain: Domain) {
+        add(value: Optional<Never>.none, for: key.rawValue, to: domain)
+    }
+    
     func getData(_ key: URL, domain: Domain) -> Data? {
         getData(key.absoluteString, domain: domain)
     }
     
     func getData(_ key: String, domain: Domain) -> Data? {
-        container(for: .playlist)[key]
+        container(for: domain)[key]
+    }
+    
+    func getValue(_ key: CommonKeys, domain: Domain) -> AnyHashable? {
+        container(for: domain)[key.rawValue]
     }
     
     private func container<K: Hashable, V>(for domain: Domain) -> [K:V] {
-        (storage.value(forKey: domain.rawValue) as? [K:V]) ?? [:]
+        guard let rawValue = storage.value(forKey: domain.rawValue) else {
+            return [:]
+        }
+        return (rawValue as? [K:V]) ?? [:]
     }
     
     private func add<K: Hashable, V>(value: V?, for key: K, to domain: Domain) {
+        assert(domain == .playlist || domain == .common, "for `list` domain use #addArray(_:) method.")
+        lock.lock()
+        defer {lock.unlock()}
         var dict: [K:V] = container(for: domain)
         if value == nil {
             dict.removeValue(forKey: key)
@@ -65,10 +91,124 @@ final class LocalStorage {
         }
         storage.set(dict, forKey: domain.rawValue)
     }
+    
+    @discardableResult
+    private func addArray<V: Equatable>(value: V?, to domain: Domain) -> Bool {
+        assert(domain != .playlist && domain != .common, "only `list` domain available else use #add(_:) method.")
+        lock.lock()
+        defer {lock.unlock()}
+        switch domain {
+        case .list(let key):
+            switch key {
+            case .provider(let key):
+                if let value = value {
+                    var dict: [AnyHashable:[V]] = container(for: domain)
+                    if var old = dict[key] {
+                        let before = old.count
+                        old.removeAll(where: { $0 == value })
+                        dict[key] = old + [value]
+                        storage.set(dict, forKey: domain.rawValue)
+                        return before == old.count
+                    } else {
+                        dict[key] = [value]
+                        storage.set(dict, forKey: domain.rawValue)
+                        return true
+                    }
+                }
+                return false
+            }
+        default:
+            fatalError("only `list` domain available else use #add(_:) method.")
+        }
+    }
+    
+    @discardableResult
+    private func removeArray<V: Equatable>(value: V, to domain: Domain) -> Bool {
+        lock.lock()
+        defer {lock.unlock()}
+        switch domain {
+        case .list(let key):
+            switch key {
+            case .provider(let key):
+                var dict: [AnyHashable:[V]] = container(for: domain)
+                if var old = dict[key] {
+                    let before = old.count
+                    old.removeAll(where: { $0 == value })
+                    if old.count != before {
+                        dict[key] = old
+                        storage.set(dict, forKey: domain.rawValue)
+                        return true
+                    }
+                }
+                return false
+            }
+        default:
+            fatalError("only `list` domain available else use #add(_:) method.")
+        }
+    }
+    
+    private func array<V: Equatable>(value: V.Type, to domain: Domain) -> [V] {
+        switch domain {
+        case .list(let key):
+            switch key {
+            case .provider(let key):
+                let dict: [AnyHashable:[V]] = container(for: domain)
+                return dict[key] ?? []
+            }
+        default:
+            fatalError("only `list` domain available else use #add(_:) method.")
+        }
+    }
 }
 
 extension LocalStorage {
-    enum Domain: String {
+    @discardableResult
+    func addArray(value: AnyHashable, domain list: Domain) -> Bool {
+        addArray(value: value, to: list)
+    }
+    @discardableResult
+    func removeArray(value: AnyHashable, domain list: Domain) -> Bool {
+        removeArray(value: value, to: list)
+    }
+    func array(domain list: Domain) -> [AnyHashable] {
+        array(value: AnyHashable.self, to: list)
+    }
+}
+
+extension LocalStorage {
+    enum Domain: Equatable {
         case playlist
+        case common
+        case list(ListKeys)
+    
+        var rawValue: String {
+            switch self {
+            case .playlist:
+                return "\(self)"
+            case .common:
+                return "\(self)"
+            case .list(let k):
+                return "list_\(k.rawValue)"
+            }
+        }
+    
+        static func ==(lhs: Domain, rhs: Domain) -> Bool {
+            lhs.rawValue == rhs.rawValue
+        }
+    }
+    
+    enum CommonKeys: String {
+        case current
+    }
+    
+    enum ListKeys {
+        case provider(AnyHashable)
+    
+        var rawValue: String {
+            switch self {
+            case .provider(let p):
+                return "\(p.base)"
+            }
+        }
     }
 }

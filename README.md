@@ -27,6 +27,6 @@ This app can play playlists in m3u format if able to parse, but main goal to sup
 
 ----
 
-<img src="001.png"  alt="" width="50%" height="50%"/>
-<img src="002.png"  alt="" width="50%" height="50%"/>
-<img src="003.png"  alt="" width="50%" height="50%"/>
+<img src="001.png"  alt=""/>
+<img src="002.png"  alt=""/>
+<img src="003.png"  alt=""/>

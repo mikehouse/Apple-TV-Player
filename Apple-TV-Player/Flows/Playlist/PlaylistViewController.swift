@@ -154,11 +154,16 @@ private extension PlaylistViewController {
             
             let list: [String] = self.programmes?.list(for: item.channel) ?? []
             if let now = self.nowHourAndMinutesDate() {
+                var hasEvening = false
                 for (idx, line) in list.enumerated() {
                     let time = String(line[..<line.index(line.startIndex, offsetBy: 5)])
-                    guard let date = Self.dateFormatter.date(from: time) else { continue }
-                    if now < date || (Calendar.current.component(.hour, from: date) < 3
-                        && Calendar.current.component(.hour, from: now) > 3) {
+                    if !hasEvening { hasEvening = time.hasPrefix("2") }
+                    let isAfterMidNight = time.hasPrefix("0")
+                    guard var date = Self.dateFormatter.date(from: time) else { continue }
+                    if hasEvening && isAfterMidNight {
+                        date.addTimeInterval(60 * 60 * 24)
+                    }
+                    if now < date {
                         index = idx == 0 ? idx : idx - 1
                         break
                     }

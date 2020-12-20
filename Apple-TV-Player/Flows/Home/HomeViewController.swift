@@ -23,7 +23,7 @@ final class HomeViewController: UIViewController {
             return cell
         case .providers(let provider):
             let cell = tableView.dequeueReusableCell(
-                for: indexPath, cellType: PlaylistCellView.self)
+                for: indexPath, cellType: SelectProviderCellView.self)
             cell.textLabel?.text = provider.name
             cell.imageView?.image = provider.icon.map(UIImage.init(cgImage:))
             return cell
@@ -253,7 +253,7 @@ extension HomeViewController: UITableViewDelegate {
                         }
                         let file = try fsManager.download(file: url, name: name)
                         do {
-                            if try M3U(url: file).parse().isEmpty {
+                            if try M3U(data: fsManager.content(of: file)!).parse().isEmpty {
                                 let error = NSError(domain: "com.tv.player", code: -1, userInfo: [
                                     NSLocalizedDescriptionKey: NSLocalizedString("No channels found.", comment: "")
                                 ])

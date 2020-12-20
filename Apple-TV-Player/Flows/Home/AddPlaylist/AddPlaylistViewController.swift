@@ -33,7 +33,8 @@ extension AddPlaylistViewController {
                 completion?(nil, nil)
                 return
             }
-            completion?(utv.text.flatMap(URL.init(string:)), ntv.text)
+            completion?(utv.text.flatMap(URL.init(string:)),
+                ntv.text == nil || ntv.text?.isEmpty == .some(true) ? nil : ntv.text)
         }
         okAction?.isEnabled = false
         addCancelAction(title: NSLocalizedString("Cancel", comment: ""), completion: nil)

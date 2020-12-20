@@ -22,7 +22,8 @@ internal extension IpTvProviderDynamic {
             ChannelDynamic(name: item.title,
                 stream: item.url, group: item.group)
         }
-        let playlist = PlaylistDynamic(channels: channels);
+        
+        let playlist = PlaylistDynamic(channels: Array(NSOrderedSet(array: channels).array as! [ChannelDynamic]));
         return .init(kind: .dynamic(m3u: m3u, name: name),
             bundles: [BundleDynamic(playlist: playlist, name: name)]
         )

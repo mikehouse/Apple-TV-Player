@@ -20,6 +20,7 @@ extension FileSystemManager {
     @discardableResult
     func download(file: URL, name: String) throws -> URL {
         checkMainThread()
+        os_log(.error, "downloading %s named %s", String(describing: file), name)
         let content = try Data(contentsOf: file);
         let url = URL(fileURLWithPath: "playlist://\(name)")
         let compressed = try compressor.compress(data: content)

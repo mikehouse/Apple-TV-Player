@@ -18,32 +18,31 @@ final class FileSystemManager {
 
 extension FileSystemManager {
     @discardableResult
-    func download(file: URL, name: String) throws -> URL {
+    func download(file: URL, name: String) throws -> String {
         checkMainThread()
         os_log(.error, "downloading %s named %s", String(describing: file), name)
         let content = try Data(contentsOf: file);
-        let url = URL(string: "playlist://\(name)")!
         let compressed = try compressor.compress(data: content)
-        localStorage.add(data: compressed, for: url, domain: domain)
-        return url
+        localStorage.add(data: compressed, for: name, domain: domain)
+        return name
     }
     
-    func files() throws -> [URL] {
+    func files() throws -> [String] {
         checkMainThread()
-        return localStorage.domainKeysURLs(domain)
+        return localStorage.domainKeys(domain)
     }
     
     func filesNames() throws -> [String] {
         try files().map(name(of:))
     }
     
-    func file(named: String) throws -> URL? {
+    func file(named: String) throws -> String? {
         try files().first(where :{ url in
             self.name(of: url) == named
         })
     }
     
-    func content(of path: URL) -> Data? {
+    func content(of path: String) -> Data? {
         if let data = localStorage.getData(path, domain: domain) {
             do {
                 return try compressor.decompress(data: data)
@@ -54,11 +53,11 @@ extension FileSystemManager {
         return nil
     }
     
-    private func name(of file: URL) -> String {
-        file.host ?? file.absoluteString
+    private func name(of file: String) -> String {
+        return file
     }
     
-    func remove(file: URL) throws {
+    func remove(file: String) throws {
         localStorage.remove(for: file, domain: domain)
     }
 }

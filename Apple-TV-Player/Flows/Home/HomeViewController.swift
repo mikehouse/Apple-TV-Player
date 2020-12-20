@@ -44,6 +44,8 @@ final class HomeViewController: UIViewController {
     private let fsManager = FileSystemManager()
     private var providers: [IpTvProvider] = []
     private let storage = LocalStorage()
+    private var handlingCellLongTap = false
+    private var highlightingStarted = CFAbsoluteTimeGetCurrent()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -180,7 +182,41 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        guard let item = self.dataSource.itemIdentifier(for: indexPath) else { return }
+        switch item {
+        case .playlist(let name) where handlingCellLongTap:
+            let deleteVC = DeletePlaylistViewController()
+            deleteVC.deleteAction = { [unowned self] delete in
+                guard delete else {return}
+                DispatchQueue.global(qos: .userInteractive).async {
+                    do {
+                        guard let url = try self.fsManager.file(named: name) else { return }
+                        try self.fsManager.remove(file: url)
+                        DispatchQueue.main.async {
+                            self.reloadUI()
+                        }
+                    } catch {
+                        DispatchQueue.main.async {
+                            self.present(error: error)
+                        }
+                    }
+                }
+            }
+            self.present(deleteVC, animated: true)
+            handlingCellLongTap = false
+            return
+        default:
+            break
+        }
         navigate(to: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        highlightingStarted = CFAbsoluteTimeGetCurrent()
+    }
+    
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        handlingCellLongTap = CFAbsoluteTimeGetCurrent() - highlightingStarted > 1.0
     }
     
     private func navigate(to indexPath: IndexPath) {

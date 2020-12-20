@@ -17,7 +17,9 @@ final class ProviderBundleViewController: UIViewController, StoryboardBased {
         let cell = view.dequeueReusableCell(for: path, cellType: ProviderBundleCellView.self)
         let bundles = self.storage.array(domain: .list(.provider(self.provider!.kind.id)))
         cell.textLabel?.text = bundle.name
-        cell.accessoryType = bundles.contains(bundle.id) ? .checkmark : .none
+        let baseBundles = self.provider!.baseBundles.map(\.id)
+        let hasBundle = bundles.isEmpty ? baseBundles.contains(bundle.id) : bundles.contains(bundle.id)
+        cell.accessoryType = hasBundle ? .checkmark : .none
         return cell
     }
     private lazy var storage = LocalStorage()

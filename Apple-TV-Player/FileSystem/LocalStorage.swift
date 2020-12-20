@@ -53,11 +53,11 @@ final class LocalStorage {
     }
     
     func remove(for key: String, domain: Domain) {
-        add(value: Optional<Never>.none, for: key, to: domain)
+        add(value: Optional<Any>.none, for: key, to: domain)
     }
     
     func remove(for key: CommonKeys, domain: Domain) {
-        add(value: Optional<Never>.none, for: key.rawValue, to: domain)
+        add(value: Optional<Any>.none, for: key.rawValue, to: domain)
     }
     
     func getData(_ key: URL, domain: Domain) -> Data? {

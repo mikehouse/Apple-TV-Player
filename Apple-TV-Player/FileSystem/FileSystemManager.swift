@@ -22,7 +22,7 @@ extension FileSystemManager {
         checkMainThread()
         os_log(.error, "downloading %s named %s", String(describing: file), name)
         let content = try Data(contentsOf: file);
-        let url = URL(fileURLWithPath: "playlist://\(name)")
+        let url = URL(string: "playlist://\(name)")!
         let compressed = try compressor.compress(data: content)
         localStorage.add(data: compressed, for: url, domain: domain)
         return url
@@ -55,9 +55,7 @@ extension FileSystemManager {
     }
     
     private func name(of file: URL) -> String {
-        file.lastPathComponent
-            .components(separatedBy: nameSeparator)
-            .dropLast(1).joined(separator: nameSeparator)
+        file.host ?? file.absoluteString
     }
     
     func remove(file: URL) throws {

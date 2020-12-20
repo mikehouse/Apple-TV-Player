@@ -20,6 +20,10 @@ This app can play playlists in m3u format if able to parse, but main goal to sup
 - Электронный город (https://2090000.ru)
 - Сибирские сети (https://nsk.sibset.ru) - **TBD**
 
+## Supported playlists
+
+Over 8000 channels are available via https://github.com/iptv-restream/iptv-channels
+
 ## Localization
 
 - RU
@@ -27,6 +31,10 @@ This app can play playlists in m3u format if able to parse, but main goal to sup
 
 ----
 
+<img src="004.png"  alt=""/>
+<img src="005.png"  alt=""/>
+<img src="006.png"  alt=""/>
+<img src="007.png"  alt=""/>
 <img src="001.png"  alt=""/>
 <img src="002.png"  alt=""/>
 <img src="003.png"  alt=""/>

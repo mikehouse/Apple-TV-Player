@@ -68,7 +68,6 @@
 		82F046A2255EF9280052E2E8 /* PlaylistViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82F046A1255EF9280052E2E8 /* PlaylistViewController.storyboard */; };
 		82F046A7255EFA8A0052E2E8 /* PlaylistChannelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F046A6255EFA8A0052E2E8 /* PlaylistChannelViewCell.swift */; };
 		82F046AD255EFA9B0052E2E8 /* PlaylistChannelViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82F046AC255EFA9B0052E2E8 /* PlaylistChannelViewCell.xib */; };
-		82F046B0255F07C70052E2E8 /* plst.m3u in Resources */ = {isa = PBXBuildFile; fileRef = 822A58CA2540C4CC0061813F /* plst.m3u */; };
 		82F3D26C2538D9AC0021BB2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3D26B2538D9AC0021BB2E /* AppDelegate.swift */; };
 		82F3D2732538D9AD0021BB2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82F3D2722538D9AD0021BB2E /* Assets.xcassets */; };
 		82F3D29E2538E6650021BB2E /* Channels.h in Headers */ = {isa = PBXBuildFile; fileRef = 82F3D29C2538E6650021BB2E /* Channels.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -825,7 +824,6 @@
 				8229F748257D56A300A9389E /* SettingsViewController.storyboard in Resources */,
 				820AC4662572E58300932015 /* ProviderBundleViewController.storyboard in Resources */,
 				820AC46D2572E78500932015 /* ProviderCellView.xib in Resources */,
-				82F046B0255F07C70052E2E8 /* plst.m3u in Resources */,
 				82F046A2255EF9280052E2E8 /* PlaylistViewController.storyboard in Resources */,
 				82F3D2BA2538EABC0021BB2E /* LaunchScreen.storyboard in Resources */,
 				82742D28255FDC12001B2B25 /* ChannelPlayerViewController.storyboard in Resources */,

@@ -53,4 +53,26 @@ final class ChannelsTests: XCTestCase {
             XCTAssertEqual(m3u.items.last, expected)
         }
     }
+    
+    func testParseM3UFree() throws {
+        let url = Bundle(for: type(of: self)).url(forResource: "ru-free-pls", withExtension: "m3u")!
+        let m3u = M3U(url: url)
+        try m3u.parse()
+        
+        do {
+            let expected = M3UItem(
+                title: "1HD Music TV",
+                url: URL(string: "https://1hdru-hls-otcnet.cdnvideo.ru/onehdmusic/tracks-v1a1/index.m3u8")!,
+                group: "")
+            XCTAssertEqual(m3u.items.first, expected)
+        }
+        
+        do {
+            let expected = M3UItem(
+                title: "ЮТВ (Чебоксары)",
+                url: URL(string: "http://serv24.vintera.tv:8081/utv/Stream/playlist.m3u8")!,
+                group: "Local")
+            XCTAssertEqual(m3u.items.last, expected)
+        }
+    }
 }

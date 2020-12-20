@@ -1,0 +1,5 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-language="Russian" tvg-logo="" tvg-country="RU" tvg-url="" group-title="",1HD Music TV
+https://1hdru-hls-otcnet.cdnvideo.ru/onehdmusic/tracks-v1a1/index.m3u8
+#EXTINF:-1 tvg-id="utv-cheboxary" tvg-name="ЮТВ Чебоксары" tvg-language="Russian" tvg-logo="" tvg-country="RU" tvg-url="https://iptvx.one/epg/epg.xml.gz" group-title="Local",ЮТВ (Чебоксары)
+http://serv24.vintera.tv:8081/utv/Stream/playlist.m3u8

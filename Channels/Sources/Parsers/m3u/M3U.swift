@@ -77,7 +77,7 @@ public extension M3U {
                     }
                     continue
                 }
-                if (ch == " ") {
+                if (ch == " " || (tagStart != 0 && ch == ",")) {
                     if tagStart != 0 {
                         if skipSplit {
                             // case tag with white spaces.
@@ -115,7 +115,7 @@ public extension M3U {
             let nsstring = line as NSString
             for range in tags {
                 let tag = nsstring.substring(with: range)
-                if tag.contains(M3U.Directive.title.rawValue) {
+                if tag.contains(M3U.Directive.group_title.rawValue) {
                     group = tag.components(separatedBy: "=")[1]
                         .replacingOccurrences(of: "\"", with: "")
                         .replacingOccurrences(of: ",", with: "")
@@ -147,6 +147,6 @@ private extension M3U {
         case extm3u = "#EXTM3U"
         case extinf = "#EXTINF"
         case http
-        case title = "group-title="
+        case group_title = "group-title="
     }
 }

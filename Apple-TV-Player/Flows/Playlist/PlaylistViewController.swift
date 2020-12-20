@@ -14,11 +14,13 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var programmesStackView: UIStackView!
+    @IBOutlet private var timeLabel: UILabel!
     
     var playlist: Playlist?
     var programmes: IpTvProgrammesProvider?
     
     private var currentFocusPath: IndexPath?
+    private var timeUpdateTimer: Timer?
     
     private lazy var channelICO: ChannelICOProvider = ChannelICO(locale: "ru")
     private lazy var dataSource = DataSource(tableView: self.tableView) { [unowned self] tableView, indexPath, row in
@@ -33,6 +35,7 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
         super.viewDidLoad()
     
         configureTableView()
+        configureTimeLabel()
         loadPlaylist()
         programmes?.load { [weak self] error in
             if let error = error {
@@ -78,6 +81,20 @@ private extension PlaylistViewController {
         tableView.register(cellType: PlaylistChannelViewCell.self)
         tableView.delegate = self
         tableView.dataSource = dataSource
+    }
+    
+    func configureTimeLabel() {
+        timeLabel.text = nil
+        timeLabel.textColor = .tertiaryLabel
+    
+        timeLabel.text = Self.dateFormatter.string(from: .init())
+        timeUpdateTimer = .scheduledTimer(withTimeInterval: 60, repeats: true) { [weak self] timer in
+            guard let self = self else {
+                timer.invalidate()
+                return
+            }
+            self.timeLabel.text = Self.dateFormatter.string(from: .init())
+        }
     }
     
     func loadPlaylist() {

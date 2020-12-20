@@ -39,8 +39,8 @@ public enum IpTvProviderKind: Hashable {
         lhs.id == rhs.id
     }
     
-    private var resourcesName: String {
-        "ChannelsPackages.bundle"
+    internal var resourcesName: String {
+        "\(self.id.base).bundle"
     }
     
     private var bundle: Bundle {

@@ -34,7 +34,7 @@
 		822A58C42540AF4A0061813F /* AddPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822A58C32540AF4A0061813F /* AddPlaylistViewController.swift */; };
 		822A58CB2540C4CC0061813F /* plst.m3u in Resources */ = {isa = PBXBuildFile; fileRef = 822A58CA2540C4CC0061813F /* plst.m3u */; };
 		826BBC76256162E6003A69CA /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826BBC75256162E6003A69CA /* Channel.swift */; };
-		826BBC7F2561C299003A69CA /* ChannelsPackages.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 826BBC7E2561C299003A69CA /* ChannelsPackages.bundle */; };
+		826BBC7F2561C299003A69CA /* ru2090000.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 826BBC7E2561C299003A69CA /* ru2090000.bundle */; };
 		82742D24255FDC08001B2B25 /* ChannelPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82742D23255FDC08001B2B25 /* ChannelPlayerViewController.swift */; };
 		82742D28255FDC12001B2B25 /* ChannelPlayerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82742D27255FDC12001B2B25 /* ChannelPlayerViewController.storyboard */; };
 		828E3FEE253F67B2003D4EFC /* FileSystemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E3FED253F67B2003D4EFC /* FileSystemManager.swift */; };
@@ -148,7 +148,7 @@
 		822A58C32540AF4A0061813F /* AddPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistViewController.swift; sourceTree = "<group>"; };
 		822A58CA2540C4CC0061813F /* plst.m3u */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plst.m3u; sourceTree = "<group>"; };
 		826BBC75256162E6003A69CA /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
-		826BBC7E2561C299003A69CA /* ChannelsPackages.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ChannelsPackages.bundle; sourceTree = "<group>"; };
+		826BBC7E2561C299003A69CA /* ru2090000.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ru2090000.bundle; sourceTree = "<group>"; };
 		82742D23255FDC08001B2B25 /* ChannelPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelPlayerViewController.swift; sourceTree = "<group>"; };
 		82742D27255FDC12001B2B25 /* ChannelPlayerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChannelPlayerViewController.storyboard; sourceTree = "<group>"; };
 		828E3FED253F67B2003D4EFC /* FileSystemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemManager.swift; sourceTree = "<group>"; };
@@ -366,7 +366,7 @@
 		826BBC7D2561C264003A69CA /* 2090000 */ = {
 			isa = PBXGroup;
 			children = (
-				826BBC7E2561C299003A69CA /* ChannelsPackages.bundle */,
+				826BBC7E2561C299003A69CA /* ru2090000.bundle */,
 			);
 			path = 2090000;
 			sourceTree = "<group>";
@@ -843,7 +843,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8229F723257D45B200A9389E /* channels-ico-ru.bundle in Resources */,
-				826BBC7F2561C299003A69CA /* ChannelsPackages.bundle in Resources */,
+				826BBC7F2561C299003A69CA /* ru2090000.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

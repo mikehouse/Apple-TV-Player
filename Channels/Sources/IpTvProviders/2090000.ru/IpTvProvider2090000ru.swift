@@ -16,7 +16,7 @@ internal struct IpTvProvider2090000ru: IpTvProvider {
 
 internal extension IpTvProvider2090000ru {
     static func load(from bundle: Foundation.Bundle) throws -> Self {
-        let url: URL = bundle.url(forResource: bundleName, withExtension: nil)!
+        let url: URL = bundle.url(forResource: IpTvProviderKind.ru2090000.resourcesName, withExtension: nil)!
         let resources = Foundation.Bundle(url: url)!
         let playlistURL = resources.url(forResource: playlistName, withExtension: nil)!
         let m3uItems = try M3U(url: playlistURL).parse()
@@ -45,7 +45,6 @@ internal extension IpTvProvider2090000ru {
 }
 
 private extension IpTvProvider2090000ru {
-    static let bundleName = "ChannelsPackages.bundle"
     static let playlistName = "playlist.m3u"
 }
 

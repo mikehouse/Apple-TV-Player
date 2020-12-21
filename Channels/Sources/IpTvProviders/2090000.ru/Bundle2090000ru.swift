@@ -50,7 +50,9 @@ internal struct Bundle2090000ru: ChannelsBundle {
 
 internal extension Bundle2090000ru {
     static func load(in bundle: Bundle, of kind: Bundle2090000ruKind, adds: [M3UItem]) throws -> Self {
-        let url = bundle.url(forResource: kind.name, withExtension: "txt")!
+        let url = bundle.bundleURL
+            .appendingPathComponent(kind.name, isDirectory: false)
+            .appendingPathExtension("txt")
         let channels: [Channel2090000ru] = try String(contentsOf: url, encoding: .utf8)
             .components(separatedBy: .newlines)
             .compactMap { channel -> Channel2090000ru? in

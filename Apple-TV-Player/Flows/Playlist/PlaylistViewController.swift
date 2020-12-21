@@ -177,7 +177,9 @@ private extension PlaylistViewController {
                     if !hasEvening { hasEvening = time.hasPrefix("2") }
                     let isAfterMidNight = time.hasPrefix("0")
                     guard var date = Self.dateFormatter.date(from: time) else { continue }
-                    if hasEvening && isAfterMidNight {
+                    if hasEvening
+                        && isAfterMidNight
+                        && Calendar.current.component(.hour, from: now) > 20 {
                         date.addTimeInterval(60 * 60 * 24)
                     }
                     if now < date {

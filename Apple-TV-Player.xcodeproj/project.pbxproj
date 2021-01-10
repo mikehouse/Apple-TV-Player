@@ -57,6 +57,8 @@
 		82AD846D25703B8B006752B7 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD846C25703B8B006752B7 /* Playlist.swift */; };
 		82AD847525704277006752B7 /* Bundle2090000ru.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD847425704277006752B7 /* Bundle2090000ru.swift */; };
 		82AD847A257042B8006752B7 /* Playlist2090000ru.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD8479257042B8006752B7 /* Playlist2090000ru.swift */; };
+		82DAAEA125AB04C4006E296F /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DAAEA025AB04C4006E296F /* ContainerViewController.swift */; };
+		82DAAEA725AB0748006E296F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DAAEA625AB0748006E296F /* Logger.swift */; };
 		82DDEAF4253E1D2C00F3B1EE /* M3UItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DDEAF3253E1D2C00F3B1EE /* M3UItem.swift */; };
 		82DDEAF7253E1D4000F3B1EE /* M3U.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DDEAF6253E1D4000F3B1EE /* M3U.swift */; };
 		82DDEB06253E2A4300F3B1EE /* ChannelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DDEB05253E2A4300F3B1EE /* ChannelsTests.swift */; };
@@ -172,6 +174,8 @@
 		82AD846C25703B8B006752B7 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		82AD847425704277006752B7 /* Bundle2090000ru.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle2090000ru.swift; sourceTree = "<group>"; };
 		82AD8479257042B8006752B7 /* Playlist2090000ru.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist2090000ru.swift; sourceTree = "<group>"; };
+		82DAAEA025AB04C4006E296F /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		82DAAEA625AB0748006E296F /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		82DDEAF3253E1D2C00F3B1EE /* M3UItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3UItem.swift; sourceTree = "<group>"; };
 		82DDEAF6253E1D4000F3B1EE /* M3U.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3U.swift; sourceTree = "<group>"; };
 		82DDEB03253E2A4300F3B1EE /* ChannelsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChannelsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -442,6 +446,7 @@
 			children = (
 				828E4005253F7818003D4EFC /* TextInputViewController.swift */,
 				8229F71C257BD37600A9389E /* NoDataView.swift */,
+				82DAAEA025AB04C4006E296F /* ContainerViewController.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -493,6 +498,14 @@
 				8229F758257D5EE800A9389E /* ProgrammesFetcher2090000.swift */,
 			);
 			path = 2090000.ru;
+			sourceTree = "<group>";
+		};
+		82DAAEA525AB073B006E296F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				82DAAEA625AB0748006E296F /* Logger.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		82DDEAEF253E1BE400F3B1EE /* Parsers */ = {
@@ -603,6 +616,7 @@
 				828E4004253F77F7003D4EFC /* UIComponents */,
 				828E3FF3253F6EEB003D4EFC /* Flows */,
 				828E3FEC253F6778003D4EFC /* FileSystem */,
+				82DAAEA525AB073B006E296F /* Utils */,
 				82F3D2822538DCC90021BB2E /* Configuration */,
 				82F3D2812538DC8D0021BB2E /* Resources */,
 			);
@@ -935,6 +949,7 @@
 				82E82D78256A7D4E00E3D250 /* LocalStorage.swift in Sources */,
 				828E4020253F852F003D4EFC /* SettingsCellView.swift in Sources */,
 				82E82D3A256A5B2000E3D250 /* PiedPiper.swift in Sources */,
+				82DAAEA125AB04C4006E296F /* ContainerViewController.swift in Sources */,
 				82F0469E255EF9140052E2E8 /* PlaylistViewController.swift in Sources */,
 				820AC44C2572E43900932015 /* SelectProviderCellView.swift in Sources */,
 				82742D24255FDC08001B2B25 /* ChannelPlayerViewController.swift in Sources */,
@@ -944,6 +959,7 @@
 				828E4006253F7818003D4EFC /* TextInputViewController.swift in Sources */,
 				820AC46C2572E78500932015 /* ProviderCellView.swift in Sources */,
 				8229F74E257D573C00A9389E /* SettingsViewCell.swift in Sources */,
+				82DAAEA725AB0748006E296F /* Logger.swift in Sources */,
 				828E3FFD253F704B003D4EFC /* FailureViewController.swift in Sources */,
 				820AC4612572E57500932015 /* ProviderBundleViewController.swift in Sources */,
 				82F046A7255EFA8A0052E2E8 /* PlaylistChannelViewCell.swift in Sources */,

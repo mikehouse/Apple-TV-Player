@@ -45,11 +45,12 @@ final class ChannelPlayerViewController: UIViewController, StoryboardBased {
         super.viewWillDisappear(animated)
         
         if mediaPlayer.isPlaying {
-            mediaPlayer.stop()
+            mediaPlayer.pause()
         }
     }
     
     deinit {
+        mediaPlayer.stop()
         os_log(.debug, "deinit %s", String(describing: self))
     }
 }

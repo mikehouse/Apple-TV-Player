@@ -21,6 +21,7 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     
     private var currentFocusPath: IndexPath?
     private var timeUpdateTimer: Timer?
+    private weak var overlayPlayer: ChannelPlayerViewController?
     
     private lazy var channelICO: ChannelICOProvider = ChannelICO(locale: "ru")
     private lazy var dataSource = DataSource(tableView: self.tableView) { [unowned self] tableView, indexPath, row in
@@ -151,10 +152,74 @@ extension PlaylistViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if let channel = dataSource.itemIdentifier(for: indexPath) {
-            let videoPlayer = ChannelPlayerViewController.instantiate()
-            videoPlayer.url = channel.channel.stream
-            self.present(videoPlayer, animated: true)
+            let container = ContentVC()
+            container.delegate = self
+    
+            let overlay = overlayPlayer
+            overlay?.willMove(toParent: nil)
+            overlay?.view.removeFromSuperview()
+            overlay?.removeFromParent()
+            self.overlayPlayer = nil
+    
+            let videoPlayer: ChannelPlayerViewController
+            if overlay?.url == channel.channel.stream {
+                videoPlayer = overlay!
+            } else {
+                videoPlayer = ChannelPlayerViewController.instantiate()
+                videoPlayer.url = channel.channel.stream
+                videoPlayer.loadViewIfNeeded()
+            }
+            
+            container.context = videoPlayer
+            container.addChild(videoPlayer)
+            container.view.addSubview(videoPlayer.view)
+            videoPlayer.view.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                videoPlayer.view.topAnchor.constraint(equalTo: container.view.topAnchor),
+                videoPlayer.view.bottomAnchor.constraint(equalTo: container.view.bottomAnchor),
+                videoPlayer.view.leftAnchor.constraint(equalTo: container.view.leftAnchor),
+                videoPlayer.view.rightAnchor.constraint(equalTo: container.view.rightAnchor)
+            ])
+            videoPlayer.didMove(toParent: container)
+    
+            self.present(container, animated: true)
         }
+    }
+}
+
+extension PlaylistViewController: ContainerViewControllerDelegate {
+    func containerWillAppear(_ container: ContainerViewController) {
+    }
+    
+    func containerDidAppear(_ container: ContainerViewController) {
+    }
+    
+    func containerWillDisappear(_ container: ContainerViewController) {
+        guard let container = container as? ContentVC,
+              let playerVC = container.context else {
+            return
+        }
+    
+        playerVC.willMove(toParent: nil)
+        playerVC.view.removeFromSuperview()
+        playerVC.removeFromParent()
+    
+        let bounds = UIScreen.main.bounds
+        self.addChild(playerVC)
+        self.view.addSubview(playerVC.view)
+        playerVC.view.translatesAutoresizingMaskIntoConstraints = true
+        let width = bounds.width / 2.4
+        let height = bounds.height / 2.4
+        playerVC.view.frame = CGRect(
+            x: bounds.width - width - 64,
+            y: bounds.height - height - 44,
+            width: width, height: height)
+        playerVC.didMove(toParent: self)
+    
+        self.overlayPlayer = playerVC
+    }
+    
+    func containerDidDisappear(_ container: ContainerViewController) {
     }
 }
 
@@ -214,4 +279,8 @@ private extension PlaylistViewController {
         fmt.dateFormat = "HH:mm"
         return fmt
     }()
+}
+
+private class ContentVC: ContainerViewController {
+    weak var context: ChannelPlayerViewController?
 }

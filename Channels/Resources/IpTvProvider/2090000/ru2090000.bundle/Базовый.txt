@@ -1,5 +1,4 @@
 Мульт
-НТН24
 Уникум
 Мама
 TLC
@@ -40,7 +39,7 @@ Euronews
 Оружие
 Телекафе
 ТНТ4
-Супер
+Суббота
 Бобёр
 Тонус
 RU.TV
@@ -55,7 +54,6 @@ Europa Plus TV
 МАТЧ ТВ HD
 FOX HD
 FOX Life HD
-МИР Premium HD
 1HD Music Television
 Russia Today HD
 Russia Today Doc HD
@@ -70,3 +68,5 @@ Fan HD
 Наша Тема HD
 Новосибирские новости
 Ювелирия ТВ
+Глазами туриста HD
+Живая природа HD

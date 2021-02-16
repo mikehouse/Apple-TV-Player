@@ -41,29 +41,21 @@ internal final class ProgrammesFetcher2090000: IpTvProgrammesProvider {
 
 private extension ProgrammesFetcher2090000 {
     func fetch() {
-        let base = "https://2090000.ru/programma-peredach"
+        let base = "https://2090000.ru/programma-peredach/"
         os_log(.info, "fetching content of \(base) ...")
         let htmlURL = URL(string: base)!
         do {
             let html = try String(contentsOf: htmlURL, encoding: .utf8)
             let lines = html.components(separatedBy: .newlines)
             main: for (idx, line) in lines.enumerated() {
-                if line.contains("<h5>") {
-                    var channel = ""
-                    var counter = 0;
-                    while true {
-                        counter += 1
-                        if lines[idx - counter].contains("title=") {
-                            channel = lines[idx - counter]
-                                .components(separatedBy: "title=")[1]
-                                .components(separatedBy: "\"")[1]
-                            break
-                        } else if counter >= 3 {
-                            break main
-                        }
+                if line.contains("class=\"h5") {
+                    let channel = line
+                        .components(separatedBy: ">")[1]
+                        .components(separatedBy: "<")[0]
+                    if channel == "" {
+                        break main
                     }
-                    
-                    counter = 0
+                    var counter = 0
                     var list: [String] = []
                     while true {
                         counter += 1
@@ -88,6 +80,8 @@ private extension ProgrammesFetcher2090000 {
                     }
                     if !list.isEmpty {
                         Self.cache[channel] = list
+                    } else {
+                        os_log(.info, "No any programmes data found for channel \(channel).")
                     }
                 }
             }

@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="17506" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="18122" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="bW1-S3-6fG" rowHeight="88" style="IBUITableViewCellStyleDefault" id="fBs-An-CcD" customClass="SelectProviderCellView" customModule="Apple_TV_Player" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="664" height="88"/>
+        <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="KB6-NQ-Cbt" style="IBUITableViewCellStyleDefault" id="cPn-VZ-bCa" customClass="SelectProviderCellView" customModule="Apple_TV_Player" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="1920" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fBs-An-CcD" id="S0Q-fX-qc8" customClass="SelectProviderCellView" customModule="Apple_TV_Player" customModuleProvider="target">
-                <rect key="frame" x="0.0" y="0.0" width="664" height="88"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cPn-VZ-bCa" id="gO6-fH-s9A">
+                <rect key="frame" x="0.0" y="0.0" width="1920" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bW1-S3-6fG">
-                        <rect key="frame" x="100" y="0.0" width="544" height="88"/>
+                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KB6-NQ-Cbt">
+                        <rect key="frame" x="100" y="0.0" width="1720" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <fontDescription key="fontDescription" type="system" pointSize="38"/>
                         <nil key="textColor"/>
@@ -25,8 +24,7 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="1ks-Xo-ai1"/>
-            <point key="canvasLocation" x="-768" y="26"/>
+            <point key="canvasLocation" x="-512" y="114"/>
         </tableViewCell>
     </objects>
 </document>

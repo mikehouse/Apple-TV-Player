@@ -29,14 +29,20 @@ internal extension IpTvProvider2090000ru {
             "ТНТ HD",
             "Europa Plus TV",
             "СТС",
-            "Первый HD",
-            "ТНТ MUSIC",
+            "Дом кино",
+            "Кинокомедия",
+            "Кино ТВ HD",
             "СТС love",
-            "ЮТВ",
-            "Nickelodeon",
-            "Кухня ТВ",
-            "Русский детектив",
             "Настоящее страшное Телевидение",
+            "Еврокино",
+            "ТВ-3",
+            "Ю",
+            "Пятница",
+            "Disney Channel",
+            "Че!",
+            "Nickelodeon",
+            "Русский детектив",
+            "Первый HD"
         ].map(FavChannel.init(name:))
         return .init(bundles: bundles,
             baseBundles: bundles.filter({ base.contains($0.kind) }),
@@ -56,6 +62,6 @@ private final class FavChannel: Channel {
     
     init(name: String) {
         self.name = name
-        self.id = AnyHashable(name)
+        self.id = AnyHashable(name.lowercased())
     }
 }

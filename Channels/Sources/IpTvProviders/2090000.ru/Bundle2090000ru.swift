@@ -57,7 +57,13 @@ internal extension Bundle2090000ru {
             .components(separatedBy: .newlines)
             .compactMap { channel -> Channel2090000ru? in
                 guard !channel.isEmpty else { return nil }
-                guard let item = adds.first(where: { $0.title == channel }) else { return nil }
+                guard let item = adds.first(where: { m3u -> Bool in
+                    let title = m3u.title.lowercased()
+                    let ch = channel.lowercased()
+                    return title == ch || title.hasPrefix(ch)
+                }) else {
+                    return nil
+                }
                 return .init(name: channel, stream: item.url, group: item.group)
             }
         let playlist = Playlist2090000ru(channels: channels)

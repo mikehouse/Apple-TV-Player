@@ -11,7 +11,7 @@ internal struct ChannelDynamic: Channel, Hashable {
     let name: String
     let stream: URL
     let group: String?
-    var id: AnyHashable { AnyHashable(name) }
+    var id: AnyHashable { AnyHashable(name.lowercased()) }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)

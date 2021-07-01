@@ -17,7 +17,7 @@ TV1000
 TV1000 Русское кино
 TV1000 Action
 A1
-Sony Sci-Fi
+.sci-fi
 TV XXI
 Кинокомедия
 Русский детектив
@@ -58,7 +58,7 @@ FOX Life HD
 Russia Today HD
 Russia Today Doc HD
 Наша Сибирь HD
-Sony Channel HD
+.red HD
 Nickelodeon
 Fan HD
 В гостях у сказки
@@ -67,7 +67,6 @@ Fan HD
 Победа HD
 Наша Тема HD
 Новосибирские новости
-Ювелирия ТВ
 Глазами туриста HD
 Живая природа HD
 Мосфильм. Золотая коллекция HD

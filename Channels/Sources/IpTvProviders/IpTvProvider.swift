@@ -62,7 +62,9 @@ public enum IpTvProviderKind: Hashable {
     }
     
     public static func builtInProviders() -> [IpTvProviderKind] {
-        return [.ru2090000]
+        // Set your provider(s) here if needed.
+        // Disabled by default.
+        return []
     }
 }
 

@@ -56,7 +56,7 @@ private extension ProgrammesFetcher2090000 {
                         break main
                     }
                     var counter = 0
-                    var list: [String] = []
+                    let list = NSMutableOrderedSet()
                     while true {
                         counter += 1
                         if lines[idx + counter].contains("program__channel-time") {
@@ -71,15 +71,15 @@ private extension ProgrammesFetcher2090000 {
                                     .components(separatedBy: ">")[1]
                                     .components(separatedBy: "<")[0]
                                 counter += 1
-                                list.append("\(time) \(name)")
+                                list.add("\(time) \(name)")
                                 if lines[idx + counter + 2].trimmingCharacters(in: .whitespaces) == "</div>" {
                                     break
                                 }
                             }
                         }
                     }
-                    if !list.isEmpty {
-                        Self.cache[channel] = list
+                    if list.count != 0 {
+                        Self.cache[channel] = (list.array as! [String])
                     } else {
                         os_log(.info, "No any programmes data found for channel \(channel).")
                     }

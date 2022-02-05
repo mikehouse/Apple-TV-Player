@@ -11,12 +11,12 @@ http://tv.novotelecom.ru/channel/rossija/226/playlist.m3u8?sid=d2b0c90c6c93af38f
 
 #EXT-INETRA-CHANNEL-INF: channel-id=10338240 recordable=true
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=true access=allowed
-#EXTINF:-1 cn-id=10338240 cn-records=1, Матч ТВ
+#EXTINF:-1 cn-id=10338240 cn-records=1, МАТЧ ТВ HD
 http://tv.novotelecom.ru/channel/sport/210/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=10338229 recordable=true
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=true access=allowed
-#EXTINF:-1 cn-id=10338229 cn-records=1, НТВ
+#EXTINF:-1 cn-id=10338229 cn-records=1, НТВ HD
 http://tv.novotelecom.ru/channel/ntv/204/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=10338257 recordable=true
@@ -51,7 +51,7 @@ http://tv.novotelecom.ru/channel/tvc/217/playlist.m3u8?sid=d2b0c90c6c93af38fec4f
 
 #EXT-INETRA-CHANNEL-INF: channel-id=10338251 recordable=true
 #EXT-INETRA-STREAM-INF: has-timeshift=true access=allowed
-#EXTINF:-1 cn-id=10338251 cn-records=1, РЕН-ТВ
+#EXTINF:-1 cn-id=10338251 cn-records=1, РЕН ТВ
 http://tv.novotelecom.ru/channel/rentv/219/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=24984375 recordable=false
@@ -131,7 +131,7 @@ http://tv.novotelecom.ru/channel/soyuz/248/playlist.m3u8?sid=d2b0c90c6c93af38fec
 
 #EXT-INETRA-CHANNEL-INF: channel-id=84540928 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=false access=allowed
-#EXTINF:-1 cn-id=84540928 cn-records=0, Ювелирочка (тест)
+#EXTINF:-1 cn-id=84540928 cn-records=0, Ювелирочка
 http://tv.novotelecom.ru/channel/yuvelirochka/539/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=10338221 recordable=true
@@ -221,12 +221,12 @@ http://tv.novotelecom.ru/channel/indiatv/187/playlist.m3u8?sid=d2b0c90c6c93af38f
 
 #EXT-INETRA-CHANNEL-INF: channel-id=56370495 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=false access=denied
-#EXTINF:-1 cn-id=56370495 cn-records=0, Рыжий (тест)
+#EXTINF:-1 cn-id=56370495 cn-records=0, Рыжий
 http://tv.novotelecom.ru/channel/red/540/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=84540971 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=false access=denied
-#EXTINF:-1 cn-id=84540971 cn-records=0, Капитан Фантастика HD (тест)
+#EXTINF:-1 cn-id=84540971 cn-records=0, Капитан Фантастика HD
 http://tv.novotelecom.ru/channel/ginger_hd/523/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=26552789 recordable=false
@@ -296,13 +296,8 @@ http://tv.novotelecom.ru/channel/viasat_nature/543/playlist.m3u8?sid=d2b0c90c6c9
 
 #EXT-INETRA-CHANNEL-INF: channel-id=10338275 recordable=true
 #EXT-INETRA-STREAM-INF: has-timeshift=false access=allowed
-#EXTINF:-1 cn-id=10338275 cn-records=1, Discovery
+#EXTINF:-1 cn-id=10338275 cn-records=1, Discovery Channel HD
 http://tv.novotelecom.ru/channel/discovery/239/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
-
-#EXT-INETRA-CHANNEL-INF: channel-id=10338275 recordable=true
-#EXT-INETRA-STREAM-INF: aspect-ratio=16:9 access=allowed
-#EXTINF:-1 cn-id=10338275 cn-records=1, Discovery
-udp://@239.1.5.1:1234
 
 #EXT-INETRA-CHANNEL-INF: channel-id=10338241 recordable=true
 #EXT-INETRA-STREAM-INF: has-timeshift=true access=allowed
@@ -356,12 +351,12 @@ http://tv.novotelecom.ru/channel/da_vinci/241/playlist.m3u8?sid=d2b0c90c6c93af38
 
 #EXT-INETRA-CHANNEL-INF: channel-id=26739939 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=false access=allowed
-#EXTINF:-1 cn-id=26739939 cn-records=0, Зоо ТВ (тест)
+#EXTINF:-1 cn-id=26739939 cn-records=0, Зоо ТВ
 http://tv.novotelecom.ru/channel/zoo_tv/576/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=108225537 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=false access=allowed
-#EXTINF:-1 cn-id=108225537 cn-records=0, Наша Тема HD (тест)
+#EXTINF:-1 cn-id=108225537 cn-records=0, Наша Тема HD
 http://tv.novotelecom.ru/channel/nasha_tema/620/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=24979773 recordable=false
@@ -391,12 +386,12 @@ http://tv.novotelecom.ru/channel/amedia1/372/playlist.m3u8?sid=d2b0c90c6c93af38f
 
 #EXT-INETRA-CHANNEL-INF: channel-id=10338271 recordable=true
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=true access=allowed
-#EXTINF:-1 cn-id=10338271 cn-records=1, Sony Sci-Fi
+#EXTINF:-1 cn-id=10338271 cn-records=1, .sci-fi
 http://tv.novotelecom.ru/channel/sonyscifi/237/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=10338200 recordable=true
 #EXT-INETRA-STREAM-INF: has-timeshift=true access=allowed
-#EXTINF:-1 cn-id=10338200 cn-records=1, TVXXI
+#EXTINF:-1 cn-id=10338200 cn-records=1, TV XXI
 http://tv.novotelecom.ru/channel/tv21/285/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=10338218 recordable=true
@@ -431,22 +426,22 @@ http://tv.novotelecom.ru/channel/dom_kino/262/playlist.m3u8?sid=d2b0c90c6c93af38
 
 #EXT-INETRA-CHANNEL-INF: channel-id=24969932 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=4:3 has-timeshift=false access=allowed
-#EXTINF:-1 cn-id=24969932 cn-records=0, Еврокино (тест)
+#EXTINF:-1 cn-id=24969932 cn-records=0, Еврокино
 http://tv.novotelecom.ru/channel/eurokino/553/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=26552832 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=false access=allowed
-#EXTINF:-1 cn-id=26552832 cn-records=0, Иллюзион+ (тест)
+#EXTINF:-1 cn-id=26552832 cn-records=0, Иллюзион+
 http://tv.novotelecom.ru/channel/illyuzion/578/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=26424378 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=false access=allowed
-#EXTINF:-1 cn-id=26424378 cn-records=0, Кинопоказ (тест)
+#EXTINF:-1 cn-id=26424378 cn-records=0, Кинопоказ
 http://tv.novotelecom.ru/channel/kinopokaz/577/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=114150042 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=4:3 has-timeshift=false access=allowed
-#EXTINF:-1 cn-id=114150042 cn-records=0, Дорама (тест)
+#EXTINF:-1 cn-id=114150042 cn-records=0, Дорама
 http://tv.novotelecom.ru/channel/dorama/586/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=24972131 recordable=false
@@ -501,7 +496,7 @@ http://tv.novotelecom.ru/channel/sony_turbo/593/playlist.m3u8?sid=d2b0c90c6c93af
 
 #EXT-INETRA-CHANNEL-INF: channel-id=152098339 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=true access=allowed
-#EXTINF:-1 cn-id=152098339 cn-records=0, Fan HD (тест)
+#EXTINF:-1 cn-id=152098339 cn-records=0, Fan HD
 http://tv.novotelecom.ru/channel/fan_hd/605/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=106647474 recordable=false
@@ -521,7 +516,7 @@ http://tv.novotelecom.ru/channel/region_tv/561/playlist.m3u8?sid=d2b0c90c6c93af3
 
 #EXT-INETRA-CHANNEL-INF: channel-id=84605466 recordable=true
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=true access=allowed
-#EXTINF:-1 cn-id=84605466 cn-records=1, Новосибирские новости
+#EXTINF:-1 cn-id=84605466 cn-records=1, Новосибирские новости HD
 http://tv.novotelecom.ru/channel/nsknews/642/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=10338220 recordable=true
@@ -566,7 +561,7 @@ http://tv.novotelecom.ru/channel/hafi/194/playlist.m3u8?sid=d2b0c90c6c93af38fec4
 
 #EXT-INETRA-CHANNEL-INF: channel-id=53342751 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=4:3 has-timeshift=false access=allowed
-#EXTINF:-1 cn-id=53342751 cn-records=0, КтоКуда (тест)
+#EXTINF:-1 cn-id=53342751 cn-records=0, #КтоКуда
 http://tv.novotelecom.ru/channel/mir_uvlecheniy/360/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=10338202 recordable=true
@@ -596,7 +591,7 @@ http://tv.novotelecom.ru/channel/uspex/280/playlist.m3u8?sid=d2b0c90c6c93af38fec
 
 #EXT-INETRA-CHANNEL-INF: channel-id=10338210 recordable=true
 #EXT-INETRA-STREAM-INF: aspect-ratio=4:3 has-timeshift=true access=allowed
-#EXTINF:-1 cn-id=10338210 cn-records=1, Ретро (тест)
+#EXTINF:-1 cn-id=10338210 cn-records=1, Ретро
 http://tv.novotelecom.ru/channel/retro/493/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=17406754 recordable=true
@@ -621,7 +616,7 @@ http://tv.novotelecom.ru/channel/tnt4/563/playlist.m3u8?sid=d2b0c90c6c93af38fec4
 
 #EXT-INETRA-CHANNEL-INF: channel-id=115252710 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=4:3 has-timeshift=false access=allowed
-#EXTINF:-1 cn-id=115252710 cn-records=0, Супер (тест)
+#EXTINF:-1 cn-id=115252710 cn-records=0, Супер
 http://tv.novotelecom.ru/channel/super/587/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=58456799 recordable=false
@@ -631,12 +626,12 @@ http://tv.novotelecom.ru/channel/bobyor/547/playlist.m3u8?sid=d2b0c90c6c93af38fe
 
 #EXT-INETRA-CHANNEL-INF: channel-id=26105598 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=false access=allowed
-#EXTINF:-1 cn-id=26105598 cn-records=0, Тонус (тест)
+#EXTINF:-1 cn-id=26105598 cn-records=0, Тонус
 http://tv.novotelecom.ru/channel/tonus_tv/564/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=32657559 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=false access=allowed
-#EXTINF:-1 cn-id=32657559 cn-records=0, Театр (тест)
+#EXTINF:-1 cn-id=32657559 cn-records=0, Театр
 http://tv.novotelecom.ru/channel/teatr/566/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=70096620 recordable=true
@@ -656,7 +651,7 @@ http://tv.novotelecom.ru/channel/musboxru/209/playlist.m3u8?sid=d2b0c90c6c93af38
 
 #EXT-INETRA-CHANNEL-INF: channel-id=10338280 recordable=true
 #EXT-INETRA-STREAM-INF: crop=0:95 has-timeshift=true access=allowed
-#EXTINF:-1 cn-id=10338280 cn-records=1, Bridge TV
+#EXTINF:-1 cn-id=10338280 cn-records=1, BRIDGE
 http://tv.novotelecom.ru/channel/bridge/244/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=17025835 recordable=false
@@ -666,7 +661,7 @@ http://tv.novotelecom.ru/channel/shanson/251/playlist.m3u8?sid=d2b0c90c6c93af38f
 
 #EXT-INETRA-CHANNEL-INF: channel-id=26552802 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=false access=allowed
-#EXTINF:-1 cn-id=26552802 cn-records=0, Bridge TV Русский хит
+#EXTINF:-1 cn-id=26552802 cn-records=0, BRIDGE РУССКИЙ ХИТ
 http://tv.novotelecom.ru/channel/rusong_tv/362/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=17406909 recordable=false
@@ -676,7 +671,7 @@ http://tv.novotelecom.ru/channel/europaplustv/297/playlist.m3u8?sid=d2b0c90c6c93
 
 #EXT-INETRA-CHANNEL-INF: channel-id=26106266 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=true access=allowed
-#EXTINF:-1 cn-id=26106266 cn-records=0, MTV Club (тест)
+#EXTINF:-1 cn-id=26106266 cn-records=0, MTV Club
 http://tv.novotelecom.ru/channel/mtv_dance/351/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=17406852 recordable=true
@@ -736,7 +731,7 @@ http://tv.novotelecom.ru/channel/futbol/198/playlist.m3u8?sid=d2b0c90c6c93af38fe
 
 #EXT-INETRA-CHANNEL-INF: channel-id=10338196 recordable=true
 #EXT-INETRA-STREAM-INF: has-timeshift=true access=allowed
-#EXTINF:-1 cn-id=10338196 cn-records=1, КХЛ
+#EXTINF:-1 cn-id=10338196 cn-records=1, КХЛ ТВ
 http://tv.novotelecom.ru/channel/khl/195/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=26105584 recordable=true
@@ -816,7 +811,7 @@ http://tv.novotelecom.ru/channel/eurosport_hd/418/playlist.m3u8?sid=d2b0c90c6c93
 
 #EXT-INETRA-CHANNEL-INF: channel-id=60995105 recordable=true
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=true access=allowed
-#EXTINF:-1 cn-id=60995105 cn-records=1, Матч HD (тест)
+#EXTINF:-1 cn-id=60995105 cn-records=1, Матч HD
 http://tv.novotelecom.ru/channel/match_tv_hd/419/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=15127777 recordable=true
@@ -884,11 +879,6 @@ udp://@239.1.17.17:1234
 #EXTINF:-1 cn-id=19343500 cn-records=1, Animal Planet HD
 http://tv.novotelecom.ru/channel/animal_family_hd/409/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
-#EXT-INETRA-CHANNEL-INF: channel-id=19343500 recordable=true
-#EXT-INETRA-STREAM-INF: access=denied
-#EXTINF:-1 cn-id=19343500 cn-records=1, Animal Planet HD
-udp://@239.1.17.16:1234
-
 #EXT-INETRA-CHANNEL-INF: channel-id=10338213 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=false access=denied
 #EXTINF:-1 cn-id=10338213 cn-records=0, National Geographic HD
@@ -901,7 +891,7 @@ http://tv.novotelecom.ru/channel/nat_geo_wild_hd/407/playlist.m3u8?sid=d2b0c90c6
 
 #EXT-INETRA-CHANNEL-INF: channel-id=16811031 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=false access=denied
-#EXTINF:-1 cn-id=16811031 cn-records=0, Travel Adventure HD
+#EXTINF:-1 cn-id=16811031 cn-records=0, Travel+Adventure HD
 http://tv.novotelecom.ru/channel/travel_adventure_hd/404/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=24646020 recordable=false
@@ -966,12 +956,12 @@ http://tv.novotelecom.ru/channel/nasha_sibir_hd/532/playlist.m3u8?sid=d2b0c90c6c
 
 #EXT-INETRA-CHANNEL-INF: channel-id=115728719 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=true access=denied
-#EXTINF:-1 cn-id=115728719 cn-records=0, Home 4K (тест)
+#EXTINF:-1 cn-id=115728719 cn-records=0, Home 4K
 http://tv.novotelecom.ru/channel/home_4k/640/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=122887256 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=true access=denied
-#EXTINF:-1 cn-id=122887256 cn-records=0, Наша Сибирь 4K (тест)
+#EXTINF:-1 cn-id=122887256 cn-records=0, Наша Сибирь 4K
 http://tv.novotelecom.ru/channel/nasha_sibir_4k/639/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=19854723 recordable=false
@@ -981,7 +971,7 @@ http://tv.novotelecom.ru/channel/set_hd/411/playlist.m3u8?sid=d2b0c90c6c93af38fe
 
 #EXT-INETRA-CHANNEL-INF: channel-id=26552792 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=false access=denied
-#EXTINF:-1 cn-id=26552792 cn-records=0, Nickelodeon HD (тест)
+#EXTINF:-1 cn-id=26552792 cn-records=0, Nickelodeon HD
 http://tv.novotelecom.ru/channel/nickelodeon_hd/406/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=15127974 recordable=false
@@ -1011,22 +1001,22 @@ http://tv.novotelecom.ru/channel/sdelano_v_kuzbasse_hd/533/playlist.m3u8?sid=d2b
 
 #EXT-INETRA-CHANNEL-INF: channel-id=36843506 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=false access=denied
-#EXTINF:-1 cn-id=36843506 cn-records=0, В мире животных HD (тест)
+#EXTINF:-1 cn-id=36843506 cn-records=0, В мире животных HD
 http://tv.novotelecom.ru/channel/animal_family_hd/521/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=40466023 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=false access=denied
-#EXTINF:-1 cn-id=40466023 cn-records=0, Eureka HD (тест)
+#EXTINF:-1 cn-id=40466023 cn-records=0, Eureka HD
 http://tv.novotelecom.ru/channel/hd_eureka/522/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=49453087 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=false access=allowed
-#EXTINF:-1 cn-id=49453087 cn-records=0, Amedia HIT HD (тест)
+#EXTINF:-1 cn-id=49453087 cn-records=0, Amedia HIT HD
 http://tv.novotelecom.ru/channel/amedia_hit/535/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=49743376 recordable=false
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=false access=denied
-#EXTINF:-1 cn-id=49743376 cn-records=0, Discovery Science HD
+#EXTINF:-1 cn-id=49743376 cn-records=0, Discovery Science
 http://tv.novotelecom.ru/channel/discovery_science_hd/626/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=183601575 recordable=false

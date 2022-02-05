@@ -44,9 +44,9 @@ Euronews
 Тонус
 RU.TV
 Russian Music Box
-Bridge TV
+BRIDGE
 Шансон ТВ
-Bridge TV Русский Хит
+BRIDGE РУССКИЙ ХИТ
 Europa Plus TV
 Ля-Минор
 Футбол
@@ -66,7 +66,7 @@ Fan HD
 ЖАРА
 Победа HD
 Наша Тема HD
-Новосибирские новости
+Новосибирские новости HD
 Глазами туриста HD
 Живая природа HD
 Мосфильм. Золотая коллекция HD

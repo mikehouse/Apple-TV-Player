@@ -60,7 +60,7 @@ internal extension Bundle2090000ru {
                 guard let item = adds.first(where: { m3u -> Bool in
                     let title = m3u.title.lowercased()
                     let ch = channel.lowercased()
-                    return title == ch || title.hasPrefix(ch)
+                    return title == ch || title.hasPrefix(ch) || ch.hasPrefix(title)
                 }) else {
                     return nil
                 }

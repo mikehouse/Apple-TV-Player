@@ -136,7 +136,7 @@ http://tv.novotelecom.ru/channel/yuvelirochka/539/playlist.m3u8?sid=d2b0c90c6c93
 
 #EXT-INETRA-CHANNEL-INF: channel-id=10338221 recordable=true
 #EXT-INETRA-STREAM-INF: aspect-ratio=16:9 has-timeshift=true access=allowed
-#EXTINF:-1 cn-id=10338221 cn-records=1, Че
+#EXTINF:-1 cn-id=10338221 cn-records=1, Че!
 http://tv.novotelecom.ru/channel/perec/201/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1
 
 #EXT-INETRA-CHANNEL-INF: channel-id=24980068 recordable=true

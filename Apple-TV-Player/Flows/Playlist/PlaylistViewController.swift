@@ -15,7 +15,8 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var programmesStackView: UIStackView!
     @IBOutlet private var timeLabel: UILabel!
-    
+    @IBOutlet private var channelNameLabel: UILabel!
+
     var playlist: Playlist?
     var programmes: IpTvProgrammesProvider?
     
@@ -85,8 +86,8 @@ private extension PlaylistViewController {
     }
     
     func configureTimeLabel() {
+        channelNameLabel.text = nil
         timeLabel.text = nil
-        timeLabel.textColor = .tertiaryLabel
     
         timeLabel.text = Self.dateFormatter.string(from: .init())
         timeUpdateTimer = .scheduledTimer(withTimeInterval: 60, repeats: true) { [weak self] timer in
@@ -96,6 +97,15 @@ private extension PlaylistViewController {
             }
             self.timeLabel.text = Self.dateFormatter.string(from: .init())
         }
+    }
+
+    func setChannel(name: String) {
+        let suffixes = ["[Not 24/7]", "[Geo-blocked]"]
+        for suffix in suffixes where name.hasSuffix(suffix) {
+            channelNameLabel.text = String(name.dropLast(suffix.count))
+            return
+        }
+        channelNameLabel.text = name
     }
     
     func loadPlaylist() {
@@ -168,6 +178,7 @@ extension PlaylistViewController: UITableViewDelegate {
                 videoPlayer = ChannelPlayerViewController.instantiate()
                 videoPlayer.url = channel.channel.stream
                 videoPlayer.loadViewIfNeeded()
+                setChannel(name: channel.channel.name)
             }
             
             container.context = videoPlayer

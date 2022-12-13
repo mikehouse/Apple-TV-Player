@@ -9,15 +9,17 @@ import Foundation
 
 internal struct ChannelDynamic: Channel, Hashable {
     let name: String
+    let original: String
+    let short: String
     let stream: URL
     let group: String?
-    var id: AnyHashable { AnyHashable(name.lowercased()) }
+    var id: AnyHashable { AnyHashable(stream) }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
+        hasher.combine(stream)
     }
     
     static func ==(lhs: ChannelDynamic, rhs: ChannelDynamic) -> Bool {
-        return lhs.id == rhs.id
+        return lhs.stream == rhs.stream
     }
 }

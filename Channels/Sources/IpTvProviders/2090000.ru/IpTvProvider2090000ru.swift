@@ -56,12 +56,16 @@ private extension IpTvProvider2090000ru {
 
 private final class FavChannel: Channel {
     let name: String
+    let original: String
+    let short: String
     let id: AnyHashable
     var stream: URL {fatalError()}
     var group: String? = nil
     
     init(name: String) {
         self.name = name
+        self.original = name
+        self.short = name
         self.id = AnyHashable(name.lowercased())
     }
 }

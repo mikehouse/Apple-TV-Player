@@ -176,6 +176,7 @@
 		82AD847425704277006752B7 /* Bundle2090000ru.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle2090000ru.swift; sourceTree = "<group>"; };
 		82AD8479257042B8006752B7 /* Playlist2090000ru.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist2090000ru.swift; sourceTree = "<group>"; };
 		82C56DC02947096B00DA4585 /* another.m3u */ = {isa = PBXFileReference; lastKnownFileType = text; path = another.m3u; sourceTree = "<group>"; };
+		82C56DC429484E5C00DA4585 /* playlist_ru_download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playlist_ru_download.swift; sourceTree = "<group>"; };
 		82DAAEA025AB04C4006E296F /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		82DAAEA625AB0748006E296F /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		82DDEAF3253E1D2C00F3B1EE /* M3UItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3UItem.swift; sourceTree = "<group>"; };
@@ -336,6 +337,7 @@
 		8229F738257D51C800A9389E /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				82C56DC429484E5C00DA4585 /* playlist_ru_download.swift */,
 				8229F739257D520C00A9389E /* 2090000ruICODownloader.swift */,
 				8200BBC5258604450056EE0F /* 2090000ruBundlesDownloader.swift */,
 				8200BBC6258604AB0056EE0F /* README.md */,

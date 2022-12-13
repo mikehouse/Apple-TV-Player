@@ -80,7 +80,8 @@ internal extension Bundle2090000ru {
                 }) else {
                     return nil
                 }
-                return .init(name: channel, stream: item.url, group: item.group)
+                return .init(name: channel, original: channel,
+                    short: channel, stream: item.url, group: item.group)
             }
         let playlist = Playlist2090000ru(channels: channels)
         return .init(kind: kind, playlist: playlist)

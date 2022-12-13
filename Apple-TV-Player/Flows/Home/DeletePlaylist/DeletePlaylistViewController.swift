@@ -12,6 +12,7 @@ final class DeletePlaylistViewController: UIAlertController {
     var deleteAction: ((Bool) -> Void)?
 
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         let delete = UIAlertAction.init(title: "Delete playlist ?", style: .destructive) { [weak self] action in
             self?.deleteAction?(true)
@@ -22,7 +23,5 @@ final class DeletePlaylistViewController: UIAlertController {
         
         addAction(delete)
         addAction(cancel)
-        
-        super.viewDidLoad()
     }
 }

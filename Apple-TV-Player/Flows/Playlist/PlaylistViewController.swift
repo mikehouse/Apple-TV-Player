@@ -98,15 +98,6 @@ private extension PlaylistViewController {
             self.timeLabel.text = Self.dateFormatter.string(from: .init())
         }
     }
-
-    func setChannel(name: String) {
-        let suffixes = ["[Not 24/7]", "[Geo-blocked]"]
-        for suffix in suffixes where name.hasSuffix(suffix) {
-            channelNameLabel.text = String(name.dropLast(suffix.count))
-            return
-        }
-        channelNameLabel.text = name
-    }
     
     func loadPlaylist() {
         DispatchQueue.global(qos: .userInitiated).async {
@@ -178,7 +169,7 @@ extension PlaylistViewController: UITableViewDelegate {
                 videoPlayer = ChannelPlayerViewController.instantiate()
                 videoPlayer.url = channel.channel.stream
                 videoPlayer.loadViewIfNeeded()
-                setChannel(name: channel.channel.name)
+                channelNameLabel.text = channel.channel.original
             }
             
             container.context = videoPlayer

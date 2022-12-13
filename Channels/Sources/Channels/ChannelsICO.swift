@@ -36,7 +36,7 @@ private struct ChannelsICO {
     private static let options = [kCGImageSourceShouldCache as String: kCFBooleanFalse] as CFDictionary
     
     static func ico(for channel: Channel, locale: String = "ru") -> CGImage? {
-        let key = channel.id
+        let key = channel.short
         if let image = cache[key] {
             return image
         } else if cache.index(forKey: key) != nil {
@@ -44,13 +44,13 @@ private struct ChannelsICO {
         } else {
             guard let resourcesURL = bundle.url(forResource: "channels-ico-\(locale)", withExtension: "bundle"),
                   let resources = Bundle(url: resourcesURL),
-                  let imageURL = resources.url(forResource: channel.name, withExtension: "png"),
+                  let imageURL = resources.url(forResource: channel.short, withExtension: "png"),
                   let source = CGImageSourceCreateWithURL(imageURL as CFURL, options),
                   let image = CGImageSourceCreateImageAtIndex(source, 0, nil) else {
-                cache[channel.id] = .none
+                cache[key] = .none
                 return nil
             }
-            cache[channel.id] = image
+            cache[key] = image
             return image
         }
     }

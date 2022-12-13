@@ -8,7 +8,12 @@
 import Foundation
 
 public protocol Channel {
+    // ex. "Bollywood HD (1080p) [Not 24/7] [Geo-blocked]"
     var name: String {get}
+    // ex. "Bollywood HD"
+    var original: String {get}
+    // ex. "Bollywood"
+    var short: String {get}
     var id: AnyHashable {get}
     var stream: URL {get}
     var group: String? {get}

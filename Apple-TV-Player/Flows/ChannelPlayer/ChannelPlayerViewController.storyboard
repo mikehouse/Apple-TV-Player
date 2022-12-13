@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="17156" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YR3-dy-rEk">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="21225" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YR3-dy-rEk">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -51,8 +53,16 @@
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="s0I-t3-FZs">
                                                     <rect key="frame" x="928" y="508" width="64" height="64"/>
                                                 </activityIndicatorView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GL2-Z1-P9J">
+                                                    <rect key="frame" x="924.5" y="604" width="71" height="35"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="GL2-Z1-P9J" firstAttribute="centerX" secondItem="ots-NG-gn3" secondAttribute="centerX" id="Bae-gF-UFi"/>
+                                                <constraint firstItem="GL2-Z1-P9J" firstAttribute="top" secondItem="s0I-t3-FZs" secondAttribute="bottom" constant="32" id="Siu-0Q-UNh"/>
                                                 <constraint firstItem="s0I-t3-FZs" firstAttribute="centerY" secondItem="ots-NG-gn3" secondAttribute="centerY" id="aSR-2Y-alb"/>
                                                 <constraint firstItem="s0I-t3-FZs" firstAttribute="centerX" secondItem="ots-NG-gn3" secondAttribute="centerX" id="sJV-ZF-ibn"/>
                                             </constraints>
@@ -87,6 +97,7 @@
                     </view>
                     <connections>
                         <outlet property="blurView" destination="HCs-WL-iiG" id="aTH-cv-Esj"/>
+                        <outlet property="blurViewLabel" destination="GL2-Z1-P9J" id="4Mm-93-YDX"/>
                         <outlet property="errorLabel" destination="kpL-Rw-Lqk" id="udD-hh-Kub"/>
                         <outlet property="playerView" destination="keK-gn-fEB" id="5IW-1D-nLt"/>
                     </connections>
@@ -96,4 +107,9 @@
             <point key="canvasLocation" x="1536" y="-186"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

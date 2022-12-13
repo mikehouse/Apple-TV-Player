@@ -14,6 +14,7 @@ final class ChannelPlayerViewController: UIViewController, StoryboardBased {
     
     @IBOutlet private var playerView: UIView!
     @IBOutlet private var blurView: UIView!
+    @IBOutlet private var blurViewLabel: UILabel!
     @IBOutlet private var errorLabel: UILabel!
     
     var url: URL?
@@ -27,7 +28,9 @@ final class ChannelPlayerViewController: UIViewController, StoryboardBased {
             mediaPlayer.media = VLCMedia(url: url)
             mediaPlayer.drawable = playerView
             mediaPlayer.delegate = self
+            blurViewLabel.text = url.absoluteString
         } else {
+            blurViewLabel.text = ""
             playerView.isHidden = true
             errorLabel.text = "No channel URL found."
         }

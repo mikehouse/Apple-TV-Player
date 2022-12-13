@@ -75,4 +75,25 @@ final class ChannelsTests: XCTestCase {
             XCTAssertEqual(m3u.items.last, expected)
         }
     }
+    
+    func testParseM3UAnother() throws {
+        let url = Bundle(for: type(of: self)).url(forResource: "another", withExtension: "m3u")!
+        let m3u = M3U(url: url)
+        try m3u.parse()
+        do {
+            let expected = M3UItem(
+                title: "1HD Music Television (404p) [Not 24/7]",
+                url: URL(string: "https://sc.id-tv.kz/1hd.m3u8")!,
+                group: "Music")
+            XCTAssertEqual(m3u.items.first, expected)
+        }
+        
+        do {
+            let expected = M3UItem(
+                title: "Страна FM HD",
+                url: URL(string: "http://live.stranafm.cdnvideo.ru/stranafm/stranafm_hd.sdp/playlist.m3u8")!,
+                group: "HD")
+            XCTAssertEqual(m3u.items.last, expected)
+        }
+    }
 }

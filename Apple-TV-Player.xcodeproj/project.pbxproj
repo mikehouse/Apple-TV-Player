@@ -57,6 +57,7 @@
 		82AD846D25703B8B006752B7 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD846C25703B8B006752B7 /* Playlist.swift */; };
 		82AD847525704277006752B7 /* Bundle2090000ru.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD847425704277006752B7 /* Bundle2090000ru.swift */; };
 		82AD847A257042B8006752B7 /* Playlist2090000ru.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD8479257042B8006752B7 /* Playlist2090000ru.swift */; };
+		82C56DC12947096B00DA4585 /* another.m3u in Resources */ = {isa = PBXBuildFile; fileRef = 82C56DC02947096B00DA4585 /* another.m3u */; };
 		82DAAEA125AB04C4006E296F /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DAAEA025AB04C4006E296F /* ContainerViewController.swift */; };
 		82DAAEA725AB0748006E296F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DAAEA625AB0748006E296F /* Logger.swift */; };
 		82DDEAF4253E1D2C00F3B1EE /* M3UItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DDEAF3253E1D2C00F3B1EE /* M3UItem.swift */; };
@@ -174,6 +175,7 @@
 		82AD846C25703B8B006752B7 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		82AD847425704277006752B7 /* Bundle2090000ru.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle2090000ru.swift; sourceTree = "<group>"; };
 		82AD8479257042B8006752B7 /* Playlist2090000ru.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist2090000ru.swift; sourceTree = "<group>"; };
+		82C56DC02947096B00DA4585 /* another.m3u */ = {isa = PBXFileReference; lastKnownFileType = text; path = another.m3u; sourceTree = "<group>"; };
 		82DAAEA025AB04C4006E296F /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		82DAAEA625AB0748006E296F /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		82DDEAF3253E1D2C00F3B1EE /* M3UItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3UItem.swift; sourceTree = "<group>"; };
@@ -531,6 +533,7 @@
 				82E82D85256A93EF00E3D250 /* Configuration */,
 				822A58CA2540C4CC0061813F /* plst.m3u */,
 				82DDEB10253E2A8F00F3B1EE /* android.m3u8 */,
+				82C56DC02947096B00DA4585 /* another.m3u */,
 				82DDEB05253E2A4300F3B1EE /* ChannelsTests.swift */,
 				82DDEB07253E2A4400F3B1EE /* Info.plist */,
 				8209A4C8258F5F51000F40ED /* ru-free-pls.m3u */,
@@ -830,6 +833,7 @@
 				822A58CB2540C4CC0061813F /* plst.m3u in Resources */,
 				8209A4C9258F5F51000F40ED /* ru-free-pls.m3u in Resources */,
 				82DDEB11253E2A8F00F3B1EE /* android.m3u8 in Resources */,
+				82C56DC12947096B00DA4585 /* another.m3u in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

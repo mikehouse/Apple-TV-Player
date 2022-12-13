@@ -124,7 +124,16 @@ public extension M3U {
                     title = tag.trimmingCharacters(in: .whitespaces)
                 }
             }
-            i += 1
+            do {
+                i += 1
+                guard i < lines.count else {
+                    break
+                }
+                let next = lines[i].replacingOccurrences(of: " ", with: "")
+                if next.hasPrefix(Directive.grp.rawValue) {
+                    i += 1
+                }
+            }
             guard i < lines.count else {
                 break
             }
@@ -146,6 +155,7 @@ private extension M3U {
     enum Directive: String {
         case extm3u = "#EXTM3U"
         case extinf = "#EXTINF"
+        case grp = "#EXTGRP"
         case http
         case group_title = "group-title="
     }

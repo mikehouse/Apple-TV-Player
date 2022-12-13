@@ -124,13 +124,14 @@ public extension M3U {
                     title = tag.trimmingCharacters(in: .whitespaces)
                 }
             }
-            do {
-                i += 1
+            i += 1
+            let skip = [Directive.grp, .vlcopt]
+            for _ in skip {
                 guard i < lines.count else {
                     break
                 }
                 let next = lines[i].replacingOccurrences(of: " ", with: "")
-                if next.hasPrefix(Directive.grp.rawValue) {
+                if skip.filter({ next.hasPrefix($0.rawValue) }).isEmpty == false {
                     i += 1
                 }
             }
@@ -156,6 +157,7 @@ private extension M3U {
         case extm3u = "#EXTM3U"
         case extinf = "#EXTINF"
         case grp = "#EXTGRP"
+        case vlcopt = "#EXTVLCOPT"
         case http
         case group_title = "group-title="
     }

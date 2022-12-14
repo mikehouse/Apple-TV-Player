@@ -111,6 +111,7 @@ public extension M3U {
                 }
             }
             var group: String?
+            var logoURL: URL?
             var title: String = NSLocalizedString("title not found.", comment: "")
             let nsstring = line as NSString
             for range in tags {
@@ -120,6 +121,13 @@ public extension M3U {
                         .replacingOccurrences(of: "\"", with: "")
                         .replacingOccurrences(of: ",", with: "")
                     group = group.map({ $0.trimmingCharacters(in: .whitespaces) })
+                } else if tag.contains(M3U.Directive.tvg_logo.rawValue) {
+                    var logo: String = tag.components(separatedBy: "=")[1]
+                        .replacingOccurrences(of: "\"", with: "")
+                    logo = logo.trimmingCharacters(in: .whitespaces)
+                    if logo.hasPrefix("http") {
+                        logoURL = URL(string: logo)
+                    }
                 } else if !tag.contains("=") {
                     title = tag.trimmingCharacters(in: .whitespaces)
                 }
@@ -143,7 +151,7 @@ public extension M3U {
                   let url = URL(string: http) else {
                 continue
             }
-            let item = M3UItem(title: title, url: url, group: group)
+            let item = M3UItem(title: title, url: url, group: group, logo: logoURL)
             items.append(item)
         }
         
@@ -160,5 +168,6 @@ private extension M3U {
         case vlcopt = "#EXTVLCOPT"
         case http
         case group_title = "group-title="
+        case tvg_logo = "tvg-logo="
     }
 }

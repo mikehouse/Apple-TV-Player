@@ -275,7 +275,7 @@ extension HomeViewController: UITableViewDelegate {
                     "Add playlist url (required) and its name (optional)", comment: ""),
                 preferredStyle: .alert)
             vc.configure { [unowned self] url, name in
-                DispatchQueue.global(qos: .userInitiated).async {
+                DispatchQueue.global(qos: .userInitiated).async { [self] in
                     let message = "url: \(String(describing: url)), name: \(String(describing: name))"
                     os_log(.info, "\(message)")
                     guard let url = url else {

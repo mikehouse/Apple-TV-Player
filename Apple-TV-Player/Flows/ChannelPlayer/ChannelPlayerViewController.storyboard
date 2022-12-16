@@ -53,18 +53,20 @@
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="s0I-t3-FZs">
                                                     <rect key="frame" x="928" y="508" width="64" height="64"/>
                                                 </activityIndicatorView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GL2-Z1-P9J">
-                                                    <rect key="frame" x="924.5" y="604" width="71" height="35"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GL2-Z1-P9J">
+                                                    <rect key="frame" x="16" y="604" width="1888" height="35"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="GL2-Z1-P9J" firstAttribute="leading" secondItem="ots-NG-gn3" secondAttribute="leading" constant="16" id="7pW-MD-K0l"/>
                                                 <constraint firstItem="GL2-Z1-P9J" firstAttribute="centerX" secondItem="ots-NG-gn3" secondAttribute="centerX" id="Bae-gF-UFi"/>
                                                 <constraint firstItem="GL2-Z1-P9J" firstAttribute="top" secondItem="s0I-t3-FZs" secondAttribute="bottom" constant="32" id="Siu-0Q-UNh"/>
                                                 <constraint firstItem="s0I-t3-FZs" firstAttribute="centerY" secondItem="ots-NG-gn3" secondAttribute="centerY" id="aSR-2Y-alb"/>
                                                 <constraint firstItem="s0I-t3-FZs" firstAttribute="centerX" secondItem="ots-NG-gn3" secondAttribute="centerX" id="sJV-ZF-ibn"/>
+                                                <constraint firstAttribute="trailing" secondItem="GL2-Z1-P9J" secondAttribute="trailing" constant="16" id="vjn-Bg-bWN"/>
                                             </constraints>
                                         </view>
                                         <blurEffect style="extraDark"/>

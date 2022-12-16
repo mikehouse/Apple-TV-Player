@@ -60,6 +60,7 @@ private final class FavChannel: Channel {
     let short: String
     let id: AnyHashable
     var stream: URL {fatalError()}
+    var logo: URL?
     var group: String? = nil
     
     init(name: String) {

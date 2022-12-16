@@ -18,7 +18,7 @@ internal struct IpTvProviderDynamic: IpTvProvider {
 internal extension IpTvProviderDynamic {
     static func load(m3u: Data, name: String) throws -> Self {
         let items = try M3U(data: m3u).parse()
-        let favs: FavoriteChannels = favPlaylists.first(where: { $0.playlistName == name }) ?? .empty()
+        let favs: FavoriteChannels = favPlaylists.first(where: { $0.playlistName == name }) ?? .default()
         let favsMap = favs.channelsNames.enumerated().reduce([Int:String]()) { (dict, pair) in
             return dict.merging([pair.offset:pair.element], uniquingKeysWith: { (l, r) in l })
         }
@@ -40,7 +40,7 @@ internal extension IpTvProviderDynamic {
                     ? String(originalName.dropLast(3)) : originalName
                 let channel = ChannelDynamic(
                     name: item.title, original: originalName,
-                    short: shortName, stream: item.url, group: item.group)
+                    short: shortName, stream: item.url, group: item.group, logo: item.logo)
                 if favs.channelsNames.contains(originalName),
                    let idx = favsMap.first(where: { $0.value == originalName })?.key {
                     favoritesMap[idx] = (favoritesMap[idx] ?? []) + [channel]
@@ -96,11 +96,6 @@ private let favPlaylists: [FavoriteChannels] = [
 
 extension FavoriteChannels {
 
-    static func empty() -> FavoriteChannels {
-        return .init(playlistName: "", channelsNames: [],
-            skipSourceURLs: [], ignoreKeys: [])
-    }
-
     static func ruPlaylist() -> FavoriteChannels {
         return .init(
             playlistName: "Russian channels list",
@@ -129,6 +124,11 @@ extension FavoriteChannels {
                 "Пятница",
                 "Суббота HD",
                 "Суббота",
+                "Суббота! HD",
+                "Суббота!",
+                "ТВ-3 FHD",
+                "ТВ-3 HD",
+                "ТВ-3",
                 "FilmTV Kinder",
                 "BACKUSTV Страшное HD",
                 "BACKUSTV Страшное",
@@ -157,15 +157,96 @@ extension FavoriteChannels {
         ], skipSourceURLs: [
             URL(string: "http://zabava-htlive.cdn.ngenix.net")!,
             URL(string: "https://okkotv-live.cdnvideo.ru")!,
-            URL(string: "http://s5.sr-vk.online")!
-        ], ignoreKeys: [
+            URL(string: "http://s5.sr-vk.online")!,
+            URL(string: "http://78.58.133.179")!,
+        ], ignoreKeys: FavoriteChannels.default().ignoreKeys)
+    }
+
+    static func `default`() -> FavoriteChannels {
+        return .init(playlistName: "", channelsNames: [],
+            skipSourceURLs: [], ignoreKeys: [
             " [Not 24/7]",
             " [Geo-blocked]",
+            " (1024p)",
             " (1080p)",
-            " (720p)",
-            " (576p)",
+            " (1088p)",
+            " (1090p)",
+            " (10p)",
+            " (112p)",
+            " (1280p)",
+            " (144p)",
+            " (160p)",
+            " (180p)",
+            " (192p)",
+            " (200p)",
+            " (214p)",
+            " (2160p)",
+            " (220p)",
+            " (226p)",
+            " (234p)",
+            " (240p)",
+            " (260p)",
+            " (270p)",
+            " (272p)",
+            " (276p)",
+            " (280p)",
+            " (288p)",
+            " (294p)",
+            " (298p)",
+            " (302p)",
+            " (304p)",
+            " (320p)",
+            " (326p)",
+            " (350p)",
+            " (352p)",
+            " (360p)",
+            " (384p)",
+            " (392p)",
+            " (394p)",
+            " (396p)",
+            " (400p)",
+            " (404p)",
+            " (406p)",
+            " (410p)",
+            " (414p)",
+            " (416p)",
+            " (420p)",
+            " (432p)",
+            " (450p)",
+            " (460p)",
+            " (472p)",
+            " (476p)",
             " (480p)",
-            " (404p)"
+            " (484p)",
+            " (486p)",
+            " (504p)",
+            " (514p)",
+            " (528p)",
+            " (540p)",
+            " (542p)",
+            " (552p)",
+            " (560p)",
+            " (576p)",
+            " (578p)",
+            " (582p)",
+            " (600p)",
+            " (614p)",
+            " (640p)",
+            " (642p)",
+            " (648p)",
+            " (684p)",
+            " (704p)",
+            " (712p)",
+            " (714p)",
+            " (718p)",
+            " (720p)",
+            " (768p)",
+            " (804p)",
+            " (854p)",
+            " (864p)",
+            " (900p)",
+            " (908p)",
+            " (956p)",
         ])
     }
 }

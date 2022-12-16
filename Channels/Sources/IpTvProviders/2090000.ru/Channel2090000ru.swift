@@ -13,5 +13,6 @@ internal struct Channel2090000ru: Channel {
     let short: String
     let stream: URL
     let group: String?
+    let logo: URL?
     var id: AnyHashable { AnyHashable(name.lowercased()) }
 }

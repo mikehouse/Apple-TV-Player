@@ -13,6 +13,7 @@ internal struct ChannelDynamic: Channel, Hashable {
     let short: String
     let stream: URL
     let group: String?
+    let logo: URL?
     var id: AnyHashable { AnyHashable(stream) }
     
     func hash(into hasher: inout Hasher) {

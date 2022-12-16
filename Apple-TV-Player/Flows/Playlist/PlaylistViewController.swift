@@ -23,13 +23,34 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     private var currentFocusPath: IndexPath?
     private var timeUpdateTimer: Timer?
     private weak var overlayPlayer: ChannelPlayerViewController?
+    private var logosCache: [IndexPath:UIImage] = [:]
     
     private lazy var channelICO: ChannelICOProvider = ChannelICO(locale: "ru")
-    private lazy var dataSource = DataSource(tableView: self.tableView) { [unowned self] tableView, indexPath, row in
-        let cell = tableView.dequeueReusableCell(
+    private lazy var dataSource = DataSource(tableView: self.tableView) { [weak self] tableView, indexPath, row in
+        guard let self else {
+            return UITableViewCell()
+        }
+        let cell: PlaylistChannelViewCell = tableView.dequeueReusableCell(
             for: indexPath, cellType: PlaylistChannelViewCell.self)
         cell.textLabel?.text = row.channel.name
-        cell.imageView?.image = self.channelICO.ico(for: row.channel).map(UIImage.init(cgImage:))
+        if let image = self.logosCache[indexPath] {
+            cell.imageView?.image = image
+        } else {
+            cell.imageView?.image = nil
+            self.channelICO.icoFetch(for: row.channel) { [name=row.channel.name, weak self] (_, image) in
+                guard cell.textLabel?.text == name else {
+                    return
+                }
+                guard let image else {
+                    cell.imageView?.image = nil
+                    return
+                }
+                let uiImage = UIImage(cgImage: image)
+
+                cell.imageView?.image = uiImage
+                self?.logosCache[indexPath] = uiImage
+            }
+        }
         return cell
     }
     
@@ -82,6 +103,7 @@ private extension PlaylistViewController {
     func configureTableView() {
         tableView.register(cellType: PlaylistChannelViewCell.self)
         tableView.delegate = self
+        tableView.prefetchDataSource = self
         tableView.dataSource = dataSource
     }
     
@@ -109,12 +131,17 @@ private extension PlaylistViewController {
             }
             
             var channels: [Row] = []
-            for channel in playlist {
-                let _ = self.channelICO.ico(for: channel) // fill the cache.
+            var prefetch: [IndexPath] = []
+            for (index, channel) in playlist.enumerated() {
                 channels.append(Row(channel: channel))
+                if index < 15 {
+                    prefetch.append(.init(row: index, section: 0))
+                }
             }
             
-            DispatchQueue.main.async { [channels] in
+            DispatchQueue.main.async { [channels, prefetch] in
+                self.tableView(self.tableView, prefetchRowsAt: prefetch)
+
                 var snapshot = self.dataSource.snapshot()
                 snapshot.deleteAllItems()
                 snapshot.appendSections([.main])
@@ -135,6 +162,38 @@ private extension PlaylistViewController {
             label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
         return view
+    }
+}
+
+extension PlaylistViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        guard let channels = playlist?.channels else {
+            return
+        }
+        for path in indexPaths {
+            let channel = channels[path.row]
+            channelICO.icoFetch(for: channel) { [weak self] _, image in
+                guard let image, let self else {
+                    return
+                }
+                let uiImage = UIImage(cgImage: image)
+                self.logosCache[path] = uiImage
+
+                var snapshot = self.dataSource.snapshot()
+                snapshot.reloadItems([.init(channel: channel)])
+                self.dataSource.apply(snapshot, animatingDifferences: false)
+            }
+        }
+    }
+
+    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        guard let channels = playlist?.channels else {
+            return
+        }
+        for path in indexPaths {
+            let channel = channels[path.row]
+            channelICO.icoCancel(for: channel)
+        }
     }
 }
 

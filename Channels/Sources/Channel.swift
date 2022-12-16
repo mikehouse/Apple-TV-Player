@@ -17,4 +17,5 @@ public protocol Channel {
     var id: AnyHashable {get}
     var stream: URL {get}
     var group: String? {get}
+    var logo: URL? {get}
 }

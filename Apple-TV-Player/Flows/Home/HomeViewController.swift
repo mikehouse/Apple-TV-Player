@@ -59,6 +59,22 @@ final class HomeViewController: UIViewController {
 
         reloadUI()
     }
+
+    override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        super.pressesEnded(presses, with: event)
+
+        for press in presses {
+            if press.type == .playPause {
+                if let cell = press.responder as? PlaylistCellView {
+                    if let indexPath = tableView.indexPath(for: cell) {
+                        handlingCellLongTap = true
+                        tableView(tableView, didSelectRowAt: indexPath)
+                    }
+                }
+                return
+            }
+        }
+    }
 }
 
 private extension HomeViewController {

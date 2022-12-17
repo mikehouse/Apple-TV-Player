@@ -159,6 +159,8 @@ extension FavoriteChannels {
             URL(string: "https://okkotv-live.cdnvideo.ru")!,
             URL(string: "http://s5.sr-vk.online")!,
             URL(string: "http://78.58.133.179")!,
+            URL(string: "http://94.154.83.88")!,
+            URL(string: "http://bar-timeshift-inet.ll-bar.zsttk.ru")!,
         ], ignoreKeys: FavoriteChannels.default().ignoreKeys)
     }
 

@@ -4,3 +4,8 @@ Pods/*
 Apple-TV-Player.xcodeproj/xcuserdata/*
 Apple-TV-Player.xcodeproj/project.xcworkspace/xcuserdata/*
 Apple-TV-Player.xcworkspace/xcuserdata/*
+.bundle
+vendor
+Apple-TV-Player.ipa
+fastlane/report.xml
+Gemfile.lock

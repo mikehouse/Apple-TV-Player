@@ -1,0 +1,9 @@
+
+lane :make_ipa do |options|
+    build_app(
+      scheme: "Apple-TV-Player",
+      workspace: "Apple-TV-Player.xcworkspace",
+      export_method: "development",
+      configuration: "Debug"
+    )
+end

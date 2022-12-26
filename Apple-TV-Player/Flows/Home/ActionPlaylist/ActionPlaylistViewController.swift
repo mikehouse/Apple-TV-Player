@@ -27,7 +27,7 @@ final class ActionPlaylistViewController: UIAlertController {
         addAction(cancel)
 
         if let updateAction {
-            let update = UIAlertAction.init(title: NSLocalizedString("Update playlist", comment: ""), style: .default) { [weak self] action in
+            let update = UIAlertAction.init(title: NSLocalizedString("Update playlist", comment: ""), style: .default) { _ in
                 updateAction()
             }
             addAction(update)

@@ -59,10 +59,10 @@ final class ChannelPlayerViewController: UIViewController, StoryboardBased {
 }
 
 extension ChannelPlayerViewController: VLCMediaPlayerDelegate {
-    func mediaPlayerStateChanged(_ aNotification: Notification!) {
+    func mediaPlayerStateChanged(_ aNotification: Notification) {
     }
     
-    func mediaPlayerTimeChanged(_ aNotification: Notification!) {
+    func mediaPlayerTimeChanged(_ aNotification: Notification) {
         mediaPlayer.delegate = nil
         DispatchQueue.main.async {
             if (!self.blurView.isHidden) {
@@ -71,18 +71,18 @@ extension ChannelPlayerViewController: VLCMediaPlayerDelegate {
         }
     }
     
-    func mediaPlayerTitleChanged(_ aNotification: Notification!) {
+    func mediaPlayerTitleChanged(_ aNotification: Notification) {
     }
     
-    func mediaPlayerChapterChanged(_ aNotification: Notification!) {
+    func mediaPlayerChapterChanged(_ aNotification: Notification) {
     }
     
-    func mediaPlayerSnapshot(_ aNotification: Notification!) {
+    func mediaPlayerSnapshot(_ aNotification: Notification) {
     }
     
-    func mediaPlayerStartedRecording(_ player: VLCMediaPlayer!) {
+    func mediaPlayerStartedRecording(_ player: VLCMediaPlayer) {
     }
     
-    func mediaPlayer(_ player: VLCMediaPlayer!, recordingStoppedAtPath path: String!) {
+    func mediaPlayer(_ player: VLCMediaPlayer, recordingStoppedAtPath path: String) {
     }
 }

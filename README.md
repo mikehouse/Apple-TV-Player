@@ -24,14 +24,26 @@ Over 8000 channels are available https://github.com/iptv-org/iptv (not mine, ple
 
 ### How to Build
 
-1. Set your Development Team and BundleID for files:
+1. Install dependencies
+
+```bash
+# Call once to configure bundler
+bundle config set --local path 'vendor/bundle'
+bundle install
+# Call every time when want to install dependencies
+bundle exec pod install
+```
+
+2. Open `Apple-TV-Player.xcworkspace` using Xcode/AppCode
+
+3. Set your Development Team and BundleID for files:
 
 - Apple-TV-Player/Configuration/Debug.xcconfig
 - Channels/Configuration/Debug-Channels.xcconfig
 
 or just change them via Xcode `Signing & Capabilities` tab for `Apple-TV-Player` and `Channels` projects.
 
-2. Select your Apple TV and hit Xcode build/run button.
+4. Select your Apple TV and hit Xcode build/run button.
 
 ### How to pair Apple TV to Xcode
 

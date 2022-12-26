@@ -72,6 +72,10 @@ final class LocalStorage {
         container(for: domain)[key.rawValue]
     }
     
+    func getValue(_ key: String, domain: Domain) -> AnyHashable? {
+        container(for: domain)[key]
+    }
+
     private func container<K: Hashable, V>(for domain: Domain) -> [K:V] {
         guard let rawValue = storage.value(forKey: domain.rawValue) else {
             return [:]
@@ -80,7 +84,10 @@ final class LocalStorage {
     }
     
     private func add<K: Hashable, V>(value: V?, for key: K, to domain: Domain) {
-        assert(domain == .playlist || domain == .common, "for `list` domain use #addArray(_:) method.")
+        if case .list = domain {
+            assertionFailure("for `list` domain use #addArray(_:) method.")
+            return
+        }
         lock.lock()
         defer {lock.unlock()}
         var dict: [K:V] = container(for: domain)
@@ -94,7 +101,10 @@ final class LocalStorage {
     
     @discardableResult
     private func addArray<V: Equatable>(value: V?, to domain: Domain) -> Bool {
-        assert(domain != .playlist && domain != .common, "only `list` domain available else use #add(_:) method.")
+        guard case .list = domain else {
+            assertionFailure("only `list` domain available else use #add(_:) method.")
+            return false
+        }
         lock.lock()
         defer {lock.unlock()}
         switch domain {
@@ -178,17 +188,16 @@ extension LocalStorage {
 extension LocalStorage {
     enum Domain: Equatable {
         case playlist
+        case playlistURL
         case common
         case list(ListKeys)
     
         var rawValue: String {
             switch self {
-            case .playlist:
-                return "\(self)"
-            case .common:
-                return "\(self)"
             case .list(let k):
                 return "list_\(k.rawValue)"
+            default:
+                return "\(self)"
             }
         }
     

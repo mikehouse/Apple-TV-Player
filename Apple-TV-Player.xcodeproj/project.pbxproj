@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		32EBBB313D57DB81AFA4F518 /* Pods_Apple_TV_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67EE9624CFF22F3AEAC77938 /* Pods_Apple_TV_Player.framework */; };
 		8209A4C9258F5F51000F40ED /* ru-free-pls.m3u in Resources */ = {isa = PBXBuildFile; fileRef = 8209A4C8258F5F51000F40ED /* ru-free-pls.m3u */; };
-		8209A4CF258F85D6000F40ED /* DeletePlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8209A4CE258F85D6000F40ED /* DeletePlaylistViewController.swift */; };
+		8209A4CF258F85D6000F40ED /* ActionPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8209A4CE258F85D6000F40ED /* ActionPlaylistViewController.swift */; };
 		820AC430257285B800932015 /* IpTvProviderDynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820AC42F257285B800932015 /* IpTvProviderDynamic.swift */; };
 		820AC435257285C800932015 /* BundleDynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820AC434257285C800932015 /* BundleDynamic.swift */; };
 		820AC43A257285D500932015 /* PlaylistDynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820AC439257285D500932015 /* PlaylistDynamic.swift */; };
@@ -126,7 +126,7 @@
 		8200BBC5258604450056EE0F /* 2090000ruBundlesDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2090000ruBundlesDownloader.swift; sourceTree = "<group>"; };
 		8200BBC6258604AB0056EE0F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8209A4C8258F5F51000F40ED /* ru-free-pls.m3u */ = {isa = PBXFileReference; lastKnownFileType = text; path = "ru-free-pls.m3u"; sourceTree = "<group>"; };
-		8209A4CE258F85D6000F40ED /* DeletePlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePlaylistViewController.swift; sourceTree = "<group>"; };
+		8209A4CE258F85D6000F40ED /* ActionPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionPlaylistViewController.swift; sourceTree = "<group>"; };
 		820AC42F257285B800932015 /* IpTvProviderDynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IpTvProviderDynamic.swift; sourceTree = "<group>"; };
 		820AC434257285C800932015 /* BundleDynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleDynamic.swift; sourceTree = "<group>"; };
 		820AC439257285D500932015 /* PlaylistDynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistDynamic.swift; sourceTree = "<group>"; };
@@ -267,12 +267,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8209A4CD258F85AC000F40ED /* DeletePlaylist */ = {
+		8209A4CD258F85AC000F40ED /* ActionPlaylist */ = {
 			isa = PBXGroup;
 			children = (
-				8209A4CE258F85D6000F40ED /* DeletePlaylistViewController.swift */,
+				8209A4CE258F85D6000F40ED /* ActionPlaylistViewController.swift */,
 			);
-			path = DeletePlaylist;
+			path = ActionPlaylist;
 			sourceTree = "<group>";
 		};
 		820AC42E2572859A00932015 /* Dynamic */ = {
@@ -425,7 +425,7 @@
 		828E3FF4253F6F1E003D4EFC /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				8209A4CD258F85AC000F40ED /* DeletePlaylist */,
+				8209A4CD258F85AC000F40ED /* ActionPlaylist */,
 				822A58C72540AF4F0061813F /* AddPlaylist */,
 				828E400F253F84D5003D4EFC /* SettingsCell */,
 				828E400E253F84C4003D4EFC /* AddPlaylistCell */,
@@ -960,7 +960,7 @@
 				820AC44C2572E43900932015 /* SelectProviderCellView.swift in Sources */,
 				82742D24255FDC08001B2B25 /* ChannelPlayerViewController.swift in Sources */,
 				820AC4732572E7D600932015 /* ProviderBundleCellView.swift in Sources */,
-				8209A4CF258F85D6000F40ED /* DeletePlaylistViewController.swift in Sources */,
+				8209A4CF258F85D6000F40ED /* ActionPlaylistViewController.swift in Sources */,
 				828E3FF7253F6FF1003D4EFC /* HomeViewController.swift in Sources */,
 				828E4006253F7818003D4EFC /* TextInputViewController.swift in Sources */,
 				820AC46C2572E78500932015 /* ProviderCellView.swift in Sources */,

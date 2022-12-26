@@ -12,7 +12,8 @@ final class FileSystemManager {
     private let fileManager = FileManager.default
     private let localStorage = LocalStorage()
     private let compressor = PiedPiper()
-    private let domain = LocalStorage.Domain.playlist
+    private let playlists = LocalStorage.Domain.playlist
+    private let urls = LocalStorage.Domain.playlistURL
     private let nameSeparator = "."
 }
 
@@ -23,13 +24,14 @@ extension FileSystemManager {
         os_log(.error, "downloading %s named %s", String(describing: file), name)
         let content = try Data(contentsOf: file);
         let compressed = try compressor.compress(data: content)
-        localStorage.add(data: compressed, for: name, domain: domain)
+        localStorage.add(data: compressed, for: name, domain: playlists)
+        localStorage.add(value: file.absoluteString, for: name, domain: urls)
         return name
     }
     
     func files() throws -> [String] {
         checkMainThread()
-        return localStorage.domainKeys(domain)
+        return localStorage.domainKeys(playlists)
     }
     
     func filesNames() throws -> [String] {
@@ -42,8 +44,12 @@ extension FileSystemManager {
         })
     }
     
+    func url(named: String) throws -> URL? {
+        (localStorage.getValue(named, domain: urls) as? String).flatMap(URL.init(string:))
+    }
+
     func content(of path: String) -> Data? {
-        if let data = localStorage.getData(path, domain: domain) {
+        if let data = localStorage.getData(path, domain: playlists) {
             do {
                 return try compressor.decompress(data: data)
             } catch {
@@ -58,7 +64,11 @@ extension FileSystemManager {
     }
     
     func remove(file: String) throws {
-        localStorage.remove(for: file, domain: domain)
+        localStorage.remove(for: file, domain: playlists)
+    }
+
+    func remove(url: URL) throws {
+        localStorage.remove(for: url, domain: urls)
     }
 }
 

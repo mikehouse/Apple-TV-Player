@@ -8,9 +8,9 @@
 "No channels found." = "No channels found.";
 "Invalid M3U file format." = "Invalid M3U file format.";
 "Invalid M3U header." = "Invalid M3U header.";
-"No channels found." = "No channels found.";
-"Others" = "Others";
 "No Ip Tv providers found." = "No Ip Tv providers found.";
 "No bundles available." = "No bundles available.";
 "List of Ip tv providers" = "List of Ip tv providers";
 "Settings" = "Settings";
+"Delete playlist" = "Delete playlist";
+"Update playlist" = "Update playlist";

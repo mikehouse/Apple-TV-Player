@@ -201,13 +201,15 @@ extension HomeViewController: UITableViewDelegate {
         guard let item = self.dataSource.itemIdentifier(for: indexPath) else { return }
         switch item {
         case .playlist(let name) where handlingCellLongTap:
-            let deleteVC = DeletePlaylistViewController()
-            deleteVC.deleteAction = { [unowned self] delete in
-                guard delete else {return}
+            let actionVC = ActionPlaylistViewController()
+            actionVC.deleteAction = { [unowned self] in
                 DispatchQueue.global(qos: .userInteractive).async {
                     do {
                         guard let url = try self.fsManager.file(named: name) else { return }
                         try self.fsManager.remove(file: url)
+                        if let url = try self.fsManager.url(named: name) {
+                            try self.fsManager.remove(url: url)
+                        }
                         DispatchQueue.main.async {
                             self.reloadUI()
                         }
@@ -218,7 +220,27 @@ extension HomeViewController: UITableViewDelegate {
                     }
                 }
             }
-            self.present(deleteVC, animated: true)
+            if let url = try? self.fsManager.url(named: name) {
+                actionVC.updateAction = { [unowned self] in
+                    DispatchQueue.main.async {
+                        self.setTableViewProgressView(enabled: true)
+                    }
+                    DispatchQueue.global(qos: .userInitiated).async {
+                        do {
+                            try self.fsManager.download(file: url, name: name)
+                            DispatchQueue.main.async {
+                                self.setTableViewProgressView(enabled: false)
+                            }
+                        } catch {
+                            DispatchQueue.main.async {
+                                self.present(error: error)
+                                self.setTableViewProgressView(enabled: false)
+                            }
+                        }
+                    }
+                }
+            }
+            self.present(actionVC, animated: true)
             handlingCellLongTap = false
             return
         default:

@@ -1,5 +1,8 @@
 
-## Apple TV player
+<h1 align="center">Apple TV player</h1>
+<p align="center">
+  <img src="logo.png"  alt="" width="40%"/>
+</p>
 
 ### Supported formats
 

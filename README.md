@@ -76,6 +76,10 @@ bundle exec fastlane make_ipa
 - Open there `Apps` section
 - Drag-n-Drop the generated IPA file
 
+### Update / Delete existed playlist (Home Screen only)
+
+Long tap on TV Remote or press Play/Pause TV Remote button.
+
 ----
 
 - Some app screenshots:

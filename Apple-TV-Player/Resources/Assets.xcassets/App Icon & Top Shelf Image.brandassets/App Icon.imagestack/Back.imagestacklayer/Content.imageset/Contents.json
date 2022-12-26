@@ -1,12 +1,8 @@
 {
   "images" : [
     {
-      "idiom" : "tv",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "tv",
-      "scale" : "2x"
+      "filename" : "ic-400x240.png",
+      "idiom" : "tv"
     }
   ],
   "info" : {

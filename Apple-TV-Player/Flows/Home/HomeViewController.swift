@@ -13,6 +13,8 @@ import Channels
 final class HomeViewController: UIViewController {
 
     @IBOutlet private var tableView: UITableView!
+
+    private var playlistCache: [String:PlaylistItem] = [:]
     
     private lazy var dataSource = DataSource(tableView: self.tableView) { tableView, indexPath, row in
         switch row {
@@ -207,6 +209,7 @@ extension HomeViewController: UITableViewDelegate {
                     do {
                         guard let url = try self.fsManager.file(named: name) else { return }
                         try self.fsManager.remove(file: url)
+                        self.playlistCache.removeValue(forKey: name)
                         if let url = try self.fsManager.url(named: name) {
                             try self.fsManager.remove(url: url)
                         }
@@ -228,6 +231,7 @@ extension HomeViewController: UITableViewDelegate {
                     DispatchQueue.global(qos: .userInitiated).async {
                         do {
                             try self.fsManager.download(file: url, name: name)
+                            self.playlistCache.removeValue(forKey: name)
                             DispatchQueue.main.async {
                                 self.setTableViewProgressView(enabled: false)
                             }
@@ -263,6 +267,17 @@ extension HomeViewController: UITableViewDelegate {
         }
         switch item {
         case .playlist(let name):
+            func present(playlist: PlaylistItem) {
+                let playlistVC = PlaylistViewController.instantiate()
+                playlistVC.playlist = playlist
+                self.present(playlistVC, animated: true) {
+                    self.setTableViewProgressView(enabled: false)
+                }
+            }
+            if let playlist = self.playlistCache[name] {
+                present(playlist: playlist)
+                return
+            }
             DispatchQueue.global().async {
                 guard let url = try? self.fsManager.file(named: name),
                       let data = self.fsManager.content(of: url) else {
@@ -275,12 +290,9 @@ extension HomeViewController: UITableViewDelegate {
                 do {
                     let tvProvider = try IpTvProviders.kind(of: .dynamic(m3u: data, name: name))
                     let playlist = PlaylistItem(channels: tvProvider.bundles.flatMap({ $0.playlist.channels }))
+                    self.playlistCache[name] = playlist
                     DispatchQueue.main.async {
-                        let playlistVC = PlaylistViewController.instantiate()
-                        playlistVC.playlist = playlist
-                        self.present(playlistVC, animated: true) {
-                            self.setTableViewProgressView(enabled: false)
-                        }
+                        present(playlist: playlist)
                     }
                 } catch {
                     self.present(error: error)

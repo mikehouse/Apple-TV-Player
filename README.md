@@ -19,8 +19,8 @@ Over 8000 channels are available https://github.com/iptv-org/iptv (not mine, ple
 
 ### Localization
 
-- RU
 - EN
+- RU
 
 ### How to Build
 
@@ -44,7 +44,7 @@ or just change them via Xcode `Signing & Capabilities` tab for `Apple-TV-Player`
 
 ### How to install if Xcode fails to connect to Apple TV (but paired)
 
-It is often the error found  `Xcode will continue when Apple TV is connected and unlocked`. That is freaking issue, it is better not spend time to fix this, but just use another way to install the app to Apple TV by building IPA manually and installing it on TV directly.
+It is often the error found  `Xcode will continue when Apple TV is connected and unlocked`. That is freaking issue, it is better to not spend time to fix this, but just use another way to install the app to Apple TV by building IPA manually and installing it on TV directly.
 
 - Build IPA with fastlane
 
@@ -57,7 +57,7 @@ bundle exec fastlane make_ipa
 ```
 
 - Open Apple Configurator app
-- Find there paired Apple TV
+- Find there paired Apple TV (must be on the same network)
 - Open there `Apps` section
 - Drag-n-Drop the generated IPA file
 
@@ -68,12 +68,4 @@ bundle exec fastlane make_ipa
 </br><img src="004.png"  alt=""/>
 <img src="005.png"  alt=""/>
 <img src="006.png"  alt=""/>
-<img src="007.png"  alt=""/></br></br>
-
-----
-
-- Russian `ru2090000` TV provider (needs to enabled it in the code before project build)
-
-</br><img src="001.png"  alt=""/>
-<img src="002.png"  alt=""/>
-<img src="003.png"  alt=""/>
+<img src="007.png"  alt=""/>

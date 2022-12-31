@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="21225" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DoA-hh-dKr">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="21507" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DoA-hh-dKr">
     <device id="appleTV" appearance="light"/>
     <dependencies>
         <deployment identifier="tvOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -37,10 +37,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4Ll-wr-y4p">
-                                <rect key="frame" x="912" y="60" width="896" height="50"/>
+                                <rect key="frame" x="912" y="126" width="896" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWe-mw-FhQ">
                                         <rect key="frame" x="0.0" y="0.0" width="896" height="50"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1Tz-vU-B9a">
+                                <rect key="frame" x="848" y="76" width="992" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9h-vd-PH0">
+                                        <rect key="frame" x="0.0" y="0.0" width="992" height="50"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -53,10 +64,13 @@
                             <constraint firstItem="tL4-nb-upz" firstAttribute="leading" secondItem="17v-oZ-m3u" secondAttribute="trailing" constant="18" id="2dq-f9-ztT"/>
                             <constraint firstItem="4Ll-wr-y4p" firstAttribute="leading" secondItem="pna-2x-7au" secondAttribute="trailing" constant="64" id="4A7-Zx-hJY"/>
                             <constraint firstItem="h0O-L6-s10" firstAttribute="bottom" secondItem="pna-2x-7au" secondAttribute="bottom" id="BFb-lL-BcG"/>
+                            <constraint firstItem="h0O-L6-s10" firstAttribute="trailing" secondItem="1Tz-vU-B9a" secondAttribute="trailing" id="KV3-tM-LYP"/>
                             <constraint firstItem="h0O-L6-s10" firstAttribute="trailing" secondItem="4Ll-wr-y4p" secondAttribute="trailing" constant="32" id="MfO-ZL-OaZ"/>
                             <constraint firstItem="17v-oZ-m3u" firstAttribute="centerY" secondItem="tL4-nb-upz" secondAttribute="centerY" id="STu-vZ-BRp"/>
+                            <constraint firstItem="4Ll-wr-y4p" firstAttribute="top" secondItem="1Tz-vU-B9a" secondAttribute="bottom" id="U3P-CB-0N4"/>
                             <constraint firstAttribute="trailing" secondItem="tL4-nb-upz" secondAttribute="trailing" constant="46" id="XX6-q9-LtM"/>
-                            <constraint firstItem="4Ll-wr-y4p" firstAttribute="top" secondItem="h0O-L6-s10" secondAttribute="top" id="bPU-oa-jXH"/>
+                            <constraint firstItem="1Tz-vU-B9a" firstAttribute="leading" secondItem="pna-2x-7au" secondAttribute="trailing" id="Xla-Es-qSD"/>
+                            <constraint firstItem="1Tz-vU-B9a" firstAttribute="top" secondItem="h0O-L6-s10" secondAttribute="top" constant="16" id="Ytf-v6-pUj"/>
                             <constraint firstItem="pna-2x-7au" firstAttribute="width" secondItem="51T-06-GXQ" secondAttribute="width" multiplier="0.4" id="fTW-ar-UNs"/>
                             <constraint firstItem="tL4-nb-upz" firstAttribute="top" secondItem="51T-06-GXQ" secondAttribute="top" constant="18" id="mJ5-bY-BRh"/>
                             <constraint firstItem="pna-2x-7au" firstAttribute="top" secondItem="h0O-L6-s10" secondAttribute="top" id="obB-if-MLa"/>
@@ -65,6 +79,8 @@
                     </view>
                     <connections>
                         <outlet property="channelNameLabel" destination="17v-oZ-m3u" id="MXA-OQ-qb2"/>
+                        <outlet property="debugView" destination="1Tz-vU-B9a" id="iz9-IS-7h3"/>
+                        <outlet property="debugViewTopConstraint" destination="Ytf-v6-pUj" id="tGX-fC-IyB"/>
                         <outlet property="programmesStackView" destination="4Ll-wr-y4p" id="hf4-UI-pIm"/>
                         <outlet property="tableView" destination="pna-2x-7au" id="40M-07-FiN"/>
                         <outlet property="timeLabel" destination="tL4-nb-upz" id="H2d-GN-ET1"/>

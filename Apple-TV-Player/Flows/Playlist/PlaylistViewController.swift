@@ -16,6 +16,17 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     @IBOutlet private var programmesStackView: UIStackView!
     @IBOutlet private var timeLabel: UILabel!
     @IBOutlet private var channelNameLabel: UILabel!
+    @IBOutlet private var debugView: UIStackView!
+    @IBOutlet private var debugViewTopConstraint: NSLayoutConstraint!
+    
+    private var debugViewEnabled = false
+    private lazy var memStatsDebugView: UILabel = {
+        let view = UILabel()
+        view.textColor = .tertiaryLabel
+        view.font = .preferredFont(forTextStyle: .footnote)
+        view.textAlignment = .right
+        return view
+    }()
 
     var playlist: Playlist?
     var programmes: IpTvProgrammesProvider?
@@ -24,6 +35,7 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     private var timeUpdateTimer: Timer?
     private weak var overlayPlayer: ChannelPlayerViewController?
     private var logosCache: [IndexPath:UIImage] = [:]
+    private var timer: Timer?
     
     private lazy var channelICO: ChannelICOProvider = ChannelICO(locale: "ru")
     private lazy var dataSource = DataSource(tableView: self.tableView) { [weak self] tableView, indexPath, row in
@@ -69,9 +81,34 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
                 }
             }
         }
+        
+        for view in debugView.arrangedSubviews {
+            debugView.removeArrangedSubview(view)
+            view.removeFromSuperview()
+        }
+        
+        guard debugViewEnabled else {
+            debugViewTopConstraint.constant = 0
+            return
+        }
+        
+        let fmt = ByteCountFormatter()
+        fmt.allowedUnits = [.useMB, .useGB]
+        fmt.countStyle = .memory
+        
+        debugView.addArrangedSubview(memStatsDebugView)
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { [memLabel=memStatsDebugView] _ in
+            guard let stats = ObjCUtils.memStats() else {
+                print("WARNING: couldn't read mem stats.")
+                return
+            }
+            memLabel.text = "RAM Stats: use: \(fmt.string(fromByteCount: Int64(stats.usedMem))), free: \(fmt.string(fromByteCount: Int64(stats.freeMem))), total: \(fmt.string(fromByteCount: Int64(stats.totalMem)))"
+        }
     }
     
     deinit {
+        timer?.invalidate()
         os_log(.debug, "deinit %s", String(describing: self))
     }
 }

@@ -57,6 +57,7 @@
 		82AD846D25703B8B006752B7 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD846C25703B8B006752B7 /* Playlist.swift */; };
 		82AD847525704277006752B7 /* Bundle2090000ru.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD847425704277006752B7 /* Bundle2090000ru.swift */; };
 		82AD847A257042B8006752B7 /* Playlist2090000ru.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD8479257042B8006752B7 /* Playlist2090000ru.swift */; };
+		82C2D12F2960050000301067 /* ObjCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C2D12E2960050000301067 /* ObjCUtils.m */; };
 		82C56DC12947096B00DA4585 /* another.m3u in Resources */ = {isa = PBXBuildFile; fileRef = 82C56DC02947096B00DA4585 /* another.m3u */; };
 		82DAAEA125AB04C4006E296F /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DAAEA025AB04C4006E296F /* ContainerViewController.swift */; };
 		82DAAEA725AB0748006E296F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DAAEA625AB0748006E296F /* Logger.swift */; };
@@ -175,6 +176,9 @@
 		82AD846C25703B8B006752B7 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		82AD847425704277006752B7 /* Bundle2090000ru.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle2090000ru.swift; sourceTree = "<group>"; };
 		82AD8479257042B8006752B7 /* Playlist2090000ru.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist2090000ru.swift; sourceTree = "<group>"; };
+		82C2D12D2960050000301067 /* Apple-TV-Player-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Apple-TV-Player-Bridging-Header.h"; sourceTree = "<group>"; };
+		82C2D12E2960050000301067 /* ObjCUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCUtils.m; sourceTree = "<group>"; };
+		82C2D1302960051E00301067 /* ObjCUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCUtils.h; sourceTree = "<group>"; };
 		82C56DC02947096B00DA4585 /* another.m3u */ = {isa = PBXFileReference; lastKnownFileType = text; path = another.m3u; sourceTree = "<group>"; };
 		82C56DC429484E5C00DA4585 /* playlist_ru_download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playlist_ru_download.swift; sourceTree = "<group>"; };
 		82DAAEA025AB04C4006E296F /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
@@ -508,6 +512,9 @@
 			isa = PBXGroup;
 			children = (
 				82DAAEA625AB0748006E296F /* Logger.swift */,
+				82C2D1302960051E00301067 /* ObjCUtils.h */,
+				82C2D12E2960050000301067 /* ObjCUtils.m */,
+				82C2D12D2960050000301067 /* Apple-TV-Player-Bridging-Header.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -798,7 +805,7 @@
 					};
 					82F3D2672538D9AC0021BB2E = {
 						CreatedOnToolsVersion = 12.1;
-						LastSwiftMigration = 1220;
+						LastSwiftMigration = 1420;
 					};
 					82F3D2992538E6650021BB2E = {
 						CreatedOnToolsVersion = 12.1;
@@ -950,6 +957,7 @@
 				8229F743257D569900A9389E /* SettingsViewController.swift in Sources */,
 				828E401A253F851E003D4EFC /* AddPlaylistCellView.swift in Sources */,
 				828E4012253F850A003D4EFC /* PlaylistCellView.swift in Sources */,
+				82C2D12F2960050000301067 /* ObjCUtils.m in Sources */,
 				828E3FEE253F67B2003D4EFC /* FileSystemManager.swift in Sources */,
 				8229F71D257BD37600A9389E /* NoDataView.swift in Sources */,
 				82E82D78256A7D4E00E3D250 /* LocalStorage.swift in Sources */,
@@ -1237,7 +1245,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Apple-TV-Player/Utils/Apple-TV-Player-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1260,7 +1268,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Apple-TV-Player/Utils/Apple-TV-Player-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 14.0;

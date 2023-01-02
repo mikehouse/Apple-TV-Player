@@ -113,6 +113,8 @@ extension FavoriteChannels {
                 "BACKUSTV Страшное",
                 "Backus TV",
                 "Backus TV Страшное",
+                "Paramount Comedy",
+                "Дом Кино",
                 "Ужастик",
                 "Amedia Hit HD",
                 "Amedia Hit",

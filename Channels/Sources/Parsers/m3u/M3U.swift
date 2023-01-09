@@ -70,7 +70,7 @@ public extension M3U {
                     continue
                 }
                 if idx == line.count - 1 {
-                    if tagStart != 0 && idx - tagStart != 1 {
+                    if tagStart != 0 && idx - tagStart != 0 {
                         tags.append(.init(
                             location: tagStart + 1,
                             length: idx - tagStart))
@@ -89,7 +89,7 @@ public extension M3U {
                         } else {
                             tags.append(.init(
                                 location: tagStart + 1,
-                                length: idx - tagStart))
+                                length: idx - tagStart - 1))
                             tagStart = idx
                             skipSplit = true
                             skipSplit2 = false

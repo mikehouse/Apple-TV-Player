@@ -26,9 +26,9 @@ final class ChannelsTests: XCTestCase {
         
         do {
             let expected = M3UItem(
-                title: "МИР 24 HD",
-                url: URL(string: "http://94.hlstv.nsk.211.ru/239.211.200.40.m3u8")!,
-                group: "HD каналы",
+                title: "Ю",
+                url: URL(string: "http://94.hlstv.nsk.211.ru/239.211.0.1.m3u8")!,
+                group: "Общие",
                 logo: nil)
             XCTAssertEqual(m3u.items.last, expected)
         }

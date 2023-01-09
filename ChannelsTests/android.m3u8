@@ -122,5 +122,5 @@ http://94.hlstv.nsk.211.ru/239.211.200.30.m3u8
 http://94.hlstv.nsk.211.ru/239.211.200.37.m3u8
 #EXTINF: -1 id="9168" tvg-name="9168" tvg-logo="9168" group-title="HD каналы", O2 TV HD
 http://94.hlstv.nsk.211.ru/239.211.200.36.m3u8
-#EXTINF: -1 id="9173" tvg-name="9173" tvg-logo="9173" group-title="HD каналы", МИР 24 HD
-http://94.hlstv.nsk.211.ru/239.211.200.40.m3u8
+#EXTINF:-1 group-title="Общие" tvg-rec="7" timeshift="7",Ю
+http://94.hlstv.nsk.211.ru/239.211.0.1.m3u8

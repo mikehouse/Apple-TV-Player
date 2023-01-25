@@ -10,3 +10,5 @@
 
 PRODUCT_BUNDLE_IDENTIFIER = example.apple.com.ChannelsTests;
 DEVELOPMENT_TEAM = FFFFFFFFFF;
+
+#include "../../Pods/Target Support Files/Pods-ChannelsTests/Pods-ChannelsTests.release.xcconfig"

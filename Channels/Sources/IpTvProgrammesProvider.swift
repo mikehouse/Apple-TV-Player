@@ -6,10 +6,41 @@
 //
 
 import Foundation
+import os
+
+public class ChannelProgramme {
+    public let channel: Channel
+    public private(set) var programmes: [Programme]
+
+    public init(channel: Channel, programmes: [Programme]) {
+        self.channel = channel
+        self.programmes = programmes
+    }
+
+    public convenience init(channel: Channel) {
+        self.init(channel: channel, programmes: [])
+    }
+
+    func add(programme: Programme) {
+        programmes.append(programme)
+    }
+
+    public class Programme {
+        public let name: String
+        public let start: Date
+        public let end: Date
+
+        public init(name: String, start: Date, end: Date) {
+            self.name = name
+            self.start = start
+            self.end = end
+        }
+    }
+}
 
 public protocol IpTvProgrammesProvider {
     func load(_ completion: @escaping (Error?) -> Void)
-    func list(for channel: Channel) -> [String]
+    func list(for channel: Channel) -> ChannelProgramme?
 }
 
 public struct IpTvProgrammesProviders {
@@ -17,8 +48,62 @@ public struct IpTvProgrammesProviders {
         switch provider {
         case .ru2090000:
             return ProgrammesFetcher2090000()
+        case .ottclub:
+            return ProgrammesFetcherOttclub()
         case .dynamic:
             fatalError("Unsupported.")
         }
     }
+}
+
+internal class ProgrammesFetcherBase: IpTvProgrammesProvider {
+    private var completion: ((Error?) -> Void)?
+    private lazy var timer = Timer(timeInterval: 60 * 30, repeats: true) { [weak self] timer in
+        if self == nil {
+            timer.invalidate()
+        } else {
+            let _ = self?.completion.flatMap({ self?.load($0) })
+        }
+    }
+
+    public final func load(_ completion: @escaping (Error?) -> Void) {
+        let first = self.completion == nil
+        self.completion = completion
+
+        DispatchQueue.main.async {
+            if first {
+                RunLoop.current.add(self.timer, forMode: .default)
+            }
+            DispatchQueue.global(qos: .userInteractive).async {
+                self.fetch()
+            }
+        }
+    }
+
+    final func list(for channel: Channel) -> ChannelProgramme? {
+        return programmes[channel.id]
+    }
+
+    internal func fetch() {
+        assertionFailure("Must implement in subclass.")
+    }
+
+    internal final func update(_ result: Swift.Result<[ChannelProgramme], Error>) {
+        switch result {
+        case .failure(let error):
+            DispatchQueue.main.async {
+                self.completion?(error)
+            }
+        case .success(let programmes):
+            os_log(.debug, "set programmes count %s", String(describing: programmes.count))
+            for p in programmes {
+                self.programmes[p.channel.id] = p
+            }
+            DispatchQueue.main.async {
+                self.completion?(nil)
+            }
+        }
+    }
+
+    private var programmes: [AnyHashable: ChannelProgramme] = [:]
 }

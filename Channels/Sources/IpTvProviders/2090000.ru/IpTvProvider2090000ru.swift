@@ -8,18 +8,21 @@
 import Foundation
 
 internal struct IpTvProvider2090000ru: IpTvProvider {
-    let kind: IpTvProviderKind = .ru2090000
+    let kind: IpTvProviderKind
     let bundles: [ChannelsBundle]
     let baseBundles: [ChannelsBundle]
     let favChannels: [Channel]
 }
 
 internal extension IpTvProvider2090000ru {
-    static func load(from bundle: Foundation.Bundle) throws -> Self {
-        let url: URL = bundle.url(forResource: IpTvProviderKind.ru2090000.resourcesName, withExtension: nil)!
+    static func load(from bundle: Foundation.Bundle, apiKey: String) throws -> Self {
+        let provider = IpTvProviderKind.ru2090000(key: apiKey)
+        let url: URL = bundle.url(forResource:provider.resourcesName, withExtension: nil)!
         let resources = Foundation.Bundle(url: url)!
         let playlistURL = resources.url(forResource: playlistName, withExtension: nil)!
-        let m3uItems = try M3U(url: playlistURL).parse()
+        let rawString = try String(contentsOf: playlistURL)
+        let data = rawString.replacingOccurrences(of: "API_KEY", with: apiKey).data(using: .utf8)!
+        let m3uItems = try M3U(data: data).parse()
         let bundles: [Bundle2090000ru] = Bundle2090000ruKind.allCases.compactMap { kind -> Bundle2090000ru? in
             try? Bundle2090000ru.load(in: resources, of: kind, adds: m3uItems)
         }
@@ -44,7 +47,7 @@ internal extension IpTvProvider2090000ru {
             "Русский детектив",
             "Первый HD"
         ].map(FavChannel.init(name:))
-        return .init(bundles: bundles,
+        return .init(kind: provider, bundles: bundles,
             baseBundles: bundles.filter({ base.contains($0.kind) }),
             favChannels: favChannels)
     }

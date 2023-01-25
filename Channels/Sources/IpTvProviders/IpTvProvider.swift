@@ -9,14 +9,20 @@ import Foundation
 import CoreGraphics
 import ImageIO
 
+// TODO: hide this from public API.
 public enum IpTvProviderKind: Hashable {
-    case ru2090000
+    // https://2090000.ru
+    case ru2090000(key: String)
+    // https://www.ottclub.tv
+    case ottclub(key: String)
     case dynamic(m3u: Data, name: String)
     
     public var name: String {
         switch self {
         case .ru2090000:
             return "Электронный город (2090000.ru)"
+        case .ottclub:
+            return "ottclub"
         case .dynamic(_, name: let name):
             return name
         }
@@ -25,7 +31,9 @@ public enum IpTvProviderKind: Hashable {
     public var id: AnyHashable {
         switch self {
         case .ru2090000:
-            return AnyHashable("\(self)")
+            return AnyHashable("ru2090000")
+        case .ottclub:
+            return AnyHashable("\(name)")
         case .dynamic(_, let name):
             return AnyHashable(name)
         }
@@ -78,9 +86,12 @@ public protocol IpTvProvider {
 public struct IpTvProviders {
     public static func kind(of kind: IpTvProviderKind) throws -> IpTvProvider {
         switch kind {
-        case .ru2090000:
+        case .ru2090000(let key):
             return try IpTvProvider2090000ru.load(
-                from: Bundle(for: this_bundle_ref_class.self))
+                from: Bundle(for: this_bundle_ref_class.self), apiKey: key)
+        case .ottclub(let key):
+            return try IpTvProviderOttclub.load(
+                from: Bundle(for: this_bundle_ref_class.self), apiKey: key)
         case let .dynamic(data, name):
             return try IpTvProviderDynamic.load(m3u: data, name: name)
         }

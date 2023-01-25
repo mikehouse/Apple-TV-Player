@@ -6,102 +6,12 @@
 //
 
 import Foundation
-import os
 
-internal final class ProgrammesFetcher2090000: IpTvProgrammesProvider {
-    private var completion: ((Error?) -> Void)?
-    private lazy var timer = Timer(timeInterval: 60 * 30, repeats: true) { [weak self] timer in
-        if self == nil {
-            timer.invalidate()
-        } else {
-            let _ = self?.completion.flatMap({ self?.load($0) })
-        }
-    }
-    
-    func load(_ completion: @escaping (Error?) -> Void) {
-        let first = self.completion == nil
-        self.completion = completion
-        
-        DispatchQueue.main.async {
-            if first {
-                RunLoop.current.add(self.timer, forMode: .default)
-            }
-            DispatchQueue.global(qos: .userInteractive).async {
-                self.fetch()
-            }
-        }
-    }
-    
-    func list(for channel: Channel) -> [String] {
-        Self.cache[channel.name]
-            ?? Self.aliases[channel.name].flatMap({ Self.cache[$0] })
-            ?? Self.empty
-    }
-}
+internal final class ProgrammesFetcher2090000: ProgrammesFetcherBase {
 
-private extension ProgrammesFetcher2090000 {
-    func fetch() {
-        let base = "https://2090000.ru/programma-peredach/"
-        os_log(.info, "fetching content of \(base) ...")
-        let htmlURL = URL(string: base)!
-        do {
-            let html = try String(contentsOf: htmlURL, encoding: .utf8)
-            let lines = html.components(separatedBy: .newlines)
-            main: for (idx, line) in lines.enumerated() {
-                if line.contains("class=\"h5") {
-                    let channel = line
-                        .components(separatedBy: ">")[1]
-                        .components(separatedBy: "<")[0]
-                    if channel == "" {
-                        break main
-                    }
-                    var counter = 0
-                    let list = NSMutableOrderedSet()
-                    while true {
-                        counter += 1
-                        if lines[idx + counter].contains("program__channel-time") {
-                            var time = ""
-                            var name = ""
-                            time = lines[idx + counter]
-                                .components(separatedBy: ">")[1]
-                                .components(separatedBy: "<")[0]
-                            counter += 1
-                            if lines[idx + counter].contains("program__channel-name") {
-                                name = lines[idx + counter]
-                                    .components(separatedBy: ">")[1]
-                                    .components(separatedBy: "<")[0]
-                                counter += 1
-                                list.add("\(time) \(name)")
-                                if lines[idx + counter + 2].trimmingCharacters(in: .whitespaces) == "</div>" {
-                                    break
-                                }
-                            }
-                        }
-                    }
-                    if list.count != 0 {
-                        Self.cache[channel] = (list.array as! [String])
-                    } else {
-                        os_log(.info, "No any programmes data found for channel \(channel).")
-                    }
-                }
-            }
-            self.completion?(nil)
-        } catch {
-            os_log(.error, "\(error as NSObject)")
-            self.completion?(error)
-        }
+    override func fetch() {
+        // TODO: Reimplement for new format.
+        // https://2090000.ru/programma-peredach/
+        update(.success([]))
     }
-}
-
-private extension ProgrammesFetcher2090000 {
-    private static let empty: [String] = []
-    private static var cache: [String: [String]] = [:]
-    private static let aliases: [String: String] = [
-        "Живи": "Живи HD",
-        "Первый": "Первый HD",
-        "TV1000": "TV 1000 HD",
-        "Русский роман": "Русский роман HD",
-        "Наша Сибирь HD": "Наша Сибирь 4К",
-        "Кино ТВ HD": "Кино ТВ",
-    ]
 }

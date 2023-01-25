@@ -100,7 +100,6 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
         
         timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { [memLabel=memStatsDebugView] _ in
             guard let stats = ObjCUtils.memStats() else {
-                print("WARNING: couldn't read mem stats.")
                 return
             }
             memLabel.text = "RAM Stats: use: \(fmt.string(fromByteCount: Int64(stats.usedMem))), free: \(fmt.string(fromByteCount: Int64(stats.freeMem))), total: \(fmt.string(fromByteCount: Int64(stats.totalMem)))"
@@ -325,37 +324,48 @@ private extension PlaylistViewController {
     func updateProgrammesInfo() {
         if let path = self.currentFocusPath, let item = dataSource.itemIdentifier(for: path) {
             self.currentFocusPath = path
-            
-            programmesStackView.arrangedSubviews.forEach(programmesStackView.removeArrangedSubview)
-            programmesStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
-            programmesStackView.subviews.forEach({$0.removeFromSuperview()})
-    
+
+            for subview in programmesStackView.arrangedSubviews {
+                programmesStackView.removeArrangedSubview(subview)
+                subview.removeFromSuperview()
+            }
+
             var index = NSNotFound
-            
-            let list: [String] = self.programmes?.list(for: item.channel) ?? []
-            if let now = self.nowHourAndMinutesDate() {
-                var hasEvening = false
-                for (idx, line) in list.enumerated() {
-                    let time = String(line[..<line.index(line.startIndex, offsetBy: 5)])
-                    if !hasEvening { hasEvening = time.hasPrefix("2") }
-                    let isAfterMidNight = time.hasPrefix("0")
-                    guard var date = Self.dateFormatter.date(from: time) else { continue }
-                    if hasEvening
-                        && isAfterMidNight
-                        && Calendar.current.component(.hour, from: now) > 20 {
-                        date.addTimeInterval(60 * 60 * 24)
-                    }
-                    if now < date {
-                        index = idx == 0 ? idx : idx - 1
-                        break
-                    }
+            var list: [String] = []
+
+            guard let programmes = self.programmes?.list(for: item.channel) else {
+                return
+            }
+            let now = Date()
+            let prevHours = Calendar.current.date(byAdding: .hour, value: -3, to: now)!
+            let nextDay = Calendar.current.date(byAdding: .hour, value: 8, to: now)!
+            for programme in programmes.programmes {
+                guard programme.start < nextDay, programme.end > prevHours else {
+                    continue
+                }
+                let row = "\(Self.dateFormatter.string(from: programme.start)) - \(Self.dateFormatter.string(from: programme.end)): \(programme.name)"
+                list.append(row)
+                if  programme.start <= now {
+                    index = list.count - 1
                 }
             }
-            
+
+            // Drop programmes that already ended many hours ago.
+            if index > 2 {
+                let drop = index - 2
+                index = abs(drop - index)
+                list = Array(list.dropFirst(drop))
+            }
+            // Reduce list to fit in screen height.
+            if list.count > 13 {
+                list = list.dropLast(list.count - 13)
+            }
+
             for (idx, line) in list.enumerated() {
                 let label = UILabel()
                 label.text = line
                 label.numberOfLines = 0
+                label.font = .systemFont(ofSize: 32, weight: .regular)
                 programmesStackView.addArrangedSubview(label)
                 if index == idx {
                     label.textColor = UIColor.systemGreen
@@ -363,15 +373,7 @@ private extension PlaylistViewController {
             }
         }
     }
-    
-    func nowHourAndMinutesDate() -> Date? {
-        let now = Date()
-        let hour = Calendar.current.component(.hour, from: now)
-        let minutes = Calendar.current.component(.minute, from: now)
-        let time = String(format: "%.2d:%.2d", hour, minutes)
-        return Self.dateFormatter.date(from: "\(time)")
-    }
-    
+
     private static let dateFormatter: DateFormatter = {
         let fmt = DateFormatter()
         fmt.dateFormat = "HH:mm"

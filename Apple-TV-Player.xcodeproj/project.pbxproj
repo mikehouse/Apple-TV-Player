@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		32EBBB313D57DB81AFA4F518 /* Pods_Apple_TV_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67EE9624CFF22F3AEAC77938 /* Pods_Apple_TV_Player.framework */; };
+		22626EAD086FDD046CEF6925 /* Pods_Apple_TV_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EAD1A47F3B2E941683F597B /* Pods_Apple_TV_Player.framework */; };
+		388B78C1E2DA8485EB43AF32 /* Pods_Channels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48FBB1D491BEFB0691F06187 /* Pods_Channels.framework */; };
 		8209A4C9258F5F51000F40ED /* ru-free-pls.m3u in Resources */ = {isa = PBXBuildFile; fileRef = 8209A4C8258F5F51000F40ED /* ru-free-pls.m3u */; };
 		8209A4CF258F85D6000F40ED /* ActionPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8209A4CE258F85D6000F40ED /* ActionPlaylistViewController.swift */; };
 		820AC430257285B800932015 /* IpTvProviderDynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820AC42F257285B800932015 /* IpTvProviderDynamic.swift */; };
@@ -58,6 +59,12 @@
 		82AD847525704277006752B7 /* Bundle2090000ru.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD847425704277006752B7 /* Bundle2090000ru.swift */; };
 		82AD847A257042B8006752B7 /* Playlist2090000ru.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD8479257042B8006752B7 /* Playlist2090000ru.swift */; };
 		82C2D12F2960050000301067 /* ObjCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C2D12E2960050000301067 /* ObjCUtils.m */; };
+		82C2D133296332F200301067 /* IpTvProviderOttclub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C2D132296332F200301067 /* IpTvProviderOttclub.swift */; };
+		82C2D1352963381500301067 /* BundleOttclubKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C2D1342963381500301067 /* BundleOttclubKind.swift */; };
+		82C2D137296339E500301067 /* PlaylistOttclub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C2D136296339E500301067 /* PlaylistOttclub.swift */; };
+		82C2D139296339F500301067 /* ChannelOttclub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C2D138296339F500301067 /* ChannelOttclub.swift */; };
+		82C2D13B29633A0500301067 /* ProgrammesFetcherOttclub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C2D13A29633A0500301067 /* ProgrammesFetcherOttclub.swift */; };
+		82C2D13E29633D5900301067 /* ottclub.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 82C2D13D29633D5900301067 /* ottclub.bundle */; };
 		82C56DC12947096B00DA4585 /* another.m3u in Resources */ = {isa = PBXBuildFile; fileRef = 82C56DC02947096B00DA4585 /* another.m3u */; };
 		82DAAEA125AB04C4006E296F /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DAAEA025AB04C4006E296F /* ContainerViewController.swift */; };
 		82DAAEA725AB0748006E296F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DAAEA625AB0748006E296F /* Logger.swift */; };
@@ -81,6 +88,12 @@
 		82F3D2A22538E6650021BB2E /* Channels.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82F3D29A2538E6650021BB2E /* Channels.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		82F3D2B02538E9220021BB2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 82F3D2B22538E9220021BB2E /* Localizable.strings */; };
 		82F3D2BA2538EABC0021BB2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82F3D2B92538EABC0021BB2E /* LaunchScreen.storyboard */; };
+		82F60DAE297D45F000DA7E1B /* TeleguideInfoParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F60DAD297D45F000DA7E1B /* TeleguideInfoParser.swift */; };
+		82F60DB1297D465300DA7E1B /* Zipper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F60DB0297D465300DA7E1B /* Zipper.swift */; };
+		82F60DB3297D602E00DA7E1B /* TeleguideInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F60DB2297D602E00DA7E1B /* TeleguideInfoProvider.swift */; };
+		82F60DB7297D744600DA7E1B /* TeleguideInfoParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F60DB6297D744600DA7E1B /* TeleguideInfoParserTests.swift */; };
+		82F60DB9297D8ED300DA7E1B /* epg.xml.gz in Resources */ = {isa = PBXBuildFile; fileRef = 82F60DB8297D8ED300DA7E1B /* epg.xml.gz */; };
+		B741D18A5E3EAF5A806C5881 /* Pods_ChannelsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DCF2331EE978490BDD10ED /* Pods_ChannelsTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,8 +135,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		67EE9624CFF22F3AEAC77938 /* Pods_Apple_TV_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Apple_TV_Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		69AA6ED0172F5C85F7F821E2 /* Pods-Apple-TV-Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apple-TV-Player.release.xcconfig"; path = "Target Support Files/Pods-Apple-TV-Player/Pods-Apple-TV-Player.release.xcconfig"; sourceTree = "<group>"; };
+		3D3FDD9CEB617D82BB4289E5 /* Pods-Channels.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Channels.debug.xcconfig"; path = "Target Support Files/Pods-Channels/Pods-Channels.debug.xcconfig"; sourceTree = "<group>"; };
+		3D7E2DFE9ED91FC837D8992B /* Pods-Apple-TV-Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apple-TV-Player.debug.xcconfig"; path = "Target Support Files/Pods-Apple-TV-Player/Pods-Apple-TV-Player.debug.xcconfig"; sourceTree = "<group>"; };
+		48FBB1D491BEFB0691F06187 /* Pods_Channels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Channels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EAD1A47F3B2E941683F597B /* Pods_Apple_TV_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Apple_TV_Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8200BBC5258604450056EE0F /* 2090000ruBundlesDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2090000ruBundlesDownloader.swift; sourceTree = "<group>"; };
 		8200BBC6258604AB0056EE0F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8209A4C8258F5F51000F40ED /* ru-free-pls.m3u */ = {isa = PBXFileReference; lastKnownFileType = text; path = "ru-free-pls.m3u"; sourceTree = "<group>"; };
@@ -179,6 +194,12 @@
 		82C2D12D2960050000301067 /* Apple-TV-Player-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Apple-TV-Player-Bridging-Header.h"; sourceTree = "<group>"; };
 		82C2D12E2960050000301067 /* ObjCUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCUtils.m; sourceTree = "<group>"; };
 		82C2D1302960051E00301067 /* ObjCUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCUtils.h; sourceTree = "<group>"; };
+		82C2D132296332F200301067 /* IpTvProviderOttclub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IpTvProviderOttclub.swift; sourceTree = "<group>"; };
+		82C2D1342963381500301067 /* BundleOttclubKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleOttclubKind.swift; sourceTree = "<group>"; };
+		82C2D136296339E500301067 /* PlaylistOttclub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistOttclub.swift; sourceTree = "<group>"; };
+		82C2D138296339F500301067 /* ChannelOttclub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelOttclub.swift; sourceTree = "<group>"; };
+		82C2D13A29633A0500301067 /* ProgrammesFetcherOttclub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgrammesFetcherOttclub.swift; sourceTree = "<group>"; };
+		82C2D13D29633D5900301067 /* ottclub.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ottclub.bundle; sourceTree = "<group>"; };
 		82C56DC02947096B00DA4585 /* another.m3u */ = {isa = PBXFileReference; lastKnownFileType = text; path = another.m3u; sourceTree = "<group>"; };
 		82C56DC429484E5C00DA4585 /* playlist_ru_download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playlist_ru_download.swift; sourceTree = "<group>"; };
 		82DAAEA025AB04C4006E296F /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
@@ -216,7 +237,16 @@
 		82F3D2B12538E9220021BB2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		82F3D2B62538E9600021BB2E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		82F3D2B92538EABC0021BB2E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A294316A2E8D0347BCFF7F70 /* Pods-Apple-TV-Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apple-TV-Player.debug.xcconfig"; path = "Target Support Files/Pods-Apple-TV-Player/Pods-Apple-TV-Player.debug.xcconfig"; sourceTree = "<group>"; };
+		82F60DAD297D45F000DA7E1B /* TeleguideInfoParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleguideInfoParser.swift; sourceTree = "<group>"; };
+		82F60DB0297D465300DA7E1B /* Zipper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zipper.swift; sourceTree = "<group>"; };
+		82F60DB2297D602E00DA7E1B /* TeleguideInfoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleguideInfoProvider.swift; sourceTree = "<group>"; };
+		82F60DB6297D744600DA7E1B /* TeleguideInfoParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleguideInfoParserTests.swift; sourceTree = "<group>"; };
+		82F60DB8297D8ED300DA7E1B /* epg.xml.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = epg.xml.gz; sourceTree = "<group>"; };
+		9E2F78C0EF84DB991D9A0B9E /* Pods-Channels.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Channels.release.xcconfig"; path = "Target Support Files/Pods-Channels/Pods-Channels.release.xcconfig"; sourceTree = "<group>"; };
+		E0DCF2331EE978490BDD10ED /* Pods_ChannelsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChannelsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4754F3D16A60B1D9E3EAF0D /* Pods-Apple-TV-Player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apple-TV-Player.release.xcconfig"; path = "Target Support Files/Pods-Apple-TV-Player/Pods-Apple-TV-Player.release.xcconfig"; sourceTree = "<group>"; };
+		F287F9E892E155B390BBC40A /* Pods-ChannelsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChannelsTests.debug.xcconfig"; path = "Target Support Files/Pods-ChannelsTests/Pods-ChannelsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F67A02DCDD07DDEB8DF904D0 /* Pods-ChannelsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChannelsTests.release.xcconfig"; path = "Target Support Files/Pods-ChannelsTests/Pods-ChannelsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82DDEB08253E2A4400F3B1EE /* Channels.framework in Frameworks */,
+				B741D18A5E3EAF5A806C5881 /* Pods_ChannelsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82F3D2A12538E6650021BB2E /* Channels.framework in Frameworks */,
-				32EBBB313D57DB81AFA4F518 /* Pods_Apple_TV_Player.framework in Frameworks */,
+				22626EAD086FDD046CEF6925 /* Pods_Apple_TV_Player.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +279,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				388B78C1E2DA8485EB43AF32 /* Pods_Channels.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,16 +289,22 @@
 		47E0FE7437F72A44E302E88A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A294316A2E8D0347BCFF7F70 /* Pods-Apple-TV-Player.debug.xcconfig */,
-				69AA6ED0172F5C85F7F821E2 /* Pods-Apple-TV-Player.release.xcconfig */,
+				3D7E2DFE9ED91FC837D8992B /* Pods-Apple-TV-Player.debug.xcconfig */,
+				E4754F3D16A60B1D9E3EAF0D /* Pods-Apple-TV-Player.release.xcconfig */,
+				3D3FDD9CEB617D82BB4289E5 /* Pods-Channels.debug.xcconfig */,
+				9E2F78C0EF84DB991D9A0B9E /* Pods-Channels.release.xcconfig */,
+				F287F9E892E155B390BBC40A /* Pods-ChannelsTests.debug.xcconfig */,
+				F67A02DCDD07DDEB8DF904D0 /* Pods-ChannelsTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		7282139F61CEA9109ED48C63 /* Frameworks */ = {
+		4C96F903FC40681AC0F8658F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				67EE9624CFF22F3AEAC77938 /* Pods_Apple_TV_Player.framework */,
+				7EAD1A47F3B2E941683F597B /* Pods_Apple_TV_Player.framework */,
+				48FBB1D491BEFB0691F06187 /* Pods_Channels.framework */,
+				E0DCF2331EE978490BDD10ED /* Pods_ChannelsTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -381,6 +419,7 @@
 		826BBC7C2561C23C003A69CA /* IpTvProvider */ = {
 			isa = PBXGroup;
 			children = (
+				82C2D13C29633D3F00301067 /* ottclub */,
 				826BBC7D2561C264003A69CA /* 2090000 */,
 			);
 			path = IpTvProvider;
@@ -489,6 +528,7 @@
 		82AD8450257038C4006752B7 /* IpTvProviders */ = {
 			isa = PBXGroup;
 			children = (
+				82C2D1312963305600301067 /* ottclub */,
 				820AC42E2572859A00932015 /* Dynamic */,
 				82AD8451257038F8006752B7 /* 2090000.ru */,
 				82AD845225703921006752B7 /* IpTvProvider.swift */,
@@ -508,6 +548,26 @@
 			path = 2090000.ru;
 			sourceTree = "<group>";
 		};
+		82C2D1312963305600301067 /* ottclub */ = {
+			isa = PBXGroup;
+			children = (
+				82C2D132296332F200301067 /* IpTvProviderOttclub.swift */,
+				82C2D1342963381500301067 /* BundleOttclubKind.swift */,
+				82C2D136296339E500301067 /* PlaylistOttclub.swift */,
+				82C2D138296339F500301067 /* ChannelOttclub.swift */,
+				82C2D13A29633A0500301067 /* ProgrammesFetcherOttclub.swift */,
+			);
+			path = ottclub;
+			sourceTree = "<group>";
+		};
+		82C2D13C29633D3F00301067 /* ottclub */ = {
+			isa = PBXGroup;
+			children = (
+				82C2D13D29633D5900301067 /* ottclub.bundle */,
+			);
+			path = ottclub;
+			sourceTree = "<group>";
+		};
 		82DAAEA525AB073B006E296F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -522,6 +582,7 @@
 		82DDEAEF253E1BE400F3B1EE /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
+				82F60DAC297D45DC00DA7E1B /* Teleguide */,
 				82DDEAF0253E1BFD00F3B1EE /* m3u */,
 			);
 			path = Parsers;
@@ -539,6 +600,7 @@
 		82DDEB04253E2A4300F3B1EE /* ChannelsTests */ = {
 			isa = PBXGroup;
 			children = (
+				82F60DB8297D8ED300DA7E1B /* epg.xml.gz */,
 				82E82D85256A93EF00E3D250 /* Configuration */,
 				822A58CA2540C4CC0061813F /* plst.m3u */,
 				82DDEB10253E2A8F00F3B1EE /* android.m3u8 */,
@@ -546,6 +608,7 @@
 				82DDEB05253E2A4300F3B1EE /* ChannelsTests.swift */,
 				82DDEB07253E2A4400F3B1EE /* Info.plist */,
 				8209A4C8258F5F51000F40ED /* ru-free-pls.m3u */,
+				82F60DB6297D744600DA7E1B /* TeleguideInfoParserTests.swift */,
 			);
 			path = ChannelsTests;
 			sourceTree = "<group>";
@@ -606,7 +669,7 @@
 				82DDEB04253E2A4300F3B1EE /* ChannelsTests */,
 				82F3D2692538D9AC0021BB2E /* Products */,
 				47E0FE7437F72A44E302E88A /* Pods */,
-				7282139F61CEA9109ED48C63 /* Frameworks */,
+				4C96F903FC40681AC0F8658F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -658,6 +721,7 @@
 		82F3D29B2538E6650021BB2E /* Channels */ = {
 			isa = PBXGroup;
 			children = (
+				82F60DAF297D463200DA7E1B /* Zip */,
 				826BBC7B2561C220003A69CA /* Resources */,
 				82F3D2AC2538E81E0021BB2E /* Sources */,
 				82F3D2A82538E6CF0021BB2E /* Configuration */,
@@ -698,6 +762,23 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
+		82F60DAC297D45DC00DA7E1B /* Teleguide */ = {
+			isa = PBXGroup;
+			children = (
+				82F60DAD297D45F000DA7E1B /* TeleguideInfoParser.swift */,
+			);
+			path = Teleguide;
+			sourceTree = "<group>";
+		};
+		82F60DAF297D463200DA7E1B /* Zip */ = {
+			isa = PBXGroup;
+			children = (
+				82F60DB0297D465300DA7E1B /* Zipper.swift */,
+				82F60DB2297D602E00DA7E1B /* TeleguideInfoProvider.swift */,
+			);
+			path = Zip;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -716,9 +797,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 82DDEB0D253E2A4400F3B1EE /* Build configuration list for PBXNativeTarget "ChannelsTests" */;
 			buildPhases = (
+				431F9E04616DCC2085AD0E63 /* [CP] Check Pods Manifest.lock */,
 				82DDEAFF253E2A4300F3B1EE /* Sources */,
 				82DDEB00253E2A4300F3B1EE /* Frameworks */,
 				82DDEB01253E2A4300F3B1EE /* Resources */,
+				08725B83990CBAF376316649 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -752,12 +835,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 82F3D27A2538D9AD0021BB2E /* Build configuration list for PBXNativeTarget "Apple-TV-Player" */;
 			buildPhases = (
-				8E8518305C559811FF0E02F5 /* [CP] Check Pods Manifest.lock */,
+				B955798E533013E16BA6DC1F /* [CP] Check Pods Manifest.lock */,
 				82F3D2642538D9AC0021BB2E /* Sources */,
 				82F3D2652538D9AC0021BB2E /* Frameworks */,
 				82F3D2662538D9AC0021BB2E /* Resources */,
 				82F3D2A32538E6650021BB2E /* Embed Frameworks */,
-				27E4E2D9C27C07DE3F25D4F7 /* [CP] Embed Pods Frameworks */,
+				9B182AB1050DF63C81DB5FEA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -773,6 +856,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 82F3D2A62538E6650021BB2E /* Build configuration list for PBXNativeTarget "Channels" */;
 			buildPhases = (
+				AC76457DECD6856B5C7992FA /* [CP] Check Pods Manifest.lock */,
 				82F3D2952538E6650021BB2E /* Headers */,
 				82F3D2962538E6650021BB2E /* Sources */,
 				82F3D2972538E6650021BB2E /* Frameworks */,
@@ -842,6 +926,7 @@
 				822A58CB2540C4CC0061813F /* plst.m3u in Resources */,
 				8209A4C9258F5F51000F40ED /* ru-free-pls.m3u in Resources */,
 				82DDEB11253E2A8F00F3B1EE /* android.m3u8 in Resources */,
+				82F60DB9297D8ED300DA7E1B /* epg.xml.gz in Resources */,
 				82C56DC12947096B00DA4585 /* another.m3u in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -884,13 +969,53 @@
 			files = (
 				8229F723257D45B200A9389E /* channels-ico-ru.bundle in Resources */,
 				826BBC7F2561C299003A69CA /* ru2090000.bundle in Resources */,
+				82C2D13E29633D5900301067 /* ottclub.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		27E4E2D9C27C07DE3F25D4F7 /* [CP] Embed Pods Frameworks */ = {
+		08725B83990CBAF376316649 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChannelsTests/Pods-ChannelsTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChannelsTests/Pods-ChannelsTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChannelsTests/Pods-ChannelsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		431F9E04616DCC2085AD0E63 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChannelsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B182AB1050DF63C81DB5FEA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -907,7 +1032,29 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Apple-TV-Player/Pods-Apple-TV-Player-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8E8518305C559811FF0E02F5 /* [CP] Check Pods Manifest.lock */ = {
+		AC76457DECD6856B5C7992FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Channels-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B955798E533013E16BA6DC1F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -937,6 +1084,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82DDEB06253E2A4300F3B1EE /* ChannelsTests.swift in Sources */,
+				82F60DB7297D744600DA7E1B /* TeleguideInfoParserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -990,18 +1138,26 @@
 				82AD845325703921006752B7 /* IpTvProvider.swift in Sources */,
 				82AD847525704277006752B7 /* Bundle2090000ru.swift in Sources */,
 				82DDEAF4253E1D2C00F3B1EE /* M3UItem.swift in Sources */,
+				82C2D1352963381500301067 /* BundleOttclubKind.swift in Sources */,
 				820AC43A257285D500932015 /* PlaylistDynamic.swift in Sources */,
 				8229F72E257D47EB00A9389E /* ChannelsICO.swift in Sources */,
+				82F60DAE297D45F000DA7E1B /* TeleguideInfoParser.swift in Sources */,
 				82DDEAF7253E1D4000F3B1EE /* M3U.swift in Sources */,
 				820AC435257285C800932015 /* BundleDynamic.swift in Sources */,
+				82C2D13B29633A0500301067 /* ProgrammesFetcherOttclub.swift in Sources */,
 				82AD84582570399B006752B7 /* IpTvProvider2090000ru.swift in Sources */,
 				82AD847A257042B8006752B7 /* Playlist2090000ru.swift in Sources */,
+				82C2D133296332F200301067 /* IpTvProviderOttclub.swift in Sources */,
+				82C2D139296339F500301067 /* ChannelOttclub.swift in Sources */,
+				82F60DB3297D602E00DA7E1B /* TeleguideInfoProvider.swift in Sources */,
 				82AD846D25703B8B006752B7 /* Playlist.swift in Sources */,
+				82F60DB1297D465300DA7E1B /* Zipper.swift in Sources */,
 				82AD8460257039CD006752B7 /* Channel2090000ru.swift in Sources */,
 				8229F754257D5EB800A9389E /* IpTvProgrammesProvider.swift in Sources */,
 				820AC43F257285E500932015 /* ChannelDynamic.swift in Sources */,
 				820AC430257285B800932015 /* IpTvProviderDynamic.swift in Sources */,
 				82AD846525703B2B006752B7 /* ChannelsBundle.swift in Sources */,
+				82C2D137296339E500301067 /* PlaylistOttclub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

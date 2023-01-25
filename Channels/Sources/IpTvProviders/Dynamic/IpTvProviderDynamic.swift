@@ -31,13 +31,12 @@ internal extension IpTvProviderDynamic {
                     return
                 }
                 var originalName = item.title
-                for key in favs.ignoreKeys {
+                for key in favs.stripKeys {
                     if originalName.contains(key) {
                         originalName = originalName.replacingOccurrences(of: key, with: "")
                     }
                 }
-                let shortName = originalName.hasSuffix(" HD") || originalName.hasSuffix(" hd")
-                    ? String(originalName.dropLast(3)) : originalName
+                let shortName = originalName.replacingOccurrences(of: " HD", with: "")
                 let channel = ChannelDynamic(
                     name: item.title, original: originalName,
                     short: shortName, stream: item.url, group: item.group, logo: item.logo)
@@ -80,13 +79,13 @@ private class FavoriteChannels {
     let playlistName: String
     let channelsNames: [String]
     let skipSourceURLs: [URL]
-    let ignoreKeys: [String]
+    let stripKeys: [String]
 
-    init(playlistName: String, channelsNames: [String], skipSourceURLs: [URL], ignoreKeys: [String]) {
+    init(playlistName: String, channelsNames: [String], skipSourceURLs: [URL], stripKeys: [String]) {
         self.playlistName = playlistName
         self.channelsNames = channelsNames
         self.skipSourceURLs = skipSourceURLs
-        self.ignoreKeys = ignoreKeys
+        self.stripKeys = stripKeys
     }
 }
 
@@ -104,11 +103,8 @@ extension FavoriteChannels {
                 "ТНТ",
                 "ТНТ4 HD",
                 "ТНТ4",
-                "THT Exclusive HD",
-                "THT Exclusive",
                 "2x2 HD",
                 "2x2",
-                "Мульт",
                 "BACKUSTV Страшное HD",
                 "BACKUSTV Страшное",
                 "Backus TV",
@@ -136,26 +132,10 @@ extension FavoriteChannels {
                 "ТВ-3 FHD",
                 "ТВ-3 HD",
                 "ТВ-3",
-                "FilmTV Kinder",
-                "Hits 360 HD",
-                "Hits 360",
-                "V2Beat HD",
-                "V2Beat",
-                "Кухня ТВ HD",
-                "Кухня ТВ",
-                "Первый Музыкальный BY HD",
-                "Первый Музыкальный BY",
-                "Reload Radio Music Power HD",
-                "Reload Radio Music Power",
-                "Любимый HD",
-                "Любимый",
-                "Авто24",
-                "ТЕХНО 24",
                 "Fashion TV (SK)",
                 "Clubbing TV",
                 "Кинозал (VHS 90s)",
-                "Фантастика Sci-Fi",
-                "KINDER TV"
+                "Фантастика Sci-Fi"
         ], skipSourceURLs: [
             URL(string: "http://zabava-htlive.cdn.ngenix.net")!,
             URL(string: "https://okkotv-live.cdnvideo.ru")!,
@@ -163,12 +143,12 @@ extension FavoriteChannels {
             URL(string: "http://78.58.133.179")!,
             URL(string: "http://94.154.83.88")!,
             URL(string: "http://bar-timeshift-inet.ll-bar.zsttk.ru")!,
-        ], ignoreKeys: FavoriteChannels.default().ignoreKeys)
+        ], stripKeys: FavoriteChannels.default().stripKeys)
     }
 
     static func `default`() -> FavoriteChannels {
         return .init(playlistName: "", channelsNames: [],
-            skipSourceURLs: [], ignoreKeys: [
+            skipSourceURLs: [], stripKeys: [
             " [Not 24/7]",
             " [Geo-blocked]",
             " (1024p)",

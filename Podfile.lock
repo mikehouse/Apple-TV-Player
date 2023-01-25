@@ -1,4 +1,5 @@
 PODS:
+  - GZIP (1.3.0)
   - Reusable (4.1.2):
     - Reusable/Storyboard (= 4.1.2)
     - Reusable/View (= 4.1.2)
@@ -7,18 +8,21 @@ PODS:
   - TVVLCKit (3.5.0)
 
 DEPENDENCIES:
+  - GZIP
   - Reusable
   - TVVLCKit
 
 SPEC REPOS:
   trunk:
+    - GZIP
     - Reusable
     - TVVLCKit
 
 SPEC CHECKSUMS:
+  GZIP: 416858efbe66b41b206895ac6dfd5493200d95b3
   Reusable: 6bae6a5e8aa793c9c441db0213c863a64bce9136
   TVVLCKit: d08c81812b89f7b629245b92139f6d35508bec7a
 
-PODFILE CHECKSUM: 33066f5482fa7c792e31080dc5d562983768cd45
+PODFILE CHECKSUM: 3c3baab63af34a4574506f2ae1df61f25399c837
 
 COCOAPODS: 1.11.3

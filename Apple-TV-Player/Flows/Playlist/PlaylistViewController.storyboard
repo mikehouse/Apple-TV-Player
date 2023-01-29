@@ -21,6 +21,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GbG-qQ-lCi">
+                                <rect key="frame" x="80" y="4" width="125" height="40"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="tuM-tV-aOf">
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8x-ye-9dQ">
+                                                <rect key="frame" x="0.0" y="2.5" width="69" height="35"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                <color key="textColor" systemColor="tertiaryLabelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="5BS-Sx-qOs">
+                                                <rect key="frame" x="85" y="0.0" width="40" height="40"/>
+                                            </activityIndicatorView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="tuM-tV-aOf" secondAttribute="trailing" id="5Sl-yP-pNh"/>
+                                    <constraint firstAttribute="bottom" secondItem="tuM-tV-aOf" secondAttribute="bottom" id="TFc-0f-tq7"/>
+                                    <constraint firstItem="tuM-tV-aOf" firstAttribute="leading" secondItem="GbG-qQ-lCi" secondAttribute="leading" id="bVb-on-Ard"/>
+                                    <constraint firstItem="tuM-tV-aOf" firstAttribute="top" secondItem="GbG-qQ-lCi" secondAttribute="top" id="hY3-Cv-a3V"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="66" sectionFooterHeight="66" translatesAutoresizingMaskIntoConstraints="NO" id="pna-2x-7au">
                                 <rect key="frame" x="80" y="60" width="614.5" height="960"/>
                             </tableView>
@@ -71,9 +97,11 @@
                             <constraint firstAttribute="trailing" secondItem="tL4-nb-upz" secondAttribute="trailing" constant="46" id="XX6-q9-LtM"/>
                             <constraint firstItem="1Tz-vU-B9a" firstAttribute="leading" secondItem="pna-2x-7au" secondAttribute="trailing" id="Xla-Es-qSD"/>
                             <constraint firstItem="1Tz-vU-B9a" firstAttribute="top" secondItem="h0O-L6-s10" secondAttribute="top" constant="16" id="Ytf-v6-pUj"/>
+                            <constraint firstItem="GbG-qQ-lCi" firstAttribute="top" secondItem="51T-06-GXQ" secondAttribute="top" constant="4" id="awz-Fs-NN5"/>
                             <constraint firstItem="pna-2x-7au" firstAttribute="width" secondItem="51T-06-GXQ" secondAttribute="width" multiplier="0.32" id="fTW-ar-UNs"/>
                             <constraint firstItem="tL4-nb-upz" firstAttribute="top" secondItem="51T-06-GXQ" secondAttribute="top" constant="18" id="mJ5-bY-BRh"/>
                             <constraint firstItem="pna-2x-7au" firstAttribute="top" secondItem="h0O-L6-s10" secondAttribute="top" id="obB-if-MLa"/>
+                            <constraint firstItem="GbG-qQ-lCi" firstAttribute="leading" secondItem="h0O-L6-s10" secondAttribute="leading" id="qgs-UG-bGh"/>
                             <constraint firstItem="pna-2x-7au" firstAttribute="leading" secondItem="h0O-L6-s10" secondAttribute="leading" id="xwn-us-BVb"/>
                         </constraints>
                     </view>
@@ -81,6 +109,8 @@
                         <outlet property="channelNameLabel" destination="17v-oZ-m3u" id="MXA-OQ-qb2"/>
                         <outlet property="debugView" destination="1Tz-vU-B9a" id="iz9-IS-7h3"/>
                         <outlet property="debugViewTopConstraint" destination="Ytf-v6-pUj" id="tGX-fC-IyB"/>
+                        <outlet property="programmesLoadingIndicator" destination="5BS-Sx-qOs" id="H3R-IC-zgb"/>
+                        <outlet property="programmesLoadingLabel" destination="l8x-ye-9dQ" id="2Gw-NS-sjO"/>
                         <outlet property="programmesStackView" destination="4Ll-wr-y4p" id="hf4-UI-pIm"/>
                         <outlet property="tableView" destination="pna-2x-7au" id="40M-07-FiN"/>
                         <outlet property="timeLabel" destination="tL4-nb-upz" id="H2d-GN-ET1"/>
@@ -94,6 +124,9 @@
     <resources>
         <systemColor name="secondaryLabelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

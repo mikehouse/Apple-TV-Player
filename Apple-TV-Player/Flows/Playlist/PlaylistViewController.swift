@@ -18,7 +18,9 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     @IBOutlet private var channelNameLabel: UILabel!
     @IBOutlet private var debugView: UIStackView!
     @IBOutlet private var debugViewTopConstraint: NSLayoutConstraint!
-    
+    @IBOutlet private var programmesLoadingLabel: UILabel!
+    @IBOutlet private var programmesLoadingIndicator: UIActivityIndicatorView!
+
     private var debugViewEnabled = false
     private lazy var memStatsDebugView: UILabel = {
         let view = UILabel()
@@ -77,6 +79,7 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
         configureTimeLabel()
         loadPlaylist()
         programmes?.load { [weak self] error in
+            self?.programmesLoadingIndicator(hidden: true)
             if let error = error {
                 os_log(.error, "\(error as NSObject)")
             } else {
@@ -85,7 +88,10 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
         }
 
         if programmes != nil {
+            programmesLoadingIndicator(hidden: false)
             tableViewHeight = 82
+        } else {
+            programmesLoadingIndicator(hidden: true)
         }
         
         for view in debugView.arrangedSubviews {
@@ -205,6 +211,16 @@ private extension PlaylistViewController {
             label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
         return view
+    }
+
+    func programmesLoadingIndicator(hidden: Bool) {
+        programmesLoadingIndicator.superview?.superview?.isHidden = hidden
+        programmesLoadingLabel.text = NSLocalizedString("Programmes loading text", comment: "")
+        if hidden {
+            programmesLoadingIndicator.stopAnimating()
+        } else {
+            programmesLoadingIndicator.startAnimating()
+        }
     }
 }
 

@@ -35,7 +35,10 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     private var timeUpdateTimer: Timer?
     private weak var overlayPlayer: ChannelPlayerViewController?
     private var logosCache: [IndexPath:UIImage] = [:]
+    private var currentProgrammeNameCache: [IndexPath:String] = [:]
     private var timer: Timer?
+    private var reloadAfterDelayedFetch = false
+    private var tableViewHeight: CGFloat = UITableView.automaticDimension
     
     private lazy var channelICO: ChannelICOProvider = ChannelICO(locale: "ru")
     private lazy var dataSource = DataSource(tableView: self.tableView) { [weak self] tableView, indexPath, row in
@@ -45,6 +48,7 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
         let cell: PlaylistChannelViewCell = tableView.dequeueReusableCell(
             for: indexPath, cellType: PlaylistChannelViewCell.self)
         cell.textLabel?.text = row.channel.name
+        cell.detailTextLabel?.text = self.currentProgrammeNameCache[indexPath]
         if let image = self.logosCache[indexPath] {
             cell.imageView?.image = image
         } else {
@@ -76,10 +80,12 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
             if let error = error {
                 os_log(.error, "\(error as NSObject)")
             } else {
-                DispatchQueue.main.async {
-                    self?.updateProgrammesInfo()
-                }
+                self?.updateProgrammesVisibleCells()
             }
+        }
+
+        if programmes != nil {
+            tableViewHeight = 82
         }
         
         for view in debugView.arrangedSubviews {
@@ -176,6 +182,7 @@ private extension PlaylistViewController {
             }
             
             DispatchQueue.main.async { [channels, prefetch] in
+                self.reloadAfterDelayedFetch = true
                 self.tableView(self.tableView, prefetchRowsAt: prefetch)
 
                 var snapshot = self.dataSource.snapshot()
@@ -206,6 +213,7 @@ extension PlaylistViewController: UITableViewDataSourcePrefetching {
         guard let channels = playlist?.channels else {
             return
         }
+        let reloadAfterDelayedFetch = reloadAfterDelayedFetch
         for path in indexPaths {
             let channel = channels[path.row]
             channelICO.icoFetch(for: channel) { [weak self] _, image in
@@ -215,10 +223,27 @@ extension PlaylistViewController: UITableViewDataSourcePrefetching {
                 let uiImage = UIImage(cgImage: image)
                 self.logosCache[path] = uiImage
 
-                var snapshot = self.dataSource.snapshot()
-                snapshot.reloadItems([.init(channel: channel)])
-                self.dataSource.apply(snapshot, animatingDifferences: false)
+                if reloadAfterDelayedFetch {
+                    var snapshot = self.dataSource.snapshot()
+                    snapshot.reloadItems([.init(channel: channel)])
+                    self.dataSource.apply(snapshot, animatingDifferences: false)
+                }
             }
+
+            DispatchQueue.main.async {
+                let rows: [Row] = indexPaths.map({ Row(channel: channels[$0.row]) })
+                for path in indexPaths {
+                    self.updateProgrammesInfo(path: path, skipListViewUpdate: true)
+                }
+                if reloadAfterDelayedFetch {
+                    var snapshot = self.dataSource.snapshot()
+                    snapshot.reloadItems(rows)
+                    self.dataSource.apply(snapshot, animatingDifferences: false)
+                }
+            }
+        }
+        if reloadAfterDelayedFetch {
+            self.reloadAfterDelayedFetch = false
         }
     }
 
@@ -235,7 +260,7 @@ extension PlaylistViewController: UITableViewDataSourcePrefetching {
 
 extension PlaylistViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        UITableView.automaticDimension
+        return tableViewHeight
     }
     
     func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext,
@@ -317,25 +342,40 @@ extension PlaylistViewController: ContainerViewControllerDelegate {
     }
     
     func containerDidDisappear(_ container: ContainerViewController) {
+        updateProgrammesVisibleCells()
     }
 }
 
 private extension PlaylistViewController {
-    func updateProgrammesInfo() {
-        if let path = self.currentFocusPath, let item = dataSource.itemIdentifier(for: path) {
-            self.currentFocusPath = path
 
-            for subview in programmesStackView.arrangedSubviews {
-                programmesStackView.removeArrangedSubview(subview)
-                subview.removeFromSuperview()
+    func updateProgrammesVisibleCells() {
+        reloadAfterDelayedFetch = true
+        let prefetch: [IndexPath] = self.tableView.indexPathsForVisibleRows ?? []
+        self.tableView(self.tableView, prefetchRowsAt: prefetch)
+    }
+
+    func updateProgrammesInfo() {
+        if let current = currentFocusPath {
+            updateProgrammesInfo(path: current, skipListViewUpdate: false)
+        }
+    }
+
+    func updateProgrammesInfo(path: IndexPath, skipListViewUpdate: Bool) {
+        if let item = dataSource.itemIdentifier(for: path) {
+            if skipListViewUpdate == false {
+                for subview in programmesStackView.arrangedSubviews {
+                    programmesStackView.removeArrangedSubview(subview)
+                    subview.removeFromSuperview()
+                }
             }
 
             var index = NSNotFound
-            var list: [String] = []
 
             guard let programmes = self.programmes?.list(for: item.channel) else {
+                currentProgrammeNameCache[path] = nil
                 return
             }
+            var programmesDisplay: [ChannelProgramme.Programme] = []
             let now = Date()
             let prevHours = Calendar.current.date(byAdding: .hour, value: -3, to: now)!
             let nextDay = Calendar.current.date(byAdding: .hour, value: 8, to: now)!
@@ -343,34 +383,42 @@ private extension PlaylistViewController {
                 guard programme.start < nextDay, programme.end > prevHours else {
                     continue
                 }
-                let row = "\(Self.dateFormatter.string(from: programme.start)) - \(Self.dateFormatter.string(from: programme.end)): \(programme.name)"
-                list.append(row)
+                programmesDisplay.append(programme)
                 if  programme.start <= now {
-                    index = list.count - 1
+                    index = programmesDisplay.count - 1
                 }
             }
 
             // Drop programmes that already ended many hours ago.
-            if index > 2 {
+            if index != NSNotFound, index > 2 {
                 let drop = index - 2
                 index = abs(drop - index)
-                list = Array(list.dropFirst(drop))
+                programmesDisplay = Array(programmesDisplay.dropFirst(drop))
             }
-            // Reduce list to fit in screen height.
-            if list.count > 13 {
-                list = list.dropLast(list.count - 13)
+            // Reduce programmesDisplay to fit in screen height.
+            if programmesDisplay.count > 13 {
+                programmesDisplay = programmesDisplay.dropLast(programmesDisplay.count - 13)
             }
 
-            for (idx, line) in list.enumerated() {
-                let label = UILabel()
-                label.text = line
-                label.numberOfLines = 0
-                label.font = .systemFont(ofSize: 32, weight: .regular)
-                programmesStackView.addArrangedSubview(label)
-                if index == idx {
-                    label.textColor = UIColor.systemGreen
+            if skipListViewUpdate == false {
+                let list: [String] = programmesDisplay.map({
+                    "\(Self.dateFormatter.string(from: $0.start)) - \(Self.dateFormatter.string(from: $0.end)): \($0.name)"
+                })
+
+                for (idx, line) in list.enumerated() {
+                    let label = UILabel()
+                    label.text = line
+                    label.numberOfLines = 0
+                    label.font = .systemFont(ofSize: 32, weight: .regular)
+                    programmesStackView.addArrangedSubview(label)
+                    if index == idx {
+                        label.textColor = UIColor.systemGreen
+                    }
                 }
             }
+
+            currentProgrammeNameCache[path] =
+                index == NSNotFound ? nil : programmesDisplay[index].name
         }
     }
 

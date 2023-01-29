@@ -44,6 +44,7 @@ internal extension IpTvProviderOttclub {
             "ViP Megahit HD",
             "ViP Comedy HD",
             "ViP Serial HD",
+            "CineMan Сваты HD",
             "CineMan HD",
             "CineMan Top HD",
             "CineMan Action HD",

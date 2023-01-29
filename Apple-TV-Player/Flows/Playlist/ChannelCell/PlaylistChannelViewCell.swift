@@ -13,5 +13,7 @@ final class PlaylistChannelViewCell: UITableViewCell, NibReusable {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+
+        detailTextLabel?.text = nil
     }
 }

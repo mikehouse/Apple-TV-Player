@@ -247,6 +247,9 @@ extension PlaylistViewController: UITableViewDataSourcePrefetching {
             }
 
             DispatchQueue.main.async {
+                guard self.isProgrammesAvailable else {
+                    return
+                }
                 let rows: [Row] = indexPaths.map({ Row(channel: channels[$0.row]) })
                 for path in indexPaths {
                     self.updateProgrammesInfo(path: path, skipListViewUpdate: true)
@@ -364,7 +367,14 @@ extension PlaylistViewController: ContainerViewControllerDelegate {
 
 private extension PlaylistViewController {
 
+    var isProgrammesAvailable: Bool {
+        return programmes != nil
+    }
+
     func updateProgrammesVisibleCells() {
+        guard isProgrammesAvailable else {
+            return
+        }
         reloadAfterDelayedFetch = true
         let prefetch: [IndexPath] = self.tableView.indexPathsForVisibleRows ?? []
         self.tableView(self.tableView, prefetchRowsAt: prefetch)
@@ -377,6 +387,9 @@ private extension PlaylistViewController {
     }
 
     func updateProgrammesInfo(path: IndexPath, skipListViewUpdate: Bool) {
+        guard isProgrammesAvailable else {
+            return
+        }
         if let item = dataSource.itemIdentifier(for: path) {
             if skipListViewUpdate == false {
                 for subview in programmesStackView.arrangedSubviews {

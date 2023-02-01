@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ObjCUtils : NSObject
 
 + (nullable ObjCUtilsMemStat *)memStats;
++ (double)cpuUsage;
 
 @end
 

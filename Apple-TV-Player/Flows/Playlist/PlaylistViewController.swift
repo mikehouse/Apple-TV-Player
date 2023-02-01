@@ -27,6 +27,7 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
         view.textColor = .tertiaryLabel
         view.font = .preferredFont(forTextStyle: .footnote)
         view.textAlignment = .right
+        view.numberOfLines = 0
         return view
     }()
 
@@ -110,11 +111,17 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
         
         debugView.addArrangedSubview(memStatsDebugView)
         
-        timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { [memLabel=memStatsDebugView] _ in
-            guard let stats = ObjCUtils.memStats() else {
-                return
+        timer = Timer.scheduledTimer(withTimeInterval: 20, repeats: true) { [memLabel=memStatsDebugView] _ in
+            DispatchQueue.global(qos: .utility).async {
+                guard let stats = ObjCUtils.memStats() else {
+                    return
+                }
+                let cpuLoad = Int(ObjCUtils.cpuUsage() * 100)
+                let text = "RAM Stats: use: \(fmt.string(fromByteCount: Int64(stats.usedMem))), free: \(fmt.string(fromByteCount: Int64(stats.freeMem))), total: \(fmt.string(fromByteCount: Int64(stats.totalMem)))\nCPU load: \(cpuLoad)%"
+                DispatchQueue.main.async {
+                    memLabel.text = text
+                }
             }
-            memLabel.text = "RAM Stats: use: \(fmt.string(fromByteCount: Int64(stats.usedMem))), free: \(fmt.string(fromByteCount: Int64(stats.freeMem))), total: \(fmt.string(fromByteCount: Int64(stats.totalMem)))"
         }
     }
     

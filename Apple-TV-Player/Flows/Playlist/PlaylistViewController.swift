@@ -41,7 +41,7 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     private var currentProgrammeNameCache: [IndexPath:String] = [:]
     private var timer: Timer?
     private var reloadAfterDelayedFetch = false
-    private var tableViewHeight: CGFloat = UITableView.automaticDimension
+    private var tableViewHeight: CGFloat = 72
     
     private lazy var channelICO: ChannelICOProvider = ChannelICO(locale: "ru")
     private lazy var dataSource = DataSource(tableView: self.tableView) { [weak self] tableView, indexPath, row in
@@ -90,7 +90,7 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
 
         if programmes != nil {
             programmesLoadingIndicator(hidden: false)
-            tableViewHeight = 82
+            tableViewHeight = 86
         } else {
             programmesLoadingIndicator(hidden: true)
         }

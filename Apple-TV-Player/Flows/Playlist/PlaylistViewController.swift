@@ -42,6 +42,7 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     private var timer: Timer?
     private var reloadAfterDelayedFetch = false
     private var tableViewHeight: CGFloat = 72
+    private var hdVerCache: [AnyHashable: Channel] = [:]
     
     private lazy var channelICO: ChannelICOProvider = ChannelICO(locale: "ru")
     private lazy var dataSource = DataSource(tableView: self.tableView) { [weak self] tableView, indexPath, row in
@@ -407,7 +408,19 @@ private extension PlaylistViewController {
 
             var index = NSNotFound
 
-            guard let programmes = self.programmes?.list(for: item.channel) else {
+            var programmes = self.programmes?.list(for: item.channel)
+            if programmes == nil {
+                // Use HD version because from playlist data source some
+                // channels do not have "HD" suffix, but in programmes
+                // they do have it.
+                let cache = hdVerCache[item.channel.id]
+                let hd: Channel = cache ?? ChannelHdVer(channel: item.channel)
+                programmes = self.programmes?.list(for: hd)
+                if cache == nil, programmes != nil {
+                    self.hdVerCache[item.channel.id] = hd
+                }
+            }
+            guard let programmes else {
                 currentProgrammeNameCache[path] = nil
                 return
             }
@@ -467,4 +480,24 @@ private extension PlaylistViewController {
 
 private class ContentVC: ContainerViewController {
     weak var context: ChannelPlayerViewController?
+}
+
+private class ChannelHdVer: Channel {
+    let name: String
+    let original: String
+    let short: String
+    let id: AnyHashable
+    let stream: URL
+    let group: String?
+    let logo: URL?
+
+    init(channel: Channel) {
+        self.name = channel.name + " HD"
+        self.original = self.name
+        self.short = channel.short
+        self.id = AnyHashable(self.name)
+        self.stream = channel.stream
+        self.group = channel.group
+        self.logo = channel.logo
+    }
 }

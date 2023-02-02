@@ -43,6 +43,7 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     private var reloadAfterDelayedFetch = false
     private var tableViewHeight: CGFloat = 72
     private var hdFixCache: [AnyHashable: Channel] = [:]
+    private var startFullScreenTime = CFAbsoluteTimeGetCurrent()
     
     private lazy var channelICO: ChannelICOProvider = ChannelICO(locale: "ru")
     private lazy var dataSource = DataSource(tableView: self.tableView) { [weak self] tableView, indexPath, row in
@@ -338,6 +339,7 @@ extension PlaylistViewController: UITableViewDelegate {
 
 extension PlaylistViewController: ContainerViewControllerDelegate {
     func containerWillAppear(_ container: ContainerViewController) {
+        startFullScreenTime = CFAbsoluteTimeGetCurrent()
     }
     
     func containerDidAppear(_ container: ContainerViewController) {
@@ -369,7 +371,9 @@ extension PlaylistViewController: ContainerViewControllerDelegate {
     }
     
     func containerDidDisappear(_ container: ContainerViewController) {
-        updateProgrammesVisibleCells()
+        if CFAbsoluteTimeGetCurrent() - startFullScreenTime > 60 * 15 {
+            updateProgrammesVisibleCells()
+        }
     }
 }
 

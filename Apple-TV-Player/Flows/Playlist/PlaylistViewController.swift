@@ -42,7 +42,7 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     private var timer: Timer?
     private var reloadAfterDelayedFetch = false
     private var tableViewHeight: CGFloat = 72
-    private var hdVerCache: [AnyHashable: Channel] = [:]
+    private var hdFixCache: [AnyHashable: Channel] = [:]
     
     private lazy var channelICO: ChannelICOProvider = ChannelICO(locale: "ru")
     private lazy var dataSource = DataSource(tableView: self.tableView) { [weak self] tableView, indexPath, row in
@@ -412,12 +412,12 @@ private extension PlaylistViewController {
             if programmes == nil {
                 // Use HD version because from playlist data source some
                 // channels do not have "HD" suffix, but in programmes
-                // they do have it.
-                let cache = hdVerCache[item.channel.id]
-                let hd: Channel = cache ?? ChannelHdVer(channel: item.channel)
+                // they do have it. And vice versa.
+                let cache = hdFixCache[item.channel.id]
+                let hd: Channel = cache ?? ChannelHDNameFixer(channel: item.channel)
                 programmes = self.programmes?.list(for: hd)
                 if cache == nil, programmes != nil {
-                    self.hdVerCache[item.channel.id] = hd
+                    self.hdFixCache[item.channel.id] = hd
                 }
             }
             guard let programmes else {
@@ -482,7 +482,7 @@ private class ContentVC: ContainerViewController {
     weak var context: ChannelPlayerViewController?
 }
 
-private class ChannelHdVer: Channel {
+private class ChannelHDNameFixer: Channel {
     let name: String
     let original: String
     let short: String
@@ -492,7 +492,8 @@ private class ChannelHdVer: Channel {
     let logo: URL?
 
     init(channel: Channel) {
-        self.name = channel.name + " HD"
+        self.name = channel.name.hasSuffix(" HD")
+            ? String(channel.name.dropLast(3)) : channel.name + " HD"
         self.original = self.name
         self.short = channel.short
         self.id = AnyHashable(self.name)

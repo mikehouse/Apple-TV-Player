@@ -44,7 +44,8 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     private var tableViewHeight: CGFloat = 72
     private var hdFixCache: [AnyHashable: Channel] = [:]
     private var startFullScreenTime = CFAbsoluteTimeGetCurrent()
-    
+    private var isFullScreen = false
+
     private lazy var channelICO: ChannelICOProvider = ChannelICO(locale: "ru")
     private lazy var dataSource = DataSource(tableView: self.tableView) { [weak self] tableView, indexPath, row in
         guard let self else {
@@ -113,15 +114,20 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
         
         debugView.addArrangedSubview(memStatsDebugView)
         
-        timer = Timer.scheduledTimer(withTimeInterval: 20, repeats: true) { [memLabel=memStatsDebugView] _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
             DispatchQueue.global(qos: .utility).async {
                 guard let stats = ObjCUtils.memStats() else {
                     return
                 }
                 let cpuLoad = Int(ObjCUtils.cpuUsage() * 100)
                 let text = "RAM Stats: use: \(fmt.string(fromByteCount: Int64(stats.usedMem))), free: \(fmt.string(fromByteCount: Int64(stats.freeMem))), total: \(fmt.string(fromByteCount: Int64(stats.totalMem)))\nCPU load: \(cpuLoad)%"
+                print(text)
+
+                guard self?.isFullScreen ?? true == false else {
+                    return
+                }
                 DispatchQueue.main.async {
-                    memLabel.text = text
+                    self?.memStatsDebugView.text = text
                 }
             }
         }
@@ -340,6 +346,7 @@ extension PlaylistViewController: UITableViewDelegate {
 extension PlaylistViewController: ContainerViewControllerDelegate {
     func containerWillAppear(_ container: ContainerViewController) {
         startFullScreenTime = CFAbsoluteTimeGetCurrent()
+        isFullScreen = true
     }
     
     func containerDidAppear(_ container: ContainerViewController) {
@@ -374,6 +381,7 @@ extension PlaylistViewController: ContainerViewControllerDelegate {
         if CFAbsoluteTimeGetCurrent() - startFullScreenTime > 60 * 15 {
             updateProgrammesVisibleCells()
         }
+        isFullScreen = false
     }
 }
 

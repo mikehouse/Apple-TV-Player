@@ -25,6 +25,30 @@ Over 8000 channels are available https://github.com/iptv-org/iptv (not mine, ple
 - EN
 - RU
 
+### Built-in TV providers
+
+#### ottclub.tv
+
+- Official site https://www.ottclub.tv
+- To use you need API_KEY
+- Little to modify source code:
+
+```swift
+// Open file `IpTvProvider.swift`.
+// Add there ottclub provider with your API_KEY.
+// That is change function:
+
+public static func builtInProviders() -> [IpTvProviderKind] {
+    return []
+}
+
+// to this:
+
+public static func builtInProviders() -> [IpTvProviderKind] {
+    return [.ottclub(key: "API_KEY")]
+}
+```
+
 ### How to Build
 
 1. Install dependencies
@@ -88,3 +112,7 @@ Long tap on TV Remote or press Play/Pause TV Remote button.
 <img src="005.png"  alt=""/>
 <img src="006.png"  alt=""/>
 <img src="007.png"  alt=""/>
+
+## ottclub.tv
+
+<img src="008.png"  alt=""/>

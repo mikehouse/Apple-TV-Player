@@ -4,7 +4,6 @@ target 'Apple-TV-Player' do
 
   use_frameworks!
 
-  pod 'TVVLCKit'
   pod "Reusable"
 
 end

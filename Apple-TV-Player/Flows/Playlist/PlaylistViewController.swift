@@ -330,8 +330,7 @@ extension PlaylistViewController: UITableViewDelegate {
                    NSStringFromClass(type(of: responder)).contains("AVFocusContainerView"),
                    let currentPlayingPath {
                     self.tableView(tableView, didSelectRowAt: currentPlayingPath)
-                    tableView.scrollToRow(at: currentPlayingPath, at: .middle, animated: false)
-                    self.currentFocusPath = currentPlayingPath
+                    tableView.scrollToRow(at: currentPlayingPath, at: .top, animated: false)
                 }
                 return
             }

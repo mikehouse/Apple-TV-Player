@@ -35,6 +35,7 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     var programmes: IpTvProgrammesProvider?
     
     private var currentFocusPath: IndexPath?
+    private var currentPlayingPath: IndexPath?
     private var timeUpdateTimer: Timer?
     private weak var overlayPlayer: ChannelPlayerViewController?
     private var logosCache: [IndexPath:UIImage] = [:]
@@ -45,6 +46,7 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     private var hdFixCache: [AnyHashable: Channel] = [:]
     private var startFullScreenTime = CFAbsoluteTimeGetCurrent()
     private var isFullScreen = false
+    private let shadowPreviewView = ShadowView()
 
     private lazy var channelICO: ChannelICOProvider = ChannelICO(locale: "ru")
     private lazy var dataSource = DataSource(tableView: self.tableView) { [weak self] tableView, indexPath, row in
@@ -102,6 +104,8 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
             debugView.removeArrangedSubview(view)
             view.removeFromSuperview()
         }
+
+        shadowPreviewView.backgroundColor = .white
         
         guard debugViewEnabled else {
             debugViewTopConstraint.constant = 0
@@ -299,8 +303,39 @@ extension PlaylistViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext,
                    with coordinator: UIFocusAnimationCoordinator) {
-        self.currentFocusPath = context.nextFocusedIndexPath
-        self.updateProgrammesInfo()
+        var isPreviewInFocus = false
+        if let next = context.nextFocusedView,
+           NSStringFromClass(type(of: next)).contains("AVFocusContainerView") {
+            isPreviewInFocus = true
+        }
+        if isPreviewInFocus {
+            if isFullScreen {
+                shadowPreviewView.setShadow(.none)
+            } else {
+                shadowPreviewView.setShadow(.focused)
+            }
+        } else {
+            shadowPreviewView.setShadow(.notFocused)
+            self.currentFocusPath = context.nextFocusedIndexPath
+            self.updateProgrammesInfo()
+        }
+    }
+
+    override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        super.pressesEnded(presses, with: event)
+
+        for press in presses {
+            if press.type == .select {
+                if let responder = press.responder,
+                   NSStringFromClass(type(of: responder)).contains("AVFocusContainerView"),
+                   let currentPlayingPath {
+                    self.tableView(tableView, didSelectRowAt: currentPlayingPath)
+                    tableView.scrollToRow(at: currentPlayingPath, at: .middle, animated: false)
+                    self.currentFocusPath = currentPlayingPath
+                }
+                return
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -339,6 +374,7 @@ extension PlaylistViewController: UITableViewDelegate {
             videoPlayer.didMove(toParent: container)
     
             self.present(container, animated: true)
+            self.currentPlayingPath = indexPath
         }
     }
 }
@@ -347,6 +383,7 @@ extension PlaylistViewController: ContainerViewControllerDelegate {
     func containerWillAppear(_ container: ContainerViewController) {
         startFullScreenTime = CFAbsoluteTimeGetCurrent()
         isFullScreen = true
+        shadowPreviewView.removeFromSuperview()
     }
     
     func containerDidAppear(_ container: ContainerViewController) {
@@ -375,6 +412,9 @@ extension PlaylistViewController: ContainerViewControllerDelegate {
         playerVC.didMove(toParent: self)
     
         self.overlayPlayer = playerVC
+
+        view.insertSubview(shadowPreviewView, belowSubview: playerVC.view)
+        shadowPreviewView.frame = playerVC.view.frame
     }
     
     func containerDidDisappear(_ container: ContainerViewController) {
@@ -512,5 +552,29 @@ private class ChannelHDNameFixer: Channel {
         self.stream = channel.stream
         self.group = channel.group
         self.logo = channel.logo
+    }
+}
+
+private final class ShadowView: UIView {
+
+    enum Shadow {
+        case focused
+        case notFocused
+        case none
+    }
+
+    func setShadow(_ shadow: Shadow) {
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowRadius = 16
+
+        switch shadow {
+        case .focused:
+            layer.shadowColor = UIColor.white.cgColor
+        case .notFocused:
+            layer.shadowColor = UIColor.black.cgColor
+        case .none:
+            layer.shadowOpacity = 0
+        }
     }
 }

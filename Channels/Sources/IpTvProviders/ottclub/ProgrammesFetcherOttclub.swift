@@ -19,7 +19,7 @@ internal final class ProgrammesFetcherOttclub: ProgrammesFetcherBase {
                     try self.handle(xml: cacheFile)
                     return
                 } catch {
-                    os_log(.debug, "%s error: %s", cacheFile.path, String(describing: error))
+                    os_log(.info, "%s error: %s", cacheFile.path, String(describing: error))
                 }
             }
             // https://vip-tv.org/articles/epg-iptv.html
@@ -35,6 +35,7 @@ internal final class ProgrammesFetcherOttclub: ProgrammesFetcherBase {
                     os_log(.info, "%s error: %s", url.path, String(describing: error))
                     self.update(.failure(error))
                 case .success(let url):
+                    defer { try? FileManager.default.removeItem(at: url) }
                     do {
                         let cacheDir = try self.cacheDirectory()
                         let cacheFile = cacheDir.appendingPathComponent(url.lastPathComponent, isDirectory: false)

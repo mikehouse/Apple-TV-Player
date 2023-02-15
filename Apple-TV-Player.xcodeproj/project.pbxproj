@@ -25,6 +25,7 @@
 		820AC46D2572E78500932015 /* ProviderCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 820AC46B2572E78500932015 /* ProviderCellView.xib */; };
 		820AC4732572E7D600932015 /* ProviderBundleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820AC4712572E7D600932015 /* ProviderBundleCellView.swift */; };
 		820AC4742572E7D600932015 /* ProviderBundleCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 820AC4722572E7D600932015 /* ProviderBundleCellView.xib */; };
+		821BDC54299B5E29004B28B9 /* custom_tags.m3u8 in Resources */ = {isa = PBXBuildFile; fileRef = 821BDC53299B5E29004B28B9 /* custom_tags.m3u8 */; };
 		8229F71D257BD37600A9389E /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229F71C257BD37600A9389E /* NoDataView.swift */; };
 		8229F723257D45B200A9389E /* channels-ico-ru.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8229F722257D45B200A9389E /* channels-ico-ru.bundle */; };
 		8229F72E257D47EB00A9389E /* ChannelsICO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229F72D257D47EB00A9389E /* ChannelsICO.swift */; };
@@ -51,6 +52,7 @@
 		828E401B253F851E003D4EFC /* AddPlaylistCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828E4019253F851E003D4EFC /* AddPlaylistCellView.xib */; };
 		828E4020253F852F003D4EFC /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E401E253F852F003D4EFC /* SettingsCellView.swift */; };
 		828E4021253F852F003D4EFC /* SettingsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828E401F253F852F003D4EFC /* SettingsCellView.xib */; };
+		82983082299C016D00AD2852 /* metadata.json in Resources */ = {isa = PBXBuildFile; fileRef = 82983081299C016D00AD2852 /* metadata.json */; };
 		82AD845325703921006752B7 /* IpTvProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD845225703921006752B7 /* IpTvProvider.swift */; };
 		82AD84582570399B006752B7 /* IpTvProvider2090000ru.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD84572570399B006752B7 /* IpTvProvider2090000ru.swift */; };
 		82AD8460257039CD006752B7 /* Channel2090000ru.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD845F257039CD006752B7 /* Channel2090000ru.swift */; };
@@ -157,6 +159,7 @@
 		820AC46B2572E78500932015 /* ProviderCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProviderCellView.xib; sourceTree = "<group>"; };
 		820AC4712572E7D600932015 /* ProviderBundleCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderBundleCellView.swift; sourceTree = "<group>"; };
 		820AC4722572E7D600932015 /* ProviderBundleCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProviderBundleCellView.xib; sourceTree = "<group>"; };
+		821BDC53299B5E29004B28B9 /* custom_tags.m3u8 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = custom_tags.m3u8; sourceTree = "<group>"; };
 		8229F71C257BD37600A9389E /* NoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
 		8229F722257D45B200A9389E /* channels-ico-ru.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "channels-ico-ru.bundle"; sourceTree = "<group>"; };
 		8229F72D257D47EB00A9389E /* ChannelsICO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsICO.swift; sourceTree = "<group>"; };
@@ -184,6 +187,7 @@
 		828E4019253F851E003D4EFC /* AddPlaylistCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPlaylistCellView.xib; sourceTree = "<group>"; };
 		828E401E253F852F003D4EFC /* SettingsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
 		828E401F253F852F003D4EFC /* SettingsCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCellView.xib; sourceTree = "<group>"; };
+		82983081299C016D00AD2852 /* metadata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = metadata.json; sourceTree = "<group>"; };
 		82AD845225703921006752B7 /* IpTvProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IpTvProvider.swift; sourceTree = "<group>"; };
 		82AD84572570399B006752B7 /* IpTvProvider2090000ru.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IpTvProvider2090000ru.swift; sourceTree = "<group>"; };
 		82AD845F257039CD006752B7 /* Channel2090000ru.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel2090000ru.swift; sourceTree = "<group>"; };
@@ -600,6 +604,8 @@
 		82DDEB04253E2A4300F3B1EE /* ChannelsTests */ = {
 			isa = PBXGroup;
 			children = (
+				82983081299C016D00AD2852 /* metadata.json */,
+				821BDC53299B5E29004B28B9 /* custom_tags.m3u8 */,
 				82F60DB8297D8ED300DA7E1B /* epg.xml.gz */,
 				82E82D85256A93EF00E3D250 /* Configuration */,
 				822A58CA2540C4CC0061813F /* plst.m3u */,
@@ -925,6 +931,8 @@
 			files = (
 				822A58CB2540C4CC0061813F /* plst.m3u in Resources */,
 				8209A4C9258F5F51000F40ED /* ru-free-pls.m3u in Resources */,
+				82983082299C016D00AD2852 /* metadata.json in Resources */,
+				821BDC54299B5E29004B28B9 /* custom_tags.m3u8 in Resources */,
 				82DDEB11253E2A8F00F3B1EE /* android.m3u8 in Resources */,
 				82F60DB9297D8ED300DA7E1B /* epg.xml.gz in Resources */,
 				82C56DC12947096B00DA4585 /* another.m3u in Resources */,

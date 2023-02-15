@@ -15,6 +15,7 @@ final class TeleguideInfoXmlProvider {
         self.url = url
     }
 
+    // You should remove file after you're done with it.
     func info(_ completion: @escaping (Swift.Result<URL, Error>) -> Void) {
         DispatchQueue.global(qos: .userInteractive).async { [url] in
             let unzip = GunZipper(url: url)

@@ -139,7 +139,7 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     
     deinit {
         timer?.invalidate()
-        os_log(.debug, "deinit %s", String(describing: self))
+        os_log(.info, "deinit %s", String(describing: self))
     }
 }
 

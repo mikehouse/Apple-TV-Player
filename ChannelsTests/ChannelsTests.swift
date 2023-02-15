@@ -104,4 +104,33 @@ final class ChannelsTests: XCTestCase {
             XCTAssertEqual(m3u.items.last, expected)
         }
     }
+
+    func testCustomTag() throws {
+        do {
+            let url = Bundle(for: type(of: self)).url(forResource: "custom_tags", withExtension: "m3u8")!
+            let urlMeta = Bundle(for: type(of: self)).url(forResource: "metadata", withExtension: "json")!
+            guard FileManager.default.fileExists(atPath: url.path),
+                  FileManager.default.fileExists(atPath: urlMeta.path) else {
+                XCTFail()
+                return
+            }
+            let string = try String(contentsOf: url)
+            let update = string.replacingOccurrences(of: "${STREAM_URL}", with: urlMeta.absoluteString)
+            try FileManager.default.removeItem(at: url)
+            try update.write(to: url, atomically: true, encoding: .utf8)
+        }
+
+
+        let url = Bundle(for: type(of: self)).url(forResource: "custom_tags", withExtension: "m3u8")!
+        let m3u = M3U(url: url)
+        try m3u.parse()
+
+        XCTAssertEqual(m3u.items.count, 1)
+        guard let item = m3u.items.first else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual(item.url, URL(string: "https://example.com/index.m3u8?token=AAA&player=vlc"))
+        XCTAssertEqual(item.title, "Paramount Comedy")
+    }
 }

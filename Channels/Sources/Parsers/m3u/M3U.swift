@@ -111,6 +111,7 @@ public extension M3U {
                 }
             }
             var group: String?
+            var proxy: String?
             var logoURL: URL?
             var title: String = NSLocalizedString("title not found.", comment: "")
             let nsstring = line as NSString
@@ -121,6 +122,9 @@ public extension M3U {
                         .replacingOccurrences(of: "\"", with: "")
                         .replacingOccurrences(of: ",", with: "")
                     group = group.map({ $0.trimmingCharacters(in: .whitespaces) })
+                } else if tag.contains(M3U.Directive.proxy.rawValue) {
+                    proxy = tag.components(separatedBy: "=")[1]
+                        .replacingOccurrences(of: "\"", with: "")
                 } else if tag.contains(M3U.Directive.tvg_logo.rawValue) {
                     var logo: String = tag.components(separatedBy: "=")[1]
                         .replacingOccurrences(of: "\"", with: "")
@@ -147,12 +151,23 @@ public extension M3U {
                 break
             }
             let http = lines[i].replacingOccurrences(of: " ", with: "")
-            guard http.hasPrefix(Directive.http.rawValue),
+            guard (http.hasPrefix(Directive.http.rawValue) || http.hasPrefix(Directive.file.rawValue)),
                   let url = URL(string: http) else {
                 continue
             }
-            let item = M3UItem(title: title, url: url, group: group, logo: logoURL)
-            items.append(item)
+            if let proxy = proxy.flatMap({ ProxyType(rawValue: $0) }) {
+                do {
+                    if let stream = try streamURL(from: proxy, source: url) {
+                        let item = M3UItem(title: title, url: stream, group: group, logo: logoURL)
+                        items.append(item)
+                    }
+                } catch {
+                    os_log(.info, "cannot read stream proxy object \(error)")
+                }
+            } else {
+                let item = M3UItem(title: title, url: url, group: group, logo: logoURL)
+                items.append(item)
+            }
         }
         
         self.items = items
@@ -167,7 +182,94 @@ private extension M3U {
         case grp = "#EXTGRP"
         case vlcopt = "#EXTVLCOPT"
         case http
+        case file // for unit tests mostly
         case group_title = "group-title="
         case tvg_logo = "tvg-logo="
+        case proxy = "proxy=" // custom type. make additional logic for m3u.
+    }
+}
+
+private func streamURL(from proxy: ProxyType, source: URL) throws -> URL? {
+    do {
+        let searchCache = ProxyCache(proxy: proxy, source: source, url: nil)
+        if let cached = proxiesCache.first(where: { $0 == searchCache }) {
+            if cached.stillValid, let url = cached.url {
+                os_log(.info, "did read proxy from cache for %s value %s.", source.absoluteString, url.absoluteString)
+                return url
+            } else {
+                os_log(.info, "proxy cache expired|invalid for %s.", source.absoluteString)
+                proxiesCache.removeAll(where: { $0 == searchCache })
+            }
+        }
+    }
+
+    let data = try Data(contentsOf: source)
+    let decoder = JSONDecoder()
+    let object: ProxyTypeInterface
+    switch proxy {
+    case .stb:
+        object = try decoder.decode(STB_proxy.self, from: data)
+    }
+    if let stream = object.url {
+        os_log(.info, "proxy add cache for %s value %s.", source.absoluteString, stream.absoluteString)
+        proxiesCache.append(.init(proxy: proxy, source: source, url: stream))
+        return stream
+    }
+    return nil
+}
+
+private var proxiesCache: [ProxyCache] = []
+
+private enum ProxyType: String {
+    case stb
+}
+
+private protocol ProxyTypeInterface {
+    var url: URL? {get}
+}
+
+private struct STB_proxy: Decodable, ProxyTypeInterface {
+    let variants: [Variant]
+
+    struct Variant: Decodable {
+        let url: String
+    }
+
+    var url: URL? { variants.first.flatMap({ URL(string: $0.url + "&player=vlc") }) }
+}
+
+private final class ProxyCache: Equatable, ProxyTypeInterface {
+    private let proxy: ProxyType
+    private let source: URL
+
+    let url: URL?
+
+    private let created = Date()
+
+    init(proxy: ProxyType, source: URL, url: URL?) {
+        self.proxy = proxy
+        self.source = source
+        self.url = url
+    }
+
+    var stillValid: Bool {
+        abs(Date().timeIntervalSince1970 - created.timeIntervalSince1970) < lifeTime
+    }
+
+    private var lifeTime: TimeInterval {
+        switch proxy {
+        case .stb:
+            return TimeInterval(60 * 60 * 23)
+        }
+    }
+
+    static func ==(lhs: ProxyCache, rhs: ProxyCache) -> Bool {
+        if lhs.proxy != rhs.proxy {
+            return false
+        }
+        if lhs.source != rhs.source {
+            return false
+        }
+        return true
     }
 }

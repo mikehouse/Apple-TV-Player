@@ -95,7 +95,7 @@ internal class ProgrammesFetcherBase: IpTvProgrammesProvider {
                 self.completion?(error)
             }
         case .success(let programmes):
-            os_log(.debug, "set programmes count %s", String(describing: programmes.count))
+            os_log(.info, "set programmes count %s", String(describing: programmes.count))
             for p in programmes {
                 self.programmes[p.channel.id] = p
             }

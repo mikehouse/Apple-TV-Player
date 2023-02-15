@@ -49,7 +49,7 @@ final class TeleguideInfoParser: NSObject {
 
     private func parse() throws {
         aborted = false
-        os_log(.debug, "start parse xml %s", url.path)
+        os_log(.info, "start parse xml %s", url.path)
         if let parser = XMLParser(contentsOf: url) {
             parser.delegate = self
             parser.parse()

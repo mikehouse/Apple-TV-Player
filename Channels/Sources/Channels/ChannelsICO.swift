@@ -123,7 +123,7 @@ private struct ChannelsICORemote {
                     do {
                         try data.write(to: cacheDirImage)
                     } catch {
-                        os_log(.debug, "%s error: %s", cacheDirImage.path, String(describing: error))
+                        os_log(.info, "%s error: %s", cacheDirImage.path, String(describing: error))
                     }
                 }
                 completion(nil, image)

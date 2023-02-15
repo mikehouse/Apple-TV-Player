@@ -14,7 +14,7 @@ class TextInputViewController: UIAlertController {
     }
     
     deinit {
-        os_log(.debug, "deinit %s", String(describing: self))
+        os_log(.info, "deinit %s", String(describing: self))
     }
 }
 

@@ -25,10 +25,10 @@ final class GunZipper {
                 try FileManager.default.createDirectory(at: tmp, withIntermediateDirectories: true)
                 var zipFileURL: URL = url
                 if url.isFileURL == false {
-                    os_log(.debug, "download %s", url.absoluteString)
+                    os_log(.info, "download %s", url.absoluteString)
                     let data: NSData = try NSData(contentsOf: url)
                     let path = tmp.appendingPathComponent(url.lastPathComponent)
-                    os_log(.debug, "move to %s", path.path)
+                    os_log(.info, "move to %s", path.path)
                     try data.write(to: path)
                     zipFileURL = path
                 }

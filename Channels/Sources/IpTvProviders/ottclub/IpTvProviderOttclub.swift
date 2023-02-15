@@ -25,10 +25,13 @@ internal extension IpTvProviderOttclub {
             "ТНТ HD",
             "ТНТ(+2)",
             "Комедийное HD",
+            "Премиальное HD",
             "FAN",
+            "Хит HD",
             "2х2",
             "Дом Кино",
             "НСТ",
+            "СТС HD",
             "Кинопремьера HD",
             "Кинокомедия HD",
             "Киносемья HD",
@@ -82,9 +85,7 @@ internal extension IpTvProviderOttclub {
             "Блокбастер HD",
             "Star Cinema HD",
             "Star Family HD",
-            "Kino 1 HD",
-            "Хит HD",
-            "Премиальное HD"
+            "Kino 1 HD"
         ].map(FavChannel.init(name:))
         return .init(kind: ottclub,
             baseBundles: [bundle],

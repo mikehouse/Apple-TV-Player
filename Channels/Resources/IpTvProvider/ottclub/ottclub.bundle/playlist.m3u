@@ -1,115 +1,133 @@
-#EXTM3U url-tvg="http://myott.top/api/epg.xml.gz"
-#EXTINF:-1 group-title="Общие" tvg-rec="7" timeshift="7",ТНТ HD
-#EXTGRP:Общие
+#EXTM3U url-tvg="https://gw.ottservice.org/epg/download/epg.xml.gz"
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",ТНТ HD
+#EXTGRP:Развлекательные
 http://myott.top/stream/API_KEY/135.m3u8
-#EXTINF:-1 group-title="Общие" tvg-rec="7" timeshift="7",СТС HD
-#EXTGRP:Общие
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",СТС HD
+#EXTGRP:Развлекательные
 http://myott.top/stream/API_KEY/138.m3u8
-#EXTINF:-1 group-title="Общие" tvg-rec="7" timeshift="7",СТС Love
-#EXTGRP:Общие
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",СТС Love
+#EXTGRP:Развлекательные
 http://myott.top/stream/API_KEY/183.m3u8
-#EXTINF:-1 group-title="Общие" tvg-rec="7" timeshift="7",Домашний
-#EXTGRP:Общие
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Домашний HD
+#EXTGRP:Развлекательные
 http://myott.top/stream/API_KEY/227.m3u8
-#EXTINF:-1 group-title="Общие" tvg-rec="7" timeshift="7",ТВ3 Россия HD
-#EXTGRP:Общие
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",ТВ3 HD
+#EXTGRP:Развлекательные
 http://myott.top/stream/API_KEY/136.m3u8
-#EXTINF:-1 group-title="Общие" tvg-rec="7" timeshift="7",Пятница! HD
-#EXTGRP:Общие
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Пятница! HD
+#EXTGRP:Развлекательные
 http://myott.top/stream/API_KEY/181.m3u8
-#EXTINF:-1 group-title="Общие" tvg-rec="7" timeshift="7",Суббота! HD
-#EXTGRP:Общие
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Суббота! HD
+#EXTGRP:Развлекательные
 http://myott.top/stream/API_KEY/269.m3u8
-#EXTINF:-1 group-title="Общие" tvg-rec="7" timeshift="7",Ю
-#EXTGRP:Общие
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Ю
+#EXTGRP:Развлекательные
 http://myott.top/stream/API_KEY/230.m3u8
-#EXTINF:-1 group-title="Общие" tvg-rec="7" timeshift="7",Культура
-#EXTGRP:Общие
-http://myott.top/stream/API_KEY/229.m3u8
-#EXTINF:-1 group-title="Общие" tvg-rec="7" timeshift="7",2х2
-#EXTGRP:Общие
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",2х2
+#EXTGRP:Развлекательные
 http://myott.top/stream/API_KEY/187.m3u8
-#EXTINF:-1 group-title="Общие" tvg-rec="7" timeshift="7",Время
-#EXTGRP:Общие
-http://myott.top/stream/API_KEY/237.m3u8
-#EXTINF:-1 group-title="Общие" tvg-rec="7" timeshift="7",Перец International
-#EXTGRP:Общие
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Перец International
+#EXTGRP:Развлекательные
 http://myott.top/stream/API_KEY/121.m3u8
-#EXTINF:-1 group-title="Общие" tvg-rec="7" timeshift="7",World Fashion Channel
-#EXTGRP:Общие
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",World Fashion Channel HD
+#EXTGRP:Развлекательные
 http://myott.top/stream/API_KEY/119.m3u8
-#EXTINF:-1 group-title="Общие" tvg-rec="7" timeshift="7",КВН ТВ
-#EXTGRP:Общие
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",КВН ТВ
+#EXTGRP:Развлекательные
 http://myott.top/stream/API_KEY/222.m3u8
-#EXTINF:-1 group-title="Общие" tvg-rec="7" timeshift="7",Сарафан
-#EXTGRP:Общие
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Сарафан
+#EXTGRP:Развлекательные
 http://myott.top/stream/API_KEY/81.m3u8
-#EXTINF:-1 group-title="Общие" tvg-rec="7" timeshift="7",Вопросы и ответы
-#EXTGRP:Общие
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Вопросы и ответы
+#EXTGRP:Развлекательные
 http://myott.top/stream/API_KEY/76.m3u8
-#EXTINF:-1 group-title="Общие" tvg-rec="7" timeshift="7",ТНТ4
-#EXTGRP:Общие
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",ТНТ4 HD
+#EXTGRP:Развлекательные
 http://myott.top/stream/API_KEY/106.m3u8
-#EXTINF:-1 group-title="Общие" tvg-rec="7" timeshift="7",ТНТ(+2)
-#EXTGRP:Общие
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",ТНТ(+2)
+#EXTGRP:Развлекательные
 http://myott.top/stream/API_KEY/97.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Интер HD
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Інтер+ HD
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/345.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Новий канал HD
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/157.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",ICTV 2 HD
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/368.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",СТБ HD
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/156.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",2+2 HD
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/173.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Ukraine 1 HD
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/98.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Ukraine 2 HD
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/99.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",FILMUADRAMA HD
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/273.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",UA: Культура HD
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/435.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",К1 HD
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/270.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",ТЕТ HD
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/338.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",1+1 International
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/105.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",ОЦЕ HD
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/329.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Кус-кус HD
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/195.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",НТН HD
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/326.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",36.6 HD
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/331.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",NLO TV 2 HD
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/115.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Квартал ТВ
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/321.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Дім HD
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/383.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Bolt HD
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/73.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",ПлюсПлюс HD
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/339.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Бiгудi
+#EXTGRP:Развлекательные
+http://myott.top/stream/API_KEY/340.m3u8
+#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Інтер HD
 #EXTGRP:Национальные
 http://myott.top/stream/API_KEY/174.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Интер+ HD
-#EXTGRP:Национальные
-http://myott.top/stream/API_KEY/345.m3u8
 #EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",ICTV HD
 #EXTGRP:Национальные
 http://myott.top/stream/API_KEY/158.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Новый канал HD
-#EXTGRP:Национальные
-http://myott.top/stream/API_KEY/157.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",СТБ HD
-#EXTGRP:Национальные
-http://myott.top/stream/API_KEY/156.m3u8
 #EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",1+1 HD
 #EXTGRP:Национальные
 http://myott.top/stream/API_KEY/172.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",1+1 International
+#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",1+1 Україна HD
 #EXTGRP:Национальные
-http://myott.top/stream/API_KEY/105.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",2+2 HD
-#EXTGRP:Национальные
-http://myott.top/stream/API_KEY/173.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",К1 HD
-#EXTGRP:Национальные
-http://myott.top/stream/API_KEY/270.m3u8
+http://myott.top/stream/API_KEY/219.m3u8
 #EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",К2 HD
 #EXTGRP:Национальные
 http://myott.top/stream/API_KEY/324.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",ТЕТ HD
-#EXTGRP:Национальные
-http://myott.top/stream/API_KEY/338.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",ОЦЕ HD
-#EXTGRP:Национальные
-http://myott.top/stream/API_KEY/329.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",НТН HD
-#EXTGRP:Национальные
-http://myott.top/stream/API_KEY/326.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Кус-кус HD
-#EXTGRP:Национальные
-http://myott.top/stream/API_KEY/195.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",36.6 HD
-#EXTGRP:Национальные
-http://myott.top/stream/API_KEY/331.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",FILMUADRAMA HD
-#EXTGRP:Национальные
-http://myott.top/stream/API_KEY/273.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Ukraine 1 HD
-#EXTGRP:Национальные
-http://myott.top/stream/API_KEY/98.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Ukraine 2 HD
-#EXTGRP:Национальные
-http://myott.top/stream/API_KEY/99.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",UA: Культура HD
-#EXTGRP:Национальные
-http://myott.top/stream/API_KEY/435.m3u8
 #EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",UA: Київ HD
 #EXTGRP:Национальные
 http://myott.top/stream/API_KEY/439.m3u8
@@ -119,27 +137,9 @@ http://myott.top/stream/API_KEY/436.m3u8
 #EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",UA: Перший HD
 #EXTGRP:Национальные
 http://myott.top/stream/API_KEY/437.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",NLO TV 2 HD
-#EXTGRP:Национальные
-http://myott.top/stream/API_KEY/115.m3u8
 #EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Zoom HD
 #EXTGRP:Национальные
 http://myott.top/stream/API_KEY/327.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Квартал ТВ
-#EXTGRP:Национальные
-http://myott.top/stream/API_KEY/321.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",UA TV HD
-#EXTGRP:Национальные
-http://myott.top/stream/API_KEY/63.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Bolt HD
-#EXTGRP:Национальные
-http://myott.top/stream/API_KEY/73.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",ПлюсПлюс HD
-#EXTGRP:Национальные
-http://myott.top/stream/API_KEY/339.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Бiгудi
-#EXTGRP:Национальные
-http://myott.top/stream/API_KEY/340.m3u8
 #EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Уніан HD
 #EXTGRP:Национальные
 http://myott.top/stream/API_KEY/341.m3u8
@@ -224,10 +224,10 @@ http://myott.top/stream/API_KEY/372.m3u8
 #EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",LTV1 (Латвия)
 #EXTGRP:Национальные
 http://myott.top/stream/API_KEY/34.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",LNK (Литва)
+#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",LNK HD (Литва)
 #EXTGRP:Национальные
 http://myott.top/stream/API_KEY/30.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",BTV (Литва)
+#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",BTV HD (Литва)
 #EXTGRP:Национальные
 http://myott.top/stream/API_KEY/35.m3u8
 #EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",LRT HD (Литва)
@@ -239,7 +239,7 @@ http://myott.top/stream/API_KEY/353.m3u8
 #EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",TV 1 (Литва)
 #EXTGRP:Национальные
 http://myott.top/stream/API_KEY/374.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",TV3 (Литва)
+#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",TV3 HD (Литва)
 #EXTGRP:Национальные
 http://myott.top/stream/API_KEY/29.m3u8
 #EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Balticum (Литва)
@@ -275,21 +275,12 @@ http://myott.top/stream/API_KEY/113.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",H2 HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/65.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",TLC
+#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",TLC HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/168.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",National Geographic HD
-#EXTGRP:Познавательные
-http://myott.top/stream/API_KEY/116.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Nat Geo Wild HD
-#EXTGRP:Познавательные
-http://myott.top/stream/API_KEY/149.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Animal Planet HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/114.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",DocuBox
-#EXTGRP:Познавательные
-http://myott.top/stream/API_KEY/90.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Первый Космический HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/212.m3u8
@@ -299,12 +290,15 @@ http://myott.top/stream/API_KEY/304.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Живи Активно HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/132.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Наука 2.0
+#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Наука 2.0 HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/125.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Поехали
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/316.m3u8
+#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Культура
+#EXTGRP:Познавательные
+http://myott.top/stream/API_KEY/229.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",В мире животных HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/241.m3u8
@@ -314,24 +308,21 @@ http://myott.top/stream/API_KEY/197.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Мама
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/79.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Доктор
+#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Доктор HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/80.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Da Vinci
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/238.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Viasat Explore
+#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Viju Explore HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/239.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Viasat Nature/History HD
+#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Viju+ Planet HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/240.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Viasat History HD
+#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Viju History HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/101.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",История
-#EXTGRP:Познавательные
-http://myott.top/stream/API_KEY/228.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Quiz TV HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/397.m3u8
@@ -344,10 +335,10 @@ http://myott.top/stream/API_KEY/399.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",365 дней ТВ
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/70.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Моя планета
+#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Моя планета HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/124.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Russian Travel Guide HD
+#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",RTG HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/164.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Приключения HD
@@ -365,10 +356,10 @@ http://myott.top/stream/API_KEY/155.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Охотник и рыболов HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/194.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Диалоги о рыбалке
+#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Диалоги о рыбалке HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/264.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Рыбалка HD
+#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Рибалка HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/286.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Дикая Охота HD
@@ -392,19 +383,19 @@ http://myott.top/stream/API_KEY/83.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Кухня ТВ
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/179.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Еда Премиум HD
+#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Food Time HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/216.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Food Network HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/298.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Авто24
+#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Авто24 HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/78.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Авто Плюс
+#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Авто Плюс HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/186.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Моя стихия
+#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Моя стихия HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/141.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",HDL HD
@@ -425,7 +416,7 @@ http://myott.top/stream/API_KEY/402.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Наука
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/403.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Автомобильный HD
+#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Автомобільний HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/404.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",6 Соток HD
@@ -440,7 +431,7 @@ http://myott.top/stream/API_KEY/346.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Трофей HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/357.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Тайны Галактики
+#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Тайны Галактики HD
 #EXTGRP:Познавательные
 http://myott.top/stream/API_KEY/271.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Нано ТВ HD
@@ -455,7 +446,7 @@ http://myott.top/stream/API_KEY/265.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Киносемья HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/170.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Киносвидание
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Киносвидание HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/171.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Кинохит HD
@@ -464,40 +455,34 @@ http://myott.top/stream/API_KEY/126.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Киномикс HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/133.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Наше новое кино
-#EXTGRP:Кино
-http://myott.top/stream/API_KEY/128.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Родное кино
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/242.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Индийское кино
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/104.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Мужское кино
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Мужское кино HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/107.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Киноужас HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/278.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",TV1000 East HD
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Viju TV 1000 HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/110.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",TV1000 Action HD
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Viju TV 1000 Action HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/100.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",TV1000 Русское кино
-#EXTGRP:Кино
-http://myott.top/stream/API_KEY/123.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",ViP Premiere HD
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Viju+ Premiere HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/202.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",ViP Megahit HD
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Viju+ Megahit HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/200.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",ViP Comedy HD
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Viju+ Comedy HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/201.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",ViP Serial HD
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Viju+ Serial HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/311.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Комедийное HD
@@ -512,34 +497,34 @@ http://myott.top/stream/API_KEY/117.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Amedia Hit HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/162.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Русский роман HD
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Роман HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/266.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Русский иллюзион
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Иллюзион
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/122.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Русский бестселлер
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Бестселлер
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/208.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Русский детектив
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Детектив
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/204.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Русская комедия
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Комедия
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/68.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Fox HD
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Comedy Central
 #EXTGRP:Кино
-http://myott.top/stream/API_KEY/182.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Fox Life HD
-#EXTGRP:Кино
-http://myott.top/stream/API_KEY/129.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",black
+http://myott.top/stream/API_KEY/167.m3u8
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",black HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/263.m3u8
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Время
+#EXTGRP:Кино
+http://myott.top/stream/API_KEY/237.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",red HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/69.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",sci-fi
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",sci-fi HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/180.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Наше HD
@@ -554,7 +539,7 @@ http://myott.top/stream/API_KEY/221.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Кинопоказ HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/64.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Cinema
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Cinema HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/62.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",НСТ
@@ -569,9 +554,6 @@ http://myott.top/stream/API_KEY/152.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Plan B HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/196.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Paramount Сhannel HD
-#EXTGRP:Кино
-http://myott.top/stream/API_KEY/219.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Остросюжетное HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/214.m3u8
@@ -587,12 +569,6 @@ http://myott.top/stream/API_KEY/268.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",НТВ Сериал
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/301.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",FilmBox Baltic
-#EXTGRP:Кино
-http://myott.top/stream/API_KEY/307.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",FilmBox Arthouse
-#EXTGRP:Кино
-http://myott.top/stream/API_KEY/308.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Телекафе
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/314.m3u8
@@ -620,13 +596,13 @@ http://myott.top/stream/API_KEY/75.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Хит HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/363.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Enter-фильм HD
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Enter-фільм HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/322.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Мосфильм. Золотая коллекция HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/369.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Мир сериала
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Мир сериала HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/159.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Премиальное HD
@@ -635,7 +611,7 @@ http://myott.top/stream/API_KEY/421.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Ретро
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/191.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",FAN
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",FAN HD
 #EXTGRP:Кино
 http://myott.top/stream/API_KEY/420.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Дорама HD
@@ -713,25 +689,16 @@ http://myott.top/stream/API_KEY/192.m3u8
 #EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Матч! Боец HD
 #EXTGRP:Спорт
 http://myott.top/stream/API_KEY/112.m3u8
-#EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Setanta Sports 1 HD
-#EXTGRP:Спорт
-http://myott.top/stream/API_KEY/234.m3u8
-#EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Setanta Sports HD UA
-#EXTGRP:Спорт
-http://myott.top/stream/API_KEY/313.m3u8
-#EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Setanta Sports+ HD
-#EXTGRP:Спорт
-http://myott.top/stream/API_KEY/390.m3u8
 #EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Sport 1
 #EXTGRP:Спорт
 http://myott.top/stream/API_KEY/391.m3u8
 #EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Sport 2
 #EXTGRP:Спорт
 http://myott.top/stream/API_KEY/392.m3u8
-#EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Sport 1 HD
+#EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Sport 3 HD
 #EXTGRP:Спорт
 http://myott.top/stream/API_KEY/393.m3u8
-#EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Sport 1 Baltic
+#EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Sport 4
 #EXTGRP:Спорт
 http://myott.top/stream/API_KEY/394.m3u8
 #EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Dynamo Kyiv TV HD
@@ -743,12 +710,9 @@ http://myott.top/stream/API_KEY/166.m3u8
 #EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",KHL Prime HD
 #EXTGRP:Спорт
 http://myott.top/stream/API_KEY/178.m3u8
-#EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Viasat Sport HD
+#EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Viju+ Sport HD
 #EXTGRP:Спорт
 http://myott.top/stream/API_KEY/333.m3u8
-#EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Viasat Sport Россия HD
-#EXTGRP:Спорт
-http://myott.top/stream/API_KEY/102.m3u8
 #EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",TV 3 Sport HD LT
 #EXTGRP:Спорт
 http://myott.top/stream/API_KEY/416.m3u8
@@ -761,10 +725,10 @@ http://myott.top/stream/API_KEY/148.m3u8
 #EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",X Sport Plus HD
 #EXTGRP:Спорт
 http://myott.top/stream/API_KEY/332.m3u8
-#EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Русский экстрим HD
+#EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Экстрим HD
 #EXTGRP:Спорт
 http://myott.top/stream/API_KEY/285.m3u8
-#EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Моторспорт ТВ
+#EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Моторспорт ТВ HD
 #EXTGRP:Спорт
 http://myott.top/stream/API_KEY/300.m3u8
 #EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",UDAR HD
@@ -782,7 +746,7 @@ http://myott.top/stream/API_KEY/220.m3u8
 #EXTINF:-1 group-title="Детские" tvg-rec="7" timeshift="7",Солнце
 #EXTGRP:Детские
 http://myott.top/stream/API_KEY/118.m3u8
-#EXTINF:-1 group-title="Детские" tvg-rec="7" timeshift="7",TiJi Россия
+#EXTINF:-1 group-title="Детские" tvg-rec="7" timeshift="7",TiJi
 #EXTGRP:Детские
 http://myott.top/stream/API_KEY/111.m3u8
 #EXTINF:-1 group-title="Детские" tvg-rec="7" timeshift="7",Мульт HD
@@ -800,7 +764,7 @@ http://myott.top/stream/API_KEY/144.m3u8
 #EXTINF:-1 group-title="Детские" tvg-rec="7" timeshift="7",Карусель
 #EXTGRP:Детские
 http://myott.top/stream/API_KEY/120.m3u8
-#EXTINF:-1 group-title="Детские" tvg-rec="7" timeshift="7",В гостях у сказки
+#EXTINF:-1 group-title="Детские" tvg-rec="7" timeshift="7",В гостях у сказки HD
 #EXTGRP:Детские
 http://myott.top/stream/API_KEY/93.m3u8
 #EXTINF:-1 group-title="Детские" tvg-rec="7" timeshift="7",Канал О!
@@ -812,7 +776,7 @@ http://myott.top/stream/API_KEY/305.m3u8
 #EXTINF:-1 group-title="Детские" tvg-rec="7" timeshift="7",Ani
 #EXTGRP:Детские
 http://myott.top/stream/API_KEY/306.m3u8
-#EXTINF:-1 group-title="Детские" tvg-rec="7" timeshift="7",Пиксель HD
+#EXTINF:-1 group-title="Детские" tvg-rec="7" timeshift="7",Піксель HD
 #EXTGRP:Детские
 http://myott.top/stream/API_KEY/323.m3u8
 #EXTINF:-1 group-title="Детские" tvg-rec="7" timeshift="7",Fresh Kids HD
@@ -845,24 +809,18 @@ http://myott.top/stream/API_KEY/272.m3u8
 #EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",BRIDGE
 #EXTGRP:Музыкальные
 http://myott.top/stream/API_KEY/318.m3u8
-#EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",BRIDGE РУССКИЙ ХИТ
+#EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",BRIDGE ХИТ
 #EXTGRP:Музыкальные
 http://myott.top/stream/API_KEY/320.m3u8
-#EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",Music Box Russian
+#EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",Music Box
 #EXTGRP:Музыкальные
 http://myott.top/stream/API_KEY/319.m3u8
-#EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",Europa Plus TV
+#EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",Europa Plus TV HD
 #EXTGRP:Музыкальные
 http://myott.top/stream/API_KEY/184.m3u8
 #EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",Inrating HD
 #EXTGRP:Музыкальные
 http://myott.top/stream/API_KEY/147.m3u8
-#EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",4ever Music
-#EXTGRP:Музыкальные
-http://myott.top/stream/API_KEY/400.m3u8
-#EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",EU Music
-#EXTGRP:Музыкальные
-http://myott.top/stream/API_KEY/89.m3u8
 #EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",MTV Hits
 #EXTGRP:Музыкальные
 http://myott.top/stream/API_KEY/302.m3u8
@@ -899,7 +857,7 @@ http://myott.top/stream/API_KEY/95.m3u8
 #EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",Ля-минор ТВ
 #EXTGRP:Музыкальные
 http://myott.top/stream/API_KEY/303.m3u8
-#EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",THT MUSIC
+#EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",ТНТ MUSIC
 #EXTGRP:Музыкальные
 http://myott.top/stream/API_KEY/317.m3u8
 #EXTINF:-1 group-title="Новостные" tvg-rec="7" timeshift="7",Настоящее время HD
@@ -908,6 +866,9 @@ http://myott.top/stream/API_KEY/384.m3u8
 #EXTINF:-1 group-title="Новостные" tvg-rec="7" timeshift="7",EuroNews
 #EXTGRP:Новостные
 http://myott.top/stream/API_KEY/189.m3u8
+#EXTINF:-1 group-title="Новостные" tvg-rec="7" timeshift="7",Deutsche Welle HD
+#EXTGRP:Новостные
+http://myott.top/stream/API_KEY/440.m3u8
 #EXTINF:-1 group-title="Новостные" tvg-rec="7" timeshift="7",BBC News HD UK
 #EXTGRP:Новостные
 http://myott.top/stream/API_KEY/85.m3u8
@@ -917,6 +878,6 @@ http://myott.top/stream/API_KEY/438.m3u8
 #EXTINF:-1 group-title="Новостные" tvg-rec="7" timeshift="7",Рада HD
 #EXTGRP:Новостные
 http://myott.top/stream/API_KEY/382.m3u8
-#EXTINF:-1 group-title="Новостные" tvg-rec="7" timeshift="7",Дом HD
+#EXTINF:-1 group-title="Новостные" tvg-rec="7" timeshift="7",UA TV HD
 #EXTGRP:Новостные
-http://myott.top/stream/API_KEY/383.m3u8
+http://myott.top/stream/API_KEY/63.m3u8

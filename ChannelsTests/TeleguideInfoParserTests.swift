@@ -20,7 +20,7 @@ final class TeleguideInfoParserTests: XCTestCase {
             case .failure(let error):
                 XCTFail(String(describing: error))
             case .success(let channels):
-                XCTAssertEqual(channels.count, 390)
+                XCTAssertEqual(channels.count, 380)
             }
             testExpectation.fulfill()
         }
@@ -37,7 +37,7 @@ final class TeleguideInfoParserTests: XCTestCase {
                 XCTFail(String(describing: error))
             case .success(let programmes):
                 // Some channels (all amount is 390) do not have programmes since `from` date.
-                XCTAssertEqual(programmes.count, 296)
+                XCTAssertEqual(programmes.count, 326)
                 for i in 0...5 {
                     let programme = programmes[i]
                     XCTAssertFalse(programme.programmes.isEmpty)

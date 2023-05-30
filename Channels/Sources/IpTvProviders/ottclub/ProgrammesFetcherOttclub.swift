@@ -54,22 +54,29 @@ internal final class ProgrammesFetcherOttclub: ProgrammesFetcherBase {
     }
 
     private func handle(xml url: URL) throws {
+        do {
+            let attributes = try FileManager.default.attributesOfItem(atPath: url.path)
+            var date: Date?
+            if let creationDate = attributes[.creationDate] as? Date {
+                date = creationDate
+            }
+            if let modificationDate = attributes[.modificationDate] as? Date {
+                date = modificationDate
+            }
+            if let date, let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date()) {
+                if date < yesterday {
+                    os_log(.info, "Last programmes update was at %s, try download new programmes list...", url.path, String(describing: date))
+                    throw NSError(domain: "xml.outdated.error", code: -1, userInfo: [
+                        NSLocalizedDescriptionKey: url.path
+                    ])
+                }
+            }
+        } catch {
+            throw error
+        }
+
         let parser = TeleguideInfoParser(url: url)
         let programmes = try parser.programme(from: Date(timeIntervalSinceNow: -(60 * 60 * 6)))
-        // take last programme date for random channel and
-        // check lastProgramme - now() > 24 hours. If not then try
-        // download new programmes for next week.
-        // Remote server provides programmes for 1 week.
-        // valur is a future date.
-        let lastProgramme: Date? = programmes
-            .shuffled().dropLast(abs(programmes.count - 5))
-            .compactMap({ $0.programmes.last?.start }).sorted().last
-        let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date())
-        guard let lastProgramme, let tomorrow, tomorrow < lastProgramme  else {
-            throw NSError(domain: "xml.outdated.error", code: -1, userInfo: [
-                NSLocalizedDescriptionKey: url.path
-            ])
-        }
         update(.success(programmes))
     }
 

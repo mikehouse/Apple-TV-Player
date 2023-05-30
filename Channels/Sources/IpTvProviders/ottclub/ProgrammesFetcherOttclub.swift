@@ -65,7 +65,7 @@ internal final class ProgrammesFetcherOttclub: ProgrammesFetcherBase {
             }
             if let date, let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date()) {
                 if date < yesterday {
-                    os_log(.info, "Last programmes update was at %s, try download new programmes list...", url.path, String(describing: date))
+                    os_log(.info, "Last programmes update was at %s, try download new programmes list...", String(describing: date))
                     throw NSError(domain: "xml.outdated.error", code: -1, userInfo: [
                         NSLocalizedDescriptionKey: url.path
                     ])

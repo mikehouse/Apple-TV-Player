@@ -63,7 +63,7 @@ internal final class ProgrammesFetcherOttclub: ProgrammesFetcherBase {
             if let modificationDate = attributes[.modificationDate] as? Date {
                 date = modificationDate
             }
-            if let date, let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date()) {
+            if let date, let yesterday = Calendar.current.date(byAdding: .hour, value: -12, to: Date()) {
                 if date < yesterday {
                     os_log(.info, "Last programmes update was at %s, try download new programmes list...", String(describing: date))
                     throw NSError(domain: "xml.outdated.error", code: -1, userInfo: [

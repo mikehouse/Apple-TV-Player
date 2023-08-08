@@ -44,6 +44,9 @@ final class TeleguideInfoParser: NSObject {
         fromDate = date
         parseMode = .programme
         try parse()
+        for prog in foundProgrammes {
+            prog.sortLastAtFirst()
+        }
         return foundProgrammes
     }
 

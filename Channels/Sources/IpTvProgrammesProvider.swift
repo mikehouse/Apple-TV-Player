@@ -25,6 +25,10 @@ public class ChannelProgramme {
         programmes.append(programme)
     }
 
+    func sortLastAtFirst() {
+        programmes.sort(by: { $0.start < $1.start })
+    }
+
     public class Programme {
         public let name: String
         public let start: Date

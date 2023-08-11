@@ -203,12 +203,29 @@ private func streamURL(from proxy: ProxyType, source: URL) throws -> URL? {
         }
     }
 
-    let data = try Data(contentsOf: source)
-    let decoder = JSONDecoder()
-    let object: ProxyTypeInterface
+    var object: ProxyTypeInterface = AnyProxyType(url: nil)
     switch proxy {
     case .stb:
+        let data = try Data(contentsOf: source)
+        let decoder = JSONDecoder()
         object = try decoder.decode(STB_proxy.self, from: data)
+    case .onltvone_comedy:
+        let group = DispatchGroup()
+        group.enter()
+        let hunter = createOnlTvOneComedyHunter(url: source) { result in
+            switch result {
+            case .success(let url):
+                os_log(.info, "read 'onltvone_comedy' stream url %s", "\(url)")
+                object = AnyProxyType(url: URL(string: url.absoluteString + "&player=vlc")!)
+            case .failure(let error):
+                os_log(.info, "error getting 'onltvone_comedy' stream url %s.", "\(error)")
+            }
+            group.leave()
+        }
+        hunter.hunt()
+        print("-- START HUNT AND WAIT \(Thread.current) ---")
+        group.wait()
+        print("-- HUNT AFTER WAIT \(Thread.current) ---")
     }
     if let stream = object.url {
         os_log(.info, "proxy add cache for %s value %s.", source.absoluteString, stream.absoluteString)
@@ -222,10 +239,15 @@ private var proxiesCache: [ProxyCache] = []
 
 private enum ProxyType: String {
     case stb
+    case onltvone_comedy
 }
 
 private protocol ProxyTypeInterface {
     var url: URL? {get}
+}
+
+private struct AnyProxyType: ProxyTypeInterface {
+    let url: URL?
 }
 
 private struct STB_proxy: Decodable, ProxyTypeInterface {
@@ -260,6 +282,8 @@ private final class ProxyCache: Equatable, ProxyTypeInterface {
         switch proxy {
         case .stb:
             return TimeInterval(60 * 60 * 23)
+        case .onltvone_comedy:
+            return TimeInterval(60 * 60 * 2)
         }
     }
 
@@ -271,5 +295,134 @@ private final class ProxyCache: Equatable, ProxyTypeInterface {
             return false
         }
         return true
+    }
+}
+
+private func decodeBase64(encoded string: String) -> String {
+    let data = Data(base64Encoded: string.data(using: .utf8)!)!
+    return String(data: data, encoding: .utf8)!
+}
+
+// Base64 to not to be banned as sources are public.
+private func createOnlTvOneComedyHunter(url: URL, result: @escaping (Result<URL, Error>) -> Void) -> PlaylistURLHunter {
+    PlaylistURLHunter(
+        source: url,
+        playlistDomain: decodeBase64(encoded: "b25saW5ldHYub25l"),
+        playlistPath: decodeBase64(encoded: "L2h0bWwvcGxheWVyLnBocA=="), onResult: result)
+}
+
+private final class PlaylistURLHunter: NSObject, WebViewProxyDelegate {
+
+    let source: URL
+    let playlistDomain: String
+    let playlistPath: String
+    private let onResult: (Swift.Result<URL, Error>) -> Void
+
+    private var shouldStartLoad = true
+    private lazy var urlSession = URLSession(configuration: .ephemeral)
+    private lazy var webView = WebViewProxy()
+
+    init(source: URL, playlistDomain: String, playlistPath: String, onResult: @escaping (Result<URL, Error>) -> ()) {
+        self.source = source
+        self.playlistDomain = playlistDomain
+        self.playlistPath = playlistPath
+        self.onResult = onResult
+        super.init()
+    }
+
+    func hunt() {
+        DispatchQueue.main.async { [self] in
+            webView.delegate = self
+            webView.load(.init(url: source))
+        }
+    }
+
+    func didStartLoad() {
+        shouldStartLoad = true
+    }
+
+    func didFinishLoad() {
+        shouldStartLoad = false
+    }
+
+    func didFailLoadWithError(_ error: Swift.Error) {
+        print(error)
+        shouldStartLoad = false
+    }
+
+    func shouldStartLoad(with request: URLRequest) -> Bool {
+        if let url = request.url,
+           let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
+           components.host == playlistDomain, components.path == playlistPath {
+            shouldStartLoad = false
+            let cookies = HTTPCookieStorage.shared.cookies(for: url) ?? []
+            var headers = HTTPCookie.requestHeaderFields(with: cookies)
+            headers["User-Agent"] = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+            headers["Accept"] = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+            headers["Accept-Encoding"] = "gzip, deflate, br"
+            headers["Accept-Language"] = "en-GB,en-US;q=0.9,en;q=0.8"
+            headers["Referer"] = source.absoluteString
+            headers["Sec-Ch-Ua"] = "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+            headers["Sec-Ch-Ua-Mobile"] = "?0"
+            headers["Sec-Ch-Ua-Platform"] = "\"macOS\""
+            headers["Sec-Fetch-Dest"] = "iframe"
+            headers["Sec-Fetch-Mode"] = "navigate"
+            headers["Sec-Fetch-Site"] = "same-origin"
+            headers["Upgrade-Insecure-Requests"] = "1"
+            var request = URLRequest(url: url, timeoutInterval: 5)
+            request.allHTTPHeaderFields = headers
+            let task = urlSession.dataTask(with: request) { [weak self] data, response, error in
+                guard let self else {
+                    return
+                }
+                if let error {
+                    self.onResult(.failure(error))
+                } else if let data {
+                    do {
+                        guard let html = String(data: data, encoding: .utf8) else {
+                            return self.onResult(.failure(NSError(domain: "unknown.", code: -1)))
+                        }
+                        let regexString = "http.[^ \"]+"
+                        var matches: [String] = []
+                        if #available(tvOS 16.0, *) {
+                            let regex = try Regex(regexString)
+                            matches = html.matches(of: regex).map({ String(html[$0.range]) })
+                        } else {
+                            let regex = try NSRegularExpression(pattern: regexString)
+                            let results = regex.matches(in: html, range: NSRange(html.startIndex..., in: html))
+                            matches = results.map { match in
+                                    return (0..<match.numberOfRanges).map { range -> String in
+                                        let rangeBounds = match.range(at: range)
+                                        guard let range = Range(rangeBounds, in: html) else {
+                                            return ""
+                                        }
+                                        return String(html[range])
+                                    }
+                                }.map({ $0.first }).filter({ $0 != nil }).map({ $0.unsafelyUnwrapped })
+                        }
+                        guard let url = matches.first(where: { url in
+                                guard let url = URL(string: url),
+                                      let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
+                                    return false
+                                }
+                                guard components.path.hasSuffix("playlist.m3u8") else {
+                                    return false
+                                }
+                                return true
+                            }).flatMap({ URL(string: $0) }) else {
+                            self.onResult(.failure(NSError(domain: "source html playlist url not found.", code: -1)))
+                            return
+                        }
+                        self.onResult(.success(url))
+                    } catch {
+                        self.onResult(.failure(error))
+                    }
+                } else {
+                    self.onResult(.failure(NSError(domain: "unknown.", code: -1)))
+                }
+            }
+            task.resume()
+        }
+        return shouldStartLoad
     }
 }

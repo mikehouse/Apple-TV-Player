@@ -53,6 +53,8 @@
 		828E4020253F852F003D4EFC /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E401E253F852F003D4EFC /* SettingsCellView.swift */; };
 		828E4021253F852F003D4EFC /* SettingsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828E401F253F852F003D4EFC /* SettingsCellView.xib */; };
 		82983082299C016D00AD2852 /* metadata.json in Resources */ = {isa = PBXBuildFile; fileRef = 82983081299C016D00AD2852 /* metadata.json */; };
+		829F91E92A85EC430038148C /* WebViewProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 829F91E72A85EC430038148C /* WebViewProxy.m */; };
+		829F91EA2A85EC430038148C /* WebViewProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 829F91E82A85EC430038148C /* WebViewProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		82AD845325703921006752B7 /* IpTvProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD845225703921006752B7 /* IpTvProvider.swift */; };
 		82AD84582570399B006752B7 /* IpTvProvider2090000ru.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD84572570399B006752B7 /* IpTvProvider2090000ru.swift */; };
 		82AD8460257039CD006752B7 /* Channel2090000ru.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD845F257039CD006752B7 /* Channel2090000ru.swift */; };
@@ -188,6 +190,8 @@
 		828E401E253F852F003D4EFC /* SettingsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
 		828E401F253F852F003D4EFC /* SettingsCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCellView.xib; sourceTree = "<group>"; };
 		82983081299C016D00AD2852 /* metadata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = metadata.json; sourceTree = "<group>"; };
+		829F91E72A85EC430038148C /* WebViewProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewProxy.m; sourceTree = "<group>"; };
+		829F91E82A85EC430038148C /* WebViewProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewProxy.h; sourceTree = "<group>"; };
 		82AD845225703921006752B7 /* IpTvProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IpTvProvider.swift; sourceTree = "<group>"; };
 		82AD84572570399B006752B7 /* IpTvProvider2090000ru.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IpTvProvider2090000ru.swift; sourceTree = "<group>"; };
 		82AD845F257039CD006752B7 /* Channel2090000ru.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel2090000ru.swift; sourceTree = "<group>"; };
@@ -529,6 +533,15 @@
 			path = SettingsCell;
 			sourceTree = "<group>";
 		};
+		829F91E62A85EC1F0038148C /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				829F91E82A85EC430038148C /* WebViewProxy.h */,
+				829F91E72A85EC430038148C /* WebViewProxy.m */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		82AD8450257038C4006752B7 /* IpTvProviders */ = {
 			isa = PBXGroup;
 			children = (
@@ -727,6 +740,7 @@
 		82F3D29B2538E6650021BB2E /* Channels */ = {
 			isa = PBXGroup;
 			children = (
+				829F91E62A85EC1F0038148C /* WebView */,
 				82F60DAF297D463200DA7E1B /* Zip */,
 				826BBC7B2561C220003A69CA /* Resources */,
 				82F3D2AC2538E81E0021BB2E /* Sources */,
@@ -793,6 +807,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82F3D29E2538E6650021BB2E /* Channels.h in Headers */,
+				829F91EA2A85EC430038148C /* WebViewProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -899,7 +914,7 @@
 					};
 					82F3D2992538E6650021BB2E = {
 						CreatedOnToolsVersion = 12.1;
-						LastSwiftMigration = 1210;
+						LastSwiftMigration = 1430;
 					};
 				};
 			};
@@ -1157,6 +1172,7 @@
 				82AD847A257042B8006752B7 /* Playlist2090000ru.swift in Sources */,
 				82C2D133296332F200301067 /* IpTvProviderOttclub.swift in Sources */,
 				82C2D139296339F500301067 /* ChannelOttclub.swift in Sources */,
+				829F91E92A85EC430038148C /* WebViewProxy.m in Sources */,
 				82F60DB3297D602E00DA7E1B /* TeleguideInfoProvider.swift in Sources */,
 				82AD846D25703B8B006752B7 /* Playlist.swift in Sources */,
 				82F60DB1297D465300DA7E1B /* Zipper.swift in Sources */,
@@ -1459,6 +1475,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1488,6 +1505,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 14.0;

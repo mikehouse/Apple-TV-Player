@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WebViewProxy.h"
 
 //! Project version number for Channels.
 FOUNDATION_EXPORT double ChannelsVersionNumber;

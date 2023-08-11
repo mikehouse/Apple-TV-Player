@@ -218,14 +218,12 @@ private func streamURL(from proxy: ProxyType, source: URL) throws -> URL? {
                 os_log(.info, "read 'onltvone_comedy' stream url %s", "\(url)")
                 object = AnyProxyType(url: URL(string: url.absoluteString + "&player=vlc")!)
             case .failure(let error):
-                os_log(.info, "error getting 'onltvone_comedy' stream url %s.", "\(error)")
+                os_log(.error, "error getting 'onltvone_comedy' stream url %s.", "\(error)")
             }
             group.leave()
         }
         hunter.hunt()
-        print("-- START HUNT AND WAIT \(Thread.current) ---")
         group.wait()
-        print("-- HUNT AFTER WAIT \(Thread.current) ---")
     }
     if let stream = object.url {
         os_log(.info, "proxy add cache for %s value %s.", source.absoluteString, stream.absoluteString)
@@ -346,7 +344,7 @@ private final class PlaylistURLHunter: NSObject, WebViewProxyDelegate {
     }
 
     func didFailLoadWithError(_ error: Swift.Error) {
-        print(error)
+        os_log(.error, "webview did load error %s", "\(error)")
         shouldStartLoad = false
     }
 

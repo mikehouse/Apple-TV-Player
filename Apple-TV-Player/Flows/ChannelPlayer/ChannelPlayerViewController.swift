@@ -106,9 +106,13 @@ final class ChannelPlayerViewController: UIViewController, StoryboardBased {
             view.bottomAnchor.constraint(equalTo: overlayView.bottomAnchor)
         ])
 
-        return VlcPlayer(player: mediaPlayer) { [weak self] in
+        return VlcPlayer(player: mediaPlayer, onPlay: { [weak self] in
             self?.overlayView.removeFromSuperview()
-        }
+        }, onError: { [errorLabel=errorLabel!] error in
+            DispatchQueue.main.async {
+                errorLabel.text = "\(error)"
+            }
+        })
     }
 
     private func configureNativePlayer(_ url: URL) -> PlayerInterface {
@@ -130,13 +134,18 @@ final class ChannelPlayerViewController: UIViewController, StoryboardBased {
         vc.didMove(toParent: self)
 
         vc.player = player
-        return NativePlayer(player: player)
+        return NativePlayer(player: player) { [errorLabel=errorLabel!] error in
+            DispatchQueue.main.async {
+                errorLabel.text = "\(error)"
+            }
+        }
     }
 }
 
 private protocol PlayerInterface {
 
     var isPlaying: Bool {get}
+    var onError: ((Error) -> Void)? {get}
 
     func play()
     func pause()
@@ -145,13 +154,32 @@ private protocol PlayerInterface {
 
 private final class NativePlayer: PlayerInterface {
     private let player: AVPlayer
+    private var observation: NSKeyValueObservation?
+    var onError: ((Error) -> Void)?
 
-    init(player: AVPlayer) {
+    init(player: AVPlayer, onError: @escaping (Error) -> Void) {
         self.player = player
+        self.onError = onError
     }
 
     var isPlaying: Bool { player.rate != 0.0 }
-    func play() { player.play() }
+    func play() {
+        switch player.status {
+        case .readyToPlay:
+            observation = nil
+            player.play()
+        case .failed:
+            observation = nil
+            onError?(NSError(domain: "failed", code: -1))
+        default:
+            if observation != nil {
+                break
+            }
+            observation = player.observe(\.status, options: .new) {[weak self] _, _ in
+                self?.play()
+            }
+        }
+    }
     func pause() { player.pause() }
     func stop() { player.replaceCurrentItem(with: nil) }
 }
@@ -159,10 +187,12 @@ private final class NativePlayer: PlayerInterface {
 private final class VlcPlayer: NSObject, PlayerInterface, VLCMediaPlayerDelegate {
     private let player: VLCMediaPlayer
     private let onPlay: () -> Void
+    var onError: ((Error) -> Void)?
 
-    init(player: VLCMediaPlayer, onPlay: @escaping () -> Void) {
+    init(player: VLCMediaPlayer, onPlay: @escaping () -> Void, onError: @escaping (Error) -> Void) {
         self.player = player
         self.onPlay = onPlay
+        self.onError = onError
         super.init()
         player.delegate = self
     }
@@ -195,6 +225,7 @@ private final class VlcPlayer: NSObject, PlayerInterface, VLCMediaPlayerDelegate
 
 private final class EmptyPlayer: PlayerInterface {
     var isPlaying: Bool { false }
+    var onError: ((Error) -> Void)?
     func play() { }
     func pause() { }
     func stop() { }

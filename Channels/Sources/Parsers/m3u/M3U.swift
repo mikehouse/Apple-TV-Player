@@ -216,7 +216,7 @@ private func streamURL(from proxy: ProxyType, source: URL) throws -> URL? {
             switch result {
             case .success(let url):
                 os_log(.info, "read 'onltvone_comedy' stream url %s", "\(url)")
-                object = AnyProxyType(url: URL(string: url.absoluteString + "&player=vlc")!)
+                object = AnyProxyType(url: URL(string: url.absoluteString)!)
             case .failure(let error):
                 os_log(.error, "error getting 'onltvone_comedy' stream url %s.", "\(error)")
             }

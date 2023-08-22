@@ -403,7 +403,7 @@ private final class PlaylistURLHunter: NSObject, WebViewProxyDelegate {
                                       let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
                                     return false
                                 }
-                                guard components.path.hasSuffix("playlist.m3u8") else {
+                                guard components.path.hasSuffix(".m3u8") else {
                                     return false
                                 }
                                 return true

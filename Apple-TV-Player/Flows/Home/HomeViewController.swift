@@ -103,7 +103,7 @@ private extension HomeViewController {
                 self.present(error: error)
             }
             do {
-                items[.playlists] = try fsManager.filesNames().map(Row.playlist)
+                items[.playlists] = try fsManager.filesNames().sorted().map(Row.playlist)
             } catch {
                 os_log(.error, "\(error as NSError)")
                 self.present(error: error)

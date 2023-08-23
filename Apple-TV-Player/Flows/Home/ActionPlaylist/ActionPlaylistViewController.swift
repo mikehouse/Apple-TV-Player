@@ -12,6 +12,7 @@ final class ActionPlaylistViewController: UIAlertController {
     var deleteAction: (() -> Void)?
     var updateAction: (() -> Void)?
     var cancelAction: (() -> Void)?
+    var removeCacheAction: (() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,12 @@ final class ActionPlaylistViewController: UIAlertController {
                 updateAction()
             }
             addAction(update)
+        }
+        if let removeCacheAction {
+            let remove = UIAlertAction.init(title: NSLocalizedString("Remove playlist cache", comment: ""), style: .default) {_ in
+                removeCacheAction()
+            }
+            addAction(remove)
         }
     }
 }

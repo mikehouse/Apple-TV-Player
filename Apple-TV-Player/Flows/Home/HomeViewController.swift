@@ -204,6 +204,11 @@ extension HomeViewController: UITableViewDelegate {
         switch item {
         case .playlist(let name) where handlingCellLongTap:
             let actionVC = ActionPlaylistViewController()
+            if let _ = playlistCache[name] {
+                actionVC.removeCacheAction = { [unowned self] in
+                    playlistCache.removeValue(forKey: name)
+                }
+            }
             actionVC.deleteAction = { [unowned self] in
                 DispatchQueue.global(qos: .userInteractive).async {
                     do {
@@ -291,13 +296,7 @@ extension HomeViewController: UITableViewDelegate {
                     // TODO: add ability for top tag `#EXTM3U` read image by name (from channel bundle) | from URL.
                     let tvProvider = try IpTvProviders.kind(of: .dynamic(m3u: data, name: name))
                     let playlist = PlaylistItem(channels: tvProvider.bundles.flatMap({ $0.playlist.channels }))
-
-                    let myPrivatePlaylistToNotCacheBecauseStreamURLLifetimeShort = [
-                        "Paramount Comedy"
-                    ]
-                    if myPrivatePlaylistToNotCacheBecauseStreamURLLifetimeShort.contains(name) == false {
-                        self.playlistCache[name] = playlist
-                    }
+                    self.playlistCache[name] = playlist
 
                     DispatchQueue.main.async {
                         present(playlist: playlist)

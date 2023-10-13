@@ -146,7 +146,7 @@ http://ott.watch/stream/API_KEY/20.m3u8
 #EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Channel 11 (Израиль)
 #EXTGRP:Национальные
 http://ott.watch/stream/API_KEY/293.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Channel 12 (Израиль)
+#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Channel 12 HD(Израиль)
 #EXTGRP:Национальные
 http://ott.watch/stream/API_KEY/294.m3u8
 #EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Channel 13 (Израиль)
@@ -413,9 +413,6 @@ http://ott.watch/stream/API_KEY/346.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Трофей HD
 #EXTGRP:Познавательные
 http://ott.watch/stream/API_KEY/357.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Тайны Галактики HD
-#EXTGRP:Познавательные
-http://ott.watch/stream/API_KEY/271.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Нано ТВ HD
 #EXTGRP:Познавательные
 http://ott.watch/stream/API_KEY/419.m3u8
@@ -584,9 +581,6 @@ http://ott.watch/stream/API_KEY/322.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Мосфильм. Золотая коллекция HD
 #EXTGRP:Кино
 http://ott.watch/stream/API_KEY/369.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Мир сериала HD
-#EXTGRP:Кино
-http://ott.watch/stream/API_KEY/159.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Премиальное HD
 #EXTGRP:Кино
 http://ott.watch/stream/API_KEY/421.m3u8
@@ -833,9 +827,6 @@ http://ott.watch/stream/API_KEY/109.m3u8
 #EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",Mezzo Live HD
 #EXTGRP:Музыкальные
 http://ott.watch/stream/API_KEY/276.m3u8
-#EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",Шансон ТВ
-#EXTGRP:Музыкальные
-http://ott.watch/stream/API_KEY/95.m3u8
 #EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",Ля-минор ТВ
 #EXTGRP:Музыкальные
 http://ott.watch/stream/API_KEY/303.m3u8

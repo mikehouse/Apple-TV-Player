@@ -13,10 +13,10 @@ final class AddPlaylistViewController: TextInputViewController {
 
 extension AddPlaylistViewController {
     private enum TextFieldKind: Int {
-        case url = 1; case name
+        case url = 1; case name; case pin
     }
     
-    func configure(completion: ((URL?, String?) -> Void)?) {
+    func configure(completion: ((URL?, String?, String?) -> Void)?) {
         addTextField { field in
             field.delegate = self
             field.tag = TextFieldKind.url.rawValue
@@ -27,14 +27,22 @@ extension AddPlaylistViewController {
             field.tag = TextFieldKind.name.rawValue
             field.placeholder = NSLocalizedString("HD Channels", comment: "")
         }
+        addTextField { field in
+            field.delegate = self
+            field.tag = TextFieldKind.pin.rawValue
+            field.placeholder = NSLocalizedString("Pin Code", comment: "")
+            field.isSecureTextEntry = true
+        }
         okAction = addOkAction(title: NSLocalizedString("Add", comment: "")) { _ in
             guard let utv = self.view.viewWithTag(TextFieldKind.url.rawValue) as? UITextField,
-                  let ntv = self.view.viewWithTag(TextFieldKind.name.rawValue) as? UITextField else {
-                completion?(nil, nil)
+                  let ntv = self.view.viewWithTag(TextFieldKind.name.rawValue) as? UITextField,
+                  let ptv = self.view.viewWithTag(TextFieldKind.pin.rawValue) as? UITextField else {
+                completion?(nil, nil, nil)
                 return
             }
             completion?(utv.text.flatMap(URL.init(string:)),
-                ntv.text == nil || ntv.text?.isEmpty == .some(true) ? nil : ntv.text)
+                ntv.text == nil || ntv.text?.isEmpty == .some(true) ? nil : ntv.text,
+                ptv.text.flatMap({ $0.isEmpty ? nil : $0 }))
         }
         okAction?.isEnabled = false
         addCancelAction(title: NSLocalizedString("Cancel", comment: ""), completion: nil)

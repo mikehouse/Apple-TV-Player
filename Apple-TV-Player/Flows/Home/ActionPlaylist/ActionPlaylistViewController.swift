@@ -13,6 +13,8 @@ final class ActionPlaylistViewController: UIAlertController {
     var updateAction: (() -> Void)?
     var cancelAction: (() -> Void)?
     var removeCacheAction: (() -> Void)?
+    var setPinAction: (() -> Void)?
+    var removePinAction: (() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +22,25 @@ final class ActionPlaylistViewController: UIAlertController {
         let delete = UIAlertAction.init(title: NSLocalizedString("Delete playlist", comment: ""), style: .destructive) { [weak self] action in
             self?.deleteAction?()
         }
-        let cancel = UIAlertAction.init(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { [weak self] action in
+        let cancel = UIAlertAction.init(title: NSLocalizedString("Cancel", comment: ""), style: .default) { [weak self] action in
             self?.cancelAction?()
         }
 
         addAction(delete)
         addAction(cancel)
 
+        if let setPinAction {
+            let setPin = UIAlertAction.init(title: NSLocalizedString("Set pin code", comment: ""), style: .default) { _ in
+                setPinAction()
+            }
+            addAction(setPin)
+        }
+        if let removePinAction {
+            let removePin = UIAlertAction.init(title: NSLocalizedString("Delete pin code", comment: ""), style: .default) { _ in
+                removePinAction()
+            }
+            addAction(removePin)
+        }
         if let updateAction {
             let update = UIAlertAction.init(title: NSLocalizedString("Update playlist", comment: ""), style: .default) { _ in
                 updateAction()

@@ -5,6 +5,12 @@
 "Cancel" = "Cancel";
 "Add playlist url (required) and its name (optional)" = "Add playlist url (required) and its name (optional)";
 "HD Channels" = "HD Channels";
+"Pin Code" = "Pin Code";
+"Pin code is invalid." = "Pin code is invalid.";
+"Enter pin code" = "Enter pin code";
+"Confirm pin code" = "Confirm pin code";
+"Delete pin code" = "Delete pin code";
+"Set pin code" = "Set pin code";
 "No channels found." = "No channels found.";
 "Invalid M3U file format." = "Invalid M3U file format.";
 "Invalid M3U header." = "Invalid M3U header.";

@@ -10,8 +10,12 @@ import Foundation
 private let lock = NSLock()
 
 final class LocalStorage {
-    private let storage = UserDefaults.standard
-    
+    private let storage: UserDefaults
+
+    init(storage: UserDefaults = .app) {
+        self.storage = storage
+    }
+
     func remove(_ domain: Domain) {
         lock.lock()
         defer {lock.unlock()}
@@ -48,6 +52,10 @@ final class LocalStorage {
         add(value: value, for: key.rawValue, to: domain)
     }
     
+    func add(data value: Data, for key: CommonKeys, domain: Domain) {
+        add(value: value, for: key.rawValue, to: domain)
+    }
+
     func remove(for key: URL, domain: Domain) {
         remove(for: key.absoluteString, domain: domain)
     }
@@ -72,6 +80,10 @@ final class LocalStorage {
         container(for: domain)[key.rawValue]
     }
     
+    func getData(_ key: CommonKeys, domain: Domain) -> Data? {
+        container(for: domain)[key.rawValue]
+    }
+
     func getValue(_ key: String, domain: Domain) -> AnyHashable? {
         container(for: domain)[key]
     }
@@ -188,6 +200,7 @@ extension LocalStorage {
 extension LocalStorage {
     enum Domain: Equatable {
         case playlist
+        case pin
         case playlistURL
         case common
         case list(ListKeys)
@@ -208,6 +221,7 @@ extension LocalStorage {
     
     enum CommonKeys: String {
         case current
+        case symmetricKey
     }
     
     enum ListKeys {

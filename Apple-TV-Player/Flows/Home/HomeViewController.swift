@@ -102,12 +102,7 @@ private extension HomeViewController {
                 os_log(.error, "\(error as NSError)")
                 self.present(error: error)
             }
-            do {
-                items[.playlists] = try fsManager.filesNames().sorted().map(Row.playlist)
-            } catch {
-                os_log(.error, "\(error as NSError)")
-                self.present(error: error)
-            }
+            items[.playlists] = fsManager.playlists().sorted().map(Row.playlist)
     
             DispatchQueue.main.async { [unowned self] in
                 var snapshot = dataSource.snapshot()
@@ -126,13 +121,21 @@ private extension HomeViewController {
 
 private extension HomeViewController {
     func present(error: Error) {
-        RunLoop.main.perform { [unowned self, error] in
+        let alert = FailureViewController.make(error: error)
+        alert.addOkAction(title: NSLocalizedString("Ok", comment: ""), completion: nil)
+        present(alert, animated: true)
+    }
+    
+    func present(on onError: () throws -> Void) {
+        do {
+            try onError()
+        } catch {
             let alert = FailureViewController.make(error: error)
             alert.addOkAction(title: NSLocalizedString("Ok", comment: ""), completion: nil)
             present(alert, animated: true)
         }
     }
-    
+
     func setTableViewProgressView(enabled: Bool) {
         if enabled {
             var snapshot = dataSource.snapshot()
@@ -211,31 +214,53 @@ extension HomeViewController: UITableViewDelegate {
             }
             actionVC.deleteAction = { [unowned self] in
                 DispatchQueue.global(qos: .userInteractive).async {
-                    do {
-                        guard let url = try self.fsManager.file(named: name) else { return }
-                        try self.fsManager.remove(file: url)
-                        self.playlistCache.removeValue(forKey: name)
-                        if let url = try self.fsManager.url(named: name) {
-                            try self.fsManager.remove(url: url)
-                        }
-                        DispatchQueue.main.async {
-                            self.reloadUI()
-                        }
-                    } catch {
-                        DispatchQueue.main.async {
-                            self.present(error: error)
-                        }
+                    self.fsManager.remove(playlist: name)
+                    self.playlistCache.removeValue(forKey: name)
+                    DispatchQueue.main.async {
+                        self.reloadUI()
                     }
                 }
             }
-            if let url = try? self.fsManager.url(named: name) {
-                actionVC.updateAction = { [unowned self] in
+            if self.fsManager.pin(playlist: name) == nil {
+                actionVC.setPinAction = { [unowned self] in
+                    let view = SetPinViewController()
+                    view.configure { [self] set, pin in
+                        guard set, let pin, pin.isEmpty == false else {
+                            return
+                        }
+                        present(on: { try self.fsManager.set(pin: pin, playlist: name) })
+                    }
+                    self.present(view, animated: true)
+                }
+            } else {
+                actionVC.removePinAction = { [unowned self] in
+                    let view = DeletePinViewController()
+                    view.configure { [self] delete, pin in
+                        guard delete, let pin else {
+                            return
+                        }
+                        guard self.fsManager.verify(pin: pin, playlist: name) else {
+                            self.present(error: NSError(domain: "pin.invalid.domain", code: -1, userInfo: [
+                                NSLocalizedDescriptionKey: NSLocalizedString("Pin code is invalid.", comment: "")
+                            ]))
+                            return
+                        }
+                        present(on: { try self.fsManager.removePin(playlist: name, pin: pin) })
+                    }
+                    self.present(view, animated: true)
+                }
+            }
+            actionVC.updateAction = { [unowned self] in
+                let updateAction: (String?) -> Void = { pin in
                     DispatchQueue.main.async {
                         self.setTableViewProgressView(enabled: true)
                     }
-                    DispatchQueue.global(qos: .userInitiated).async {
+                    DispatchQueue.global(qos: .userInitiated).async { [self] in
                         do {
-                            try self.fsManager.download(file: url, name: name)
+                            guard let url = try fsManager.url(named: name, pin: pin) else {
+                                return
+                            }
+                            try self.fsManager.download(file: url, playlist: name, pin: pin)
                             self.playlistCache.removeValue(forKey: name)
                             DispatchQueue.main.async {
                                 self.setTableViewProgressView(enabled: false)
@@ -247,6 +272,19 @@ extension HomeViewController: UITableViewDelegate {
                             }
                         }
                     }
+                }
+                if fsManager.pin(playlist: name) != nil {
+                    let view = VerifyPinViewController()
+                    view.configure { cancelled, pin in
+                        guard !cancelled,
+                              pin.map({ self.fsManager.verify(pin: $0, playlist: name) }) ?? true else {
+                            return
+                        }
+                        updateAction(pin)
+                    }
+                    self.present(view, animated: true)
+                } else {
+                    updateAction(nil)
                 }
             }
             self.present(actionVC, animated: true)
@@ -266,7 +304,7 @@ extension HomeViewController: UITableViewDelegate {
         handlingCellLongTap = CFAbsoluteTimeGetCurrent() - highlightingStarted > 1.0
     }
     
-    private func navigate(to indexPath: IndexPath) {
+    private func navigate(to indexPath: IndexPath, pin: Data? = nil) {
         guard let item = dataSource.itemIdentifier(for: indexPath) else {
             return
         }
@@ -279,13 +317,31 @@ extension HomeViewController: UITableViewDelegate {
                     self.setTableViewProgressView(enabled: false)
                 }
             }
+            if let hashedPin = fsManager.pin(playlist: name) {
+                guard let pin else {
+                    let view = VerifyPinViewController()
+                    view.configure { [unowned self] cancelled, pin in
+                        guard !cancelled else {
+                            return
+                        }
+                        navigate(to: indexPath, pin: pin.map(self.fsManager.hashed(pin:)) ?? Data())
+                    }
+                    self.present(view, animated: true)
+                    return
+                }
+                guard pin == hashedPin else {
+                    self.present(error: NSError(domain: "pin.invalid.domain", code: -1, userInfo: [
+                        NSLocalizedDescriptionKey: NSLocalizedString("Pin code is invalid.", comment: "")
+                    ]))
+                    return
+                }
+            }
             if let playlist = self.playlistCache[name] {
                 present(playlist: playlist)
                 return
             }
             DispatchQueue.global().async {
-                guard let url = try? self.fsManager.file(named: name),
-                      let data = self.fsManager.content(of: url) else {
+                guard let name = self.fsManager.playlist(named: name) else {
                     return
                 }
                 DispatchQueue.main.async {
@@ -293,6 +349,9 @@ extension HomeViewController: UITableViewDelegate {
                 }
                 
                 do {
+                    guard let data = try self.fsManager.content(of: name, pin: pin) else {
+                        return
+                    }
                     // TODO: add ability for top tag `#EXTM3U` read image by name (from channel bundle) | from URL.
                     let tvProvider = try IpTvProviders.kind(of: .dynamic(m3u: data, name: name))
                     let playlist = PlaylistItem(channels: tvProvider.bundles.flatMap({ $0.playlist.channels }))
@@ -331,7 +390,7 @@ extension HomeViewController: UITableViewDelegate {
                 message: NSLocalizedString(
                     "Add playlist url (required) and its name (optional)", comment: ""),
                 preferredStyle: .alert)
-            vc.configure { [unowned self] url, name in
+            vc.configure { [unowned self] url, name, pin in
                 DispatchQueue.global(qos: .userInitiated).async { [self] in
                     let message = "url: \(String(describing: url)), name: \(String(describing: name))"
                     os_log(.info, "\(message)")
@@ -344,16 +403,19 @@ extension HomeViewController: UITableViewDelegate {
                         DispatchQueue.main.async {
                             self.setTableViewProgressView(enabled: true)
                         }
-                        let file = try fsManager.download(file: url, name: name)
+                        let name = try fsManager.download(file: url, playlist: name, pin: pin)
                         do {
-                            if try M3U(data: fsManager.content(of: file)!).parse().isEmpty {
+                            if try M3U(data: fsManager.content(of: name, pin: pin)!).parse().isEmpty {
                                 let error = NSError(domain: "com.tv.player", code: -1, userInfo: [
                                     NSLocalizedDescriptionKey: NSLocalizedString("No channels found.", comment: "")
                                 ])
                                 throw error
                             }
+                            if let pin {
+                                present(on: { try self.fsManager.set(pin: pin, playlist: name) })
+                            }
                         } catch {
-                            try self.fsManager.remove(file: file)
+                            self.fsManager.remove(playlist: name)
                             throw error
                         }
                     } catch {

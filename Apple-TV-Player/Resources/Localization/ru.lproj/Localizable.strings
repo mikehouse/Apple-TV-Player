@@ -1,10 +1,16 @@
 "Error" = "Ошибка";
-"Ok" = "Ясно";
+"Ok" = "Ок";
 "Add playlist" = "Добавить новый playlist";
 "Add" = "Добавить";
 "Cancel" = "Отмена";
 "Add playlist url (required) and its name (optional)" = "Добавить URL до playlist (обязательное) и его имя (опциональное)";
 "HD Channels" = "HD Каналы";
+"Pin Code" = "Пин код";
+"Pin code is invalid." = "Невалидный пин код.";
+"Enter pin code" = "Введите пин код";
+"Confirm pin code" = "Подтвердить пин код";
+"Delete pin code" = "Удалить пин код";
+"Set pin code" = "Установить пин код";
 "No channels found." = "Каналы не найдены.";
 "Invalid M3U file format." = "Невалидный M3U файл формат.";
 "Invalid M3U header." = "Невалидный M3U заголовок.";

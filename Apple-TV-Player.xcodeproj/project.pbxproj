@@ -41,6 +41,8 @@
 		826BBC7F2561C299003A69CA /* ru2090000.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 826BBC7E2561C299003A69CA /* ru2090000.bundle */; };
 		82742D24255FDC08001B2B25 /* ChannelPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82742D23255FDC08001B2B25 /* ChannelPlayerViewController.swift */; };
 		82742D28255FDC12001B2B25 /* ChannelPlayerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82742D27255FDC12001B2B25 /* ChannelPlayerViewController.storyboard */; };
+		828A8BF12B38033400693F1F /* SetPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828A8BF02B38033400693F1F /* SetPinViewController.swift */; };
+		828A8BF42B380C5400693F1F /* DeletePinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828A8BF32B380C5400693F1F /* DeletePinViewController.swift */; };
 		828E3FEE253F67B2003D4EFC /* FileSystemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E3FED253F67B2003D4EFC /* FileSystemManager.swift */; };
 		828E3FF7253F6FF1003D4EFC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E3FF6253F6FF1003D4EFC /* HomeViewController.swift */; };
 		828E3FFD253F704B003D4EFC /* FailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E3FFC253F704B003D4EFC /* FailureViewController.swift */; };
@@ -62,6 +64,7 @@
 		82AD846D25703B8B006752B7 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD846C25703B8B006752B7 /* Playlist.swift */; };
 		82AD847525704277006752B7 /* Bundle2090000ru.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD847425704277006752B7 /* Bundle2090000ru.swift */; };
 		82AD847A257042B8006752B7 /* Playlist2090000ru.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD8479257042B8006752B7 /* Playlist2090000ru.swift */; };
+		82B862182B2F1CEB0097635F /* VerifyPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B862172B2F1CEB0097635F /* VerifyPinViewController.swift */; };
 		82C2D12F2960050000301067 /* ObjCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C2D12E2960050000301067 /* ObjCUtils.m */; };
 		82C2D133296332F200301067 /* IpTvProviderOttclub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C2D132296332F200301067 /* IpTvProviderOttclub.swift */; };
 		82C2D1352963381500301067 /* BundleOttclubKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C2D1342963381500301067 /* BundleOttclubKind.swift */; };
@@ -178,6 +181,8 @@
 		826BBC7E2561C299003A69CA /* ru2090000.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ru2090000.bundle; sourceTree = "<group>"; };
 		82742D23255FDC08001B2B25 /* ChannelPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelPlayerViewController.swift; sourceTree = "<group>"; };
 		82742D27255FDC12001B2B25 /* ChannelPlayerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChannelPlayerViewController.storyboard; sourceTree = "<group>"; };
+		828A8BF02B38033400693F1F /* SetPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPinViewController.swift; sourceTree = "<group>"; };
+		828A8BF32B380C5400693F1F /* DeletePinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePinViewController.swift; sourceTree = "<group>"; };
 		828E3FED253F67B2003D4EFC /* FileSystemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemManager.swift; sourceTree = "<group>"; };
 		828E3FF6253F6FF1003D4EFC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		828E3FFC253F704B003D4EFC /* FailureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailureViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +204,7 @@
 		82AD846C25703B8B006752B7 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		82AD847425704277006752B7 /* Bundle2090000ru.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle2090000ru.swift; sourceTree = "<group>"; };
 		82AD8479257042B8006752B7 /* Playlist2090000ru.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist2090000ru.swift; sourceTree = "<group>"; };
+		82B862172B2F1CEB0097635F /* VerifyPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPinViewController.swift; sourceTree = "<group>"; };
 		82C2D12D2960050000301067 /* Apple-TV-Player-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Apple-TV-Player-Bridging-Header.h"; sourceTree = "<group>"; };
 		82C2D12E2960050000301067 /* ObjCUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCUtils.m; sourceTree = "<group>"; };
 		82C2D1302960051E00301067 /* ObjCUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCUtils.h; sourceTree = "<group>"; };
@@ -450,6 +456,22 @@
 			path = ChannelPlayer;
 			sourceTree = "<group>";
 		};
+		828A8BEF2B38031E00693F1F /* SetPin */ = {
+			isa = PBXGroup;
+			children = (
+				828A8BF02B38033400693F1F /* SetPinViewController.swift */,
+			);
+			path = SetPin;
+			sourceTree = "<group>";
+		};
+		828A8BF22B380C3F00693F1F /* DeletePin */ = {
+			isa = PBXGroup;
+			children = (
+				828A8BF32B380C5400693F1F /* DeletePinViewController.swift */,
+			);
+			path = DeletePin;
+			sourceTree = "<group>";
+		};
 		828E3FEC253F6778003D4EFC /* FileSystem */ = {
 			isa = PBXGroup;
 			children = (
@@ -476,6 +498,9 @@
 		828E3FF4253F6F1E003D4EFC /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				828A8BF22B380C3F00693F1F /* DeletePin */,
+				828A8BEF2B38031E00693F1F /* SetPin */,
+				82B862162B2F1CBE0097635F /* VerifyPin */,
 				8209A4CD258F85AC000F40ED /* ActionPlaylist */,
 				822A58C72540AF4F0061813F /* AddPlaylist */,
 				828E400F253F84D5003D4EFC /* SettingsCell */,
@@ -563,6 +588,14 @@
 				8229F758257D5EE800A9389E /* ProgrammesFetcher2090000.swift */,
 			);
 			path = 2090000.ru;
+			sourceTree = "<group>";
+		};
+		82B862162B2F1CBE0097635F /* VerifyPin */ = {
+			isa = PBXGroup;
+			children = (
+				82B862172B2F1CEB0097635F /* VerifyPinViewController.swift */,
+			);
+			path = VerifyPin;
 			sourceTree = "<group>";
 		};
 		82C2D1312963305600301067 /* ottclub */ = {
@@ -1123,6 +1156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				828A8BF42B380C5400693F1F /* DeletePinViewController.swift in Sources */,
 				822A58C42540AF4A0061813F /* AddPlaylistViewController.swift in Sources */,
 				82F3D26C2538D9AC0021BB2E /* AppDelegate.swift in Sources */,
 				8229F743257D569900A9389E /* SettingsViewController.swift in Sources */,
@@ -1132,7 +1166,9 @@
 				828E3FEE253F67B2003D4EFC /* FileSystemManager.swift in Sources */,
 				8229F71D257BD37600A9389E /* NoDataView.swift in Sources */,
 				82E82D78256A7D4E00E3D250 /* LocalStorage.swift in Sources */,
+				82B862182B2F1CEB0097635F /* VerifyPinViewController.swift in Sources */,
 				828E4020253F852F003D4EFC /* SettingsCellView.swift in Sources */,
+				828A8BF12B38033400693F1F /* SetPinViewController.swift in Sources */,
 				82E82D3A256A5B2000E3D250 /* PiedPiper.swift in Sources */,
 				82DAAEA125AB04C4006E296F /* ContainerViewController.swift in Sources */,
 				82F0469E255EF9140052E2E8 /* PlaylistViewController.swift in Sources */,

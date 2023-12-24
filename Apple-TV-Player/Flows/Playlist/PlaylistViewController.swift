@@ -509,7 +509,7 @@ private extension PlaylistViewController {
                     let label = UILabel()
                     label.text = line
                     label.numberOfLines = 0
-                    label.font = .systemFont(ofSize: 32, weight: .regular)
+                    label.font = .systemFont(ofSize: 31, weight: .regular)
                     programmesStackView.addArrangedSubview(label)
                     if index == idx {
                         label.textColor = UIColor.systemGreen

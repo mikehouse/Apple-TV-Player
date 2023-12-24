@@ -38,6 +38,10 @@ final class ChannelPlayerViewController: UIViewController, StoryboardBased {
         super.viewDidLoad()
 
         if let url, let components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
+            #if targetEnvironment(simulator)
+            // Since some Xcode version, native video player doesn't show an image (the sound works).
+            self.player = configureVLCPlayer(url)
+            #else
             let player = components.queryItems?.first(where: { $0.name == "player" })?.value ?? "native"
             os_log(.info, "set channel to play using %s player from %s", player, String(describing: url))
             if player == "vlc" {
@@ -45,6 +49,8 @@ final class ChannelPlayerViewController: UIViewController, StoryboardBased {
             } else {
                 self.player = configureNativePlayer(url)
             }
+            #endif
+
         } else {
             playerView.isHidden = true
             errorLabel.text = "No channel URL found."

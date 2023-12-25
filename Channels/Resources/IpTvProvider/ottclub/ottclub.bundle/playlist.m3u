@@ -146,7 +146,7 @@ http://ott.watch/stream/API_KEY/20.m3u8
 #EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Channel 11 (Израиль)
 #EXTGRP:Национальные
 http://ott.watch/stream/API_KEY/293.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Channel 12 HD(Израиль)
+#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Channel 12 HD (Израиль)
 #EXTGRP:Национальные
 http://ott.watch/stream/API_KEY/294.m3u8
 #EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Channel 13 (Израиль)
@@ -257,6 +257,12 @@ http://ott.watch/stream/API_KEY/145.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Investigation Discovery
 #EXTGRP:Познавательные
 http://ott.watch/stream/API_KEY/205.m3u8
+#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",National Geographic HD
+#EXTGRP:Познавательные
+http://ott.watch/stream/API_KEY/116.m3u8
+#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Nat Geo Wild HD
+#EXTGRP:Познавательные
+http://ott.watch/stream/API_KEY/149.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",History HD
 #EXTGRP:Познавательные
 http://ott.watch/stream/API_KEY/113.m3u8
@@ -527,6 +533,12 @@ http://ott.watch/stream/API_KEY/207.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Еврокино HD
 #EXTGRP:Кино
 http://ott.watch/stream/API_KEY/385.m3u8
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Fox HD
+#EXTGRP:Кино
+http://ott.watch/stream/API_KEY/182.m3u8
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Fox Life HD
+#EXTGRP:Кино
+http://ott.watch/stream/API_KEY/129.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",ТВ XXI
 #EXTGRP:Кино
 http://ott.watch/stream/API_KEY/152.m3u8
@@ -680,6 +692,9 @@ http://ott.watch/stream/API_KEY/394.m3u8
 #EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Dynamo Kyiv TV HD
 #EXTGRP:Спорт
 http://ott.watch/stream/API_KEY/396.m3u8
+#EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",UA: Спорт HD
+#EXTGRP:Спорт
+http://ott.watch/stream/API_KEY/444.m3u8
 #EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",KHL ТВ
 #EXTGRP:Спорт
 http://ott.watch/stream/API_KEY/166.m3u8
@@ -851,6 +866,12 @@ http://ott.watch/stream/API_KEY/438.m3u8
 #EXTINF:-1 group-title="Новостные" tvg-rec="7" timeshift="7",Рада HD
 #EXTGRP:Новостные
 http://ott.watch/stream/API_KEY/382.m3u8
+#EXTINF:-1 group-title="Новостные" tvg-rec="7" timeshift="7",Еспресо HD
+#EXTGRP:Новостные
+http://ott.watch/stream/API_KEY/84.m3u8
+#EXTINF:-1 group-title="Новостные" tvg-rec="7" timeshift="7",24 Канал HD
+#EXTGRP:Новостные
+http://ott.watch/stream/API_KEY/462.m3u8
 #EXTINF:-1 group-title="Новостные" tvg-rec="7" timeshift="7",UA TV HD
 #EXTGRP:Новостные
 http://ott.watch/stream/API_KEY/63.m3u8

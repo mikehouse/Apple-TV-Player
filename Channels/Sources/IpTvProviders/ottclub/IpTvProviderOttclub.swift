@@ -24,6 +24,8 @@ internal extension IpTvProviderOttclub {
         let favChannels: [Channel] = [
             "ТНТ HD",
             "ТНТ(+2)",
+            "ТНТ4 HD",
+            "Перец International",
             "Комедийное HD",
             "Премиальное HD",
             "FAN",

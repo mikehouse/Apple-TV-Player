@@ -3,7 +3,7 @@
 "Add playlist" = "Add playlist";
 "Add" = "Add";
 "Cancel" = "Cancel";
-"Add playlist url (required) and its name (optional)" = "Add playlist url (required) and its name (optional)";
+"Add playlist url (required) and its name (optional)" = "Add playlist url (required) and its name and pin code (optional)";
 "HD Channels" = "HD Channels";
 "Pin Code" = "Pin Code";
 "Pin code is invalid." = "Pin code is invalid.";

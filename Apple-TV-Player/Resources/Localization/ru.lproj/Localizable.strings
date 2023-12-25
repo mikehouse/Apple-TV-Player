@@ -3,7 +3,7 @@
 "Add playlist" = "Добавить новый playlist";
 "Add" = "Добавить";
 "Cancel" = "Отмена";
-"Add playlist url (required) and its name (optional)" = "Добавить URL до playlist (обязательное) и его имя (опциональное)";
+"Add playlist url (required) and its name (optional)" = "Добавить URL до playlist (обязательное) и его имя и пин код (опциональное)";
 "HD Channels" = "HD Каналы";
 "Pin Code" = "Пин код";
 "Pin code is invalid." = "Невалидный пин код.";

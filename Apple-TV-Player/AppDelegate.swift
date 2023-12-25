@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import os
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         #if targetEnvironment(simulator)
-        print("App sandbox path \(FileManager.default.temporaryDirectory.deletingLastPathComponent())")
+        logger.debug("App sandbox path \(FileManager.default.temporaryDirectory.deletingLastPathComponent())")
         #endif
         return true
     }

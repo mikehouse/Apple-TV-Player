@@ -7,7 +7,6 @@
 
 import Foundation
 import GZIP
-import os
 
 final class GunZipper {
 
@@ -25,10 +24,10 @@ final class GunZipper {
                 try FileManager.default.createDirectory(at: tmp, withIntermediateDirectories: true)
                 var zipFileURL: URL = url
                 if url.isFileURL == false {
-                    os_log(.info, "download %s", url.absoluteString)
+                    logger.info("downloading \(url)")
                     let data: NSData = try NSData(contentsOf: url)
                     let path = tmp.appendingPathComponent(url.lastPathComponent)
-                    os_log(.info, "move to %s", path.path)
+                    logger.info("move to \(path)")
                     try data.write(to: path)
                     zipFileURL = path
                 }

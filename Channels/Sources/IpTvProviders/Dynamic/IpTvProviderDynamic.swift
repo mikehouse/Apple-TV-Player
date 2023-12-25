@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import os
 
 internal struct IpTvProviderDynamic: IpTvProvider {
     let kind: IpTvProviderKind

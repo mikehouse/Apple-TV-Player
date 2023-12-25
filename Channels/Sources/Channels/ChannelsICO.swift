@@ -8,7 +8,6 @@
 import Foundation
 import CoreGraphics
 import ImageIO
-import os
 
 private let workQueue: OperationQueue = {
     let queue = OperationQueue()
@@ -123,7 +122,7 @@ private struct ChannelsICORemote {
                     do {
                         try data.write(to: cacheDirImage)
                     } catch {
-                        os_log(.info, "%s error: %s", cacheDirImage.path, String(describing: error))
+                        logger.error("\(error)")
                     }
                 }
                 completion(nil, image)

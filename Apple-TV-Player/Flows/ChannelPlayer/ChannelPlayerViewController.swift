@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import os
 import TVVLCKit
 import Reusable
 import AVFoundation
@@ -75,7 +74,7 @@ final class ChannelPlayerViewController: UIViewController, StoryboardBased {
     
     deinit {
         player.stop()
-        os_log(.info, "deinit %s", String(describing: self))
+        logger.info("deinit \(self)")
     }
 
     // Legacy.

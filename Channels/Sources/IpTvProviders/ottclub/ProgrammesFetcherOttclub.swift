@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import os
 
 internal final class ProgrammesFetcherOttclub: ProgrammesFetcherBase {
 
@@ -15,16 +14,16 @@ internal final class ProgrammesFetcherOttclub: ProgrammesFetcherBase {
             if let cacheFile = (try? self.cacheDirectory()).map({ $0.appendingPathComponent("epg.xml") }),
                FileManager.default.fileExists(atPath: cacheFile.path) {
                 do {
-                    os_log(.info, "read from cache: %s", cacheFile.path)
+                    logger.debug("read from cache: \(cacheFile.path)")
                     try self.handle(xml: cacheFile)
                     return
                 } catch {
-                    os_log(.info, "%s error: %s", cacheFile.path, String(describing: error))
+                    logger.error("error for \(cacheFile.path): \(error)")
                 }
             }
             // https://vip-tv.org/articles/epg-iptv.html
             let url = URL(string: "http://myott.top/api/epg.xml.gz")!
-            os_log(.info, "no cache programme file found, gonna fetch new from %s", url.absoluteString)
+            logger.debug("no cache programme file found, gonna fetch new from \(url)")
             let xmlProvider = TeleguideInfoXmlProvider(url: url)
             xmlProvider.info { [weak self] result in
                 guard let self else {
@@ -32,7 +31,7 @@ internal final class ProgrammesFetcherOttclub: ProgrammesFetcherBase {
                 }
                 switch result {
                 case .failure(let error):
-                    os_log(.info, "%s error: %s", url.path, String(describing: error))
+                    logger.error("error for \(url.path): \(error)")
                     self.update(.failure(error))
                 case .success(let url):
                     defer { try? FileManager.default.removeItem(at: url) }
@@ -45,7 +44,7 @@ internal final class ProgrammesFetcherOttclub: ProgrammesFetcherBase {
                         try FileManager.default.copyItem(at: url, to: cacheFile)
                         try self.handle(xml: cacheFile)
                     } catch {
-                        os_log(.info, "%s error: %s", url.path, String(describing: error))
+                        logger.error("error : \(error)")
                         self.update(.failure(error))
                     }
                 }
@@ -70,7 +69,7 @@ internal final class ProgrammesFetcherOttclub: ProgrammesFetcherBase {
                 let before10Hours = Calendar.current.date(byAdding: .hour, value: -10, to: now)
                 if let before = isMonday ? before10Hours : yesterday {
                     if date < before {
-                        os_log(.info, "Last programmes update was at %s, try download new programmes list...", String(describing: date))
+                        logger.info("Last programmes update was at \(date), try download new programmes list...")
                         throw NSError(domain: "xml.outdated.error", code: -1, userInfo: [
                             NSLocalizedDescriptionKey: url.path
                         ])

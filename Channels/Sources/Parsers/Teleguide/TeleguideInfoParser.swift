@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import os
 
 final class TeleguideInfoParser: NSObject {
 
@@ -52,7 +51,8 @@ final class TeleguideInfoParser: NSObject {
 
     private func parse() throws {
         aborted = false
-        os_log(.info, "start parse xml %s", url.path)
+
+        logger.debug("start parse xml \(self.url.path)")
         if let parser = XMLParser(contentsOf: url) {
             parser.delegate = self
             parser.parse()

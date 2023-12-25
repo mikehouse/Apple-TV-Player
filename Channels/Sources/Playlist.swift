@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import os
+
+let logger = Logger()
 
 public protocol Playlist {
     var channels: [Channel] {get}

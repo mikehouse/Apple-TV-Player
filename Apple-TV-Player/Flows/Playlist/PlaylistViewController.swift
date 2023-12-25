@@ -7,7 +7,6 @@
 
 import UIKit
 import Reusable
-import os
 import Channels
 
 final class PlaylistViewController: UIViewController, StoryboardBased {
@@ -87,7 +86,7 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
         programmes?.load { [weak self] error in
             self?.programmesLoadingIndicator(hidden: true)
             if let error = error {
-                os_log(.error, "\(error as NSObject)")
+                logger.error("\(error)")
             } else {
                 self?.updateProgrammesVisibleCells()
             }
@@ -139,7 +138,7 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     
     deinit {
         timer?.invalidate()
-        os_log(.info, "deinit %s", String(describing: self))
+        logger.info("deinit \(self)")
     }
 }
 

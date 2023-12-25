@@ -7,7 +7,6 @@
 
 import UIKit
 import Reusable
-import os
 import Channels
 
 final class HomeViewController: UIViewController {
@@ -99,7 +98,7 @@ private extension HomeViewController {
                 self.providers = try IpTvProviderKind.builtInProviders().map(IpTvProviders.kind(of:))
                 items[.providers] = self.providers.map({ Row.providers($0.kind) })
             } catch {
-                os_log(.error, "\(error as NSError)")
+                logger.error("\(error)")
                 self.present(error: error)
             }
             items[.playlists] = fsManager.playlists().sorted().map(Row.playlist)
@@ -315,6 +314,7 @@ extension HomeViewController: UITableViewDelegate {
                 playlistVC.playlist = playlist
                 self.present(playlistVC, animated: true) {
                     self.setTableViewProgressView(enabled: false)
+                    logger.info("did open playlist \(name)")
                 }
             }
             if let hashedPin = fsManager.pin(playlist: name) {
@@ -392,8 +392,7 @@ extension HomeViewController: UITableViewDelegate {
                 preferredStyle: .alert)
             vc.configure { [unowned self] url, name, pin in
                 DispatchQueue.global(qos: .userInitiated).async { [self] in
-                    let message = "url: \(String(describing: url)), name: \(String(describing: name))"
-                    os_log(.info, "\(message)")
+                    logger.info("adding playlist \(name ?? "") for url \(pin.map({ _ in "<>" }) ?? url?.absoluteString ?? "")")
                     guard let url = url else {
                         return
                     }
@@ -419,7 +418,7 @@ extension HomeViewController: UITableViewDelegate {
                             throw error
                         }
                     } catch {
-                        os_log(.error, "\(error as NSError)")
+                        logger.error("\(error)")
                         self.present(error: error)
                     }
                     

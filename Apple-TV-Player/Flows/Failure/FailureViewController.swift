@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import os
 
 final class FailureViewController: UIAlertController {
     
@@ -23,7 +22,7 @@ final class FailureViewController: UIAlertController {
     }
     
     deinit {
-        os_log(.info, "deinit %s", String(describing: self))
+        logger.info("deinit \(self)")
     }
 }
 

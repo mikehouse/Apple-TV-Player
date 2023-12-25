@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import os
 import CryptoKit
 import UIKit
 
@@ -41,7 +40,7 @@ extension FileSystemManager {
 
     @discardableResult
     func download(file: URL, playlist name: String, pin: String?) throws -> String {
-        os_log(.debug, "downloading %s named %s", pin.map({ _ in "<>" }) ?? String(describing: file), name)
+        logger.debug("downloading \(pin.map({ _ in "<>" }) ?? String(describing: file)) named \(name)")
         let content = try Data(contentsOf: file);
         let compressed = try compressor.compress(data: content)
 
@@ -156,7 +155,7 @@ extension FileSystemManager {
 
     func hashed(pin: String) -> Data {
         let salt = UIDevice.current.identifierForVendor?.uuidString ?? "0000-0000"
-        os_log(.debug, "salt %s", salt)
+        logger.debug("salt \(salt)")
         let target = "\(pin)-\(salt)"
         var sha256 = SHA256()
         sha256.update(data: target.data(using: .utf8)!)

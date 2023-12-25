@@ -1460,6 +1460,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OS_ACTIVITY_MODE_VALUE = debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Apple-TV-Player/Utils/Apple-TV-Player-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1483,6 +1484,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OS_ACTIVITY_MODE_VALUE = default;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Apple-TV-Player/Utils/Apple-TV-Player-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

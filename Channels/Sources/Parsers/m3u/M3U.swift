@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import os
 
 public final class M3U {
     private let url: URL?
@@ -28,7 +27,7 @@ public extension M3U {
     @discardableResult
     func parse() throws -> [M3UItem] {
         if Thread.isMainThread {
-            os_log(.info, "Non UI task called on UI thread.")
+            logger.warning("Non UI task called on UI thread.")
         }
         
         let data = try url.map({ try Data(contentsOf: $0) }) ?? self.data
@@ -162,7 +161,7 @@ public extension M3U {
                         items.append(item)
                     }
                 } catch {
-                    os_log(.info, "cannot read stream proxy object \(error)")
+                    logger.error("cannot read stream proxy object: \(error)")
                 }
             } else {
                 let item = M3UItem(title: title, url: url, group: group, logo: logoURL)
@@ -194,10 +193,10 @@ private func streamURL(from proxy: ProxyType, source: URL) throws -> URL? {
         let searchCache = ProxyCache(proxy: proxy, source: source, url: nil)
         if let cached = proxiesCache.first(where: { $0 == searchCache }) {
             if cached.stillValid, let url = cached.url {
-                os_log(.info, "did read proxy from cache for %s value %s.", source.absoluteString, url.absoluteString)
+                logger.info("did read proxy from cache for \(source.absoluteString) value \(url.absoluteString).")
                 return url
             } else {
-                os_log(.info, "proxy cache expired|invalid for %s.", source.absoluteString)
+                logger.info("proxy cache expired|invalid for \(source.absoluteString).")
                 proxiesCache.removeAll(where: { $0 == searchCache })
             }
         }
@@ -215,10 +214,10 @@ private func streamURL(from proxy: ProxyType, source: URL) throws -> URL? {
         let hunter = createOnlTvOneComedyHunter(url: source) { result in
             switch result {
             case .success(let url):
-                os_log(.info, "read 'onltvone_comedy' stream url %s", "\(url)")
+                logger.info("read 'onltvone_comedy' stream url \(url)")
                 object = AnyProxyType(url: URL(string: url.absoluteString)!)
             case .failure(let error):
-                os_log(.error, "error getting 'onltvone_comedy' stream url %s.", "\(error)")
+                logger.error("error getting 'onltvone_comedy' stream url\(error).")
             }
             group.leave()
         }
@@ -226,7 +225,7 @@ private func streamURL(from proxy: ProxyType, source: URL) throws -> URL? {
         group.wait()
     }
     if let stream = object.url {
-        os_log(.info, "proxy add cache for %s value %s.", source.absoluteString, stream.absoluteString)
+        logger.info("proxy add cache for \(source.absoluteString) value \(stream.absoluteString).")
         proxiesCache.append(.init(proxy: proxy, source: source, url: stream))
         return stream
     }
@@ -344,7 +343,7 @@ private final class PlaylistURLHunter: NSObject, WebViewProxyDelegate {
     }
 
     func didFailLoadWithError(_ error: Swift.Error) {
-        os_log(.error, "webview did load error %s", "\(error)")
+        logger.error("\(error)")
         shouldStartLoad = false
     }
 

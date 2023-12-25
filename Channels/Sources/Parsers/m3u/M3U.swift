@@ -204,10 +204,6 @@ private func streamURL(from proxy: ProxyType, source: URL) throws -> URL? {
 
     var object: ProxyTypeInterface = AnyProxyType(url: nil)
     switch proxy {
-    case .stb:
-        let data = try Data(contentsOf: source)
-        let decoder = JSONDecoder()
-        object = try decoder.decode(STB_proxy.self, from: data)
     case .onltvone_comedy:
         let group = DispatchGroup()
         group.enter()
@@ -235,7 +231,6 @@ private func streamURL(from proxy: ProxyType, source: URL) throws -> URL? {
 private var proxiesCache: [ProxyCache] = []
 
 private enum ProxyType: String {
-    case stb
     case onltvone_comedy
 }
 
@@ -277,10 +272,8 @@ private final class ProxyCache: Equatable, ProxyTypeInterface {
 
     private var lifeTime: TimeInterval {
         switch proxy {
-        case .stb:
-            return TimeInterval(60 * 60 * 23)
         case .onltvone_comedy:
-            return TimeInterval(60 * 60 * 2)
+            return TimeInterval(60 * 60 * 1)
         }
     }
 

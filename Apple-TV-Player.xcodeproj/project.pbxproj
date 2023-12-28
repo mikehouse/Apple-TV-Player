@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		22626EAD086FDD046CEF6925 /* Pods_Apple_TV_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EAD1A47F3B2E941683F597B /* Pods_Apple_TV_Player.framework */; };
 		388B78C1E2DA8485EB43AF32 /* Pods_Channels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48FBB1D491BEFB0691F06187 /* Pods_Channels.framework */; };
+		8204EC7D2B3D46BB002CC4EB /* SettingsPlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8204EC7C2B3D46BB002CC4EB /* SettingsPlayersView.swift */; };
 		8209A4C9258F5F51000F40ED /* ru-free-pls.m3u in Resources */ = {isa = PBXBuildFile; fileRef = 8209A4C8258F5F51000F40ED /* ru-free-pls.m3u */; };
 		8209A4CF258F85D6000F40ED /* ActionPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8209A4CE258F85D6000F40ED /* ActionPlaylistViewController.swift */; };
 		820AC430257285B800932015 /* IpTvProviderDynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820AC42F257285B800932015 /* IpTvProviderDynamic.swift */; };
@@ -148,6 +149,7 @@
 		7EAD1A47F3B2E941683F597B /* Pods_Apple_TV_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Apple_TV_Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8200BBC5258604450056EE0F /* 2090000ruBundlesDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2090000ruBundlesDownloader.swift; sourceTree = "<group>"; };
 		8200BBC6258604AB0056EE0F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8204EC7C2B3D46BB002CC4EB /* SettingsPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPlayersView.swift; sourceTree = "<group>"; };
 		8209A4C8258F5F51000F40ED /* ru-free-pls.m3u */ = {isa = PBXFileReference; lastKnownFileType = text; path = "ru-free-pls.m3u"; sourceTree = "<group>"; };
 		8209A4CE258F85D6000F40ED /* ActionPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionPlaylistViewController.swift; sourceTree = "<group>"; };
 		820AC42F257285B800932015 /* IpTvProviderDynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IpTvProviderDynamic.swift; sourceTree = "<group>"; };
@@ -323,6 +325,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8204EC792B3D464C002CC4EB /* Players */ = {
+			isa = PBXGroup;
+			children = (
+				8204EC7C2B3D46BB002CC4EB /* SettingsPlayersView.swift */,
+			);
+			path = Players;
+			sourceTree = "<group>";
+		};
 		8209A4CD258F85AC000F40ED /* ActionPlaylist */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,6 +414,7 @@
 		8229F741257D565D00A9389E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				8204EC792B3D464C002CC4EB /* Players */,
 				8229F742257D569900A9389E /* SettingsViewController.swift */,
 				8229F747257D56A300A9389E /* SettingsViewController.storyboard */,
 				8229F74C257D573C00A9389E /* SettingsViewCell.swift */,
@@ -1174,6 +1185,7 @@
 				82F0469E255EF9140052E2E8 /* PlaylistViewController.swift in Sources */,
 				820AC44C2572E43900932015 /* SelectProviderCellView.swift in Sources */,
 				82742D24255FDC08001B2B25 /* ChannelPlayerViewController.swift in Sources */,
+				8204EC7D2B3D46BB002CC4EB /* SettingsPlayersView.swift in Sources */,
 				820AC4732572E7D600932015 /* ProviderBundleCellView.swift in Sources */,
 				8209A4CF258F85D6000F40ED /* ActionPlaylistViewController.swift in Sources */,
 				828E3FF7253F6FF1003D4EFC /* HomeViewController.swift in Sources */,

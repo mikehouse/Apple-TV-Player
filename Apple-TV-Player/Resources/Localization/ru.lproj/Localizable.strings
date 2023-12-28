@@ -18,6 +18,7 @@
 "No bundles available." = "Список пакетов каналов пуст.";
 "List of Ip tv providers" = "Список поставщиков цифрового ТВ";
 "Settings" = "Настройки";
+"Player" = "Видео player";
 "Delete playlist" = "Удалить плэйлист";
 "Update playlist" = "Обновить плэйлист";
 "Remove playlist cache" = "Удалить кеш";

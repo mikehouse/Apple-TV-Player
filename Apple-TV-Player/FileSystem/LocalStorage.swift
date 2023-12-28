@@ -222,6 +222,7 @@ extension LocalStorage {
     enum CommonKeys: String {
         case current
         case symmetricKey
+        case player
     }
     
     enum ListKeys {
@@ -233,5 +234,37 @@ extension LocalStorage {
                 return "\(p.base)"
             }
         }
+    }
+
+    enum Player: String, Identifiable, CaseIterable {
+        var id: String { rawValue }
+
+        case `default`
+        case native
+        case vlc
+
+        var title: String {
+            switch self {
+            case .default:
+                return "Default"
+            case .native:
+                return "Native (Apple TVOS)"
+            case .vlc:
+                return "VLC"
+            }
+        }
+    }
+}
+
+extension LocalStorage {
+
+    func set(player: Player) {
+        add(value: player.rawValue, for: .player, domain: .common)
+    }
+
+    func getPlayer() -> Player? {
+        getValue(.player, domain: .common)
+            .flatMap({ $0 as? String })
+            .flatMap(Player.init(rawValue:))
     }
 }

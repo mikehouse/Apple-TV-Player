@@ -32,6 +32,7 @@ final class ChannelPlayerViewController: UIViewController, StoryboardBased {
     
     var url: URL?
     private var player: PlayerInterface = EmptyPlayer()
+    private lazy var storage = LocalStorage(storage: .app)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,15 +42,20 @@ final class ChannelPlayerViewController: UIViewController, StoryboardBased {
             // Since some Xcode version, native video player doesn't show an image (the sound works).
             self.player = configureVLCPlayer(url)
             #else
-            let player = components.queryItems?.first(where: { $0.name == "player" })?.value ?? "native"
-            os_log(.info, "set channel to play using %s player from %s", player, String(describing: url))
-            if player == "vlc" {
+            let player = components.queryItems?.first(where: { $0.name == "player" })?.value?.lowercased() ?? "native"
+            logger.debug("set channel to play using \(player) player from \(url)")
+            switch LocalStorage.Player(rawValue: player) {
+            case .vlc:
                 self.player = configureVLCPlayer(url)
-            } else {
-                self.player = configureNativePlayer(url)
+            default:
+                switch (storage.getPlayer() ?? .default) {
+                case .vlc:
+                    self.player = configureVLCPlayer(url)
+                default:
+                    self.player = configureNativePlayer(url)
+                }
             }
             #endif
-
         } else {
             playerView.isHidden = true
             errorLabel.text = "No channel URL found."

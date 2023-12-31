@@ -31,6 +31,13 @@ final class ChannelPlayerViewController: UIViewController, StoryboardBased {
     }()
     
     var url: URL?
+    lazy var debugView: UILabel = {
+        let view = UILabel()
+        view.font = .preferredFont(forTextStyle: .footnote)
+        view.textColor = .tertiaryLabel
+        view.numberOfLines = 0
+        return view
+    }()
     private var player: PlayerInterface = EmptyPlayer()
     private lazy var storage = LocalStorage(storage: .app)
     
@@ -56,6 +63,13 @@ final class ChannelPlayerViewController: UIViewController, StoryboardBased {
                 }
             }
             #endif
+            debugView.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(debugView)
+            NSLayoutConstraint.activate([
+                view.safeAreaLayoutGuide.leftAnchor.constraint(equalTo: debugView.leftAnchor),
+                view.safeAreaLayoutGuide.rightAnchor.constraint(equalTo: debugView.rightAnchor),
+                view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: debugView.topAnchor)
+            ])
         } else {
             playerView.isHidden = true
             errorLabel.text = "No channel URL found."

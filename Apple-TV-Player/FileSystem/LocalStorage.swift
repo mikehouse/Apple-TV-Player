@@ -80,6 +80,10 @@ final class LocalStorage {
         container(for: domain)[key.rawValue]
     }
     
+    func getBool(_ key: CommonKeys, domain: Domain) -> Bool {
+        (getValue(key, domain: domain) as? Bool) ?? false
+    }
+
     func getData(_ key: CommonKeys, domain: Domain) -> Data? {
         container(for: domain)[key.rawValue]
     }
@@ -223,6 +227,7 @@ extension LocalStorage {
         case current
         case symmetricKey
         case player
+        case debugMenu
     }
     
     enum ListKeys {

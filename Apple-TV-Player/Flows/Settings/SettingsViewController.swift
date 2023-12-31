@@ -16,9 +16,12 @@ final class SettingsViewController: UIViewController, StoryboardBased {
     private lazy var dataSource = DataSource(tableView: tableView) { [unowned self] view, path, row in
         let cell = view.dequeueReusableCell(for: path, cellType: SettingsViewCell.self)
         cell.textLabel?.text = row.title
-        if Row(rawValue: path.row) == .players {
+        switch Row(rawValue: path.row) {
+        case .players:
             cell.detailTextLabel?.text = self.storage.getPlayer()?.title
-        } else {
+        case .debugMenu where storage.getBool(.debugMenu, domain: .common):
+            cell.detailTextLabel?.text = "✔"
+        default:
             cell.detailTextLabel?.text = nil
         }
         return cell
@@ -34,7 +37,7 @@ final class SettingsViewController: UIViewController, StoryboardBased {
         
         var snapshot = dataSource.snapshot()
         snapshot.appendSections([.main])
-        snapshot.appendItems([.providers, .players], toSection: .main)
+        snapshot.appendItems(Row.allCases, toSection: .main)
         dataSource.apply(snapshot, animatingDifferences: true)
     }
 
@@ -57,6 +60,10 @@ extension SettingsViewController: UITableViewDelegate {
             let view = SettingsPlayersView(storage: storage)
             let vc = UIHostingController(rootView: view)
             present(vc, animated: true)
+        case .debugMenu:
+            let view = SettingsDebugView(storage: storage)
+            let vc = UIHostingController(rootView: view)
+            present(vc, animated: true)
         }
     }
 }
@@ -66,9 +73,10 @@ private extension SettingsViewController {
         case main
     }
     
-    enum Row: Int, Hashable {
+    enum Row: Int, Hashable, CaseIterable {
         case providers
         case players
+        case debugMenu
 
         var title: String {
             switch self {
@@ -76,6 +84,8 @@ private extension SettingsViewController {
                 return NSLocalizedString("List of Ip tv providers", comment: "")
             case .players:
                 return NSLocalizedString("Player", comment: "")
+            case .debugMenu:
+                return NSLocalizedString("Debug menu", comment: "")
             }
         }
     }

@@ -39,13 +39,14 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     private weak var overlayPlayer: ChannelPlayerViewController?
     private var logosCache: [IndexPath:UIImage] = [:]
     private var currentProgrammeNameCache: [IndexPath:String] = [:]
-    private var timer: Timer?
+    private var debugMenuDataProvider: DebugMenuDataProvider?
     private var reloadAfterDelayedFetch = false
     private var tableViewHeight: CGFloat = 72
     private var hdFixCache: [AnyHashable: Channel] = [:]
     private var startFullScreenTime = CFAbsoluteTimeGetCurrent()
     private var isFullScreen = false
     private let shadowPreviewView = ShadowView()
+    private lazy var storage: LocalStorage = .init(storage: .app)
 
     private lazy var channelICO: ChannelICOProvider = ChannelICO(locale: "ru")
     private lazy var dataSource = DataSource(tableView: self.tableView) { [weak self] tableView, indexPath, row in
@@ -79,6 +80,8 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        debugViewEnabled = storage.getBool(.debugMenu, domain: .common)
     
         configureTableView()
         configureTimeLabel()
@@ -110,34 +113,21 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
             debugViewTopConstraint.constant = 0
             return
         }
-        
-        let fmt = ByteCountFormatter()
-        fmt.allowedUnits = [.useMB, .useGB]
-        fmt.countStyle = .memory
-        
-        debugView.addArrangedSubview(memStatsDebugView)
-        
-        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
-            DispatchQueue.global(qos: .utility).async {
-                guard let stats = ObjCUtils.memStats() else {
-                    return
-                }
-                let cpuLoad = Int(ObjCUtils.cpuUsage() * 100)
-                let text = "RAM Stats: use: \(fmt.string(fromByteCount: Int64(stats.usedMem))), free: \(fmt.string(fromByteCount: Int64(stats.freeMem))), total: \(fmt.string(fromByteCount: Int64(stats.totalMem)))\nCPU load: \(cpuLoad)%"
-                print(text)
 
-                guard self?.isFullScreen ?? true == false else {
-                    return
-                }
-                DispatchQueue.main.async {
-                    self?.memStatsDebugView.text = text
-                }
+        debugView.addArrangedSubview(memStatsDebugView)
+
+        debugMenuDataProvider = .init { [weak self] data in
+            guard self?.isFullScreen ?? true == false else {
+                self?.overlayPlayer?.debugView.text = data
+                self?.memStatsDebugView.text = nil
+                return
             }
+            self?.overlayPlayer?.debugView.text = nil
+            self?.memStatsDebugView.text = data
         }
     }
     
     deinit {
-        timer?.invalidate()
         logger.info("deinit \(self)")
     }
 }
@@ -347,8 +337,7 @@ extension PlaylistViewController: UITableViewDelegate {
             overlay?.willMove(toParent: nil)
             overlay?.view.removeFromSuperview()
             overlay?.removeFromParent()
-            self.overlayPlayer = nil
-    
+
             let videoPlayer: ChannelPlayerViewController
             if overlay?.url == channel.channel.stream {
                 videoPlayer = overlay!
@@ -373,6 +362,7 @@ extension PlaylistViewController: UITableViewDelegate {
     
             self.present(container, animated: true)
             self.currentPlayingPath = indexPath
+            self.overlayPlayer = videoPlayer
         }
     }
 }
@@ -410,13 +400,14 @@ extension PlaylistViewController: ContainerViewControllerDelegate {
         playerVC.didMove(toParent: self)
     
         self.overlayPlayer = playerVC
+        self.overlayPlayer?.debugView.text = nil
 
         view.insertSubview(shadowPreviewView, belowSubview: playerVC.view)
         shadowPreviewView.frame = playerVC.view.frame
     }
     
     func containerDidDisappear(_ container: ContainerViewController) {
-        if CFAbsoluteTimeGetCurrent() - startFullScreenTime > 60 * 15 {
+        if isProgrammesAvailable, CFAbsoluteTimeGetCurrent() - startFullScreenTime > 60 * 15 {
             updateProgrammesVisibleCells()
         }
         isFullScreen = false
@@ -574,5 +565,36 @@ private final class ShadowView: UIView {
         case .none:
             layer.shadowOpacity = 0
         }
+    }
+}
+
+private final class DebugMenuDataProvider {
+
+    private var timer: Timer
+
+    init(onUpdate: @escaping (String) -> ()) {
+        let fmt = ByteCountFormatter()
+        fmt.allowedUnits = [.useMB, .useGB]
+        fmt.countStyle = .memory
+
+        self.timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [onUpdate] _ in
+            DispatchQueue.global(qos: .utility).async {
+                guard let stats = ObjCUtils.memStats() else {
+                    return
+                }
+                let cpuLoad = Int(ObjCUtils.cpuUsage() * 100)
+                let text = "RAM Stats: use: \(fmt.string(fromByteCount: Int64(stats.usedMem))), free: \(fmt.string(fromByteCount: Int64(stats.freeMem))), total: \(fmt.string(fromByteCount: Int64(stats.totalMem)))\nCPU load: \(cpuLoad)%"
+                logger.debug("\(text)")
+
+                DispatchQueue.main.async {
+                    onUpdate(text)
+                }
+            }
+        }
+    }
+
+    deinit {
+        timer.invalidate()
+        logger.info("deinit \(Self.self))")
     }
 }

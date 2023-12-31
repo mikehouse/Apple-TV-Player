@@ -94,12 +94,12 @@
                             <constraint firstItem="h0O-L6-s10" firstAttribute="trailing" secondItem="4Ll-wr-y4p" secondAttribute="trailing" id="MfO-ZL-OaZ"/>
                             <constraint firstItem="17v-oZ-m3u" firstAttribute="centerY" secondItem="tL4-nb-upz" secondAttribute="centerY" id="STu-vZ-BRp"/>
                             <constraint firstItem="4Ll-wr-y4p" firstAttribute="top" secondItem="1Tz-vU-B9a" secondAttribute="bottom" constant="8" id="U3P-CB-0N4"/>
-                            <constraint firstAttribute="trailing" secondItem="tL4-nb-upz" secondAttribute="trailing" constant="46" id="XX6-q9-LtM"/>
+                            <constraint firstItem="h0O-L6-s10" firstAttribute="trailing" secondItem="tL4-nb-upz" secondAttribute="trailing" id="XX6-q9-LtM"/>
                             <constraint firstItem="1Tz-vU-B9a" firstAttribute="leading" secondItem="pna-2x-7au" secondAttribute="trailing" id="Xla-Es-qSD"/>
-                            <constraint firstItem="1Tz-vU-B9a" firstAttribute="top" secondItem="h0O-L6-s10" secondAttribute="top" constant="16" id="Ytf-v6-pUj"/>
+                            <constraint firstItem="1Tz-vU-B9a" firstAttribute="top" secondItem="tL4-nb-upz" secondAttribute="bottom" constant="12" id="Ytf-v6-pUj"/>
                             <constraint firstItem="GbG-qQ-lCi" firstAttribute="top" secondItem="51T-06-GXQ" secondAttribute="top" constant="4" id="awz-Fs-NN5"/>
                             <constraint firstItem="pna-2x-7au" firstAttribute="width" secondItem="51T-06-GXQ" secondAttribute="width" multiplier="0.34" id="fTW-ar-UNs"/>
-                            <constraint firstItem="tL4-nb-upz" firstAttribute="top" secondItem="51T-06-GXQ" secondAttribute="top" constant="18" id="mJ5-bY-BRh"/>
+                            <constraint firstItem="tL4-nb-upz" firstAttribute="top" secondItem="h0O-L6-s10" secondAttribute="top" id="mJ5-bY-BRh"/>
                             <constraint firstItem="pna-2x-7au" firstAttribute="top" secondItem="h0O-L6-s10" secondAttribute="top" id="obB-if-MLa"/>
                             <constraint firstItem="GbG-qQ-lCi" firstAttribute="leading" secondItem="h0O-L6-s10" secondAttribute="leading" id="qgs-UG-bGh"/>
                             <constraint firstItem="pna-2x-7au" firstAttribute="leading" secondItem="h0O-L6-s10" secondAttribute="leading" id="xwn-us-BVb"/>

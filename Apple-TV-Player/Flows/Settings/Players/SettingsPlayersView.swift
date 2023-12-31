@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsPlayersView: View {
 
-    let storage: LocalStorage
+    private let storage: LocalStorage
     
     @State private var player: LocalStorage.Player
 

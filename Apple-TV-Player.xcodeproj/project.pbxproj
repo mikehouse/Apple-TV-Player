@@ -38,6 +38,7 @@
 		8229F759257D5EE800A9389E /* ProgrammesFetcher2090000.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229F758257D5EE800A9389E /* ProgrammesFetcher2090000.swift */; };
 		822A58C42540AF4A0061813F /* AddPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822A58C32540AF4A0061813F /* AddPlaylistViewController.swift */; };
 		822A58CB2540C4CC0061813F /* plst.m3u in Resources */ = {isa = PBXBuildFile; fileRef = 822A58CA2540C4CC0061813F /* plst.m3u */; };
+		823432BD2B415B6D00760F38 /* SettingsDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823432BC2B415B6D00760F38 /* SettingsDebugView.swift */; };
 		826BBC76256162E6003A69CA /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826BBC75256162E6003A69CA /* Channel.swift */; };
 		826BBC7F2561C299003A69CA /* ru2090000.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 826BBC7E2561C299003A69CA /* ru2090000.bundle */; };
 		82742D24255FDC08001B2B25 /* ChannelPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82742D23255FDC08001B2B25 /* ChannelPlayerViewController.swift */; };
@@ -179,6 +180,7 @@
 		8229F758257D5EE800A9389E /* ProgrammesFetcher2090000.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgrammesFetcher2090000.swift; sourceTree = "<group>"; };
 		822A58C32540AF4A0061813F /* AddPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistViewController.swift; sourceTree = "<group>"; };
 		822A58CA2540C4CC0061813F /* plst.m3u */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plst.m3u; sourceTree = "<group>"; };
+		823432BC2B415B6D00760F38 /* SettingsDebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDebugView.swift; sourceTree = "<group>"; };
 		826BBC75256162E6003A69CA /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		826BBC7E2561C299003A69CA /* ru2090000.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ru2090000.bundle; sourceTree = "<group>"; };
 		82742D23255FDC08001B2B25 /* ChannelPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelPlayerViewController.swift; sourceTree = "<group>"; };
@@ -414,6 +416,7 @@
 		8229F741257D565D00A9389E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				823432BB2B415B4F00760F38 /* Debug */,
 				8204EC792B3D464C002CC4EB /* Players */,
 				8229F742257D569900A9389E /* SettingsViewController.swift */,
 				8229F747257D56A300A9389E /* SettingsViewController.storyboard */,
@@ -429,6 +432,14 @@
 				822A58C32540AF4A0061813F /* AddPlaylistViewController.swift */,
 			);
 			path = AddPlaylist;
+			sourceTree = "<group>";
+		};
+		823432BB2B415B4F00760F38 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				823432BC2B415B6D00760F38 /* SettingsDebugView.swift */,
+			);
+			path = Debug;
 			sourceTree = "<group>";
 		};
 		826BBC7B2561C220003A69CA /* Resources */ = {
@@ -1189,6 +1200,7 @@
 				820AC4732572E7D600932015 /* ProviderBundleCellView.swift in Sources */,
 				8209A4CF258F85D6000F40ED /* ActionPlaylistViewController.swift in Sources */,
 				828E3FF7253F6FF1003D4EFC /* HomeViewController.swift in Sources */,
+				823432BD2B415B6D00760F38 /* SettingsDebugView.swift in Sources */,
 				828E4006253F7818003D4EFC /* TextInputViewController.swift in Sources */,
 				820AC46C2572E78500932015 /* ProviderCellView.swift in Sources */,
 				8229F74E257D573C00A9389E /* SettingsViewCell.swift in Sources */,

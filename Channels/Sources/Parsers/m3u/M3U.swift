@@ -297,7 +297,7 @@ private func decodeBase64(encoded string: String) -> String {
 private func createOnlTvOneComedyHunter(url: URL, result: @escaping (Result<URL, Error>) -> Void) -> PlaylistURLHunter {
     PlaylistURLHunter(
         source: url,
-        playlistDomain: decodeBase64(encoded: "b25saW5ldHYub25l"),
+        playlistDomain: decodeBase64(encoded: "dHZvbmxpbmUubGl2ZQ=="),
         playlistPath: decodeBase64(encoded: "L2h0bWwvcGxheWVyLnBocA=="), onResult: result)
 }
 

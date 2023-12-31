@@ -4,6 +4,6 @@ lane :make_ipa do |options|
       scheme: "Apple-TV-Player",
       workspace: "Apple-TV-Player.xcworkspace",
       export_method: "development",
-      configuration: "Debug"
+      configuration: "Release"
     )
 end

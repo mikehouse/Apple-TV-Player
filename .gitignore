@@ -7,5 +7,6 @@ Apple-TV-Player.xcworkspace/xcuserdata/*
 .bundle
 vendor
 Apple-TV-Player.ipa
+Apple-TV-Player.app.dSYM.zip
 fastlane/report.xml
 Gemfile.lock

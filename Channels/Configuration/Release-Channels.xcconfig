@@ -9,6 +9,6 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 PRODUCT_BUNDLE_IDENTIFIER = example.apple.com.Channels;
-DEVELOPMENT_TEAM = FFFFFFFFFF;
+DEVELOPMENT_TEAM = 4HUHB9J47M;
 
 #include "../../Pods/Target Support Files/Pods-Channels/Pods-Channels.release.xcconfig"

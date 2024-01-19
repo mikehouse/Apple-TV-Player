@@ -97,6 +97,7 @@ Select a playlist and Long tap on TV Remote or press Play/Pause TV Remote button
 - Some app screenshots:
 
 </br><img src="001.png"  alt=""/>
+<img src="003.png"  alt=""/>
 <img src="002.png"  alt=""/>
 <img src="006.png"  alt=""/>
 <img src="007.png"  alt=""/>

@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "xcode-app",
+            "name": "Xcode-app configuration",
+            "buildTarget": {
+                "project": "Apple-TV-Player",
+                "target": "Apple-TV-Player",
+            },
+            "configuration": "Debug",
+            "destination": "Apple TV 4K (3rd generation) (at 1080p) | tvOS 17.2",
+        },
+        {
+            "type": "xcode-test",
+            "name": "Xcode-test configuration",
+            "buildTarget": {
+                "project": "Apple-TV-Player",
+                "target": "Apple-TV-PlayerTests",
+            },
+            "configuration": "Debug",
+            "destination": "Apple TV 4K (3rd generation) (at 1080p) | tvOS 17.2",
+        }
+    ]
+}

@@ -45,10 +45,6 @@ final class ChannelPlayerViewController: UIViewController, StoryboardBased {
         super.viewDidLoad()
 
         if let url, let components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
-            #if targetEnvironment(simulator)
-            // Since some Xcode version, native video player doesn't show an image (the sound works).
-            self.player = configureVLCPlayer(url)
-            #else
             let player = components.queryItems?.first(where: { $0.name == "player" })?.value?.lowercased() ?? "native"
             logger.debug("set channel to play using \(player) player from \(url)")
             switch LocalStorage.Player(rawValue: player) {
@@ -62,7 +58,6 @@ final class ChannelPlayerViewController: UIViewController, StoryboardBased {
                     self.player = configureNativePlayer(url)
                 }
             }
-            #endif
             debugView.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(debugView)
             NSLayoutConstraint.activate([
@@ -97,9 +92,8 @@ final class ChannelPlayerViewController: UIViewController, StoryboardBased {
         logger.info("deinit \(self)")
     }
 
-    // Legacy.
     // There are freezes for 1080p (buffering issue).
-    // That is why switched to use native player.
+    // That is why better use native player.
     private func configureVLCPlayer(_ url: URL) -> PlayerInterface {
         let mediaPlayer = VLCMediaPlayer()
         let media = VLCMedia(url: url)

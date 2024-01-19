@@ -25,7 +25,7 @@ extension AddPlaylistViewController {
         addTextField { field in
             field.delegate = self
             field.tag = TextFieldKind.name.rawValue
-            field.placeholder = NSLocalizedString("HD Channels", comment: "")
+            field.placeholder = NSLocalizedString("Playlist name", comment: "")
         }
         addTextField { field in
             field.delegate = self

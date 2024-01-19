@@ -4,8 +4,8 @@
 "Add" = "Add";
 "Cancel" = "Cancel";
 "Add playlist url (required) and its name (optional)" = "Add playlist url (required) and its name and pin code (optional)";
-"HD Channels" = "HD Channels";
-"Pin Code" = "Pin Code";
+"Playlist name" = "Playlist name (optional)";
+"Pin Code" = "Pin Code (optional)";
 "Pin code is invalid." = "Pin code is invalid.";
 "Enter pin code" = "Enter pin code";
 "Confirm pin code" = "Confirm pin code";

@@ -1,9 +1,11 @@
 
 lane :make_ipa do |options|
-    build_app(
-      scheme: "Apple-TV-Player",
-      workspace: "Apple-TV-Player.xcworkspace",
-      export_method: "development",
-      configuration: "Release"
-    )
+  # set any Xcode version you comfortable with.
+  xcversion(version: "15.2")
+  build_app(
+    scheme: "Apple-TV-Player",
+    workspace: "Apple-TV-Player.xcworkspace",
+    export_method: "development",
+    configuration: "Release"
+  )
 end

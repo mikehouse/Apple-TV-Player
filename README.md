@@ -88,12 +88,16 @@ bundle exec fastlane make_ipa
 
 Long tap on TV Remote or press Play/Pause TV Remote button.
 
+### Set / Delete playlist pin code (Home Screen only)
+
+Select a playlist and Long tap on TV Remote or press Play/Pause TV Remote button.
+
 ----
 
 - Some app screenshots:
 
-</br><img src="004.png"  alt=""/>
-<img src="005.png"  alt=""/>
+</br><img src="001.png"  alt=""/>
+<img src="002.png"  alt=""/>
 <img src="006.png"  alt=""/>
 <img src="007.png"  alt=""/>
 

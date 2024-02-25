@@ -120,18 +120,18 @@ private extension HomeViewController {
 
 private extension HomeViewController {
     func present(error: Error) {
-        let alert = FailureViewController.make(error: error)
-        alert.addOkAction(title: NSLocalizedString("Ok", comment: ""), completion: nil)
-        present(alert, animated: true)
+        DispatchQueue.main.async {
+            let alert = FailureViewController.make(error: error)
+            alert.addOkAction(title: NSLocalizedString("Ok", comment: ""), completion: nil)
+            self.present(alert, animated: true)
+        }
     }
     
     func present(on onError: () throws -> Void) {
         do {
             try onError()
         } catch {
-            let alert = FailureViewController.make(error: error)
-            alert.addOkAction(title: NSLocalizedString("Ok", comment: ""), completion: nil)
-            present(alert, animated: true)
+            self.present(error: error)
         }
     }
 

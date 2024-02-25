@@ -40,9 +40,10 @@ extension AddPlaylistViewController {
                 completion?(nil, nil, nil)
                 return
             }
-            completion?(utv.text.flatMap(URL.init(string:)),
-                ntv.text == nil || ntv.text?.isEmpty == .some(true) ? nil : ntv.text,
-                ptv.text.flatMap({ $0.isEmpty ? nil : $0 }))
+            let url: URL? = utv.text.flatMap(URL.init(string:))
+            let name: String? = ntv.text == nil || ntv.text?.isEmpty == .some(true) ? nil : ntv.text
+            let pin: String? = ptv.text.flatMap({$0.isEmpty ? nil : $0})
+            completion?(url, name, pin)
         }
         okAction?.isEnabled = false
         addCancelAction(title: NSLocalizedString("Cancel", comment: ""), completion: nil)

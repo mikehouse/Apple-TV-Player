@@ -24,3 +24,4 @@
 "Remove playlist cache" = "Clear cache";
 "Programmes loading text" = "programmes list loading ...";
 "Debug menu" = "Debug menu";
+"content.verify.error" = "Seems not a playlist content type or empty.";

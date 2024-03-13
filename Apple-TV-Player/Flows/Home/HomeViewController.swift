@@ -259,7 +259,14 @@ extension HomeViewController: UITableViewDelegate {
                             guard let url = try fsManager.url(named: name, pin: pin) else {
                                 return
                             }
-                            try self.fsManager.download(file: url, playlist: name, pin: pin)
+                            try self.fsManager.download(file: url, playlist: name, pin: pin) { data in
+                                // Do not want to rewrite old playlist with new invalid one.
+                                guard !data.isEmpty,
+                                      let string = String(data: data, encoding: .utf8) else {
+                                    return false
+                                }
+                                return string.components(separatedBy: .newlines).count > 1
+                            }
                             self.playlistCache.removeValue(forKey: name)
                             DispatchQueue.main.async {
                                 self.setTableViewProgressView(enabled: false)

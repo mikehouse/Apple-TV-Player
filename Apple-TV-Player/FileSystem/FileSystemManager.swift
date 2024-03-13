@@ -39,9 +39,16 @@ extension FileSystemManager {
     }
 
     @discardableResult
-    func download(file: URL, playlist name: String, pin: String?) throws -> String {
+    func download(file: URL, playlist name: String, pin: String?, verifyContent: ((Data) -> Bool)? = nil) throws -> String {
         logger.debug("downloading \(pin.map({ _ in "<>" }) ?? String(describing: file)) named \(name)")
         let content = try Data(contentsOf: file);
+        if let verifyContent {
+            guard verifyContent(content) else {
+                throw NSError(domain: "content.verify.error", code: -1, userInfo: [
+                    NSLocalizedDescriptionKey: NSLocalizedString("content.verify.error", comment: "")
+                ])
+            }
+        }
         let compressed = try compressor.compress(data: content)
 
         if let pin {

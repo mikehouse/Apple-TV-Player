@@ -24,3 +24,4 @@
 "Remove playlist cache" = "Удалить кеш";
 "Programmes loading text" = "загрузка списка программ ...";
 "Debug menu" = "Debug меню";
+"content.verify.error" = "Файл не плейлист формат или пустой.";

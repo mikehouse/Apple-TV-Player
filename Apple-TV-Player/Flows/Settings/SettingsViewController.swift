@@ -37,7 +37,11 @@ final class SettingsViewController: UIViewController, StoryboardBased {
         
         var snapshot = dataSource.snapshot()
         snapshot.appendSections([.main])
+        #if RELEASE
+        snapshot.appendItems(Row.allCases.filter({ $0 != .providers }), toSection: .main)
+        #else
         snapshot.appendItems(Row.allCases, toSection: .main)
+        #endif
         dataSource.apply(snapshot, animatingDifferences: true)
     }
 

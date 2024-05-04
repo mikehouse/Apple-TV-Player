@@ -1,4 +1,4 @@
-#EXTM3U url-tvg="https://gw.ottservice.org/epg/download/epg.xml.gz"
+#EXTM3U url-tvg="https://epg.ottservice.org/download/epg.xml.gz"
 #EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",ТВ3 HD
 #EXTGRP:Развлекательные
 http://ott.watch/stream/API_KEY/136.m3u8
@@ -239,9 +239,6 @@ http://ott.watch/stream/API_KEY/277.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Discovery HD
 #EXTGRP:Познавательные
 http://ott.watch/stream/API_KEY/177.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Discovery Science
-#EXTGRP:Познавательные
-http://ott.watch/stream/API_KEY/146.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Investigation Discovery
 #EXTGRP:Познавательные
 http://ott.watch/stream/API_KEY/205.m3u8
@@ -263,6 +260,12 @@ http://ott.watch/stream/API_KEY/168.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Animal Planet HD
 #EXTGRP:Познавательные
 http://ott.watch/stream/API_KEY/114.m3u8
+#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",RAZ 1 HD
+#EXTGRP:Познавательные
+http://ott.watch/stream/API_KEY/463.m3u8
+#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",RAZ 2 HD
+#EXTGRP:Познавательные
+http://ott.watch/stream/API_KEY/464.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Глазами Туриста HD
 #EXTGRP:Познавательные
 http://ott.watch/stream/API_KEY/304.m3u8
@@ -380,39 +383,12 @@ http://ott.watch/stream/API_KEY/361.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Мега HD
 #EXTGRP:Познавательные
 http://ott.watch/stream/API_KEY/325.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Фауна
-#EXTGRP:Познавательные
-http://ott.watch/stream/API_KEY/401.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Терра
-#EXTGRP:Познавательные
-http://ott.watch/stream/API_KEY/402.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Наука
-#EXTGRP:Познавательные
-http://ott.watch/stream/API_KEY/403.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Автомобільний HD
-#EXTGRP:Познавательные
-http://ott.watch/stream/API_KEY/404.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Закон HD
-#EXTGRP:Познавательные
-http://ott.watch/stream/API_KEY/406.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Масон HD
-#EXTGRP:Познавательные
-http://ott.watch/stream/API_KEY/346.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Трофей HD
 #EXTGRP:Познавательные
 http://ott.watch/stream/API_KEY/357.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Нано ТВ HD
 #EXTGRP:Познавательные
 http://ott.watch/stream/API_KEY/419.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",RAZ 1 HD
-#EXTGRP:Познавательные
-http://ott.watch/stream/API_KEY/463.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",RAZ 2 HD
-#EXTGRP:Познавательные
-http://ott.watch/stream/API_KEY/464.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Кинопремьера HD
-#EXTGRP:Кино
-http://ott.watch/stream/API_KEY/160.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Кинокомедия HD
 #EXTGRP:Кино
 http://ott.watch/stream/API_KEY/265.m3u8
@@ -473,9 +449,6 @@ http://ott.watch/stream/API_KEY/162.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Роман HD
 #EXTGRP:Кино
 http://ott.watch/stream/API_KEY/266.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Иллюзион
-#EXTGRP:Кино
-http://ott.watch/stream/API_KEY/122.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Бестселлер
 #EXTGRP:Кино
 http://ott.watch/stream/API_KEY/208.m3u8
@@ -620,9 +593,6 @@ http://ott.watch/stream/API_KEY/355.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",CineMan Comedy HD
 #EXTGRP:Кино
 http://ott.watch/stream/API_KEY/356.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",CineMan РуКино HD
-#EXTGRP:Кино
-http://ott.watch/stream/API_KEY/358.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",CineMan Сваты HD
 #EXTGRP:Кино
 http://ott.watch/stream/API_KEY/359.m3u8
@@ -671,12 +641,12 @@ http://ott.watch/stream/API_KEY/192.m3u8
 #EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Матч! Боец HD
 #EXTGRP:Спорт
 http://ott.watch/stream/API_KEY/112.m3u8
-#EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Sport 1
-#EXTGRP:Спорт
-http://ott.watch/stream/API_KEY/391.m3u8
 #EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Sport 1 Baltic
 #EXTGRP:Спорт
 http://ott.watch/stream/API_KEY/461.m3u8
+#EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Sport 1
+#EXTGRP:Спорт
+http://ott.watch/stream/API_KEY/391.m3u8
 #EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Sport 2
 #EXTGRP:Спорт
 http://ott.watch/stream/API_KEY/392.m3u8

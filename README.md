@@ -84,6 +84,17 @@ bundle exec fastlane make_ipa
 - Open there `Apps` section
 - Drag-n-Drop the generated IPA file
 
+#### If Apple Configurator app does not see your paired Apple TV
+
+- Unpack generated ipa (ipa it is just zip archive)
+- Find there `****.app/` directory
+- Open Xcode -> Window -> Devices and Simulators
+- In Devices section find your Apple TV
+- Click `Add installed app` plus button
+- Select there `****.app/` directory
+
+<img src="010.png" width="50%"  alt=""/>
+
 ### Update / Delete existed playlist (Home Screen only)
 
 Long tap on TV Remote or press Play/Pause TV Remote button.

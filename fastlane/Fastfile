@@ -1,7 +1,7 @@
 
 lane :make_ipa do |options|
   # set any Xcode version you comfortable with.
-  xcversion(version: "15.3")
+  xcversion(version: "15.4")
   build_app(
     scheme: "Apple-TV-Player",
     workspace: "Apple-TV-Player.xcworkspace",

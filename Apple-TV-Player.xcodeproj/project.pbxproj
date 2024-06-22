@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -148,8 +148,6 @@
 		3D7E2DFE9ED91FC837D8992B /* Pods-Apple-TV-Player.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apple-TV-Player.debug.xcconfig"; path = "Target Support Files/Pods-Apple-TV-Player/Pods-Apple-TV-Player.debug.xcconfig"; sourceTree = "<group>"; };
 		48FBB1D491BEFB0691F06187 /* Pods_Channels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Channels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EAD1A47F3B2E941683F597B /* Pods_Apple_TV_Player.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Apple_TV_Player.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8200BBC5258604450056EE0F /* 2090000ruBundlesDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2090000ruBundlesDownloader.swift; sourceTree = "<group>"; };
-		8200BBC6258604AB0056EE0F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8204EC7C2B3D46BB002CC4EB /* SettingsPlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPlayersView.swift; sourceTree = "<group>"; };
 		8209A4C8258F5F51000F40ED /* ru-free-pls.m3u */ = {isa = PBXFileReference; lastKnownFileType = text; path = "ru-free-pls.m3u"; sourceTree = "<group>"; };
 		8209A4CE258F85D6000F40ED /* ActionPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionPlaylistViewController.swift; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 		8229F71C257BD37600A9389E /* NoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
 		8229F722257D45B200A9389E /* channels-ico-ru.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "channels-ico-ru.bundle"; sourceTree = "<group>"; };
 		8229F72D257D47EB00A9389E /* ChannelsICO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsICO.swift; sourceTree = "<group>"; };
-		8229F739257D520C00A9389E /* 2090000ruICODownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2090000ruICODownloader.swift; sourceTree = "<group>"; };
 		8229F742257D569900A9389E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8229F747257D56A300A9389E /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
 		8229F74C257D573C00A9389E /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
@@ -219,7 +216,6 @@
 		82C2D13A29633A0500301067 /* ProgrammesFetcherOttclub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgrammesFetcherOttclub.swift; sourceTree = "<group>"; };
 		82C2D13D29633D5900301067 /* ottclub.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ottclub.bundle; sourceTree = "<group>"; };
 		82C56DC02947096B00DA4585 /* another.m3u */ = {isa = PBXFileReference; lastKnownFileType = text; path = another.m3u; sourceTree = "<group>"; };
-		82C56DC429484E5C00DA4585 /* playlist_ru_download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playlist_ru_download.swift; sourceTree = "<group>"; };
 		82DAAEA025AB04C4006E296F /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		82DAAEA625AB0748006E296F /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		82DDEAF3253E1D2C00F3B1EE /* M3UItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3UItem.swift; sourceTree = "<group>"; };
@@ -402,17 +398,6 @@
 			path = Channels;
 			sourceTree = "<group>";
 		};
-		8229F738257D51C800A9389E /* Scripts */ = {
-			isa = PBXGroup;
-			children = (
-				82C56DC429484E5C00DA4585 /* playlist_ru_download.swift */,
-				8229F739257D520C00A9389E /* 2090000ruICODownloader.swift */,
-				8200BBC5258604450056EE0F /* 2090000ruBundlesDownloader.swift */,
-				8200BBC6258604AB0056EE0F /* README.md */,
-			);
-			path = Scripts;
-			sourceTree = "<group>";
-		};
 		8229F741257D565D00A9389E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -445,7 +430,6 @@
 		826BBC7B2561C220003A69CA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8229F738257D51C800A9389E /* Scripts */,
 				8229F721257D456C00A9389E /* ChannelThumbnails */,
 				826BBC7C2561C23C003A69CA /* IpTvProvider */,
 			);

@@ -81,6 +81,8 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        additionalSafeAreaInsets = .init(top: -32, left: -32, bottom: -32, right: -46)
+
         debugViewEnabled = storage.getBool(.debugMenu, domain: .common)
     
         configureTableView()
@@ -405,11 +407,11 @@ extension PlaylistViewController: ContainerViewControllerDelegate {
         self.addChild(playerVC)
         self.view.addSubview(playerVC.view)
         playerVC.view.translatesAutoresizingMaskIntoConstraints = true
-        let width = bounds.width / 2.4
-        let height = bounds.height / 2.4
+        let width = bounds.width / 1.8
+        let height = bounds.height / 1.8
         playerVC.view.frame = CGRect(
-            x: bounds.width - width - 64,
-            y: bounds.height - height - 44,
+            x: bounds.width - width - view.safeAreaInsets.right,
+            y: bounds.height - height - view.safeAreaInsets.bottom,
             width: width, height: height)
         playerVC.didMove(toParent: self)
     
@@ -482,7 +484,7 @@ private extension PlaylistViewController {
             var programmesDisplay: [ChannelProgramme.Programme] = []
             let now = Date()
             let prevHours = Calendar.current.date(byAdding: .hour, value: -3, to: now)!
-            let nextDay = Calendar.current.date(byAdding: .hour, value: 8, to: now)!
+            let nextDay = Calendar.current.date(byAdding: .hour, value: 16, to: now)!
             for programme in programmes.programmes {
                 guard programme.start < nextDay, programme.end > prevHours else {
                     continue
@@ -500,8 +502,8 @@ private extension PlaylistViewController {
                 programmesDisplay = Array(programmesDisplay.dropFirst(drop))
             }
             // Reduce programmesDisplay to fit in screen height.
-            if programmesDisplay.count > 13 {
-                programmesDisplay = programmesDisplay.dropLast(programmesDisplay.count - 13)
+            if programmesDisplay.count > 20 {
+                programmesDisplay = programmesDisplay.dropLast(programmesDisplay.count - 20)
             }
 
             if skipListViewUpdate == false {

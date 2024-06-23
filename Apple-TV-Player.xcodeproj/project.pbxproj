@@ -27,6 +27,7 @@
 		820AC4732572E7D600932015 /* ProviderBundleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820AC4712572E7D600932015 /* ProviderBundleCellView.swift */; };
 		820AC4742572E7D600932015 /* ProviderBundleCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 820AC4722572E7D600932015 /* ProviderBundleCellView.xib */; };
 		821BDC54299B5E29004B28B9 /* custom_tags.m3u8 in Resources */ = {isa = PBXBuildFile; fileRef = 821BDC53299B5E29004B28B9 /* custom_tags.m3u8 */; };
+		8225F0D82C26BB42007B3ABB /* SettingsOpenVideoMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8225F0D72C26BB42007B3ABB /* SettingsOpenVideoMode.swift */; };
 		8229F71D257BD37600A9389E /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229F71C257BD37600A9389E /* NoDataView.swift */; };
 		8229F723257D45B200A9389E /* channels-ico-ru.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8229F722257D45B200A9389E /* channels-ico-ru.bundle */; };
 		8229F72E257D47EB00A9389E /* ChannelsICO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229F72D257D47EB00A9389E /* ChannelsICO.swift */; };
@@ -166,6 +167,7 @@
 		820AC4712572E7D600932015 /* ProviderBundleCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderBundleCellView.swift; sourceTree = "<group>"; };
 		820AC4722572E7D600932015 /* ProviderBundleCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProviderBundleCellView.xib; sourceTree = "<group>"; };
 		821BDC53299B5E29004B28B9 /* custom_tags.m3u8 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = custom_tags.m3u8; sourceTree = "<group>"; };
+		8225F0D72C26BB42007B3ABB /* SettingsOpenVideoMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOpenVideoMode.swift; sourceTree = "<group>"; };
 		8229F71C257BD37600A9389E /* NoDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
 		8229F722257D45B200A9389E /* channels-ico-ru.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "channels-ico-ru.bundle"; sourceTree = "<group>"; };
 		8229F72D257D47EB00A9389E /* ChannelsICO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsICO.swift; sourceTree = "<group>"; };
@@ -382,6 +384,14 @@
 			path = ProviderBundle;
 			sourceTree = "<group>";
 		};
+		8225F0D62C26BB14007B3ABB /* OpenVideoMode */ = {
+			isa = PBXGroup;
+			children = (
+				8225F0D72C26BB42007B3ABB /* SettingsOpenVideoMode.swift */,
+			);
+			path = OpenVideoMode;
+			sourceTree = "<group>";
+		};
 		8229F721257D456C00A9389E /* ChannelThumbnails */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +411,7 @@
 		8229F741257D565D00A9389E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				8225F0D62C26BB14007B3ABB /* OpenVideoMode */,
 				823432BB2B415B4F00760F38 /* Debug */,
 				8204EC792B3D464C002CC4EB /* Players */,
 				8229F742257D569900A9389E /* SettingsViewController.swift */,
@@ -1183,6 +1194,7 @@
 				8204EC7D2B3D46BB002CC4EB /* SettingsPlayersView.swift in Sources */,
 				820AC4732572E7D600932015 /* ProviderBundleCellView.swift in Sources */,
 				8209A4CF258F85D6000F40ED /* ActionPlaylistViewController.swift in Sources */,
+				8225F0D82C26BB42007B3ABB /* SettingsOpenVideoMode.swift in Sources */,
 				828E3FF7253F6FF1003D4EFC /* HomeViewController.swift in Sources */,
 				823432BD2B415B6D00760F38 /* SettingsDebugView.swift in Sources */,
 				828E4006253F7818003D4EFC /* TextInputViewController.swift in Sources */,

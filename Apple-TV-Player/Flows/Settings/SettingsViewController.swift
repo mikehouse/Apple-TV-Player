@@ -19,6 +19,8 @@ final class SettingsViewController: UIViewController, StoryboardBased {
         switch Row(rawValue: path.row) {
         case .players:
             cell.detailTextLabel?.text = self.storage.getPlayer()?.title
+        case .openVideoMode:
+            cell.detailTextLabel?.text = self.storage.openVideoMode?.title
         case .debugMenu where storage.getBool(.debugMenu, domain: .common):
             cell.detailTextLabel?.text = "✔"
         default:
@@ -68,6 +70,10 @@ extension SettingsViewController: UITableViewDelegate {
             let view = SettingsDebugView(storage: storage)
             let vc = UIHostingController(rootView: view)
             present(vc, animated: true)
+        case .openVideoMode:
+            let view = SettingsOpenVideoMode(storage: storage)
+            let vc = UIHostingController(rootView: view)
+            present(vc, animated: true)
         }
     }
 }
@@ -81,6 +87,7 @@ private extension SettingsViewController {
         case providers
         case players
         case debugMenu
+        case openVideoMode
 
         var title: String {
             switch self {
@@ -90,6 +97,8 @@ private extension SettingsViewController {
                 return NSLocalizedString("Player", comment: "")
             case .debugMenu:
                 return NSLocalizedString("Debug menu", comment: "")
+            case .openVideoMode:
+                return NSLocalizedString("Open Video mode", comment: "")
             }
         }
     }

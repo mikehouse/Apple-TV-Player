@@ -46,15 +46,17 @@ final class ChannelPlayerViewController: UIViewController, StoryboardBased {
 
         if let url, let components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
             let player = components.queryItems?.first(where: { $0.name == "player" })?.value?.lowercased() ?? "native"
-            logger.debug("set channel to play using \(player) player from \(url)")
             switch LocalStorage.Player(rawValue: player) {
             case .vlc:
+                logger.debug("set channel to play using VLC player from \(url)")
                 self.player = configureVLCPlayer(url)
             default:
                 switch (storage.getPlayer() ?? .default) {
                 case .vlc:
+                    logger.debug("set channel to play using VLC player from \(url)")
                     self.player = configureVLCPlayer(url)
                 default:
+                    logger.debug("set channel to play using Native player from \(url)")
                     self.player = configureNativePlayer(url)
                 }
             }
@@ -70,10 +72,10 @@ final class ChannelPlayerViewController: UIViewController, StoryboardBased {
             errorLabel.text = "No channel URL found."
         }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
+
+    override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
+
         if !player.isPlaying {
             player.play()
         }

@@ -228,6 +228,7 @@ extension LocalStorage {
         case symmetricKey
         case player
         case debugMenu
+        case openVideoMode
     }
     
     enum ListKeys {
@@ -271,5 +272,39 @@ extension LocalStorage {
         getValue(.player, domain: .common)
             .flatMap({ $0 as? String })
             .flatMap(Player.init(rawValue:))
+    }
+}
+
+extension LocalStorage {
+
+    enum OpenVideoMode: String, Identifiable, CaseIterable {
+        var id: String { rawValue }
+
+        case fullScreen
+        case previewScreen
+
+        var title: String {
+            switch self {
+            case .fullScreen:
+                return "Full Screen"
+            case .previewScreen:
+                return "Preview Screen"
+            }
+        }
+    }
+
+    var openVideoMode: OpenVideoMode? {
+        set {
+            if let openVideoMode = newValue {
+                add(value: openVideoMode.rawValue, for: .openVideoMode, domain: .common)
+            } else {
+                remove(for: .openVideoMode, domain: .common)
+            }
+        }
+        get {
+            getValue(.openVideoMode, domain: .common)
+                .flatMap({ $0 as? String })
+                .flatMap(OpenVideoMode.init(rawValue:))
+        }
     }
 }

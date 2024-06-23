@@ -330,6 +330,8 @@ extension PlaylistViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if let channel = dataSource.itemIdentifier(for: indexPath) {
+            let videoPlayer: ChannelPlayerViewController
+
             let container = ContentVC()
             container.delegate = self
     
@@ -338,29 +340,41 @@ extension PlaylistViewController: UITableViewDelegate {
             overlay?.view.removeFromSuperview()
             overlay?.removeFromParent()
 
-            let videoPlayer: ChannelPlayerViewController
-            if overlay?.url == channel.channel.stream {
-                videoPlayer = overlay!
-            } else {
+            switch storage.openVideoMode {
+            case .previewScreen where overlay?.url != channel.channel.stream:
                 videoPlayer = ChannelPlayerViewController.instantiate()
                 videoPlayer.url = channel.channel.stream
                 videoPlayer.loadViewIfNeeded()
+                container.context = videoPlayer
                 channelNameLabel.text = channel.channel.original
+                
+                containerWillDisappear(container)
+                containerDidDisappear(container)
+            default:
+                if overlay?.url == channel.channel.stream {
+                    videoPlayer = overlay!
+                } else {
+                    videoPlayer = ChannelPlayerViewController.instantiate()
+                    videoPlayer.url = channel.channel.stream
+                    videoPlayer.loadViewIfNeeded()
+                    channelNameLabel.text = channel.channel.original
+                }
+
+                container.addChild(videoPlayer)
+                container.view.addSubview(videoPlayer.view)
+                container.context = videoPlayer
+                videoPlayer.view.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([
+                    videoPlayer.view.topAnchor.constraint(equalTo: container.view.topAnchor),
+                    videoPlayer.view.bottomAnchor.constraint(equalTo: container.view.bottomAnchor),
+                    videoPlayer.view.leftAnchor.constraint(equalTo: container.view.leftAnchor),
+                    videoPlayer.view.rightAnchor.constraint(equalTo: container.view.rightAnchor)
+                ])
+                videoPlayer.didMove(toParent: container)
+
+                self.present(container, animated: true)
             }
-            
-            container.context = videoPlayer
-            container.addChild(videoPlayer)
-            container.view.addSubview(videoPlayer.view)
-            videoPlayer.view.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                videoPlayer.view.topAnchor.constraint(equalTo: container.view.topAnchor),
-                videoPlayer.view.bottomAnchor.constraint(equalTo: container.view.bottomAnchor),
-                videoPlayer.view.leftAnchor.constraint(equalTo: container.view.leftAnchor),
-                videoPlayer.view.rightAnchor.constraint(equalTo: container.view.rightAnchor)
-            ])
-            videoPlayer.didMove(toParent: container)
-    
-            self.present(container, animated: true)
+
             self.currentPlayingPath = indexPath
             self.overlayPlayer = videoPlayer
         }

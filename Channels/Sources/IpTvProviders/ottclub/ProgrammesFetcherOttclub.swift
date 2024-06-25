@@ -64,10 +64,11 @@ internal final class ProgrammesFetcherOttclub: ProgrammesFetcherBase {
             }
             if let date {
                 let now = Date()
-                let isMonday = Calendar.current.component(.weekday, from: now) == 2
+                let startOfWorkWeek = Calendar.current.component(.weekday, from: now) == 2 ||
+                    Calendar.current.component(.weekday, from: now) == 3
                 let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: now)
                 let before10Hours = Calendar.current.date(byAdding: .hour, value: -10, to: now)
-                if let before = isMonday ? before10Hours : yesterday {
+                if let before = startOfWorkWeek ? before10Hours : yesterday {
                     if date < before {
                         logger.info("Last programmes update was at \(date), try download new programmes list...")
                         throw NSError(domain: "xml.outdated.error", code: -1, userInfo: [
@@ -75,6 +76,8 @@ internal final class ProgrammesFetcherOttclub: ProgrammesFetcherBase {
                         ])
                     }
                 }
+            } else {
+                logger.warning("Cannot read last changes date for: \(url.path)")
             }
         } catch {
             throw error

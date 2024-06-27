@@ -19,7 +19,7 @@ struct SettingsOpenVideoMode: View {
 
     init(storage: LocalStorage) {
         self.storage = storage
-        _openVideoMode = State(initialValue: storage.openVideoMode ?? .fullScreen)
+        _openVideoMode = State(initialValue: storage.openVideoMode ?? .default)
     }
 
     var body: some View {

@@ -342,7 +342,7 @@ extension PlaylistViewController: UITableViewDelegate {
             overlay?.view.removeFromSuperview()
             overlay?.removeFromParent()
 
-            switch storage.openVideoMode {
+            switch (storage.openVideoMode ?? .default) {
             case .previewScreen where overlay?.url != channel.channel.stream:
                 videoPlayer = ChannelPlayerViewController.instantiate()
                 videoPlayer.url = channel.channel.stream

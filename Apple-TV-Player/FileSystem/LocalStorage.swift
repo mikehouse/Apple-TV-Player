@@ -283,6 +283,8 @@ extension LocalStorage {
         case fullScreen
         case previewScreen
 
+        static let `default`: Self = .previewScreen
+
         var title: String {
             switch self {
             case .fullScreen:

@@ -407,8 +407,8 @@ extension PlaylistViewController: ContainerViewControllerDelegate {
         self.addChild(playerVC)
         self.view.addSubview(playerVC.view)
         playerVC.view.translatesAutoresizingMaskIntoConstraints = true
-        let width = bounds.width / 1.8
-        let height = bounds.height / 1.8
+        let width = bounds.width / 1.7
+        let height = bounds.height / 1.7
         playerVC.view.frame = CGRect(
             x: bounds.width - width - view.safeAreaInsets.right,
             y: bounds.height - height - view.safeAreaInsets.bottom,

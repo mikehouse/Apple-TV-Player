@@ -84,7 +84,7 @@ internal extension Bundle2090000ru {
                     short: channel.replacingOccurrences(of: " HD", with: ""),
                     stream: item.url, group: item.group, logo: nil)
             }
-        let playlist = Playlist2090000ru(channels: channels)
+        let playlist = Playlist2090000ru(channels: channels, name: "2090000")
         return .init(kind: kind, playlist: playlist)
     }
 }

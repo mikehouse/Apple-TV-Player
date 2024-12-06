@@ -22,11 +22,8 @@ final class FileSystemManager {
     init(storage: UserDefaults = .app) {
         self.localStorage = LocalStorage(storage: storage)
     }
-}
-
-extension FileSystemManager {
-
-    private var symmetricKey: SymmetricKey {
+    
+    private lazy var symmetricKey: SymmetricKey = {
         let key: SymmetricKey
         if let keyData: Data = self.localStorage.getData(.symmetricKey, domain: .common) {
             key = SymmetricKey(data: keyData)
@@ -36,7 +33,10 @@ extension FileSystemManager {
             self.localStorage.add(data: data, for: .symmetricKey, domain: .common)
         }
         return key
-    }
+    }()
+}
+
+extension FileSystemManager {
 
     @discardableResult
     func download(file: URL, playlist name: String, pin: String?, verifyContent: ((Data) -> Bool)? = nil) throws -> String {
@@ -66,6 +66,16 @@ extension FileSystemManager {
         }
 
         return name
+    }
+    
+    func encrypt(pin: Data, value: String) throws -> Data {
+        try ChaChaPoly.seal(value.data(using: .utf8)!, using: symmetricKey, authenticating: pin).combined
+    }
+    
+    func decrypt(pin: Data, data: Data) throws -> String {
+        let sealedBox = try ChaChaPoly.SealedBox(combined: data)
+        let decrypted = try ChaChaPoly.open(sealedBox, using: symmetricKey, authenticating: pin)
+        return String(data: decrypted, encoding: .utf8)!
     }
     
     func playlists() -> [String] {
@@ -120,6 +130,7 @@ extension FileSystemManager {
         localStorage.remove(for: name, domain: .playlist)
         localStorage.remove(for: name, domain: .playlistURL)
         localStorage.remove(for: name, domain: .pin)
+        localStorage.removePlaylistOrder(playlist: name)
     }
 
     func verify(pin: String, playlist name: String) -> Bool {

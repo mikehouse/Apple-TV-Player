@@ -26,3 +26,11 @@
 "Programmes loading text" = "programmes list loading ...";
 "Debug menu" = "Debug menu";
 "content.verify.error" = "Seems not a playlist content type or empty.";
+"Full Screen" = "Full Screen";
+"Preview Screen" = "Preview Screen";
+"None" = "None";
+"Most Viewed" = "Most Viewed";
+"Recently viewed" = "Recently viewed";
+"Asceding" = "Asceding";
+"Desceding" = "Desceding";
+"Playlist order" = "Playlist order";

@@ -204,6 +204,14 @@ extension HomeViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let item = self.dataSource.itemIdentifier(for: indexPath) else { return }
         switch item {
+        case .providers(let provider) where handlingCellLongTap:
+            let actionVC = ActionPlaylistViewController()
+            actionVC.resetPlaylistOrderAction = { [weak self] in
+                self?.storage.removePlaylistOrder(playlist: provider.name)
+            }            
+            self.present(actionVC, animated: true)
+            handlingCellLongTap = false
+            return
         case .playlist(let name) where handlingCellLongTap:
             let actionVC = ActionPlaylistViewController()
             if let _ = playlistCache[name] {
@@ -219,6 +227,9 @@ extension HomeViewController: UITableViewDelegate {
                         self.reloadUI()
                     }
                 }
+            }
+            actionVC.resetPlaylistOrderAction = { [weak self] in
+                self?.storage.removePlaylistOrder(playlist: name)
             }
             if self.fsManager.pin(playlist: name) == nil {
                 actionVC.setPinAction = { [unowned self] in
@@ -319,6 +330,7 @@ extension HomeViewController: UITableViewDelegate {
             func present(playlist: PlaylistItem) {
                 let playlistVC = PlaylistViewController.instantiate()
                 playlistVC.playlist = playlist
+                playlistVC.pinData = pin
                 self.present(playlistVC, animated: true) {
                     self.setTableViewProgressView(enabled: false)
                     logger.info("did open playlist \(name)")
@@ -361,7 +373,7 @@ extension HomeViewController: UITableViewDelegate {
                     }
                     // TODO: add ability for top tag `#EXTM3U` read image by name (from channel bundle) | from URL.
                     let tvProvider = try IpTvProviders.kind(of: .dynamic(m3u: data, name: name))
-                    let playlist = PlaylistItem(channels: tvProvider.bundles.flatMap({ $0.playlist.channels }))
+                    let playlist = PlaylistItem(channels: tvProvider.bundles.flatMap({ $0.playlist.channels }), name: name)
                     self.playlistCache[name] = playlist
 
                     DispatchQueue.main.async {
@@ -384,7 +396,7 @@ extension HomeViewController: UITableViewDelegate {
                 let channels: [Channel] = bundlesForSure.flatMap({ $0.playlist.channels })
                 let favChannels: [Channel] = fav.compactMap({ f in channels.first(where: { $0.id == f }) })
                 let remainsChannels: [Channel] = channels.filter({ !fav.contains($0.id) })
-                let playlist = PlaylistItem(channels: favChannels + remainsChannels)
+                let playlist = PlaylistItem(channels: favChannels + remainsChannels, name: provider.kind.name)
                 DispatchQueue.main.async {
                     let playlistVC = PlaylistViewController.instantiate()
                     playlistVC.playlist = playlist
@@ -442,5 +454,8 @@ extension HomeViewController: UITableViewDelegate {
         }
     }
     
-    private struct PlaylistItem: Playlist { let channels: [Channel] }
+    private struct PlaylistItem: Playlist { 
+        let channels: [Channel]
+        let name: String 
+    }
 }

@@ -31,6 +31,8 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     }()
 
     var playlist: Playlist?
+    var pinData: Data?
+    private var orderedChannels: [Channel]?
     var programmes: IpTvProgrammesProvider?
     
     private var currentFocusPath: IndexPath?
@@ -47,6 +49,7 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     private var isFullScreen = false
     private let shadowPreviewView = ShadowView()
     private lazy var storage: LocalStorage = .init(storage: .app)
+    private lazy var fsManager = FileSystemManager()
 
     private lazy var channelICO: ChannelICOProvider = ChannelICO(locale: "ru")
     private lazy var dataSource = DataSource(tableView: self.tableView) { [weak self] tableView, indexPath, row in
@@ -181,13 +184,44 @@ private extension PlaylistViewController {
     
     func loadPlaylist() {
         DispatchQueue.global(qos: .userInitiated).async {
-            guard let playlist = self.playlist?.channels, !playlist.isEmpty else {
+            guard var playlist = self.playlist?.channels, !playlist.isEmpty, let name = self.playlist?.name else {
                 DispatchQueue.main.async {
                     self.tableView.backgroundView = self.emptyPlaylistBackgroundView()
                 }
                 return
             }
+
+            let orderRule = self.storage.playlistOrder ?? .default 
+            switch orderRule {
+            case .none:
+                break
+            case .mostViewed, .recentViewed:
+                var recent = self.storage.playlistOrder(playlist: name, rule: orderRule) ?? []
+                if let pinData = self.pinData { // TODO: handle when pin set or unset after playlist created
+                    recent = recent.compactMap({ channel in
+                        guard let data = Data(base64Encoded: channel) else {
+                            return nil
+                        }
+                        return try? self.fsManager.decrypt(pin: pinData, data: data)
+                    })
+                }
+                var first: [Channel] = []
+                for name in recent {
+                    guard let channel = playlist.first(where: { $0.name == name }) else {
+                        continue
+                    }
+                    first.append(channel)
+                }
+                let last = playlist.filter({ !recent.contains($0.name) })
+                playlist = first + last
+            case .asc:
+                playlist.sort(by: { $0.name < $1.name })
+            case .desc:
+                playlist.sort(by: { $0.name > $1.name })
+            }
             
+            self.orderedChannels = playlist
+
             var channels: [Row] = []
             var prefetch: [IndexPath] = []
             for (index, channel) in playlist.enumerated() {
@@ -236,7 +270,7 @@ private extension PlaylistViewController {
 
 extension PlaylistViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        guard let channels = playlist?.channels else {
+        guard let channels = orderedChannels else {
             return
         }
         let reloadAfterDelayedFetch = reloadAfterDelayedFetch
@@ -277,7 +311,7 @@ extension PlaylistViewController: UITableViewDataSourcePrefetching {
     }
 
     func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
-        guard let channels = playlist?.channels else {
+        guard let channels = orderedChannels else {
             return
         }
         for path in indexPaths {
@@ -379,6 +413,21 @@ extension PlaylistViewController: UITableViewDelegate {
 
             self.currentPlayingPath = indexPath
             self.overlayPlayer = videoPlayer
+            
+            // Always accumulate data for better ordering.
+            for order in [LocalStorage.PlaylistOrder.recentViewed, .mostViewed] {
+                switch order {
+                case .recentViewed, .mostViewed:
+                    if let pinData = self.pinData {
+                        let data = try! self.fsManager.encrypt(pin: pinData, value: channel.channel.name)
+                        self.storage.addPlaylistOrder(channel: data.base64EncodedString(), playlist: playlist!.name, rule: order)
+                    } else {
+                        self.storage.addPlaylistOrder(channel: channel.channel.name, playlist: playlist!.name, rule: order)
+                    }
+                default:
+                    break
+                }
+            }
         }
     }
 }

@@ -48,7 +48,7 @@ internal extension IpTvProviderDynamic {
             }
         let favorites: [Channel] = favoritesMap.sorted(by: { (l, r) in l.key < r.key }).map({ $0.value }).flatMap({ $0 })
         let channels: [Channel] = favorites + others
-        let playlist = PlaylistDynamic(channels: Array(NSOrderedSet(array: channels).array as! [ChannelDynamic]));
+        let playlist = PlaylistDynamic(channels: Array(NSOrderedSet(array: channels).array as! [ChannelDynamic]), name: name);
         return .init(kind: .dynamic(m3u: m3u, name: name),
             bundles: [BundleDynamic(playlist: playlist, name: name)]
         )

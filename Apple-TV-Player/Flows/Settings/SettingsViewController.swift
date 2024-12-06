@@ -17,6 +17,8 @@ final class SettingsViewController: UIViewController, StoryboardBased {
         let cell = view.dequeueReusableCell(for: path, cellType: SettingsViewCell.self)
         cell.textLabel?.text = row.title
         switch Row(rawValue: path.row) {
+        case .order:
+            cell.detailTextLabel?.text = self.storage.playlistOrder?.description
         case .players:
             cell.detailTextLabel?.text = self.storage.getPlayer()?.title
         case .openVideoMode:
@@ -39,7 +41,7 @@ final class SettingsViewController: UIViewController, StoryboardBased {
         
         var snapshot = dataSource.snapshot()
         snapshot.appendSections([.main])
-        #if RELEASE
+        #if !DEBUG
         snapshot.appendItems(Row.allCases.filter({ $0 != .providers }), toSection: .main)
         #else
         snapshot.appendItems(Row.allCases, toSection: .main)
@@ -61,6 +63,10 @@ extension SettingsViewController: UITableViewDelegate {
         case .providers:
             let vc = ProvidersListViewController.instantiate()
             vc.providers = providers
+            present(vc, animated: true)
+        case .order:
+            let view = SettingsPlaylistOrder(storage: storage)
+            let vc = UIHostingController(rootView: view)
             present(vc, animated: true)
         case .players:
             let view = SettingsPlayersView(storage: storage)
@@ -85,6 +91,7 @@ private extension SettingsViewController {
     
     enum Row: Int, Hashable, CaseIterable {
         case providers
+        case order
         case players
         case debugMenu
         case openVideoMode
@@ -93,6 +100,8 @@ private extension SettingsViewController {
             switch self {
             case .providers:
                 return NSLocalizedString("List of Ip tv providers", comment: "")
+            case .order:
+                return NSLocalizedString("Playlist order", comment: "")
             case .players:
                 return NSLocalizedString("Player", comment: "")
             case .debugMenu:

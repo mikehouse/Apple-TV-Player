@@ -76,6 +76,7 @@
 		82C2D13B29633A0500301067 /* ProgrammesFetcherOttclub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C2D13A29633A0500301067 /* ProgrammesFetcherOttclub.swift */; };
 		82C2D13E29633D5900301067 /* ottclub.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 82C2D13D29633D5900301067 /* ottclub.bundle */; };
 		82C56DC12947096B00DA4585 /* another.m3u in Resources */ = {isa = PBXBuildFile; fileRef = 82C56DC02947096B00DA4585 /* another.m3u */; };
+		82D260A72CF365E200AA941C /* SettingsPlaylistOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D260A62CF365E200AA941C /* SettingsPlaylistOrder.swift */; };
 		82DAAEA125AB04C4006E296F /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DAAEA025AB04C4006E296F /* ContainerViewController.swift */; };
 		82DAAEA725AB0748006E296F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DAAEA625AB0748006E296F /* Logger.swift */; };
 		82DDEAF4253E1D2C00F3B1EE /* M3UItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DDEAF3253E1D2C00F3B1EE /* M3UItem.swift */; };
@@ -218,6 +219,7 @@
 		82C2D13A29633A0500301067 /* ProgrammesFetcherOttclub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgrammesFetcherOttclub.swift; sourceTree = "<group>"; };
 		82C2D13D29633D5900301067 /* ottclub.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ottclub.bundle; sourceTree = "<group>"; };
 		82C56DC02947096B00DA4585 /* another.m3u */ = {isa = PBXFileReference; lastKnownFileType = text; path = another.m3u; sourceTree = "<group>"; };
+		82D260A62CF365E200AA941C /* SettingsPlaylistOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPlaylistOrder.swift; sourceTree = "<group>"; };
 		82DAAEA025AB04C4006E296F /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		82DAAEA625AB0748006E296F /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		82DDEAF3253E1D2C00F3B1EE /* M3UItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3UItem.swift; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 		8229F741257D565D00A9389E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				82D260A52CF3659C00AA941C /* PlaylistOrder */,
 				8225F0D62C26BB14007B3ABB /* OpenVideoMode */,
 				823432BB2B415B4F00760F38 /* Debug */,
 				8204EC792B3D464C002CC4EB /* Players */,
@@ -633,6 +636,14 @@
 				82C2D13D29633D5900301067 /* ottclub.bundle */,
 			);
 			path = ottclub;
+			sourceTree = "<group>";
+		};
+		82D260A52CF3659C00AA941C /* PlaylistOrder */ = {
+			isa = PBXGroup;
+			children = (
+				82D260A62CF365E200AA941C /* SettingsPlaylistOrder.swift */,
+			);
+			path = PlaylistOrder;
 			sourceTree = "<group>";
 		};
 		82DAAEA525AB073B006E296F /* Utils */ = {
@@ -872,7 +883,7 @@
 				82DDEAFF253E2A4300F3B1EE /* Sources */,
 				82DDEB00253E2A4300F3B1EE /* Frameworks */,
 				82DDEB01253E2A4300F3B1EE /* Resources */,
-				08725B83990CBAF376316649 /* [CP] Embed Pods Frameworks */,
+				319D77591DBC9154A4435FD6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1049,7 +1060,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		08725B83990CBAF376316649 /* [CP] Embed Pods Frameworks */ = {
+		319D77591DBC9154A4435FD6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1185,6 +1196,7 @@
 				82E82D78256A7D4E00E3D250 /* LocalStorage.swift in Sources */,
 				82B862182B2F1CEB0097635F /* VerifyPinViewController.swift in Sources */,
 				828E4020253F852F003D4EFC /* SettingsCellView.swift in Sources */,
+				82D260A72CF365E200AA941C /* SettingsPlaylistOrder.swift in Sources */,
 				828A8BF12B38033400693F1F /* SetPinViewController.swift in Sources */,
 				82E82D3A256A5B2000E3D250 /* PiedPiper.swift in Sources */,
 				82DAAEA125AB04C4006E296F /* ContainerViewController.swift in Sources */,

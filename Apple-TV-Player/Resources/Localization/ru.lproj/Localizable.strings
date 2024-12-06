@@ -26,3 +26,12 @@
 "Programmes loading text" = "загрузка списка программ ...";
 "Debug menu" = "Debug меню";
 "content.verify.error" = "Файл не плейлист формат или пустой.";
+"Full Screen" = "Открыть во весь экран";
+"Preview Screen" = "Открыть в превью окне";
+"None" = "Нет";
+"Most Viewed" = "Самые просматриваемые";
+"Recently viewed" = "Последние просматриваемые";
+"Asceding" = "По возрастанию";
+"Desceding" = "По убыванию";
+"Reset playlist order" = "Сбросить порядок каналов";
+"Playlist order" = "Плэйлист порядок";

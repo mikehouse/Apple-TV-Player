@@ -34,7 +34,7 @@ internal extension BundleOttclub {
                 others.append(channel)
             }
         }
-        let playlist = PlaylistOttclub(channels: base + movies + others)
+        let playlist = PlaylistOttclub(channels: base + movies + others, name: "Ottclub")
         return .init(playlist: playlist)
     }
 }

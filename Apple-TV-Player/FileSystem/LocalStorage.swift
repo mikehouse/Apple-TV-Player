@@ -93,7 +93,7 @@ final class LocalStorage {
     }
 
     private func container<K: Hashable, V>(for domain: Domain) -> [K:V] {
-        guard let rawValue = storage.value(forKey: domain.rawValue) else {
+        guard let rawValue = storage.object(forKey: domain.rawValue) else {
             return [:]
         }
         return (rawValue as? [K:V]) ?? [:]
@@ -188,6 +188,44 @@ final class LocalStorage {
 }
 
 extension LocalStorage {
+    
+    func set(_ list: [String], for domain: Domain) {
+        lock.lock()
+        defer {lock.unlock()}
+        storage.set(list, forKey: domain.rawValue)
+    }
+    
+    func set(_ dict: [String: Int], for domain: Domain) {
+        lock.lock()
+        defer {lock.unlock()}
+        storage.set(dict, forKey: domain.rawValue)
+    }
+    
+    func push(list value: String, for domain: Domain, deleteSame: Bool = true) {
+        let list = list(for: domain)
+        set([value] + list.filter({ $0 != value }).filter({ !(deleteSame && $0 == value) }), for: domain)
+    }
+    
+    func add(counter forKey: String, for domain: Domain) {
+        var dict = dict(for: domain)
+        dict[forKey] = (dict[forKey] ?? 0) + 1
+        set(dict, for: domain) 
+    }
+    
+    func list(for domain: Domain) -> [String] {
+        storage.stringArray(forKey: domain.rawValue) ?? []
+    }
+    
+    func dict(for domain: Domain) -> [String: Int] {
+        dictAny(for: domain) as? [String: Int] ?? [:]
+    }
+    
+    func dictAny(for domain: Domain) -> [String: Any] {
+        storage.dictionary(forKey: domain.rawValue) ?? [:]
+    }
+}
+
+extension LocalStorage {
     @discardableResult
     func addArray(value: AnyHashable, domain list: Domain) -> Bool {
         addArray(value: value, to: list)
@@ -208,11 +246,14 @@ extension LocalStorage {
         case playlistURL
         case common
         case list(ListKeys)
+        case playlistOrder(rule: PlaylistOrder, playlist: String)
     
         var rawValue: String {
             switch self {
             case .list(let k):
                 return "list_\(k.rawValue)"
+            case .playlistOrder(let rule, let playlist):
+                return "\(rule.rawValue)-\(playlist)"
             default:
                 return "\(self)"
             }
@@ -229,6 +270,7 @@ extension LocalStorage {
         case player
         case debugMenu
         case openVideoMode
+        case playlistOrder
     }
     
     enum ListKeys {
@@ -272,6 +314,81 @@ extension LocalStorage {
         getValue(.player, domain: .common)
             .flatMap({ $0 as? String })
             .flatMap(Player.init(rawValue:))
+    }
+}
+
+extension LocalStorage {
+
+    enum PlaylistOrder: String, CaseIterable, Identifiable, CustomStringConvertible {
+
+        var id: RawValue { self.rawValue }
+
+        case none
+        case mostViewed
+        case recentViewed
+        case asc
+        case desc
+
+        static let `default`: PlaylistOrder = .none
+
+        var description: String {
+            switch self {
+            case .none:
+                return NSLocalizedString("None", comment: "")
+            case .mostViewed:
+                return NSLocalizedString("Most viewed", comment: "")
+            case .recentViewed:
+                return NSLocalizedString("Recently viewed", comment: "")
+            case .asc:
+                return NSLocalizedString("Asceding", comment: "")
+            case .desc:
+                return NSLocalizedString("Desceding", comment: "")
+            }
+        }
+    }
+
+    var playlistOrder: PlaylistOrder? {
+        set {
+            if let playlistOrder = newValue {
+                add(value: playlistOrder.rawValue, for: .playlistOrder, domain: .common)
+            } else {
+                remove(for: .playlistOrder, domain: .common)
+            }
+        }
+        get {
+            getValue(.playlistOrder, domain: .common)
+                .flatMap({ $0 as? String })
+                .flatMap(PlaylistOrder.init(rawValue:))
+        }
+    }
+    
+    func addPlaylistOrder(channel: String, playlist: String, rule: PlaylistOrder) {
+        switch rule {
+        case .recentViewed:
+            push(list: channel, for: .playlistOrder(rule: rule, playlist: playlist))
+        case .mostViewed:
+            add(counter: channel, for: .playlistOrder(rule: rule, playlist: playlist))
+        default:
+            return
+        }
+    }
+    
+    func playlistOrder(playlist: String, rule: PlaylistOrder) -> [String]? {
+        switch rule {
+        case .recentViewed:
+            return list(for: .playlistOrder(rule: rule, playlist: playlist))
+        case .mostViewed:
+            return dict(for: .playlistOrder(rule: rule, playlist: playlist))
+                .sorted(by: { $0.value > $1.value }).map(\.key)
+        default:
+            return nil
+        }
+    }
+    
+    func removePlaylistOrder(playlist: String) {
+        for rule in PlaylistOrder.allCases {
+            remove(.playlistOrder(rule: rule, playlist: playlist))
+        }
     }
 }
 

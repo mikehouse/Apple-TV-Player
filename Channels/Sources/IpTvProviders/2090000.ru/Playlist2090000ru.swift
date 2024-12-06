@@ -9,4 +9,5 @@ import Foundation
 
 internal struct Playlist2090000ru: Playlist {
     let channels: [Channel]
+    let name: String
 }

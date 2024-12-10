@@ -18,6 +18,7 @@ final class FileSystemManager {
     private let localStorage: LocalStorage
     private let compressor = PiedPiper()
     private let nameSeparator = "."
+    private let keyChainService = KeyChainService.shared
 
     init(storage: UserDefaults = .app) {
         self.localStorage = LocalStorage(storage: storage)
@@ -25,15 +26,36 @@ final class FileSystemManager {
     
     private lazy var symmetricKey: SymmetricKey = {
         let key: SymmetricKey
-        if let keyData: Data = self.localStorage.getData(.symmetricKey, domain: .common) {
+        let storageKey = LocalStorage.CommonKeys.symmetricKey
+        if let keyData: Data = keyChainService.read(key: storageKey.rawValue) {
             key = SymmetricKey(data: keyData)
+        } else if let keyData: Data = self.localStorage.getData(storageKey.rawValue, domain: .common) {
+            key = SymmetricKey(data: keyData)
+            keyChainService.save(key: storageKey.rawValue, data: keyData) // Back compatibilty
         } else {
             key = SymmetricKey(size: .bits256)
             let data = key.withUnsafeBytes { Data(Array($0)) }
-            self.localStorage.add(data: data, for: .symmetricKey, domain: .common)
+            keyChainService.save(key: storageKey.rawValue, data: data)
         }
         return key
     }()
+    
+    private lazy var salt: String = {
+        let salt: String
+        let key = LocalStorage.CommonKeys.salt.rawValue
+        if let string: String = keyChainService.read(key: key) {
+            salt = string
+        } else {
+            if self.localStorage.dictAny(for: .pin).isEmpty {
+                salt = UUID().uuidString
+            } else {
+                // Back compatibility.
+                salt = UIDevice.current.identifierForVendor?.uuidString ?? "0000-0000"
+            }
+            keyChainService.save(key: key, value: salt)
+        }
+        return salt
+     }()
 }
 
 extension FileSystemManager {
@@ -172,7 +194,7 @@ extension FileSystemManager {
     }
 
     func hashed(pin: String) -> Data {
-        let salt = UIDevice.current.identifierForVendor?.uuidString ?? "0000-0000"
+        let salt = self.salt
         logger.debug("salt \(salt)")
         let target = "\(pin)-\(salt)"
         var sha256 = SHA256()

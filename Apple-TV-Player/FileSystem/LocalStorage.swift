@@ -265,6 +265,7 @@ extension LocalStorage {
     }
     
     enum CommonKeys: String {
+        case salt
         case current
         case symmetricKey
         case player

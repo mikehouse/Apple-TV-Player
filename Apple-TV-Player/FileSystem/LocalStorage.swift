@@ -295,9 +295,9 @@ extension LocalStorage {
         var title: String {
             switch self {
             case .default:
-                return "Default"
+                return NSLocalizedString("Default", comment: "")
             case .native:
-                return "Native (Apple TVOS)"
+                return NSLocalizedString("Native (Apple TVOS)", comment: "")
             case .vlc:
                 return "VLC"
             }
@@ -337,7 +337,7 @@ extension LocalStorage {
             case .none:
                 return NSLocalizedString("None", comment: "")
             case .mostViewed:
-                return NSLocalizedString("Most viewed", comment: "")
+                return NSLocalizedString("Most Viewed", comment: "")
             case .recentViewed:
                 return NSLocalizedString("Recently viewed", comment: "")
             case .asc:
@@ -406,9 +406,9 @@ extension LocalStorage {
         var title: String {
             switch self {
             case .fullScreen:
-                return "Full Screen"
+                return NSLocalizedString("Full Screen", comment: "")
             case .previewScreen:
-                return "Preview Screen"
+                return NSLocalizedString("Preview Screen", comment: "")
             }
         }
     }

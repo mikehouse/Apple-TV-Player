@@ -19,7 +19,7 @@
 "List of Ip tv providers" = "List of Ip tv providers";
 "Settings" = "Settings";
 "Player" = "Player";
-"Open Video mode" = "Open Video mode";
+"Open Video mode" = "Open video mode";
 "Delete playlist" = "Delete playlist";
 "Update playlist" = "Update playlist";
 "Remove playlist cache" = "Clear cache";
@@ -33,4 +33,7 @@
 "Recently viewed" = "Recently viewed";
 "Asceding" = "Asceding";
 "Desceding" = "Desceding";
+"Reset playlist order" = "Reset playlist order";
 "Playlist order" = "Playlist order";
+"Default" = "Default";
+"Native (Apple TVOS)" = "Native (Apple TVOS)";

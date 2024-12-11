@@ -1,10 +1,10 @@
 "Error" = "Ошибка";
 "Ok" = "Ок";
-"Add playlist" = "Добавить новый playlist";
+"Add playlist" = "Добавить новый плэйлист";
 "Add" = "Добавить";
 "Cancel" = "Отмена";
-"Add playlist url (required) and its name (optional)" = "Добавить URL до playlist (обязательное) и его имя и пин код (опциональное)";
-"Playlist name" =  "Имя playlist (не обязательное)";
+"Add playlist url (required) and its name (optional)" = "Добавить УРЛ до плэйлиста (обязательное) и его имя и пин код (опциональное)";
+"Playlist name" =  "Имя плэйлиста (не обязательное)";
 "Pin Code" = "Пин код (не обязательное)";
 "Pin code is invalid." = "Невалидный пин код.";
 "Enter pin code" = "Введите пин код";
@@ -18,8 +18,8 @@
 "No bundles available." = "Список пакетов каналов пуст.";
 "List of Ip tv providers" = "Список поставщиков цифрового ТВ";
 "Settings" = "Настройки";
-"Player" = "Видео player";
-"Open Video mode" = "Показ Видео режим";
+"Player" = "Видео плеер";
+"Open Video mode" = "Показ видео режим";
 "Delete playlist" = "Удалить плэйлист";
 "Update playlist" = "Обновить плэйлист";
 "Remove playlist cache" = "Удалить кеш";
@@ -35,3 +35,5 @@
 "Desceding" = "По убыванию";
 "Reset playlist order" = "Сбросить порядок каналов";
 "Playlist order" = "Плэйлист порядок";
+"Default" = "По умолчанию";
+"Native (Apple TVOS)" = "Системный (Apple TVOS)";

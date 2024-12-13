@@ -66,7 +66,7 @@ final class HomeViewController: UIViewController {
 
         for press in presses {
             if press.type == .playPause {
-                if let cell = press.responder as? PlaylistCellView {
+                if let cell: UITableViewCell = press.responder as? PlaylistCellView ?? press.responder as? SelectProviderCellView {
                     if let indexPath = tableView.indexPath(for: cell) {
                         handlingCellLongTap = true
                         tableView(tableView, didSelectRowAt: indexPath)

@@ -33,7 +33,7 @@ final class ActionPlaylistViewController: UIAlertController {
         }
 
         if let resetPlaylistOrderAction {
-            let delete = UIAlertAction.init(title: NSLocalizedString("Reset playlist order", comment: ""), style: .default) { _ in
+            let delete = UIAlertAction.init(title: NSLocalizedString("Reset playlist order", comment: ""), style: .destructive) { _ in
                 resetPlaylistOrderAction()
             }
             addAction(delete)

@@ -2,7 +2,7 @@
 lane :make_ipa do |options|
   # set any Xcode version you comfortable with.
   # https://docs.fastlane.tools/actions/xcodes/
-  xcodes(version: "15.4", select_for_current_build_only: true)
+  xcodes(version: "16.2", select_for_current_build_only: true)
   build_app(
     scheme: "Apple-TV-Player",
     workspace: "Apple-TV-Player.xcworkspace",

@@ -36,12 +36,10 @@
 		8229F74E257D573C00A9389E /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229F74C257D573C00A9389E /* SettingsViewCell.swift */; };
 		8229F74F257D573C00A9389E /* SettingsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8229F74D257D573C00A9389E /* SettingsViewCell.xib */; };
 		8229F754257D5EB800A9389E /* IpTvProgrammesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229F753257D5EB800A9389E /* IpTvProgrammesProvider.swift */; };
-		8229F759257D5EE800A9389E /* ProgrammesFetcher2090000.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8229F758257D5EE800A9389E /* ProgrammesFetcher2090000.swift */; };
 		822A58C42540AF4A0061813F /* AddPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822A58C32540AF4A0061813F /* AddPlaylistViewController.swift */; };
 		822A58CB2540C4CC0061813F /* plst.m3u in Resources */ = {isa = PBXBuildFile; fileRef = 822A58CA2540C4CC0061813F /* plst.m3u */; };
 		823432BD2B415B6D00760F38 /* SettingsDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823432BC2B415B6D00760F38 /* SettingsDebugView.swift */; };
 		826BBC76256162E6003A69CA /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826BBC75256162E6003A69CA /* Channel.swift */; };
-		826BBC7F2561C299003A69CA /* ru2090000.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 826BBC7E2561C299003A69CA /* ru2090000.bundle */; };
 		82742D24255FDC08001B2B25 /* ChannelPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82742D23255FDC08001B2B25 /* ChannelPlayerViewController.swift */; };
 		82742D28255FDC12001B2B25 /* ChannelPlayerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82742D27255FDC12001B2B25 /* ChannelPlayerViewController.storyboard */; };
 		828A8BF12B38033400693F1F /* SetPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828A8BF02B38033400693F1F /* SetPinViewController.swift */; };
@@ -62,12 +60,8 @@
 		829F91E92A85EC430038148C /* WebViewProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 829F91E72A85EC430038148C /* WebViewProxy.m */; };
 		829F91EA2A85EC430038148C /* WebViewProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 829F91E82A85EC430038148C /* WebViewProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		82AD845325703921006752B7 /* IpTvProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD845225703921006752B7 /* IpTvProvider.swift */; };
-		82AD84582570399B006752B7 /* IpTvProvider2090000ru.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD84572570399B006752B7 /* IpTvProvider2090000ru.swift */; };
-		82AD8460257039CD006752B7 /* Channel2090000ru.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD845F257039CD006752B7 /* Channel2090000ru.swift */; };
 		82AD846525703B2B006752B7 /* ChannelsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD846425703B2B006752B7 /* ChannelsBundle.swift */; };
 		82AD846D25703B8B006752B7 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD846C25703B8B006752B7 /* Playlist.swift */; };
-		82AD847525704277006752B7 /* Bundle2090000ru.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD847425704277006752B7 /* Bundle2090000ru.swift */; };
-		82AD847A257042B8006752B7 /* Playlist2090000ru.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AD8479257042B8006752B7 /* Playlist2090000ru.swift */; };
 		82B862182B2F1CEB0097635F /* VerifyPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B862172B2F1CEB0097635F /* VerifyPinViewController.swift */; };
 		82C2D12F2960050000301067 /* ObjCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C2D12E2960050000301067 /* ObjCUtils.m */; };
 		82C2D133296332F200301067 /* IpTvProviderOttclub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C2D132296332F200301067 /* IpTvProviderOttclub.swift */; };
@@ -178,12 +172,10 @@
 		8229F74C257D573C00A9389E /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
 		8229F74D257D573C00A9389E /* SettingsViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewCell.xib; sourceTree = "<group>"; };
 		8229F753257D5EB800A9389E /* IpTvProgrammesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IpTvProgrammesProvider.swift; sourceTree = "<group>"; };
-		8229F758257D5EE800A9389E /* ProgrammesFetcher2090000.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgrammesFetcher2090000.swift; sourceTree = "<group>"; };
 		822A58C32540AF4A0061813F /* AddPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaylistViewController.swift; sourceTree = "<group>"; };
 		822A58CA2540C4CC0061813F /* plst.m3u */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plst.m3u; sourceTree = "<group>"; };
 		823432BC2B415B6D00760F38 /* SettingsDebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDebugView.swift; sourceTree = "<group>"; };
 		826BBC75256162E6003A69CA /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
-		826BBC7E2561C299003A69CA /* ru2090000.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ru2090000.bundle; sourceTree = "<group>"; };
 		82742D23255FDC08001B2B25 /* ChannelPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelPlayerViewController.swift; sourceTree = "<group>"; };
 		82742D27255FDC12001B2B25 /* ChannelPlayerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChannelPlayerViewController.storyboard; sourceTree = "<group>"; };
 		828A8BF02B38033400693F1F /* SetPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPinViewController.swift; sourceTree = "<group>"; };
@@ -204,12 +196,8 @@
 		829F91E72A85EC430038148C /* WebViewProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewProxy.m; sourceTree = "<group>"; };
 		829F91E82A85EC430038148C /* WebViewProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewProxy.h; sourceTree = "<group>"; };
 		82AD845225703921006752B7 /* IpTvProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IpTvProvider.swift; sourceTree = "<group>"; };
-		82AD84572570399B006752B7 /* IpTvProvider2090000ru.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IpTvProvider2090000ru.swift; sourceTree = "<group>"; };
-		82AD845F257039CD006752B7 /* Channel2090000ru.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel2090000ru.swift; sourceTree = "<group>"; };
 		82AD846425703B2B006752B7 /* ChannelsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsBundle.swift; sourceTree = "<group>"; };
 		82AD846C25703B8B006752B7 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
-		82AD847425704277006752B7 /* Bundle2090000ru.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle2090000ru.swift; sourceTree = "<group>"; };
-		82AD8479257042B8006752B7 /* Playlist2090000ru.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist2090000ru.swift; sourceTree = "<group>"; };
 		82B862172B2F1CEB0097635F /* VerifyPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPinViewController.swift; sourceTree = "<group>"; };
 		82C2D12D2960050000301067 /* Apple-TV-Player-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Apple-TV-Player-Bridging-Header.h"; sourceTree = "<group>"; };
 		82C2D12E2960050000301067 /* ObjCUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCUtils.m; sourceTree = "<group>"; };
@@ -456,17 +444,8 @@
 			isa = PBXGroup;
 			children = (
 				82C2D13C29633D3F00301067 /* ottclub */,
-				826BBC7D2561C264003A69CA /* 2090000 */,
 			);
 			path = IpTvProvider;
-			sourceTree = "<group>";
-		};
-		826BBC7D2561C264003A69CA /* 2090000 */ = {
-			isa = PBXGroup;
-			children = (
-				826BBC7E2561C299003A69CA /* ru2090000.bundle */,
-			);
-			path = 2090000;
 			sourceTree = "<group>";
 		};
 		82742D22255FDB6C001B2B25 /* ChannelPlayer */ = {
@@ -595,22 +574,9 @@
 			children = (
 				82C2D1312963305600301067 /* ottclub */,
 				820AC42E2572859A00932015 /* Dynamic */,
-				82AD8451257038F8006752B7 /* 2090000.ru */,
 				82AD845225703921006752B7 /* IpTvProvider.swift */,
 			);
 			path = IpTvProviders;
-			sourceTree = "<group>";
-		};
-		82AD8451257038F8006752B7 /* 2090000.ru */ = {
-			isa = PBXGroup;
-			children = (
-				82AD84572570399B006752B7 /* IpTvProvider2090000ru.swift */,
-				82AD847425704277006752B7 /* Bundle2090000ru.swift */,
-				82AD8479257042B8006752B7 /* Playlist2090000ru.swift */,
-				82AD845F257039CD006752B7 /* Channel2090000ru.swift */,
-				8229F758257D5EE800A9389E /* ProgrammesFetcher2090000.swift */,
-			);
-			path = 2090000.ru;
 			sourceTree = "<group>";
 		};
 		82B862162B2F1CBE0097635F /* VerifyPin */ = {
@@ -1055,7 +1021,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8229F723257D45B200A9389E /* channels-ico-ru.bundle in Resources */,
-				826BBC7F2561C299003A69CA /* ru2090000.bundle in Resources */,
 				82C2D13E29633D5900301067 /* ottclub.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1228,10 +1193,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8229F759257D5EE800A9389E /* ProgrammesFetcher2090000.swift in Sources */,
 				826BBC76256162E6003A69CA /* Channel.swift in Sources */,
 				82AD845325703921006752B7 /* IpTvProvider.swift in Sources */,
-				82AD847525704277006752B7 /* Bundle2090000ru.swift in Sources */,
 				82DDEAF4253E1D2C00F3B1EE /* M3UItem.swift in Sources */,
 				82C2D1352963381500301067 /* BundleOttclubKind.swift in Sources */,
 				820AC43A257285D500932015 /* PlaylistDynamic.swift in Sources */,
@@ -1240,15 +1203,12 @@
 				82DDEAF7253E1D4000F3B1EE /* M3U.swift in Sources */,
 				820AC435257285C800932015 /* BundleDynamic.swift in Sources */,
 				82C2D13B29633A0500301067 /* ProgrammesFetcherOttclub.swift in Sources */,
-				82AD84582570399B006752B7 /* IpTvProvider2090000ru.swift in Sources */,
-				82AD847A257042B8006752B7 /* Playlist2090000ru.swift in Sources */,
 				82C2D133296332F200301067 /* IpTvProviderOttclub.swift in Sources */,
 				82C2D139296339F500301067 /* ChannelOttclub.swift in Sources */,
 				829F91E92A85EC430038148C /* WebViewProxy.m in Sources */,
 				82F60DB3297D602E00DA7E1B /* TeleguideInfoProvider.swift in Sources */,
 				82AD846D25703B8B006752B7 /* Playlist.swift in Sources */,
 				82F60DB1297D465300DA7E1B /* Zipper.swift in Sources */,
-				82AD8460257039CD006752B7 /* Channel2090000ru.swift in Sources */,
 				8229F754257D5EB800A9389E /* IpTvProgrammesProvider.swift in Sources */,
 				820AC43F257285E500932015 /* ChannelDynamic.swift in Sources */,
 				820AC430257285B800932015 /* IpTvProviderDynamic.swift in Sources */,

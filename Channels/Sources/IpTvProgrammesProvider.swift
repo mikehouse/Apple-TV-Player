@@ -49,8 +49,6 @@ public protocol IpTvProgrammesProvider {
 public struct IpTvProgrammesProviders {
     public static func make(for provider: IpTvProviderKind) -> IpTvProgrammesProvider {
         switch provider {
-        case .ru2090000:
-            return ProgrammesFetcher2090000()
         case .ottclub:
             return ProgrammesFetcherOttclub()
         case .dynamic:

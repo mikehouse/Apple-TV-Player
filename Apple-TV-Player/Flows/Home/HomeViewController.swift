@@ -268,7 +268,9 @@ extension HomeViewController: UITableViewDelegate {
                     DispatchQueue.global(qos: .userInitiated).async { [self] in
                         do {
                             guard let url = try fsManager.url(named: name, pin: pin) else {
-                                return
+                                throw NSError(domain: "playlist.not-found.domain", code: -1, userInfo: [
+                                    NSLocalizedDescriptionKey: "No URL found for playlist '\(name)'"
+                                ])
                             }
                             try self.fsManager.download(file: url, playlist: name, pin: pin) { data in
                                 // Do not want to rewrite old playlist with new invalid one.

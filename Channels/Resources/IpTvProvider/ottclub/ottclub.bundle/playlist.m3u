@@ -17,7 +17,7 @@ http://ott.watch/stream/API_KEY/187.m3u8
 #EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Перец International
 #EXTGRP:Развлекательные
 http://ott.watch/stream/API_KEY/121.m3u8
-#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",World Fashion Channel HD
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Fashion ONE HD
 #EXTGRP:Развлекательные
 http://ott.watch/stream/API_KEY/119.m3u8
 #EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Сарафан
@@ -44,6 +44,9 @@ http://ott.watch/stream/API_KEY/183.m3u8
 #EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Домашний HD
 #EXTGRP:Развлекательные
 http://ott.watch/stream/API_KEY/227.m3u8
+#EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Телекафе
+#EXTGRP:Развлекательные
+http://ott.watch/stream/API_KEY/314.m3u8
 #EXTINF:-1 group-title="Развлекательные" tvg-rec="7" timeshift="7",Інтер+ HD
 #EXTGRP:Развлекательные
 http://ott.watch/stream/API_KEY/345.m3u8
@@ -143,6 +146,9 @@ http://ott.watch/stream/API_KEY/294.m3u8
 #EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Channel 13 (Израиль)
 #EXTGRP:Национальные
 http://ott.watch/stream/API_KEY/295.m3u8
+#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Channel 14 HD (Израиль)
+#EXTGRP:Национальные
+http://ott.watch/stream/API_KEY/454.m3u8
 #EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Zoom (Израиль)
 #EXTGRP:Национальные
 http://ott.watch/stream/API_KEY/377.m3u8
@@ -230,7 +236,7 @@ http://ott.watch/stream/API_KEY/375.m3u8
 #EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Молдова 1
 #EXTGRP:Национальные
 http://ott.watch/stream/API_KEY/336.m3u8
-#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",RLive TV (Молдова)
+#EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",ONE TV (Молдова)
 #EXTGRP:Национальные
 http://ott.watch/stream/API_KEY/335.m3u8
 #EXTINF:-1 group-title="Национальные" tvg-rec="7" timeshift="7",Jurnal TV (Молдова)
@@ -362,9 +368,6 @@ http://ott.watch/stream/API_KEY/179.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Food Time HD
 #EXTGRP:Познавательные
 http://ott.watch/stream/API_KEY/216.m3u8
-#EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Food Network HD
-#EXTGRP:Познавательные
-http://ott.watch/stream/API_KEY/298.m3u8
 #EXTINF:-1 group-title="Познавательные" tvg-rec="7" timeshift="7",Авто24 HD
 #EXTGRP:Познавательные
 http://ott.watch/stream/API_KEY/78.m3u8
@@ -521,9 +524,6 @@ http://ott.watch/stream/API_KEY/268.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",НТВ Сериал
 #EXTGRP:Кино
 http://ott.watch/stream/API_KEY/301.m3u8
-#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Телекафе
-#EXTGRP:Кино
-http://ott.watch/stream/API_KEY/314.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",24Техно
 #EXTGRP:Кино
 http://ott.watch/stream/API_KEY/209.m3u8
@@ -569,6 +569,9 @@ http://ott.watch/stream/API_KEY/191.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",FAN HD
 #EXTGRP:Кино
 http://ott.watch/stream/API_KEY/420.m3u8
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Kinosweet HD
+#EXTGRP:Кино
+http://ott.watch/stream/API_KEY/447.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Дорама HD
 #EXTGRP:Кино
 http://ott.watch/stream/API_KEY/412.m3u8
@@ -578,6 +581,15 @@ http://ott.watch/stream/API_KEY/349.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",CineMan Top HD
 #EXTGRP:Кино
 http://ott.watch/stream/API_KEY/350.m3u8
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Cineman Premium HD
+#EXTGRP:Кино
+http://ott.watch/stream/API_KEY/470.m3u8
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Cineman Катастрофы HD
+#EXTGRP:Кино
+http://ott.watch/stream/API_KEY/471.m3u8
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Cineman Мелодрама HD
+#EXTGRP:Кино
+http://ott.watch/stream/API_KEY/472.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",CineMan Action HD
 #EXTGRP:Кино
 http://ott.watch/stream/API_KEY/351.m3u8
@@ -593,6 +605,15 @@ http://ott.watch/stream/API_KEY/355.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",CineMan Comedy HD
 #EXTGRP:Кино
 http://ott.watch/stream/API_KEY/356.m3u8
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Cineman VHS HD
+#EXTGRP:Кино
+http://ott.watch/stream/API_KEY/474.m3u8
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Cineman Скорая помощь HD
+#EXTGRP:Кино
+http://ott.watch/stream/API_KEY/475.m3u8
+#EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",Cineman Ментовские войны HD
+#EXTGRP:Кино
+http://ott.watch/stream/API_KEY/477.m3u8
 #EXTINF:-1 group-title="Кино" tvg-rec="7" timeshift="7",CineMan Сваты HD
 #EXTGRP:Кино
 http://ott.watch/stream/API_KEY/359.m3u8
@@ -656,12 +677,12 @@ http://ott.watch/stream/API_KEY/393.m3u8
 #EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Sport 4
 #EXTGRP:Спорт
 http://ott.watch/stream/API_KEY/394.m3u8
+#EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Sport 5 HD
+#EXTGRP:Спорт
+http://ott.watch/stream/API_KEY/212.m3u8
 #EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",Dynamo Kyiv TV HD
 #EXTGRP:Спорт
 http://ott.watch/stream/API_KEY/396.m3u8
-#EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",UA: Спорт HD
-#EXTGRP:Спорт
-http://ott.watch/stream/API_KEY/444.m3u8
 #EXTINF:-1 group-title="Спорт" tvg-rec="7" timeshift="7",KHL ТВ
 #EXTGRP:Спорт
 http://ott.watch/stream/API_KEY/166.m3u8
@@ -713,6 +734,9 @@ http://ott.watch/stream/API_KEY/82.m3u8
 #EXTINF:-1 group-title="Детские" tvg-rec="7" timeshift="7",JimJam
 #EXTGRP:Детские
 http://ott.watch/stream/API_KEY/150.m3u8
+#EXTINF:-1 group-title="Детские" tvg-rec="7" timeshift="7",Канал О!
+#EXTGRP:Детские
+http://ott.watch/stream/API_KEY/60.m3u8
 #EXTINF:-1 group-title="Детские" tvg-rec="7" timeshift="7",Капитан Фантастика HD
 #EXTGRP:Детские
 http://ott.watch/stream/API_KEY/144.m3u8
@@ -722,9 +746,6 @@ http://ott.watch/stream/API_KEY/120.m3u8
 #EXTINF:-1 group-title="Детские" tvg-rec="7" timeshift="7",В гостях у сказки HD
 #EXTGRP:Детские
 http://ott.watch/stream/API_KEY/93.m3u8
-#EXTINF:-1 group-title="Детские" tvg-rec="7" timeshift="7",Канал О!
-#EXTGRP:Детские
-http://ott.watch/stream/API_KEY/60.m3u8
 #EXTINF:-1 group-title="Детские" tvg-rec="7" timeshift="7",Gulli Girl
 #EXTGRP:Детские
 http://ott.watch/stream/API_KEY/305.m3u8
@@ -743,6 +764,12 @@ http://ott.watch/stream/API_KEY/347.m3u8
 #EXTINF:-1 group-title="Детские" tvg-rec="7" timeshift="7",Cartoons Big HD
 #EXTGRP:Детские
 http://ott.watch/stream/API_KEY/348.m3u8
+#EXTINF:-1 group-title="Детские" tvg-rec="7" timeshift="7",Cineman Симпсоны HD
+#EXTGRP:Детские
+http://ott.watch/stream/API_KEY/476.m3u8
+#EXTINF:-1 group-title="Детские" tvg-rec="7" timeshift="7",Cartoons 90 HD
+#EXTGRP:Детские
+http://ott.watch/stream/API_KEY/484.m3u8
 #EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",Stingray iConcerts HD
 #EXTGRP:Музыкальные
 http://ott.watch/stream/API_KEY/267.m3u8
@@ -797,7 +824,7 @@ http://ott.watch/stream/API_KEY/87.m3u8
 #EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",Музыка Первого
 #EXTGRP:Музыкальные
 http://ott.watch/stream/API_KEY/153.m3u8
-#EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",Муз-ТВ
+#EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",Муз-ТВ HD
 #EXTGRP:Музыкальные
 http://ott.watch/stream/API_KEY/86.m3u8
 #EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",Жара HD
@@ -815,21 +842,18 @@ http://ott.watch/stream/API_KEY/303.m3u8
 #EXTINF:-1 group-title="Музыкальные" tvg-rec="7" timeshift="7",ТНТ MUSIC
 #EXTGRP:Музыкальные
 http://ott.watch/stream/API_KEY/317.m3u8
+#EXTINF:-1 group-title="Новостные" tvg-rec="7" timeshift="7",Deutsche Welle HD
+#EXTGRP:Новостные
+http://ott.watch/stream/API_KEY/440.m3u8
 #EXTINF:-1 group-title="Новостные" tvg-rec="7" timeshift="7",Настоящее время HD
 #EXTGRP:Новостные
 http://ott.watch/stream/API_KEY/384.m3u8
 #EXTINF:-1 group-title="Новостные" tvg-rec="7" timeshift="7",EuroNews
 #EXTGRP:Новостные
 http://ott.watch/stream/API_KEY/189.m3u8
-#EXTINF:-1 group-title="Новостные" tvg-rec="7" timeshift="7",Deutsche Welle HD
-#EXTGRP:Новостные
-http://ott.watch/stream/API_KEY/440.m3u8
 #EXTINF:-1 group-title="Новостные" tvg-rec="7" timeshift="7",BBC News HD UK
 #EXTGRP:Новостные
 http://ott.watch/stream/API_KEY/85.m3u8
-#EXTINF:-1 group-title="Новостные" tvg-rec="7" timeshift="7",UA: Новини HD
-#EXTGRP:Новостные
-http://ott.watch/stream/API_KEY/438.m3u8
 #EXTINF:-1 group-title="Новостные" tvg-rec="7" timeshift="7",Рада HD
 #EXTGRP:Новостные
 http://ott.watch/stream/API_KEY/382.m3u8
@@ -842,9 +866,18 @@ http://ott.watch/stream/API_KEY/462.m3u8
 #EXTINF:-1 group-title="Новостные" tvg-rec="7" timeshift="7",FreeДОМ HD
 #EXTGRP:Новостные
 http://ott.watch/stream/API_KEY/63.m3u8
-#EXTINF:-1 group-title="Новостные" tvg-rec="7" timeshift="7",Ukraine World News HD
-#EXTGRP:Новостные
-http://ott.watch/stream/API_KEY/441.m3u8
-#EXTINF:-1 group-title="Новостные" tvg-rec="7" timeshift="7",Ми-Україна
-#EXTGRP:Новостные
-http://ott.watch/stream/API_KEY/442.m3u8
+#EXTINF:-1 group-title="Для взрослых" parent-code="1234"tvg-rec="7" timeshift="7",Frenchlover
+#EXTGRP:Для взрослых
+http://ott.watch/stream/API_KEY/54.m3u8
+#EXTINF:-1 group-title="Для взрослых" parent-code="1234"tvg-rec="7" timeshift="7",Erox HD
+#EXTGRP:Для взрослых
+http://ott.watch/stream/API_KEY/58.m3u8
+#EXTINF:-1 group-title="Для взрослых" parent-code="1234"tvg-rec="7" timeshift="7",Blue Hustler
+#EXTGRP:Для взрослых
+http://ott.watch/stream/API_KEY/280.m3u8
+#EXTINF:-1 group-title="Для взрослых" parent-code="1234"tvg-rec="7" timeshift="7",Barely Legal TV
+#EXTGRP:Для взрослых
+http://ott.watch/stream/API_KEY/289.m3u8
+#EXTINF:-1 group-title="Для взрослых" parent-code="1234"tvg-rec="7" timeshift="7",Playboy TV
+#EXTGRP:Для взрослых
+http://ott.watch/stream/API_KEY/290.m3u8

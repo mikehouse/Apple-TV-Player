@@ -287,15 +287,13 @@ extension LocalStorage {
 
     enum Player: String, Identifiable, CaseIterable {
         var id: String { rawValue }
-
-        case `default`
         case native
         case vlc
 
+        static let `default`: Player = .native
+        
         var title: String {
             switch self {
-            case .default:
-                return NSLocalizedString("Default", comment: "")
             case .native:
                 return NSLocalizedString("Native (Apple TVOS)", comment: "")
             case .vlc:

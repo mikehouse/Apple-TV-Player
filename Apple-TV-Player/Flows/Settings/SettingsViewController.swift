@@ -18,11 +18,11 @@ final class SettingsViewController: UIViewController, StoryboardBased {
         cell.textLabel?.text = row.title
         switch Row(rawValue: path.row) {
         case .order:
-            cell.detailTextLabel?.text = self.storage.playlistOrder?.description
+            cell.detailTextLabel?.text = (self.storage.playlistOrder ?? .default).description
         case .players:
-            cell.detailTextLabel?.text = self.storage.getPlayer()?.title
+            cell.detailTextLabel?.text = (self.storage.getPlayer() ?? .default).title
         case .openVideoMode:
-            cell.detailTextLabel?.text = self.storage.openVideoMode?.title
+            cell.detailTextLabel?.text = (self.storage.openVideoMode ?? .default).title
         case .debugMenu where storage.getBool(.debugMenu, domain: .common):
             cell.detailTextLabel?.text = "✔"
         default:
@@ -90,11 +90,11 @@ private extension SettingsViewController {
     }
     
     enum Row: Int, Hashable, CaseIterable {
-        case providers
         case order
         case players
         case debugMenu
         case openVideoMode
+        case providers
 
         var title: String {
             switch self {

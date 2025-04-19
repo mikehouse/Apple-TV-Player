@@ -8,6 +8,7 @@
 import UIKit
 import Reusable
 import Channels
+import CryptoKit
 
 final class PlaylistViewController: UIViewController, StoryboardBased {
     
@@ -196,23 +197,37 @@ private extension PlaylistViewController {
             case .none:
                 break
             case .mostViewed, .recentViewed:
-                var recent = self.storage.playlistOrder(playlist: name, rule: orderRule) ?? []
-                if let pinData = self.pinData { // TODO: handle when pin set or unset after playlist created
-                    recent = recent.compactMap({ channel in
-                        guard let data = Data(base64Encoded: channel) else {
-                            return nil
-                        }
-                        return try? self.fsManager.decrypt(pin: pinData, data: data)
-                    })
+                var shaCache: [String: String] = [:]
+                func sha(for channel: String) -> String {
+                    if let sha = shaCache[channel] {
+                        return sha
+                    }
+                    let sha = Data(SHA512.hash(data: channel.data(using: .utf8)!)).base64EncodedString()
+                    shaCache[channel] = sha
+                    return sha
                 }
+                var recent = self.storage.playlistOrder(playlist: name, rule: orderRule) ?? []
+                let encrypted = self.pinData != nil // When true then `recent` contains SHA strings.
                 var first: [Channel] = []
                 for name in recent {
-                    guard let channel = playlist.first(where: { $0.name == name }) else {
+                    guard let channel = playlist.first(where: {
+                        if encrypted {
+                            sha(for: $0.name) == name
+                        } else {
+                            $0.name == name
+                        }
+                    }) else {
                         continue
                     }
                     first.append(channel)
                 }
-                let last = playlist.filter({ !recent.contains($0.name) })
+                let last = playlist.filter({
+                    if encrypted {
+                        !recent.contains(sha(for: $0.name))
+                    } else {
+                        !recent.contains($0.name)
+                    }
+                })
                 playlist = first + last
             case .asc:
                 playlist.sort(by: { $0.name < $1.name })
@@ -418,8 +433,10 @@ extension PlaylistViewController: UITableViewDelegate {
             for order in [LocalStorage.PlaylistOrder.recentViewed, .mostViewed] {
                 switch order {
                 case .recentViewed, .mostViewed:
-                    if let pinData = self.pinData {
-                        let data = try! self.fsManager.encrypt(pin: pinData, value: channel.channel.name)
+                    if let _ = self.pinData {
+                        // For secured data take SHA as it provides same output for
+                        // the same input (ChaChaPoly generates different output for same input).
+                        let data = Data(SHA512.hash(data: channel.channel.name.data(using: .utf8)!))
                         self.storage.addPlaylistOrder(channel: data.base64EncodedString(), playlist: playlist!.name, rule: order)
                     } else {
                         self.storage.addPlaylistOrder(channel: channel.channel.name, playlist: playlist!.name, rule: order)

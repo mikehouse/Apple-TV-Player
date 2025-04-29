@@ -74,7 +74,6 @@ public protocol IpTvProvider {
     var kind: IpTvProviderKind { get }
     var bundles: [ChannelsBundle] { get }
     var baseBundles: [ChannelsBundle] { get }
-    var favChannels: [Channel] { get }
 }
 
 public struct IpTvProviders {

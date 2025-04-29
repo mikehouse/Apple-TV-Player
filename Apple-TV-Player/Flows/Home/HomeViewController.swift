@@ -394,11 +394,8 @@ extension HomeViewController: UITableViewDelegate {
                 let bundlesIds = self.storage.array(domain: .list(.provider(providerKind.id)))
                 let bundles = provider.bundles.filter({ bundlesIds.contains($0.id) })
                 let bundlesForSure = bundles.isEmpty ? provider.baseBundles : bundles
-                let fav = provider.favChannels.map(\.id)
                 let channels: [Channel] = bundlesForSure.flatMap({ $0.playlist.channels })
-                let favChannels: [Channel] = fav.compactMap({ f in channels.first(where: { $0.id == f }) })
-                let remainsChannels: [Channel] = channels.filter({ !fav.contains($0.id) })
-                let playlist = PlaylistItem(channels: favChannels + remainsChannels, name: provider.kind.name)
+                let playlist = PlaylistItem(channels: channels, name: provider.kind.name)
                 DispatchQueue.main.async {
                     let playlistVC = PlaylistViewController.instantiate()
                     playlistVC.playlist = playlist

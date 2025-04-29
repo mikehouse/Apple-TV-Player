@@ -10,7 +10,7 @@ import Foundation
 public protocol Channel {
     // ex. "Bollywood HD (1080p) [Not 24/7] [Geo-blocked]"
     var name: String {get}
-    // ex. "Bollywood HD"
+    // ex. "Bollywood HD (1080p)"
     var original: String {get}
     // ex. "Bollywood"
     var short: String {get}

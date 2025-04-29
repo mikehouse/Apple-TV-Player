@@ -32,7 +32,7 @@ public extension M3U {
         
         let data = try url.map({ try Data(contentsOf: $0) }) ?? self.data
         let string = String(data: data, encoding: .utf8)!
-        let lines = string.components(separatedBy: .newlines)
+        let lines = string.components(separatedBy: .newlines).filter({ !$0.isEmpty })
         guard let firstLine = lines.first else {
             let error = NSError(domain: "com.tv.player", code: -1, userInfo: [
                 NSLocalizedDescriptionKey: NSLocalizedString("Invalid M3U file format.", comment: "")

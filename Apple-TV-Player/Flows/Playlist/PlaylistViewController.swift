@@ -206,7 +206,7 @@ private extension PlaylistViewController {
                     shaCache[channel] = sha
                     return sha
                 }
-                var recent = self.storage.playlistOrder(playlist: name, rule: orderRule) ?? []
+                let recent = self.storage.playlistOrder(playlist: name, rule: orderRule) ?? []
                 let encrypted = self.pinData != nil // When true then `recent` contains SHA strings.
                 var first: [Channel] = []
                 for name in recent {

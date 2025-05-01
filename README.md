@@ -23,7 +23,6 @@ Over 8000 channels are available https://github.com/iptv-org/iptv (not mine, ple
 ### Localization
 
 - EN
-- RU
 
 ### Built-in TV providers
 
@@ -39,7 +38,6 @@ Over 8000 channels are available https://github.com/iptv-org/iptv (not mine, ple
 
 ```bash
 # Call once to configure bundler
-bundle config set --local path 'vendor/bundle'
 bundle install
 # Call every time when want to install dependencies
 bundle exec pod install
@@ -61,8 +59,9 @@ or just change them via Xcode `Signing & Capabilities` tab for `Apple-TV-Player`
 - Make sure Mac and Apple TV have the same network ("AirPlay and HomeKit" > "Allow Access" is set to "Anyone in the Same Network")
 - In Xcode open "Devices & Simulators" window
 - On Apple TV open "Remote App And Device" > "Remote App And Device"
+- If Xcode does not see your Apple TV box then try to use 2.4 Ghz wi-fi instead of 5 Ghz
 - Click "pair" and enter code
-- If "pair" reappear again then turn off the wifi on your Mac for 10 seconds and then turn it on back (https://developer.apple.com/forums/thread/108459)
+- If "pair" reappear again then turn off the wi-fi on your Mac for 10 seconds and then turn it on back (https://developer.apple.com/forums/thread/108459)
 - Maybe needed to delete the TV from ignored list https://stackoverflow.com/a/63195311/3614746
 
 ### How to install if Xcode fails to connect to Apple TV (but paired)
@@ -73,14 +72,13 @@ It is often the error found  `Xcode will continue when Apple TV is connected and
 
 ```bash
 # Call once to configure bundler
-bundle config set --local path 'vendor/bundle'
 bundle install
 # Call every time when want to create IPA file
 bundle exec fastlane make_ipa
 ```
 
 - Open Apple Configurator app
-- Find there paired Apple TV (must be on the same network)
+- Find there paired Apple TV (must be on the same network, better use 2.4 Ghz wi-fi)
 - Open there `Apps` section
 - Drag-n-Drop the generated IPA file
 
@@ -89,7 +87,7 @@ bundle exec fastlane make_ipa
 - Unpack generated ipa (ipa it is just zip archive)
 - Find there `****.app/` directory
 - Open Xcode -> Window -> Devices and Simulators
-- In Devices section find your Apple TV
+- In Devices section find your Apple TV (better use 2.4 Ghz wi-fi)
 - Click `Add installed app` plus button
 - Select there `****.app/` directory
 

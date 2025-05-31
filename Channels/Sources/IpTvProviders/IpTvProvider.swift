@@ -13,12 +13,15 @@ import ImageIO
 public enum IpTvProviderKind: Hashable {
     // https://www.ottclub.tv
     case ottclub(key: String)
+    case plutoTv
     case dynamic(m3u: Data, name: String)
     
     public var name: String {
         switch self {
         case .ottclub:
             return "ottclub"
+        case .plutoTv:
+            return "Pluto TV"
         case .dynamic(_, name: let name):
             return name
         }
@@ -26,7 +29,7 @@ public enum IpTvProviderKind: Hashable {
     
     public var id: AnyHashable {
         switch self {
-        case .ottclub:
+        case .ottclub, .plutoTv:
             return AnyHashable("\(name)")
         case .dynamic(_, let name):
             return AnyHashable(name)
@@ -82,6 +85,9 @@ public struct IpTvProviders {
         case .ottclub(let key):
             return try IpTvProviderOttclub.load(
                 from: Bundle(for: this_bundle_ref_class.self), apiKey: key)
+        case .plutoTv:
+            return try PlutoTvProvider.load(
+                from: Bundle(for: this_bundle_ref_class.self))
         case let .dynamic(data, name):
             return try IpTvProviderDynamic.load(m3u: data, name: name)
         }

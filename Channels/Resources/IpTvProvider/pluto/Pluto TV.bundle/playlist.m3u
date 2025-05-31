@@ -1,0 +1,33 @@
+#EXTM3U
+#EXTINF:proxy="pluto",group-title="Entertainment",South Park
+https://pluto.tv/ca/live-tv/62bdb1c5e25122000798ac79
+#EXTINF:proxy="pluto",group-title="Entertainment",Comedy Central
+https://pluto.tv/us/live-tv/5ca671f215a62078d2ec0abf
+#EXTINF:proxy="pluto",group-title="Entertainment",Paramount Movie Channel
+https://pluto.tv/us/live-tv/5cb0cae7a461406ffe3f5213
+#EXTINF:proxy="pluto",group-title="Entertainment",Staff Picks
+https://pluto.tv/us/live-tv/5f4d863b98b41000076cd061
+#EXTINF:proxy="pluto",group-title="Entertainment",Stories by AMC
+https://pluto.tv/us/live-tv/62f2ce24f328e00007e7f55a
+#EXTINF:proxy="pluto",group-title="Entertainment",Top Gear
+https://pluto.tv/us/live-tv/636adc255bcf470007d6e0e2
+#EXTINF:proxy="pluto",group-title="Entertainment",Action
+https://pluto.tv/us/live-tv/561d7d484dc7c8770484914a
+#EXTINF:proxy="pluto",group-title="Entertainment",Fantastic
+https://pluto.tv/us/live-tv/5b64a245a202b3337f09e51d
+#EXTINF:proxy="pluto",group-title="Entertainment",Romance
+https://pluto.tv/us/live-tv/5a66795ef91fef2c7031c599
+#EXTINF:proxy="pluto",group-title="Entertainment",Horror
+https://pluto.tv/us/live-tv/569546031a619b8f07ce6e25
+#EXTINF:proxy="pluto",group-title="Entertainment",Reaction
+https://pluto.tv/us/live-tv/617b37b361e0fd0008cfd8c5
+#EXTINF:proxy="pluto",group-title="Entertainment",Sitcom Legends
+https://pluto.tv/us/live-tv/633354b63df9700007f6a1b7
+#EXTINF:proxy="pluto",group-title="Entertainment",TV Land Sitcoms
+https://pluto.tv/us/live-tv/5c2d64ffbdf11b71587184b8
+#EXTINF:proxy="pluto",group-title="Entertainment",More TV Sitcoms
+https://pluto.tv/us/live-tv/6132619f9ddaa50007e7dd86
+#EXTINF:proxy="pluto",group-title="Entertainment",Funny AF
+https://pluto.tv/us/live-tv/580e87ff497c73ba2f321dd3
+#EXTINF:proxy="pluto",group-title="Entertainment",Sketchy AF
+https://pluto.tv/us/live-tv/67882c1c7b11714b795c2008

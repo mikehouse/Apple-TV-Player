@@ -1,0 +1,14 @@
+#EXTM3U
+#EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID="subs",NAME="English",DEFAULT=NO,FORCED=NO,URI="subtitle/en/playlist.m3u8?terminate=false",LANGUAGE="en"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio",LANGUAGE="en",NAME="Original",AUTOSELECT=YES,DEFAULT=YES,CHANNELS="2"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio",LANGUAGE="en",NAME="English",AUTOSELECT=YES,CHANNELS="2",URI="audio/English(Audio-Description)/audio.m3u8?terminate=false"
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1042180,SUBTITLES="subs",AUDIO="audio"
+1042180/playlist.m3u8?terminate=false
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1577180,SUBTITLES="subs",AUDIO="audio"
+1577180/playlist.m3u8?terminate=false
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=2294080,SUBTITLES="subs",AUDIO="audio"
+2294080/playlist.m3u8?terminate=false
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=3321280,SUBTITLES="subs",AUDIO="audio"
+3321280/playlist.m3u8?terminate=false
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=640930,SUBTITLES="subs",AUDIO="audio"
+640930/playlist.m3u8?terminate=false

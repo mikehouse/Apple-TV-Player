@@ -1,7 +1,7 @@
 
 <h1 align="center">Apple TV player</h1>
 <p align="center">
-  <img src="logo.png"  alt="" width="40%"/>
+  <img src="logo.jpg"  alt="" width="40%"/>
 </p>
 
 ### Supported formats
@@ -91,7 +91,7 @@ bundle exec fastlane make_ipa
 - Click `Add installed app` plus button
 - Select there `****.app/` directory
 
-<img src="010.png" width="50%"  alt=""/>
+<img src="010.jpg" alt=""/>
 
 ### Update / Delete existed playlist (Home Screen only)
 
@@ -105,12 +105,14 @@ Select a playlist and Long tap on TV Remote or press Play/Pause TV Remote button
 
 - Some app screenshots:
 
-</br><img src="001.png"  alt=""/>
-<img src="003.png"  alt=""/>
-<img src="002.png"  alt=""/>
-<img src="007.png"  alt=""/>
+</br><img src="001.jpg" alt=""/>
+<img src="003.jpg" alt=""/>
+<img src="002.jpg" alt=""/>
+<img src="007.jpg" alt=""/>
 
 ## ottclub.tv
+
+<img src="Channels/Resources/IpTvProvider/ottclub/ottclub.bundle/favicon.png"  width="82" height="82"  alt=""/>
 
 ```swift
 // Open file `IpTvProvider.swift`.
@@ -128,5 +130,30 @@ public static func builtInProviders() -> [IpTvProviderKind] {
 }
 ```
 
-<img src="009.png"  alt=""/>
-<img src="008.png"  alt=""/>
+<img src="009.jpg"  alt=""/>
+<img src="008.jpg"  alt=""/>
+
+## Pluto TV
+
+<img src="Channels/Resources/IpTvProvider/pluto/Pluto TV.bundle/favicon.png"  width="82" height="82"  alt=""/>
+
+- USA only or use VPN with the USA ip address
+
+```swift
+// Open file `IpTvProvider.swift`.
+// Add there plutoTv provider.
+// That is change the function:
+
+public static func builtInProviders() -> [IpTvProviderKind] {
+    return []
+}
+
+// to this:
+
+public static func builtInProviders() -> [IpTvProviderKind] {
+    return [.plutoTv]
+}
+```
+
+<img src="011.jpg" alt=""/>
+<img src="012.jpg" alt=""/>

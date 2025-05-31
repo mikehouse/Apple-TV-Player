@@ -43,10 +43,24 @@ final class HomeViewController: UIViewController {
         }
     }
     private let fsManager = FileSystemManager()
-    private var providers: [IpTvProvider] = []
+    private var providers: [IpTvProviderKind] = []
     private let storage = LocalStorage()
     private var handlingCellLongTap = false
     private var highlightingStarted = CFAbsoluteTimeGetCurrent()
+
+    private lazy var overlayView: UIView = {
+        let blurEffect = UIBlurEffect(style: .regular)
+        let blurVIew = UIVisualEffectView(effect: blurEffect)
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        blurVIew.contentView.addSubview(indicator)
+        NSLayoutConstraint.activate([
+            blurVIew.contentView.centerXAnchor.constraint(equalTo: indicator.centerXAnchor),
+            blurVIew.contentView.centerYAnchor.constraint(equalTo: indicator.centerYAnchor)
+        ])
+        indicator.startAnimating()
+        return blurVIew
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,13 +108,8 @@ private extension HomeViewController {
                 .playlists: [],
                 .providers: []
             ]
-            do {
-                self.providers = try IpTvProviderKind.builtInProviders().map(IpTvProviders.kind(of:))
-                items[.providers] = self.providers.map({ Row.providers($0.kind) })
-            } catch {
-                logger.error("\(error)")
-                self.present(error: error)
-            }
+            providers = IpTvProviderKind.builtInProviders()
+            items[.providers] = self.providers.map({ Row.providers($0) })
             items[.playlists] = fsManager.playlists().sorted().map(Row.playlist)
     
             DispatchQueue.main.async { [unowned self] in
@@ -111,19 +120,17 @@ private extension HomeViewController {
                 snapshot.appendItems(items[.addPlaylist] ?? [], toSection: .addPlaylist)
                 snapshot.appendItems(items[.settings] ?? [], toSection: .settings)
                 dataSource.apply(snapshot, animatingDifferences: true)
-    
-                self.navigateToLatestProvider()
             }
         }
     }
 }
 
 private extension HomeViewController {
-    func present(error: Error) {
+    func present(error: Error, completion: (() -> Void)? = nil) {
         DispatchQueue.main.async {
             let alert = FailureViewController.make(error: error)
             alert.addOkAction(title: NSLocalizedString("Ok", comment: ""), completion: nil)
-            self.present(alert, animated: true)
+            self.present(alert, animated: true, completion: completion)
         }
     }
     
@@ -147,6 +154,21 @@ private extension HomeViewController {
         }
     }
     
+    func setProgressView(enabled: Bool) {
+        if enabled {
+            overlayView.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(overlayView)
+            NSLayoutConstraint.activate([
+                view.leftAnchor.constraint(equalTo: overlayView.leftAnchor),
+                view.rightAnchor.constraint(equalTo: overlayView.rightAnchor),
+                view.topAnchor.constraint(equalTo: overlayView.topAnchor),
+                view.bottomAnchor.constraint(equalTo: overlayView.bottomAnchor)
+            ])
+        } else {
+            overlayView.removeFromSuperview()
+        }
+    }
+
     func progressBackgroundView() -> UIView {
         let view = UIView()
         let progress = UIActivityIndicatorView(style: .large)
@@ -158,21 +180,6 @@ private extension HomeViewController {
         ])
         progress.startAnimating()
         return view
-    }
-    
-    @discardableResult
-    func navigateToLatestProvider() -> Bool {
-        if let provider = self.storage.getValue(.current, domain: .common),
-           let item = IpTvProviderKind.builtInProviders().first(where: { $0.id == provider }) {
-            let row = Row.providers(item)
-            let snapshot = dataSource.snapshot()
-            if let section = snapshot.indexOfSection(.providers),
-               let row = snapshot.indexOfItem(row) {
-                let path = IndexPath(row: row, section: section)
-                navigate(to: path)
-            }
-        }
-        return false
     }
 }
 
@@ -389,18 +396,30 @@ extension HomeViewController: UITableViewDelegate {
                 }
             }
         case .providers(let providerKind):
+            setProgressView(enabled: true)
             DispatchQueue.global(qos: .userInitiated).async {
-                let provider = self.providers.first(where: { $0.kind.id == providerKind.id })!
-                let bundlesIds = self.storage.array(domain: .list(.provider(providerKind.id)))
-                let bundles = provider.bundles.filter({ bundlesIds.contains($0.id) })
-                let bundlesForSure = bundles.isEmpty ? provider.baseBundles : bundles
-                let channels: [Channel] = bundlesForSure.flatMap({ $0.playlist.channels })
-                let playlist = PlaylistItem(channels: channels, name: provider.kind.name)
-                DispatchQueue.main.async {
-                    let playlistVC = PlaylistViewController.instantiate()
-                    playlistVC.playlist = playlist
-                    playlistVC.programmes = IpTvProgrammesProviders.make(for: provider.kind)
-                    self.present(playlistVC, animated: true)
+                do {
+                    let provider = try IpTvProviders.kind(of: providerKind)
+                    let bundlesIds = self.storage.array(domain: .list(.provider(providerKind.id)))
+                    let bundles = provider.bundles.filter({ bundlesIds.contains($0.id) })
+                    let bundlesForSure = bundles.isEmpty ? provider.baseBundles : bundles
+                    let channels: [Channel] = bundlesForSure.flatMap({ $0.playlist.channels })
+                    let playlist = PlaylistItem(channels: channels, name: provider.kind.name)
+                    DispatchQueue.main.async {
+                        let playlistVC = PlaylistViewController.instantiate()
+                        playlistVC.playlist = playlist
+                        playlistVC.programmes = IpTvProgrammesProviders.make(for: provider.kind)
+                        self.present(playlistVC, animated: true) {
+                            self.setProgressView(enabled: false)
+                        }
+                    }
+                } catch {
+                    logger.error("\(error)")
+                    DispatchQueue.main.async {
+                        self.present(error: error) {
+                            self.setProgressView(enabled: false)
+                        }
+                    }
                 }
             }
         case .addPlaylist:
@@ -448,7 +467,7 @@ extension HomeViewController: UITableViewDelegate {
             self.present(vc, animated: true)
         case .settings:
             let vc = SettingsViewController.instantiate()
-            vc.providers = self.providers
+            vc.providers = []
             self.present(vc, animated: true)
         }
     }

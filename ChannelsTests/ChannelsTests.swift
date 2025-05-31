@@ -10,6 +10,32 @@ import XCTest
 
 final class ChannelsTests: XCTestCase {
     
+    func testParseBitrateM3U8() throws {
+        let url = Bundle(for: type(of: self)).url(forResource: "bitrate", withExtension: "m3u8")!
+        let m3u = M3U(url: url) { _ in true }
+        try m3u.parse()
+        
+        do {
+            let expected = M3UItem(
+                title: "",
+                url: URL(string: "1042180/playlist.m3u8?terminate=false")!,
+                group: nil,
+                logo: nil,
+                bandwidth: 1042180)
+            XCTAssertEqual(m3u.items.first, expected)
+        }
+        
+        do {
+            let expected = M3UItem(
+                title: "",
+                url: URL(string: "640930/playlist.m3u8?terminate=false")!,
+                group: nil,
+                logo: nil,
+                bandwidth: 640930)
+            XCTAssertEqual(m3u.items.last, expected)
+        }
+    }
+    
     func testParseM3U8() throws {
         let url = Bundle(for: type(of: self)).url(forResource: "android", withExtension: "m3u8")!
         let m3u = M3U(url: url)
@@ -20,7 +46,8 @@ final class ChannelsTests: XCTestCase {
                 title: "Первый канал",
                 url: URL(string: "http://94.hlstv.nsk.211.ru/239.211.0.1.m3u8")!,
                 group: "Эфирные",
-                logo: nil)
+                logo: nil,
+                bandwidth: nil)
             XCTAssertEqual(m3u.items.first, expected)
         }
         
@@ -29,7 +56,8 @@ final class ChannelsTests: XCTestCase {
                 title: "Ю",
                 url: URL(string: "http://94.hlstv.nsk.211.ru/239.211.0.1.m3u8")!,
                 group: "Общие",
-                logo: nil)
+                logo: nil,
+                bandwidth: nil)
             XCTAssertEqual(m3u.items.last, expected)
         }
     }
@@ -44,7 +72,8 @@ final class ChannelsTests: XCTestCase {
                 title: "Paramount Comedy HD",
                 url: URL(string: "http://tv.novotelecom.ru/channel/paramount_comedy_hd/592/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1")!,
                 group: nil,
-                logo: nil)
+                logo: nil,
+                bandwidth: nil)
             XCTAssertEqual(m3u.items.first, expected)
         }
         
@@ -53,7 +82,8 @@ final class ChannelsTests: XCTestCase {
                 title: "ТНТ MUSIC",
                 url: URL(string: "http://tv.novotelecom.ru/channel/tnt_music/212/playlist.m3u8?sid=d2b0c90c6c93af38fec4fa3d898834b1")!,
                 group: "Музыка",
-                logo: nil)
+                logo: nil,
+                bandwidth: nil)
             XCTAssertEqual(m3u.items.last, expected)
         }
     }
@@ -68,7 +98,8 @@ final class ChannelsTests: XCTestCase {
                 title: "1HD Music TV",
                 url: URL(string: "https://1hdru-hls-otcnet.cdnvideo.ru/onehdmusic/tracks-v1a1/index.m3u8")!,
                 group: "",
-                logo: nil)
+                logo: nil,
+                bandwidth: nil)
             XCTAssertEqual(m3u.items.first, expected)
         }
         
@@ -77,7 +108,8 @@ final class ChannelsTests: XCTestCase {
                 title: "ЮТВ (Чебоксары)",
                 url: URL(string: "http://serv24.vintera.tv:8081/utv/Stream/playlist.m3u8")!,
                 group: "Local",
-                logo: nil)
+                logo: nil,
+                bandwidth: nil)
             XCTAssertEqual(m3u.items.last, expected)
         }
     }
@@ -91,7 +123,8 @@ final class ChannelsTests: XCTestCase {
                 title: "1HD Music Television (404p) [Not 24/7]",
                 url: URL(string: "https://sc.id-tv.kz/1hd.m3u8")!,
                 group: "Music",
-                logo: URL(string: "https://i.imgur.com/6TjLUuF.png"))
+                logo: URL(string: "https://i.imgur.com/6TjLUuF.png"),
+                bandwidth: nil)
             XCTAssertEqual(m3u.items.first, expected)
         }
         
@@ -100,7 +133,8 @@ final class ChannelsTests: XCTestCase {
                 title: "Страна FM HD",
                 url: URL(string: "http://live.stranafm.cdnvideo.ru/stranafm/stranafm_hd.sdp/playlist.m3u8")!,
                 group: "HD",
-                logo: nil)
+                logo: nil,
+                bandwidth: nil)
             XCTAssertEqual(m3u.items.last, expected)
         }
     }

@@ -51,6 +51,8 @@ public struct IpTvProgrammesProviders {
         switch provider {
         case .ottclub:
             return ProgrammesFetcherOttclub()
+        case .plutoTv:
+            return PlutoTvProgrammesProvider.shared
         case .dynamic:
             fatalError("Unsupported.")
         }
@@ -59,7 +61,7 @@ public struct IpTvProgrammesProviders {
 
 internal class ProgrammesFetcherBase: IpTvProgrammesProvider {
     private var completion: ((Error?) -> Void)?
-    private lazy var timer = Timer(timeInterval: 60 * 30, repeats: true) { [weak self] timer in
+    private lazy var timer = Timer(timeInterval: 60 * 60 * 16, repeats: true) { [weak self] timer in
         if self == nil {
             timer.invalidate()
         } else {

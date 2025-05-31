@@ -52,7 +52,9 @@ final class PlaylistViewController: UIViewController, StoryboardBased {
     private lazy var storage: LocalStorage = .init(storage: .app)
     private lazy var fsManager = FileSystemManager()
 
-    private lazy var channelICO: ChannelICOProvider = ChannelICO(locale: "ru")
+    private lazy var channelICO: ChannelICOProvider = {
+        ChannelICO(locale: playlist?.name == "Pluto TV" ? "us" : "ru")
+    }()
     private lazy var dataSource = DataSource(tableView: self.tableView) { [weak self] tableView, indexPath, row in
         guard let self else {
             return UITableViewCell()

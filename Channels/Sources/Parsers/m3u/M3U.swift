@@ -321,6 +321,8 @@ private let urlSession = URLSession(configuration: .ephemeral)
 private func streamURL(from proxy: ProxyType, source: URL) throws -> URL? {
     do {
         let searchCache = ProxyCache(proxy: proxy, source: source, url: nil)
+        proxiesCacheLock.lock()
+        defer { proxiesCacheLock.unlock() }
         if let cached = proxiesCache.first(where: { $0 == searchCache }) {
             if cached.stillValid, let url = cached.url {
                 logger.info("did read proxy from cache for \(source.absoluteString) value \(url.absoluteString).")
@@ -475,13 +477,16 @@ private func streamURL(from proxy: ProxyType, source: URL) throws -> URL? {
     }
     if let stream = object.url {
         logger.info("proxy add cache for \(source.absoluteString) value \(stream.absoluteString).")
+        proxiesCacheLock.lock()
         proxiesCache.append(.init(proxy: proxy, source: source, url: stream))
+        proxiesCacheLock.unlock()
         return stream
     }
     return nil
 }
 
 private var proxiesCache: [ProxyCache] = []
+private var proxiesCacheLock = NSLock()
 
 private enum ProxyType: String {
     case stb
@@ -530,7 +535,7 @@ private final class ProxyCache: Equatable, ProxyTypeInterface {
         case .stb:
             return TimeInterval(60 * 60 * 23)
         case .onltvone_comedy, .pluto:
-            return TimeInterval(60 * 60 * 1)
+            return TimeInterval(60 * 1)
         }
     }
 

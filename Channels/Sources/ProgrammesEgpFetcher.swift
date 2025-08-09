@@ -7,12 +7,21 @@
 
 import Foundation
 
-internal final class ProgrammesFetcherOttclub: ProgrammesFetcherBase {
+internal final class ProgrammesEgpFetcher: ProgrammesFetcherBase {
+
+    let id: String
+    let url: URL
+
+    init(id: String, url: URL) {
+        self.id = id
+        self.url = url
+        super.init()
+    }
 
     override func fetch() {
-        DispatchQueue.global(qos: .userInteractive).async {
-            if let cacheFile = (try? self.cacheDirectory()).map({ $0.appendingPathComponent("epg.xml") }),
-               FileManager.default.fileExists(atPath: cacheFile.path) {
+        DispatchQueue.global(qos: .userInteractive).async { [url, id] in
+            let cacheFile = try! self.cacheDirectory().appendingPathComponent("\(id).epg.xml", isDirectory: false)
+            if FileManager.default.fileExists(atPath: cacheFile.path) {
                 do {
                     logger.debug("read from cache: \(cacheFile.path)")
                     try self.handle(xml: cacheFile)
@@ -21,10 +30,8 @@ internal final class ProgrammesFetcherOttclub: ProgrammesFetcherBase {
                     logger.error("error for \(cacheFile.path): \(error)")
                 }
             }
-            // https://vip-tv.org/articles/epg-iptv.html
-            let url = URL(string: "http://myott.top/api/epg.xml.gz")!
             logger.debug("no cache programme file found, gonna fetch new from \(url)")
-            let xmlProvider = TeleguideInfoXmlProvider(url: url)
+            let xmlProvider = EgpProvider(url: url)
             xmlProvider.info { [weak self] result in
                 guard let self else {
                     return
@@ -36,8 +43,6 @@ internal final class ProgrammesFetcherOttclub: ProgrammesFetcherBase {
                 case .success(let url):
                     defer { try? FileManager.default.removeItem(at: url) }
                     do {
-                        let cacheDir = try self.cacheDirectory()
-                        let cacheFile = cacheDir.appendingPathComponent(url.lastPathComponent, isDirectory: false)
                         if FileManager.default.fileExists(atPath: cacheFile.path) {
                             try FileManager.default.removeItem(at: cacheFile)
                         }
@@ -83,38 +88,12 @@ internal final class ProgrammesFetcherOttclub: ProgrammesFetcherBase {
             throw error
         }
 
-        let parser = TeleguideInfoParser(url: url)
+        let parser = EgpParser(url: url)
         let programmes = try parser.programme(from: Date(timeIntervalSinceNow: -(60 * 60 * 6)))
         update(.success(programmes))
     }
 
     private func cacheDirectory() throws -> URL {
         try FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-    }
-}
-
-private final class FetchChannel: Channel {
-    var name: String
-    var original: String
-    var short: String
-    var id: AnyHashable
-    var stream: URL
-    var group: String?
-    var logo: URL?
-
-    convenience init(name: String) {
-        self.init(name: name, original: name, short: name,
-            id: name, stream: URL(fileURLWithPath: "/"), group: nil, logo: nil)
-    }
-
-    init(name: String, original: String, short: String,
-         id: AnyHashable, stream: URL, group: String?, logo: URL?) {
-        self.name = name
-        self.original = original
-        self.short = short
-        self.id = id
-        self.stream = stream
-        self.group = group
-        self.logo = logo
     }
 }

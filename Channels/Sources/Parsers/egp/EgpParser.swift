@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class TeleguideInfoParser: NSObject {
+final class EgpParser: NSObject {
 
     let url: URL
 
@@ -88,7 +88,7 @@ final class TeleguideInfoParser: NSObject {
     }
 }
 
-extension TeleguideInfoParser: XMLParserDelegate {
+extension EgpParser: XMLParserDelegate {
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?,
                 qualifiedName qName: String?, attributes attributeDict: [String: String]) {
         if elementName == "channel" {

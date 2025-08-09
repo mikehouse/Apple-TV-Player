@@ -85,7 +85,8 @@ extension ChannelICO: ChannelICOFetcher {
 
 private struct ChannelsICORemote {
     private static let options = [kCGImageSourceShouldCache as String: kCFBooleanFalse] as CFDictionary
-    private static var cache: [String:CGImage] = [:]
+    private static var cache: [String:CGImage?] = [:]
+    private static var cacheMissed: [String] = []
 
     static func icoRemote(for channel: Channel, completion: @escaping (Error?, CGImage?) -> ()) {
         workQueue.addOperation {
@@ -94,11 +95,11 @@ private struct ChannelsICORemote {
             if let image = cache[key] {
                 return completion(nil, image)
             }
-            if cache.index(forKey: key) != nil {
+            if cacheMissed.contains(key) {
                 return completion(nil, nil)
             }
             guard let url = channel.logo else {
-                cache[key] = nil
+                cacheMissed.append(key)
                 return completion(nil, nil)
             }
             do {
@@ -111,9 +112,10 @@ private struct ChannelsICORemote {
                     completion(nil, image)
                     return
                 }
-
+                logger.debug("download icon: \(url)")
                 let data = try Data(contentsOf: url)
                 guard let source = CGImageSourceCreateWithData(data as CFData, options) else {
+                    cacheMissed.append(key)
                     return completion(nil, nil)
                 }
                 let image = CGImageSourceCreateImageAtIndex(source, 0, nil)
@@ -122,11 +124,14 @@ private struct ChannelsICORemote {
                     do {
                         try data.write(to: cacheDirImage)
                     } catch {
+                        cacheMissed.append(key)
                         logger.error("\(error)")
                     }
                 }
                 completion(nil, image)
             } catch {
+                logger.error("error download \(url): \(error)")
+                cacheMissed.append(key)
                 completion(error, nil)
             }
         }

@@ -133,11 +133,9 @@ public static func builtInProviders() -> [IpTvProviderKind] {
 <img src="009.jpg"  alt=""/>
 <img src="008.jpg"  alt=""/>
 
-## Pluto TV
+## Pluto TV (EN + ES)
 
 <img src="Channels/Resources/IpTvProvider/pluto/Pluto TV.bundle/favicon.png"  width="82" height="82"  alt=""/>
-
-- USA only or use VPN with the USA ip address
 
 ```swift
 // Open file `IpTvProvider.swift`.

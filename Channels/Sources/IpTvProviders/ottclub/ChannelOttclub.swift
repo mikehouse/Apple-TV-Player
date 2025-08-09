@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal class ChannelOttclub: Channel {
+internal class ChannelOttclub: Channel, Hashable {
     let name: String
     let original: String
     let short: String
@@ -26,5 +26,13 @@ internal class ChannelOttclub: Channel {
         self.group = group
         self.logo = logo
         self.id = AnyHashable(name)
+    }
+
+    static func == (lhs: ChannelOttclub, rhs: ChannelOttclub) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }

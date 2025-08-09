@@ -9,7 +9,7 @@ import XCTest
 
 @testable import Channels
 
-final class TeleguideInfoParserTests: XCTestCase {
+final class EgpParserTests: XCTestCase {
 
     private var downloadMode = false
 
@@ -142,16 +142,16 @@ final class TeleguideInfoParserTests: XCTestCase {
         }
     }
 
-    private func parse(_ completion: @escaping (Swift.Result<TeleguideInfoParser, Error>) -> Void) {
+    private func parse(_ completion: @escaping (Swift.Result<EgpParser, Error>) -> Void) {
         DispatchQueue.global(qos: .userInteractive).async {
             let url = Bundle(for: type(of: self)).url(forResource: "epg.xml", withExtension: "gz")!
-            let xmlProvider = TeleguideInfoXmlProvider(url: url)
+            let xmlProvider = EgpProvider(url: url)
             xmlProvider.info { result in
                 switch result {
                 case .failure(let error):
                     completion(.failure(error))
                 case .success(let url):
-                    let parser = TeleguideInfoParser(url: url)
+                    let parser = EgpParser(url: url)
                     do {
                         _ = try parser.channels()
                         completion(.success(parser))

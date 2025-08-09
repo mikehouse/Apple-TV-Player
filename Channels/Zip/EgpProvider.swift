@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class TeleguideInfoXmlProvider {
+final class EgpProvider {
 
     let url: URL
 

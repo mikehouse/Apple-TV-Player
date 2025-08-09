@@ -50,9 +50,15 @@ public struct IpTvProgrammesProviders {
     public static func make(for provider: IpTvProviderKind) -> IpTvProgrammesProvider {
         switch provider {
         case .ottclub:
-            return ProgrammesFetcherOttclub()
+            return ProgrammesEgpFetcher(
+                id: provider.name,
+                url: URL(string: "http://myott.top/api/epg.xml.gz")! // https://vip-tv.org/articles/epg-iptv.html
+            )
         case .plutoTv:
-            return PlutoTvProgrammesProvider.shared
+            return ProgrammesEgpFetcher(
+                id: provider.name,
+                url: URL(string: "https://raw.github.com/matthuisman/i.mjh.nz/master/PlutoTV/us.xml.gz")! // https://github.com/HelmerLuzo/PlutoTV_HL
+            )
         case .dynamic:
             fatalError("Unsupported.")
         }
@@ -61,7 +67,7 @@ public struct IpTvProgrammesProviders {
 
 internal class ProgrammesFetcherBase: IpTvProgrammesProvider {
     private var completion: ((Error?) -> Void)?
-    private lazy var timer = Timer(timeInterval: 60 * 60 * 16, repeats: true) { [weak self] timer in
+    private lazy var timer = Timer(timeInterval: 60 * 60 * 10, repeats: true) { [weak self] timer in
         if self == nil {
             timer.invalidate()
         } else {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PlutoTvChannel: Channel {
+struct PlutoTvChannel: Channel, Hashable {
     var name: String = ""
     var original: String = ""
     var short: String = ""
@@ -15,4 +15,12 @@ struct PlutoTvChannel: Channel {
     var stream: URL
     var group: String? = nil
     var logo: URL? = nil
+    
+    static func == (lhs: PlutoTvChannel, rhs: PlutoTvChannel) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }

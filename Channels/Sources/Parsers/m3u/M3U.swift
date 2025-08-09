@@ -267,55 +267,6 @@ private extension M3U {
     }
 }
 
-private let plutoISODateFormatter: ISO8601DateFormatter = {
-    let formatter = ISO8601DateFormatter()
-    formatter.timeZone = TimeZone(secondsFromGMT: 0)
-    formatter.formatOptions.insert(.withFractionalSeconds)
-    return formatter
-}()
-
-private let userFormatter: DateFormatter = {
-    let userFormatter = DateFormatter()
-    userFormatter.dateFormat = "HH:mm"
-    return userFormatter
-}()
-
-
-private final class PlutoDateFormatter: DateFormatter, @unchecked Sendable {
-
-    private lazy var formatter = plutoISODateFormatter
-
-    override func date(from string: String) -> Date? {
-        plutoISODateFormatter.date(from: string)
-    }
-
-    override func string(from date: Date) -> String {
-        plutoISODateFormatter.string(from: date)
-    }
-}
-
-private struct PlutoChannelCredentials: Decodable {
-    let stitcherParams: String
-    let sessionToken: String
-    let EPG: [PlutoChannel]?
-}
-
-private struct PlutoChannel: Decodable {
-    let name: String
-    let timelines: [TimeLine]
-
-    struct TimeLine: Decodable {
-        let start: Date
-        let stop: Date
-        let title: String
-        let episode: Episode?
-
-        struct Episode: Decodable {
-            let name: String
-        }
-    }
-}
-
 private let urlSession = URLSession(configuration: .ephemeral)
 
 private func streamURL(from proxy: ProxyType, source: URL) throws -> URL? {
@@ -336,125 +287,6 @@ private func streamURL(from proxy: ProxyType, source: URL) throws -> URL? {
 
     var object: ProxyTypeInterface = AnyProxyType(url: nil)
     switch proxy {
-    case .pluto:
-        var headers: [String: String] = [:]
-        headers["accept"] = "*/*"
-        headers["accept-language"] = "en-GB,en;q=0.9"
-        headers["origin"] = decodeBase64(encoded: "aHR0cHM6Ly9wbHV0by50dg==")
-        headers["priority"] = "u=1, i"
-        headers["referer"] = "\(decodeBase64(encoded: "aHR0cHM6Ly9wbHV0by50dg=="))/"
-        headers["sec-ch-ua"] = "\"Chromium\";v=\"136\", \"Google Chrome\";v=\"136\", \"Not.A/Brand\";v=\"99\""
-        headers["sec-ch-ua-mobile"] = "?0"
-        headers["sec-ch-ua-platform"] = "\"macOS\""
-        headers["sec-fetch-dest"] = "empty"
-        headers["sec-fetch-mode"] = "cors"
-        headers["sec-fetch-site"] = "same-site"
-        headers["user-agent"] = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
-        let credentials: PlutoChannelCredentials
-        do {
-            let dateFormatter = PlutoDateFormatter()
-            let date = dateFormatter.string(from: Date())
-            var credentialsComponents = URLComponents(
-                // hide behind base64 base url not to get banned by TV provider if it scans Github.
-                url: URL(string: decodeBase64(encoded: "aHR0cHM6Ly9ib290LnBsdXRvLnR2L3Y0L3N0YXJ0"))!,
-                resolvingAgainstBaseURL: false
-            )!
-            credentialsComponents.queryItems = [
-                URLQueryItem(name: "appName", value: "web"),
-                URLQueryItem(name: "appVersion", value: "9.12.0-e2425380b67be936b703637b779ede1dc68f15fd"),
-                URLQueryItem(name: "deviceVersion", value: "136.0.0"),
-                URLQueryItem(name: "deviceModel", value: "web"),
-                URLQueryItem(name: "deviceMake", value: "chrome"),
-                URLQueryItem(name: "deviceType", value: "web"),
-                URLQueryItem(name: "clientID", value: (UIDevice.current.identifierForVendor ?? UUID()).uuidString.lowercased()),
-                URLQueryItem(name: "clientModelNumber", value: "1.0.0"),
-                URLQueryItem(name: "serverSideAds", value: "false"),
-                URLQueryItem(name: "drmCapabilities", value: "widevine:L3"),
-                URLQueryItem(name: "blockingMode", value: ""),
-                URLQueryItem(name: "notificationVersion", value: "1"),
-                URLQueryItem(name: "appLaunchCount", value: "0"),
-                URLQueryItem(name: "lastAppLaunchDate", value: date),
-                URLQueryItem(name: "clientTime", value: date),
-                URLQueryItem(name: "channelSlug", value: source.lastPathComponent),
-            ]
-            let credentialsUrl = credentialsComponents.url!
-//            logger.debug("Download credentials: \(credentialsUrl.absoluteString)")
-            var request = URLRequest(url: credentialsUrl)
-            request.allHTTPHeaderFields = headers
-            var error: Error?
-            var data: Data?
-            let group = DispatchGroup()
-            group.enter()
-            urlSession.dataTask(with: request) { d, _, e in
-                data = d
-                error = e
-                group.leave()
-            }.resume()
-            group.wait()
-            if let error {
-                throw error
-            }
-            let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .formatted(dateFormatter)
-            let creds = try decoder.decode(PlutoChannelCredentials.self, from: data!)
-            credentials = PlutoChannelCredentials(
-                stitcherParams: creds.stitcherParams.replacingOccurrences(of: "\\u0026", with: "&"),
-                sessionToken: creds.sessionToken,
-                EPG: creds.EPG
-            )
-
-            for epg in credentials.EPG ?? [] {
-                var list: [(String, Date, Date)] = []
-                for timeline in epg.timelines {
-                    list.append(("\(timeline.title)\(timeline.episode.map({ " (ep. \($0.name))" }) ?? "")", timeline.start, timeline.stop))
-                }
-                PlutoTvProgrammesProvider.shared.programmesRaw[epg.name] = list
-            }
-        }
-        let basePath = URL(string: decodeBase64(encoded: "aHR0cHM6Ly9jZmQtdjQtc2VydmljZS1jaGFubmVsLXN0aXRjaGVyLXVzZTEtMS5wcmQucGx1dG8udHYvdjIvc3RpdGNoL2hscy9jaGFubmVs"))!
-        let baseURL = basePath.appendingPathComponent(source.lastPathComponent)
-        var stream = URL(string: "\(baseURL.absoluteString)/master.m3u8?\(credentials.stitcherParams)")!
-        stream = stream.absoluteString.removingPercentEncoding.flatMap({ URL(string: $0) }) ?? stream
-        // Will contain such queries:
-        // advertisingId, appName, appVersion, app_name, clientDeviceType, clientID, clientModelNumber, country
-        // deviceDNT, deviceId, deviceLat, deviceLon, deviceMake, deviceModel, deviceType, deviceVersion
-        // marketingRegion, serverSideAds, sessionID, sid, userId
-        var streamComponents = URLComponents(url: stream, resolvingAgainstBaseURL: false)!
-        var streamQueries: [URLQueryItem] = streamComponents.queryItems ?? []
-        streamQueries.append(.init(name: "jwt", value: credentials.sessionToken))
-        streamQueries.append(.init(name: "masterJWTPassthrough", value: "true"))
-        streamQueries.append(.init(name: "includeExtendedEvents", value: "true"))
-        streamComponents.queryItems = streamQueries
-        var request = URLRequest(url: streamComponents.url!)
-        request.allHTTPHeaderFields = headers
-//        logger.debug("\(streamComponents.url!.absoluteString)")
-        var error: Error?
-        var data: Data?
-        Thread.sleep(forTimeInterval: 0.5)
-        let group = DispatchGroup()
-        group.enter()
-        urlSession.dataTask(with: request) { d, _, e in
-            data = d
-            error = e
-            group.leave()
-        }.resume()
-        group.wait()
-        if let error {
-            throw error
-        }
-        let m3u = M3U(data: data!) { maybeURL in
-            URL(string: maybeURL) != nil
-        }
-        try m3u.parse()
-        guard !m3u.items.isEmpty else {
-            throw NSError(domain: "m3u.empty", code: -1, userInfo: [
-                NSLocalizedDescriptionKey: source.absoluteString
-            ])
-        }
-        let items = m3u.items.sorted(by: { $0.bandwidth ?? 0 > $1.bandwidth ?? 0 })
-        var streamURL = baseURL.appendingPathComponent(items[0].url.absoluteString)
-        streamURL = streamURL.absoluteString.removingPercentEncoding.flatMap({ URL(string: $0) }) ?? streamURL
-        object = AnyProxyType(url: streamURL)
     case .stb:
         let data = try Data(contentsOf: source)
         let decoder = JSONDecoder()
@@ -490,7 +322,6 @@ private var proxiesCacheLock = NSLock()
 
 private enum ProxyType: String {
     case stb
-    case pluto
     case onltvone_comedy
 }
 
@@ -534,7 +365,7 @@ private final class ProxyCache: Equatable, ProxyTypeInterface {
         switch proxy {
         case .stb:
             return TimeInterval(60 * 60 * 23)
-        case .onltvone_comedy, .pluto:
+        case .onltvone_comedy:
             return TimeInterval(60 * 1)
         }
     }

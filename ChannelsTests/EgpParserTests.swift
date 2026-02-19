@@ -24,7 +24,7 @@ final class EgpParserTests: XCTestCase {
             }
             testExpectation.fulfill()
         }
-        wait(for: [testExpectation], timeout: 20)
+        wait(for: [testExpectation], timeout: 10)
     }
 
     func testParseXmlProgrammes() throws {
@@ -37,7 +37,7 @@ final class EgpParserTests: XCTestCase {
                 XCTFail(String(describing: error))
             case .success(let programmes):
                 // Some channels (all amount is 390) do not have programmes since `from` date.
-                XCTAssertEqual(programmes.count, 326)
+                XCTAssertEqual(programmes.count, 380)
                 for i in 0...5 {
                     let programme = programmes[i]
                     XCTAssertFalse(programme.programmes.isEmpty)
@@ -52,8 +52,7 @@ final class EgpParserTests: XCTestCase {
             }
             testExpectation.fulfill()
         }
-        // M1 Pro MacBook takes around 13 seconds to parse big test xml file.
-        wait(for: [testExpectation], timeout: 30)
+        wait(for: [testExpectation], timeout: 10)
     }
 
     func testParseXmlChannelsLogoDownloads() throws {

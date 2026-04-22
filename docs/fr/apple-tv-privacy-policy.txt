@@ -1,0 +1,42 @@
+Politique de confidentialité
+
+Dernière mise à jour : 23 avril 2026
+
+Bro IPTV Player est un lecteur de playlists M3U et M3U8 pour iPhone, iPad, Mac et Apple TV. L'application ne nécessite pas de création de compte et n'inclut ni chaînes, ni contenus multimédias, ni playlists intégrées.
+
+Informations que vous pouvez fournir :
+- URL de playlists
+- URL EPG facultatives
+- URL d'image ou de logo facultatives
+- Fichiers de playlist importés
+
+Ces informations sont utilisées uniquement pour charger, traiter et afficher le contenu que vous demandez.
+
+Les informations stockées sur votre appareil peuvent inclure :
+- Playlists enregistrées et métadonnées associées
+- Paramètres de l'application et préférences de lecture
+- Images de playlist mises en cache et données de guide des programmes
+
+Informations envoyées hors de l'appareil :
+- Les URL de playlist, d'EPG et d'image ou de logo fournies par l'utilisateur sont demandées uniquement pour récupérer le contenu que vous choisissez de charger
+- Firebase Analytics est utilisé pour comprendre l'utilisation de l'application et les installations
+- Firebase Crashlytics est utilisé pour recevoir des rapports de plantage et des diagnostics afin d'améliorer la stabilité de l'application
+
+Utilisation des données :
+- Pour charger et afficher les playlists et flux fournis par l'utilisateur
+- Pour fournir des fonctionnalités telles que la gestion des playlists, la lecture, l'EPG et les logos
+- Pour mesurer l'utilisation de l'application à un niveau agrégé et comprendre le comportement du produit
+- Pour diagnostiquer les plantages, les erreurs et les problèmes de stabilité
+
+Publicité et suivi :
+- L'application n'affiche pas de publicités tierces
+- L'application n'utilise pas vos données pour un suivi inter-applications ou inter-sites
+- L'application ne vend pas de données personnelles
+
+Services tiers :
+- Google Firebase Analytics
+- Google Firebase Crashlytics
+
+Contact :
+Pour toute question relative à la confidentialité ou à l'assistance, contactez le développeur via le dépôt du projet :
+https://github.com/mikehouse/Apple-TV-Player/issues

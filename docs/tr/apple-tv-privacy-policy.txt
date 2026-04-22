@@ -1,0 +1,42 @@
+Gizlilik Politikası
+
+Son güncelleme: 23 Nisan 2026
+
+Bro IPTV Player, iPhone, iPad, Mac ve Apple TV için bir M3U ve M3U8 oynatma listesi oynatıcısıdır. Uygulama hesap kaydı gerektirmez ve yerleşik kanal, medya veya oynatma listesi içermez.
+
+Sağlayabileceğiniz bilgiler:
+- Oynatma listesi URL'leri
+- İsteğe bağlı EPG URL'leri
+- İsteğe bağlı görsel veya logo URL'leri
+- İçe aktarılan oynatma listesi dosyaları
+
+Bu bilgiler yalnızca sizin istediğiniz içeriği yüklemek, işlemek ve göstermek için kullanılır.
+
+Cihazınızda depolanan bilgiler şunları içerebilir:
+- Kaydedilen oynatma listeleri ve ilgili meta veriler
+- Uygulama ayarları ve oynatma tercihleri
+- Önbelleğe alınmış oynatma listesi görselleri ve program rehberi verileri
+
+Cihaz dışına gönderilen bilgiler:
+- Kullanıcı tarafından sağlanan oynatma listesi, EPG ve görsel veya logo URL'leri yalnızca yüklemeyi seçtiğiniz içeriği getirmek için istenir
+- Firebase Analytics, uygulama kullanımı ve kurulumlarını anlamak için kullanılır
+- Firebase Crashlytics, uygulama kararlılığını iyileştirmek amacıyla çökme raporları ve teşhis verilerini almak için kullanılır
+
+Veriler nasıl kullanılır:
+- Kullanıcı tarafından sağlanan oynatma listelerini ve akışları yüklemek ve göstermek için
+- Oynatma listesi yönetimi, oynatma, EPG ve logolar gibi özellikler sunmak için
+- Uygulama kullanımını toplu düzeyde ölçmek ve ürün davranışını anlamak için
+- Çökmeleri, hataları ve kararlılık sorunlarını teşhis etmek için
+
+Reklam ve takip:
+- Uygulama üçüncü taraf reklamlarını göstermez
+- Uygulama verilerinizi uygulamalar veya web siteleri arasında takip amacıyla kullanmaz
+- Uygulama kişisel verileri satmaz
+
+Üçüncü taraf hizmetleri:
+- Google Firebase Analytics
+- Google Firebase Crashlytics
+
+İletişim:
+Gizlilik veya destek soruları için, proje deposu aracılığıyla geliştiriciyle iletişime geçin:
+https://github.com/mikehouse/Apple-TV-Player/issues

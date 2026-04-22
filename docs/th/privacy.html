@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>นโยบายความเป็นส่วนตัวของ Bro IPTV Player</title>
+  <meta
+    name="description"
+    content="นโยบายความเป็นส่วนตัวสำหรับ Bro IPTV Player บน iOS, iPadOS, macOS และ tvOS"
+  >
+  <style>
+    :root {
+      --bg: #f5f1e8;
+      --card: rgba(255, 250, 243, 0.9);
+      --text: #1f2328;
+      --muted: #5c554c;
+      --accent: #c65d31;
+      --border: rgba(31, 35, 40, 0.12);
+      --shadow: 0 24px 80px rgba(68, 39, 17, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(198, 93, 49, 0.2), transparent 28%),
+        radial-gradient(circle at top right, rgba(63, 129, 173, 0.14), transparent 24%),
+        linear-gradient(180deg, #fbf7ef 0%, var(--bg) 100%);
+    }
+
+    .page {
+      width: min(880px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 72px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      padding: 36px 32px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+      line-height: 1.08;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 6vw, 3.8rem);
+      max-width: 12ch;
+    }
+
+    h2 {
+      margin-top: 30px;
+      margin-bottom: 14px;
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+    }
+
+    p,
+    li {
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.64);
+      color: var(--text);
+    }
+
+    .note {
+      margin-top: 28px;
+      padding: 18px 20px;
+      border-radius: 20px;
+      background: rgba(198, 93, 49, 0.08);
+      border: 1px solid rgba(198, 93, 49, 0.18);
+    }
+
+    a {
+      color: #8f3f20;
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(100% - 20px, 880px);
+        padding: 20px 0 40px;
+      }
+
+      .card {
+        border-radius: 22px;
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <article class="card">
+      <p class="eyebrow">นโยบายความเป็นส่วนตัว</p>
+      <h1>Bro IPTV Player</h1>
+      <p>อัปเดตล่าสุด: 23 เมษายน 2026</p>
+
+      <p>
+        Bro IPTV Player เป็นเครื่องเล่นเพลย์ลิสต์ M3U และ M3U8 สำหรับ iPhone, iPad, Mac และ Apple TV
+        แอปนี้ไม่ต้องลงทะเบียนบัญชี และไม่มีช่อง,
+        สื่อ หรือเพลย์ลิสต์ที่ติดตั้งมาในตัว
+      </p>
+
+      <h2>ข้อมูลที่คุณให้</h2>
+      <ul>
+        <li>คุณสามารถเพิ่ม URL เพลย์ลิสต์, URL EPG แบบไม่บังคับ, URL รูปภาพหรือโลโก้แบบไม่บังคับ หรือจะนำเข้าไฟล์เพลย์ลิสต์ก็ได้</li>
+        <li>ข้อมูลนี้ใช้เพื่อโหลด ประมวลผล และแสดงเนื้อหาที่คุณร้องขอเท่านั้น</li>
+        <li>หากคุณเปิดใช้การป้องกันด้วย PIN ข้อมูลเพลย์ลิสต์ที่เก็บไว้ในอุปกรณ์อาจถูกเข้ารหัสภายในเครื่อง</li>
+      </ul>
+
+      <h2>ข้อมูลที่จัดเก็บไว้ในอุปกรณ์ของคุณ</h2>
+      <ul>
+        <li>เพลย์ลิสต์ที่บันทึกไว้และข้อมูลเมตาที่เกี่ยวข้อง</li>
+        <li>การตั้งค่าแอปและค่ากำหนดที่เกี่ยวข้องกับการเล่น</li>
+        <li>รูปภาพเพลย์ลิสต์ที่แคชไว้และข้อมูลผังรายการเมื่อจำเป็นต่อฟีเจอร์ของแอป</li>
+      </ul>
+
+      <h2>ข้อมูลที่ส่งออกนอกอุปกรณ์</h2>
+      <ul>
+        <li>URL เพลย์ลิสต์, EPG และรูปภาพหรือโลโก้ที่ผู้ใช้ระบุ จะถูกเรียกผ่านเครือข่ายเฉพาะเพื่อดึงเนื้อหาที่คุณสั่งให้แอปแสดงเท่านั้น</li>
+        <li>Firebase Analytics ใช้เพื่อทำความเข้าใจการใช้งานแอปและการติดตั้ง</li>
+        <li>Firebase Crashlytics ใช้เพื่อรับรายงานการขัดข้องและข้อมูลวินิจฉัยที่ช่วยปรับปรุงเสถียรภาพของแอป</li>
+      </ul>
+
+      <h2>การใช้ข้อมูล</h2>
+      <ul>
+        <li>เพื่อโหลดและแสดงเพลย์ลิสต์และสตรีมที่ผู้ใช้ให้มา</li>
+        <li>เพื่อให้บริการฟีเจอร์ต่างๆ เช่น การจัดการเพลย์ลิสต์ การเล่น EPG และโลโก้</li>
+        <li>เพื่อวัดการใช้งานแอปในภาพรวมและทำความเข้าใจพฤติกรรมของผลิตภัณฑ์</li>
+        <li>เพื่อวินิจฉัยการขัดข้อง ข้อผิดพลาด และปัญหาด้านเสถียรภาพ</li>
+      </ul>
+
+      <h2>โฆษณาและการติดตาม</h2>
+      <ul>
+        <li>แอปนี้ไม่แสดงโฆษณาจากบุคคลที่สาม</li>
+        <li>แอปนี้ไม่ใช้ข้อมูลของคุณเพื่อติดตามข้ามแอปหรือข้ามเว็บไซต์</li>
+        <li>แอปนี้ไม่ขายข้อมูลส่วนบุคคล</li>
+      </ul>
+
+      <h2>บริการของบุคคลที่สาม</h2>
+      <p>
+        แอปนี้ใช้บริการ Google Firebase รวมถึง Firebase Analytics และ Firebase
+        Crashlytics
+      </p>
+
+      <h2>ตัวเลือกของคุณ</h2>
+      <ul>
+        <li>คุณสามารถลบเพลย์ลิสต์ออกจากแอปได้ทุกเมื่อ</li>
+        <li>คุณสามารถเลือกได้ว่าจะเพิ่มหรือนำเข้าเพลย์ลิสต์, EPG หรือแหล่งรูปภาพหรือไม่</li>
+        <li>คุณสามารถหยุดใช้แอปได้ทุกเมื่อ และลบข้อมูลแอปที่จัดเก็บไว้ภายในอุปกรณ์ของคุณ</li>
+      </ul>
+
+      <h2>ติดต่อ</h2>
+      <p>
+        หากมีคำถามเกี่ยวกับความเป็นส่วนตัวหรือการสนับสนุน โปรดติดต่อผู้พัฒนาผ่านคลังโครงการ:
+        <a href="https://github.com/mikehouse/Apple-TV-Player/issues">GitHub Issues</a>.
+      </p>
+
+      <div class="note">
+        <p>
+          นโยบายนี้ใช้กับแอป Bro IPTV Player ที่เผยแพร่ผ่านแพลตฟอร์มของ Apple
+          หากแนวทางการจัดการข้อมูลของแอปเปลี่ยนแปลง นโยบายนี้จะได้รับการอัปเดต
+        </p>
+      </div>
+
+      <div class="actions">
+        <a class="button" href="../">กลับไปยังหน้าสนับสนุน</a>
+        <a class="button" href="https://github.com/mikehouse/Apple-TV-Player">ซอร์สโค้ด</a>
+      </div>
+    </article>
+  </main>
+</body>
+</html>

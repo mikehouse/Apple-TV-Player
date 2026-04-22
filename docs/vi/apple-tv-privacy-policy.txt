@@ -1,0 +1,42 @@
+Chính sách quyền riêng tư
+
+Cập nhật lần cuối: 23 tháng 4 năm 2026
+
+Bro IPTV Player là trình phát danh sách phát M3U và M3U8 cho iPhone, iPad, Mac và Apple TV. Ứng dụng không yêu cầu đăng ký tài khoản và không bao gồm kênh, nội dung media hoặc danh sách phát tích hợp sẵn.
+
+Thông tin bạn có thể cung cấp:
+- URL danh sách phát
+- URL EPG tùy chọn
+- URL hình ảnh hoặc logo tùy chọn
+- Tệp danh sách phát đã nhập
+
+Thông tin này chỉ được sử dụng để tải, xử lý và hiển thị nội dung do bạn yêu cầu.
+
+Thông tin được lưu trên thiết bị của bạn có thể bao gồm:
+- Danh sách phát đã lưu và siêu dữ liệu liên quan
+- Cài đặt ứng dụng và tùy chọn phát
+- Hình ảnh danh sách phát được lưu trong bộ nhớ đệm và dữ liệu lịch chương trình
+
+Thông tin được gửi ra ngoài thiết bị:
+- URL danh sách phát, EPG và hình ảnh hoặc logo do người dùng cung cấp chỉ được yêu cầu để lấy nội dung bạn chọn tải
+- Firebase Analytics được sử dụng để hiểu cách ứng dụng được sử dụng và được cài đặt
+- Firebase Crashlytics được sử dụng để nhận báo cáo sự cố và dữ liệu chẩn đoán nhằm cải thiện độ ổn định của ứng dụng
+
+Dữ liệu được sử dụng như thế nào:
+- Để tải và hiển thị danh sách phát và luồng phát do người dùng cung cấp
+- Để cung cấp các tính năng như quản lý danh sách phát, phát, EPG và logo
+- Để đo lường mức sử dụng ứng dụng ở cấp độ tổng hợp và hiểu hành vi sản phẩm
+- Để chẩn đoán sự cố, lỗi và vấn đề ổn định
+
+Quảng cáo và theo dõi:
+- Ứng dụng không hiển thị quảng cáo của bên thứ ba
+- Ứng dụng không sử dụng dữ liệu của bạn để theo dõi giữa các ứng dụng hoặc trang web
+- Ứng dụng không bán dữ liệu cá nhân
+
+Dịch vụ bên thứ ba:
+- Google Firebase Analytics
+- Google Firebase Crashlytics
+
+Liên hệ:
+Nếu có câu hỏi về quyền riêng tư hoặc hỗ trợ, vui lòng liên hệ nhà phát triển qua kho dự án:
+https://github.com/mikehouse/Apple-TV-Player/issues

@@ -1,0 +1,42 @@
+Kebijakan Privasi
+
+Terakhir diperbarui: 23 April 2026
+
+Bro IPTV Player adalah pemutar playlist M3U dan M3U8 untuk iPhone, iPad, Mac, dan Apple TV. Aplikasi ini tidak memerlukan pendaftaran akun dan tidak menyertakan saluran, media, atau playlist bawaan.
+
+Informasi yang dapat Anda berikan:
+- URL playlist
+- URL EPG opsional
+- URL gambar atau logo opsional
+- File playlist yang diimpor
+
+Informasi ini hanya digunakan untuk memuat, memproses, dan menampilkan konten yang Anda minta.
+
+Informasi yang disimpan di perangkat Anda dapat mencakup:
+- Playlist yang disimpan dan metadata terkait
+- Pengaturan aplikasi dan preferensi pemutaran
+- Gambar playlist yang di-cache dan data panduan program
+
+Informasi yang dikirim ke luar perangkat:
+- URL playlist, EPG, dan gambar atau logo yang diberikan pengguna diminta hanya untuk mengambil konten yang Anda pilih untuk dimuat
+- Firebase Analytics digunakan untuk memahami penggunaan aplikasi dan instalasi
+- Firebase Crashlytics digunakan untuk menerima laporan crash dan data diagnostik guna meningkatkan stabilitas aplikasi
+
+Bagaimana data digunakan:
+- Untuk memuat dan menampilkan playlist serta stream yang diberikan pengguna
+- Untuk menyediakan fitur seperti pengelolaan playlist, pemutaran, EPG, dan logo
+- Untuk mengukur penggunaan aplikasi pada tingkat agregat dan memahami perilaku produk
+- Untuk mendiagnosis crash, error, dan masalah stabilitas
+
+Iklan dan pelacakan:
+- Aplikasi ini tidak menampilkan iklan pihak ketiga
+- Aplikasi ini tidak menggunakan data Anda untuk pelacakan lintas aplikasi atau lintas situs web
+- Aplikasi ini tidak menjual data pribadi
+
+Layanan pihak ketiga:
+- Google Firebase Analytics
+- Google Firebase Crashlytics
+
+Kontak:
+Untuk pertanyaan privasi atau dukungan, hubungi pengembang melalui repositori proyek:
+https://github.com/mikehouse/Apple-TV-Player/issues

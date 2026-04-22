@@ -1,0 +1,8 @@
+#EXTM3U
+# Review-only sample playlist for App Store Review.
+# Uses Apple's documented HLS example stream.
+# Source:
+# https://developer.apple.com/documentation/http-live-streaming/deploying-a-basic-http-live-streaming-hls-stream
+
+#EXTINF:-1 group-title="App Review",Apple HLS Sample
+http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8

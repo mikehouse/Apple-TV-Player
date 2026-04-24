@@ -1,0 +1,58 @@
+{
+    "playlists": [
+        {
+            "original": "News",
+            "name": "Новости",
+            "lang": "ru",
+            "url": "http://localhost:${port}/playlist?name=News&lang=ru",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=News&lang=ru",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=News&lang=ru",
+            "url-img": "http://localhost:${port}/playlist-images?name=News&lang=ru"
+        },
+        {
+            "original": "Entertainment",
+            "name": "Развлечения",
+            "lang": "ru",
+            "url": "http://localhost:${port}/playlist?name=Entertainment&lang=ru",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Entertainment&lang=ru",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Entertainment&lang=ru",
+            "url-img": "http://localhost:${port}/playlist-images?name=Entertainment&lang=ru"
+        },
+        {
+            "original": "Music",
+            "name": "Музыка",
+            "lang": "ru",
+            "url": "http://localhost:${port}/playlist?name=Music&lang=ru",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Music&lang=ru",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Music&lang=ru",
+            "url-img": "http://localhost:${port}/playlist-images?name=Music&lang=ru"
+        },
+        {
+            "original": "Sports",
+            "name": "Спорт",
+            "lang": "ru",
+            "url": "http://localhost:${port}/playlist?name=Sports&lang=ru",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Sports&lang=ru",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Sports&lang=ru",
+            "url-img": "http://localhost:${port}/playlist-images?name=Sports&lang=ru"
+        },
+        {
+            "original": "Travel",
+            "name": "Путешествия",
+            "lang": "ru",
+            "url": "http://localhost:${port}/playlist?name=Travel&lang=ru",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Travel&lang=ru",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Travel&lang=ru",
+            "url-img": "http://localhost:${port}/playlist-images?name=Travel&lang=ru"
+        },
+        {
+            "original": "Movies",
+            "name": "Фильмы",
+            "lang": "ru",
+            "url": "http://localhost:${port}/playlist?name=Movies&lang=ru",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Movies&lang=ru",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Movies&lang=ru",
+            "url-img": "http://localhost:${port}/playlist-images?name=Movies&lang=ru"
+        }
+    ]
+}

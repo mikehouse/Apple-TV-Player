@@ -1,0 +1,7 @@
+#EXTM3U url-tvg="${INSERT_TVG_TEST_BUNDLE_URL_HERE}"
+
+#EXTINF:-1 tvg-id="673247127d5da5000817b4d6" tvg-name="Pluto TV Trending Now" tvg-logo="https://images.pluto.tv/channels/673247127d5da5000817b4d6/colorLogoPNG_1732662634386.png" group-title="Movies" tvg-chno="5", Pluto TV Trending Now
+https://stitcher.pluto.tv/stitch/hls/channel/673247127d5da5000817b4d6/master.m3u8
+
+#EXTINF:-1 tvg-id="5ba3fb9c4b078e0f37ad34e8" tvg-name="Pluto TV Spotlight" tvg-logo="https://images.pluto.tv/channels/5ba3fb9c4b078e0f37ad34e8/colorLogoPNG.png" group-title="Movies" tvg-chno="10", Pluto TV Spotlight
+https://stitcher.pluto.tv/stitch/hls/channel/5ba3fb9c4b078e0f37ad34e8/master.m3u8

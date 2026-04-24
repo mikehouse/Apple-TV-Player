@@ -1,0 +1,30 @@
+{
+  "configurations" : [
+    {
+      "id" : "33086396-9791-4C19-8851-65B0B091FAB8",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "language" : "en",
+    "performanceAntipatternCheckerEnabled" : true,
+    "preferredScreenCaptureFormat" : "screenshot",
+    "region" : "US",
+    "uiTestingScreenshotsLifetime" : "keepNever",
+    "userAttachmentLifetime" : "keepNever"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:AppleTVMultiplatform.xcodeproj",
+        "identifier" : "820B7D822F5F2C5E0043DE13",
+        "name" : "AppleTVMultiplatformTests"
+      }
+    }
+  ],
+  "version" : 1
+}

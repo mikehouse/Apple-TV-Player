@@ -1,0 +1,20 @@
+#EXTM3U
+
+#EXTINF:-1 tvg-id="1" group-title="映画", コメディ
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="2" group-title="映画", アクション
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="3" group-title="映画", ドラマ
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="4" group-title="映画", ロマンス
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="5" group-title="映画", スリラー
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="6" group-title="映画", 西部劇
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="7" group-title="映画", シットコム
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="8" group-title="映画", クラシック
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="9" group-title="映画", SF
+https://example.tv/master.m3u8

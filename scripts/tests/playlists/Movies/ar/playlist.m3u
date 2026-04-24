@@ -1,0 +1,20 @@
+#EXTM3U
+
+#EXTINF:-1 tvg-id="1" group-title="الأفلام", كوميديا
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="2" group-title="الأفلام", أكشن
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="3" group-title="الأفلام", دراما
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="4" group-title="الأفلام", رومانسية
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="5" group-title="الأفلام", إثارة
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="6" group-title="الأفلام", ويسترن
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="7" group-title="الأفلام", مسلسلات كوميدية
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="8" group-title="الأفلام", كلاسيكيات
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="9" group-title="الأفلام", خيال علمي
+https://example.tv/master.m3u8

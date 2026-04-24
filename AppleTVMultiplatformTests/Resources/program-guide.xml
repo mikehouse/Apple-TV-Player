@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tv generator-info-name="OTTCLUB">
+    <channel id="673247127d5da5000817b4d6">
+        <display-name>Pluto TV Trending Now</display-name>
+        <icon src="https://images.pluto.tv/channels/673247127d5da5000817b4d6/colorLogoPNG_1732662634386.png"/>
+    </channel>
+    <channel id="5ba3fb9c4b078e0f37ad34e8">
+        <display-name>Pluto TV Spotlight</display-name>
+        <icon src="https://images.pluto.tv/channels/5ba3fb9c4b078e0f37ad34e8/colorLogoPNG.png"/>
+    </channel>
+    <programme channel="673247127d5da5000817b4d6" start="20260218135322 +0000" stop="20260218142222 +0000">
+        <title>Maggie and the Ferocious Beast</title>
+    </programme>
+    <programme channel="673247127d5da5000817b4d6" start="20260218142222 +0000" stop="20260218145122 +0000">
+        <title>Maggie and the Ferocious Beast</title>
+    </programme>
+    <programme channel="5ba3fb9c4b078e0f37ad34e8" start="20260218145122 +0000" stop="20260218152022 +0000">
+        <title>Maggie and the Ferocious Beast</title>
+    </programme>
+    <programme channel="5ba3fb9c4b078e0f37ad34e8" start="20260218152022 +0000" stop="20260218154922 +0000">
+        <title>Maggie and the Ferocious Beast</title>
+    </programme>
+</tv>

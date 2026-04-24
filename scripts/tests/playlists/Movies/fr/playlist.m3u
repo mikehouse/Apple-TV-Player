@@ -1,0 +1,20 @@
+#EXTM3U
+
+#EXTINF:-1 tvg-id="1" group-title="Films", Comédie
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="2" group-title="Films", Action
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="3" group-title="Films", Drame
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="4" group-title="Films", Romance
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="5" group-title="Films", Thrillers
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="6" group-title="Films", Westerns
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="7" group-title="Films", Sitcoms
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="8" group-title="Films", Classiques
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="9" group-title="Films", Science-fiction
+https://example.tv/master.m3u8

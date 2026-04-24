@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tv>
+    <channel id="2">
+        <display-name>แอ็กชัน</display-name>
+    </channel>
+    <channel id="1">
+        <display-name>ตลก</display-name>
+    </channel>
+    <programme channel="2" start="20240101080000 +0000" stop="20241131100000 +0000">
+        <title>แมด แม็กซ์</title>
+    </programme>
+    <programme channel="2" start="20250101100000 +0000" stop="20251131120000 +0000">
+        <title>อัศวินรัตติกาล</title>
+    </programme>
+    <programme channel="2" start="20260101120000 +0000" stop="20301131140000 +0000">
+        <title>ท็อปกัน</title>
+    </programme>
+    <programme channel="1" start="20240101080000 +0000" stop="20241131100000 +0000">
+        <title>21 จัมป์ สตรีท</title>
+    </programme>
+    <programme channel="1" start="20250101100000 +0000" stop="20251131120000 +0000">
+        <title>ปาล์มสปริงส์</title>
+    </programme>
+    <programme channel="1" start="20260101120000 +0000" stop="20301131140000 +0000">
+        <title>พักร้อน</title>
+    </programme>
+</tv>

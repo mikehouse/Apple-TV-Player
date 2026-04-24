@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="124" height="124" viewBox="0 0 124 124" fill="none">
+  <defs>
+    <clipPath id="music-clip">
+      <rect width="124" height="124" rx="28"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#music-clip)">
+  <rect width="124" height="124" rx="28" fill="#233E97"/>
+  <circle cx="108" cy="16" r="28" fill="white" fill-opacity="0.08"/>
+  <rect x="16" y="16" width="92" height="92" rx="26" fill="white" fill-opacity="0.14" stroke="white" stroke-opacity="0.22" stroke-width="2"/>
+  <circle cx="66" cy="70" r="12" fill="white" fill-opacity="0.94"/>
+  <circle cx="46" cy="76" r="12" fill="white" fill-opacity="0.78"/>
+  <path d="M78 42V72C78 75 75.5 77.5 72.5 77.5H66.5C63.5 77.5 61 75 61 72V49.6L78 42Z" fill="white" fill-opacity="0.94"/>
+  <path d="M58 48V77.6C58 80.6 55.5 83 52.5 83H46.5C43.5 83 41 80.6 41 77.6V54.5L58 48Z" fill="white" fill-opacity="0.94"/>
+  <path d="M58 48L78 42" stroke="#0F172A" stroke-opacity="0.75" stroke-width="4" stroke-linecap="round"/>
+  <path d="M58 48V55" stroke="#0F172A" stroke-opacity="0.4" stroke-width="3" stroke-linecap="round"/>
+  <path d="M78 42V49" stroke="#0F172A" stroke-opacity="0.4" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>

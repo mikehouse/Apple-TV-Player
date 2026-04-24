@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="124" height="124" viewBox="0 0 124 124" fill="none">
+  <defs>
+    <clipPath id="sports-clip">
+      <rect width="124" height="124" rx="28"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#sports-clip)">
+  <rect width="124" height="124" rx="28" fill="#157A56"/>
+  <circle cx="108" cy="16" r="28" fill="white" fill-opacity="0.08"/>
+  <rect x="16" y="16" width="92" height="92" rx="26" fill="white" fill-opacity="0.14" stroke="white" stroke-opacity="0.22" stroke-width="2"/>
+  <circle cx="86" cy="38" r="8" fill="#D8FFD2" fill-opacity="0.4"/>
+  <path d="M48 42H75L70 55C69.1 57.5 66.7 59 64 59H59C56.3 59 53.9 57.5 53 55L48 42Z" fill="white" fill-opacity="0.94"/>
+  <path d="M75 42H80C82.8 42 85 44.2 85 47C85 53.1 79.9 58 73.8 58H69" stroke="white" stroke-opacity="0.94" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M48 42H43C40.2 42 38 44.2 38 47C38 53.1 43.1 58 49.2 58H54" stroke="white" stroke-opacity="0.94" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="58" y="59" width="7" height="12" rx="2" fill="white" fill-opacity="0.94"/>
+  <rect x="48" y="71" width="27" height="6" rx="3" fill="white" fill-opacity="0.94"/>
+  </g>
+</svg>

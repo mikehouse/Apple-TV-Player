@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="124" height="124" viewBox="0 0 124 124" fill="none">
+  <defs>
+    <clipPath id="travel-clip">
+      <rect width="124" height="124" rx="28"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#travel-clip)">
+  <rect width="124" height="124" rx="28" fill="#1189C9"/>
+  <circle cx="108" cy="16" r="28" fill="white" fill-opacity="0.08"/>
+  <rect x="16" y="16" width="92" height="92" rx="26" fill="white" fill-opacity="0.14" stroke="white" stroke-opacity="0.22" stroke-width="2"/>
+  <circle cx="84" cy="40" r="8" fill="#E9FFF8" fill-opacity="0.42"/>
+  <path d="M40 63L55.5 58.8L71.5 42.5C73.7 40.3 77.3 40.3 79.5 42.5L81.6 44.6C83.8 46.8 83.8 50.4 81.6 52.6L65.4 68.6L61.2 84L54.7 77.5L48.3 79.7L45.8 77.2L48 70.8L40 63Z" fill="white" fill-opacity="0.94"/>
+  <path d="M57.4 61L67.3 70.9" stroke="#0076B8" stroke-opacity="0.52" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>

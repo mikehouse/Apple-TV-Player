@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tv>
+    <channel id="2">
+        <display-name>أكشن</display-name>
+    </channel>
+    <channel id="1">
+        <display-name>كوميديا</display-name>
+    </channel>
+    <programme channel="2" start="20240101080000 +0000" stop="20241131100000 +0000">
+        <title>ماد ماكس</title>
+    </programme>
+    <programme channel="2" start="20250101100000 +0000" stop="20251131120000 +0000">
+        <title>فارس الظلام</title>
+    </programme>
+    <programme channel="2" start="20260101120000 +0000" stop="20301131140000 +0000">
+        <title>توب غان</title>
+    </programme>
+    <programme channel="1" start="20240101080000 +0000" stop="20241131100000 +0000">
+        <title>21 شارع جامب</title>
+    </programme>
+    <programme channel="1" start="20250101100000 +0000" stop="20251131120000 +0000">
+        <title>بالم سبرينغز</title>
+    </programme>
+    <programme channel="1" start="20260101120000 +0000" stop="20301131140000 +0000">
+        <title>إجازة</title>
+    </programme>
+</tv>

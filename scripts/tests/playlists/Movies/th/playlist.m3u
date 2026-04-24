@@ -1,0 +1,20 @@
+#EXTM3U
+
+#EXTINF:-1 tvg-id="1" group-title="ภาพยนตร์", ตลก
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="2" group-title="ภาพยนตร์", แอ็กชัน
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="3" group-title="ภาพยนตร์", ดราม่า
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="4" group-title="ภาพยนตร์", โรแมนติก
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="5" group-title="ภาพยนตร์", ระทึกขวัญ
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="6" group-title="ภาพยนตร์", คาวบอย
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="7" group-title="ภาพยนตร์", ซิตคอม
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="8" group-title="ภาพยนตร์", คลาสสิก
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="9" group-title="ภาพยนตร์", ไซไฟ
+https://example.tv/master.m3u8

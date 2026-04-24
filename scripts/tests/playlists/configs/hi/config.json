@@ -1,0 +1,58 @@
+{
+    "playlists": [
+        {
+            "original": "News",
+            "name": "समाचार",
+            "lang": "hi",
+            "url": "http://localhost:${port}/playlist?name=News&lang=hi",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=News&lang=hi",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=News&lang=hi",
+            "url-img": "http://localhost:${port}/playlist-images?name=News&lang=hi"
+        },
+        {
+            "original": "Entertainment",
+            "name": "मनोरंजन",
+            "lang": "hi",
+            "url": "http://localhost:${port}/playlist?name=Entertainment&lang=hi",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Entertainment&lang=hi",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Entertainment&lang=hi",
+            "url-img": "http://localhost:${port}/playlist-images?name=Entertainment&lang=hi"
+        },
+        {
+            "original": "Music",
+            "name": "संगीत",
+            "lang": "hi",
+            "url": "http://localhost:${port}/playlist?name=Music&lang=hi",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Music&lang=hi",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Music&lang=hi",
+            "url-img": "http://localhost:${port}/playlist-images?name=Music&lang=hi"
+        },
+        {
+            "original": "Sports",
+            "name": "खेल",
+            "lang": "hi",
+            "url": "http://localhost:${port}/playlist?name=Sports&lang=hi",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Sports&lang=hi",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Sports&lang=hi",
+            "url-img": "http://localhost:${port}/playlist-images?name=Sports&lang=hi"
+        },
+        {
+            "original": "Travel",
+            "name": "यात्रा",
+            "lang": "hi",
+            "url": "http://localhost:${port}/playlist?name=Travel&lang=hi",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Travel&lang=hi",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Travel&lang=hi",
+            "url-img": "http://localhost:${port}/playlist-images?name=Travel&lang=hi"
+        },
+        {
+            "original": "Movies",
+            "name": "फिल्में",
+            "lang": "hi",
+            "url": "http://localhost:${port}/playlist?name=Movies&lang=hi",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Movies&lang=hi",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Movies&lang=hi",
+            "url-img": "http://localhost:${port}/playlist-images?name=Movies&lang=hi"
+        }
+    ]
+}

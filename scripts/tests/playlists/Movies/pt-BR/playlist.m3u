@@ -1,0 +1,20 @@
+#EXTM3U
+
+#EXTINF:-1 tvg-id="1" group-title="Filmes", Comédia
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="2" group-title="Filmes", Ação
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="3" group-title="Filmes", Drama
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="4" group-title="Filmes", Romance
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="5" group-title="Filmes", Suspense
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="6" group-title="Filmes", Faroeste
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="7" group-title="Filmes", Sitcoms
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="8" group-title="Filmes", Clássicos
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="9" group-title="Filmes", Ficção científica
+https://example.tv/master.m3u8

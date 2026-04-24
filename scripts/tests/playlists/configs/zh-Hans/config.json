@@ -1,0 +1,58 @@
+{
+    "playlists": [
+        {
+            "original": "News",
+            "name": "新闻",
+            "lang": "zh-Hans",
+            "url": "http://localhost:${port}/playlist?name=News&lang=zh-Hans",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=News&lang=zh-Hans",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=News&lang=zh-Hans",
+            "url-img": "http://localhost:${port}/playlist-images?name=News&lang=zh-Hans"
+        },
+        {
+            "original": "Entertainment",
+            "name": "娱乐",
+            "lang": "zh-Hans",
+            "url": "http://localhost:${port}/playlist?name=Entertainment&lang=zh-Hans",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Entertainment&lang=zh-Hans",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Entertainment&lang=zh-Hans",
+            "url-img": "http://localhost:${port}/playlist-images?name=Entertainment&lang=zh-Hans"
+        },
+        {
+            "original": "Music",
+            "name": "音乐",
+            "lang": "zh-Hans",
+            "url": "http://localhost:${port}/playlist?name=Music&lang=zh-Hans",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Music&lang=zh-Hans",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Music&lang=zh-Hans",
+            "url-img": "http://localhost:${port}/playlist-images?name=Music&lang=zh-Hans"
+        },
+        {
+            "original": "Sports",
+            "name": "体育",
+            "lang": "zh-Hans",
+            "url": "http://localhost:${port}/playlist?name=Sports&lang=zh-Hans",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Sports&lang=zh-Hans",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Sports&lang=zh-Hans",
+            "url-img": "http://localhost:${port}/playlist-images?name=Sports&lang=zh-Hans"
+        },
+        {
+            "original": "Travel",
+            "name": "旅行",
+            "lang": "zh-Hans",
+            "url": "http://localhost:${port}/playlist?name=Travel&lang=zh-Hans",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Travel&lang=zh-Hans",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Travel&lang=zh-Hans",
+            "url-img": "http://localhost:${port}/playlist-images?name=Travel&lang=zh-Hans"
+        },
+        {
+            "original": "Movies",
+            "name": "电影",
+            "lang": "zh-Hans",
+            "url": "http://localhost:${port}/playlist?name=Movies&lang=zh-Hans",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Movies&lang=zh-Hans",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Movies&lang=zh-Hans",
+            "url-img": "http://localhost:${port}/playlist-images?name=Movies&lang=zh-Hans"
+        }
+    ]
+}

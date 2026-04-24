@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tv>
+    <channel id="2">
+        <display-name>액션</display-name>
+    </channel>
+    <channel id="1">
+        <display-name>코미디</display-name>
+    </channel>
+    <programme channel="2" start="20240101080000 +0000" stop="20241131100000 +0000">
+        <title>매드 맥스</title>
+    </programme>
+    <programme channel="2" start="20250101100000 +0000" stop="20251131120000 +0000">
+        <title>다크 나이트</title>
+    </programme>
+    <programme channel="2" start="20260101120000 +0000" stop="20301131140000 +0000">
+        <title>탑건</title>
+    </programme>
+    <programme channel="1" start="20240101080000 +0000" stop="20241131100000 +0000">
+        <title>21 점프 스트리트</title>
+    </programme>
+    <programme channel="1" start="20250101100000 +0000" stop="20251131120000 +0000">
+        <title>팜 스프링스</title>
+    </programme>
+    <programme channel="1" start="20260101120000 +0000" stop="20301131140000 +0000">
+        <title>베케이션</title>
+    </programme>
+</tv>

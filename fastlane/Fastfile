@@ -1,12 +1,567 @@
 
-lane :make_ipa do |options|
-  # set any Xcode version you comfortable with.
-  # https://docs.fastlane.tools/actions/xcodes/
-  xcodes(version: "16.2", select_for_current_build_only: true)
-  build_app(
-    scheme: "Apple-TV-Player",
-    workspace: "Apple-TV-Player.xcworkspace",
-    export_method: "development",
-    configuration: "Release"
+tests_scripts_dir = File.expand_path("../scripts/tests", FastlaneCore::FastlaneFolder.path || Dir.pwd)
+tests_script = ->(name) { File.join(tests_scripts_dir, name) }
+project_dir = File.expand_path("..", __dir__)
+googleservice_info_plist_path=File.join(project_dir, "/AppleTVMultiplatform/Resources/GoogleService-Info.plist")
+
+project="AppleTVMultiplatform.xcodeproj"
+scheme="AppleTVMultiplatform"
+
+development_signing_certificate="A39AD919F97CB1C610CEB5D26CB688BDFF7D93FE"
+distribution_signing_certificate="B0135C0CCF9DE52F543D1DDF1765E224FEC0DF8E"
+team_id="4HUHB9J47M"
+bundle_id="mike.house.nsk.AppleTVMultiplatform"
+
+# If you want to build the app for yourself, disable this or set your Firebase creds.
+firebase_enabled = true
+
+private_lane :build_app_package do |options|
+  xcodes(
+    version: "26.4.1",
+    select_for_current_build_only: true
   )
+  build_app(
+    project: project,
+    scheme: scheme,
+    output_directory: File.join(project_dir, "fastlane/builds"),
+    output_name: options[:output_name],
+    configuration: options[:configuration].nil? ? "Release" : options[:configuration],
+    export_method: options[:export_method],
+    export_options: options[:export_options],
+    sdk: options[:sdk],
+    xcargs: firebase_enabled ? "SWIFT_ACTIVE_COMPILATION_CONDITIONS='$(inherited) FirebaseSupport'" : nil,
+    destination: options[:destination],
+    skip_codesigning: options[:skip_codesigning].nil? ? false : options[:skip_codesigning]
+  )
+end
+
+private_lane :api_key do
+  app_store_connect_api_key(
+    key_id: "Y9K3BG52YG",
+    issuer_id: "69a6de8a-15f5-47e3-e053-5b8c7c11a4d1",
+    key_filepath: File.join(project_dir, "/.secrets/AuthKey_Y9K3BG52YG_69a6de8a-15f5-47e3-e053-5b8c7c11a4d1.p8"),
+    in_house: false
+  )
+end
+
+private_lane :install_certificate do |options|
+  certs_tmp_path = File.join(Dir.tmpdir, "security_find-certificate_p_Z_a.txt")
+  sh "security find-certificate -p -Z -a > #{certs_tmp_path}"
+  next if File.read(certs_tmp_path).include? options[:signing_certificate]
+  puts "Installing certificates as #{options[:signing_certificate]} is not installed yet."
+  certificate = File.join(project_dir, "/.secrets/#{team_id}-Development.p12")
+  if options[:export_method] != nil && options[:export_method] != "development" && options[:export_method] != "debugging"
+    certificate = File.join(project_dir, "/.secrets/#{team_id}-Distribution.p12")
+  end
+  # TODO: Fix this if you want to use fastlane on CD/CI
+end
+
+private_lane :install_provision_profile do |options|
+  profile_path = options[:profile_path]
+  profile_uuid = provisioning_profile_uuid(profile_path: profile_path)
+  destination_dir = File.join(Dir.home, "/Library/Developer/Xcode/UserData/Provisioning Profiles")
+  destination_file = File.join(destination_dir, profile_uuid)
+  next if File.exist?(destination_file)
+  FileUtils.mkdir_p(destination_dir)
+  FileUtils.cp(profile_path, destination_file)
+  end
+
+private_lane :provisioning_profile_uuid do |options|
+  provisioning_profile_plist_file = File.join(Dir.tmpdir, "provisioning_profile.plist")
+  sh "security cms -D -i '#{options[:profile_path]}' > #{provisioning_profile_plist_file}"
+  provisioning_profile_plist = File.read(provisioning_profile_plist_file)
+  File.delete(provisioning_profile_plist_file)
+  provisioning_profile_plist.match(/<key>UUID<\/key>\s*<string>(.*)<\/string>/)[1]
+end
+
+private_lane :generate_export_options do |options|
+  signing_certificate = development_signing_certificate
+  if options[:export_method] != nil && options[:export_method] != "development" && options[:export_method] != "debugging"
+    signing_certificate = distribution_signing_certificate
+  end
+  provisioning_profile = provisioning_profile_uuid(profile_path: options[:profile_path])
+  plist_content = <<~PLIST
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+    	<key>method</key>
+    	<string>#{options[:export_method]}</string>
+    	<key>signingStyle</key>
+        <string>manual</string>
+    	<key>signingCertificate</key>
+        <string>#{signing_certificate}</string>
+    	<key>teamID</key>
+        <string>#{team_id}</string>
+    	<key>provisioningProfiles</key>
+    	<dict>
+        	<key>#{bundle_id}</key>
+        	<string>#{provisioning_profile}</string>
+    	</dict>
+    </dict>
+    </plist>
+  PLIST
+  export_options_file = File.join(Dir.tmpdir, "export_options.plist")
+  File.write(export_options_file, plist_content)
+  export_options_file
+end
+
+private_lane :derived_data_path do
+  (sh "xcodebuild -project #{File.join(project_dir, project)} -scheme #{scheme} -showBuildSettings | grep BUILD_ROOT")[/BUILD_ROOT = (.*)\/Build\/Products/, 1]
+end
+
+private_lane :upload_symbols do |options|
+  next unless firebase_enabled
+  ipa = options[:ipa]
+  upload_symbols_to_crashlytics(
+    dsym_path: File.join(File.dirname(ipa), File.basename(ipa, File.extname(ipa)) + ".app.dSYM.zip"),
+    gsp_path: googleservice_info_plist_path,
+    platform: options[:platform],
+    binary_path: File.join(derived_data_path, "SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/upload-symbols")
+  )
+end
+
+private_lane :localized_testflight_app_info do
+  descriptions_dir = File.join(project_dir, "fastlane/metadata")
+  localized_app_info = Dir.glob(File.join(descriptions_dir, "*/description.txt")).sort.each_with_object({}) do |path, info|
+    description = File.read(path, encoding: "UTF-8").strip
+    next if description.empty?
+
+    locale = File.basename(File.dirname(path))
+    info[locale] = {
+      description: description
+    }
+  end
+
+  UI.user_error!("No TestFlight descriptions found in #{descriptions_dir}") if localized_app_info.empty?
+
+  localized_app_info
+end
+
+platform :ios do
+
+  private_lane :build_ios_package do |options|
+    options[:sdk] = "iphoneos"
+    options[:destination] = "generic/platform=iOS"
+    # skip redundant signing when building, because `xcodebuild`
+    # will resign once again when form .ipa with `export_options`.
+    options[:skip_codesigning] = true
+    build_app_package(options)
+  end
+
+  lane :build_dev do
+    export_method = "development"
+    profile_path = File.join(project_dir, "/.secrets/iOS-Development-#{bundle_id}.mobileprovision")
+    install_certificate(
+      signing_certificate: development_signing_certificate,
+      export_method: export_method
+    )
+    install_provision_profile(
+      profile_path: profile_path
+    )
+    build_ios_package(
+      output_name: "AppleTVMultiplatform-ios-dev.ipa",
+      configuration: "Release",
+      export_method: export_method,
+      export_options: generate_export_options(
+        export_method: export_method,
+        profile_path: profile_path
+      )
+    )
+  end
+
+  private_lane :build_ad_hoc do
+    export_method = "ad-hoc"
+    profile_path = File.join(project_dir, "/.secrets/iOS-Ad-Hoc-#{bundle_id}.mobileprovision")
+    install_certificate(
+      signing_certificate: distribution_signing_certificate,
+      export_method: export_method
+    )
+    install_provision_profile(
+      profile_path: profile_path
+    )
+    build_ios_package(
+      output_name: "AppleTVMultiplatform-ios-ad-hoc.ipa",
+      export_method: export_method,
+      export_options: generate_export_options(
+        export_method: export_method,
+        profile_path: profile_path
+      )
+    )
+  end
+
+  desc "Builds an iOS ad-hoc release and uploads it to Firebase"
+  lane :make_firebase_release do
+    raise "Firebase is not enabled." unless firebase_enabled
+    ipa = build_ad_hoc
+    firebase_app_distribution(
+      ipa_path: ipa,
+      service_credentials_file: File.join(project_dir, "/.secrets/bro-iptv-player-1009cd4c9b38.json"),
+      groups: "Family"
+    )
+    upload_symbols(ipa: ipa, platform: "ios")
+  end
+
+  private_lane :build_distribution do
+    export_method = "app-store"
+    profile_path = File.join(project_dir, "/.secrets/iOS-Distribution-#{bundle_id}.mobileprovision")
+    install_certificate(
+      signing_certificate: distribution_signing_certificate,
+      export_method: export_method
+    )
+    install_provision_profile(
+      profile_path: profile_path
+    )
+    build_ios_package(
+      output_name: "AppleTVMultiplatform-ios-appstore.ipa",
+      export_method: export_method,
+      export_options: generate_export_options(
+        export_method: export_method,
+        profile_path: profile_path
+      )
+    )
+  end
+
+  desc "Builds an iOS app-store release and uploads it to TestFlight"
+  lane :make_testflight_release do
+    ipa = build_distribution
+    localized_app_info = localized_testflight_app_info
+    upload_to_testflight(
+      app_identifier: bundle_id,
+      api_key: api_key,
+      ipa: ipa,
+      localized_app_info: localized_app_info,
+      groups: ["Family"],
+      submit_beta_review: false
+    )
+    upload_symbols(ipa: ipa, platform: "ios")
+  end
+
+  desc "Upload metadata to the Distribution page on App Store Connect"
+  lane :upload_appstore_metadata do
+    upload_appstore_meta(
+      skip_screenshots: true,
+      skip_metadata: false
+    )
+  end
+
+  desc "Upload screenshots to the Distribution page on App Store Connect"
+  lane :upload_appstore_screenshots do
+    upload_appstore_meta(
+      skip_screenshots: false,
+      skip_metadata: true
+    )
+  end
+
+  private_lane :upload_appstore_meta do |options|
+    upload_to_app_store(
+      app_identifier: bundle_id,
+      api_key: api_key,
+      platform: "ios",
+      skip_binary_upload: true, # upload via `make_testflight_release`
+      skip_screenshots: options[:skip_screenshots],
+      overwrite_screenshots: true,
+      screenshots_path: File.join(project_dir, "AppleTVMultiplatformUITests/SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS"),
+      skip_metadata: options[:skip_metadata], # /fastlane/metadata
+      skip_app_version_update: true,
+      submit_for_review: false,
+      automatic_release: false,
+      force: true,
+      precheck_include_in_app_purchases: false,
+      run_precheck_before_submit: true
+    )
+  end
+
+  desc "Run unit tests on an iOS iPhone simulator"
+  lane :run_unit_tests do
+    sh "cd ..;#{tests_script.call("run-unit-tests-iphone.sh")}"
+  end
+
+  desc "Run UI Snapshot Tests on an iOS 26.4 iPhone Simulator"
+  lane :run_ui_snapshots_tests_iphone_26_4 do
+    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-iphone-26_4.sh")}"
+  end
+
+  desc "Run UI Snapshot Tests on an iOS 26.4 iPad Simulator"
+  lane :run_ui_snapshots_tests_ipad_26_4 do
+    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-ipad-26_4.sh")}"
+  end
+
+  desc "Run UI Snapshot Tests on an iOS 18.6 iPhone Simulator"
+  lane :run_ui_snapshots_tests_iphone_18_6 do
+    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-iphone-18_6.sh")}"
+  end
+
+  desc "Run UI Snapshot Tests on an iOS 18.6 iPad Simulator"
+  lane :run_ui_snapshots_tests_ipad_18_6 do
+    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-ipad-18_6.sh")}"
+  end
+
+  desc "Re-generate app store snapshots for iOS 26.4 on iPhone"
+  lane :make_app_store_snapshots_iphone_26_4 do
+    sh "cd ..;#{tests_script.call("make-app-store-snapshots-iphone-26_4.sh")}"
+  end
+
+  desc "Re-generate app store snapshots for iOS 26.4 on iPad"
+  lane :make_app_store_snapshots_ipad_26_4 do
+    sh "cd ..;#{tests_script.call("make-app-store-snapshots-ipad-26_4.sh")}"
+  end
+end
+
+platform :tvos do
+
+  private_lane :build_tvos_package do |options|
+    options[:sdk] = "appletvos"
+    options[:destination] = "generic/platform=tvOS"
+    # skip redundant signing when building, because `xcodebuild`
+    # will resign once again when form .ipa with `export_options`.
+    options[:skip_codesigning] = true
+    build_app_package(options)
+  end
+
+  lane :build_dev do
+    export_method = "development"
+    profile_path = File.join(project_dir, "/.secrets/tvOS-Development-#{bundle_id}.mobileprovision")
+    install_certificate(
+      signing_certificate: development_signing_certificate,
+      export_method: export_method
+    )
+    install_provision_profile(
+      profile_path: profile_path
+    )
+    build_tvos_package(
+      output_name: "AppleTVMultiplatform-tvos-dev.ipa",
+      configuration: "Debug",
+      export_method: export_method,
+      export_options: generate_export_options(
+        export_method: export_method,
+        profile_path: profile_path
+      )
+    )
+  end
+
+  private_lane :build_ad_hoc do
+    export_method = "ad-hoc"
+    profile_path = File.join(project_dir, "/.secrets/tvOS-Ad-Hoc-#{bundle_id}.mobileprovision")
+    install_certificate(
+      signing_certificate: distribution_signing_certificate,
+      export_method: export_method
+    )
+    install_provision_profile(
+      profile_path: profile_path
+    )
+    build_tvos_package(
+      output_name: "AppleTVMultiplatform-tvos-ad-hoc.ipa",
+      export_method: export_method,
+      export_options: generate_export_options(
+        export_method: export_method,
+        profile_path: profile_path
+      )
+    )
+  end
+
+  private_lane :build_distribution do
+    export_method = "app-store"
+    profile_path = File.join(project_dir, "/.secrets/tvOS-Distribution-#{bundle_id}.mobileprovision.mobileprovision")
+    install_certificate(
+      signing_certificate: distribution_signing_certificate,
+      export_method: export_method
+    )
+    install_provision_profile(
+      profile_path: profile_path
+    )
+    build_tvos_package(
+      output_name: "AppleTVMultiplatform-tvos-appstore.ipa",
+      export_method: export_method,
+      export_options: generate_export_options(
+        export_method: export_method,
+        profile_path: profile_path
+      )
+    )
+  end
+
+  desc "Builds an tvOS app-store release and uploads it to TestFlight"
+  lane :make_testflight_release do
+    ipa = build_distribution
+    localized_app_info = localized_testflight_app_info
+    upload_to_testflight(
+      app_identifier: bundle_id,
+      api_key: api_key,
+      ipa: ipa,
+      localized_app_info: localized_app_info,
+      groups: ["Family"],
+      submit_beta_review: false
+    )
+    upload_symbols(ipa: ipa, platform: "appletvos")
+  end
+
+  desc "Upload metadata to the Distribution page on App Store Connect"
+  lane :upload_appstore_metadata do
+    upload_appstore_meta(
+      skip_screenshots: true,
+      skip_metadata: false
+    )
+  end
+
+  desc "Upload screenshots to the Distribution page on App Store Connect"
+  lane :upload_appstore_screenshots do
+    upload_appstore_meta(
+      skip_screenshots: false,
+      skip_metadata: true
+    )
+  end
+
+  private_lane :upload_appstore_meta do |options|
+    upload_to_app_store(
+      app_identifier: bundle_id,
+      api_key: api_key,
+      platform: "appletvos",
+      skip_binary_upload: true, # upload via `make_testflight_release`
+      skip_screenshots: options[:skip_screenshots],
+      overwrite_screenshots: true,
+      screenshots_path: File.join(project_dir, "AppleTVMultiplatformUITests/SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS"),
+      skip_metadata: options[:skip_metadata], # /fastlane/metadata
+      skip_app_version_update: true,
+      submit_for_review: false,
+      automatic_release: false,
+      force: true,
+      precheck_include_in_app_purchases: false,
+      run_precheck_before_submit: true
+    )
+  end
+
+  desc "Run unit tests on an tvOS simulator"
+  lane :run_unit_tests do
+    sh "cd ..;#{tests_script.call("run-unit-tests-appletv.sh")}"
+  end
+
+  desc "Run UI Snapshot Tests on an tvOS 26.4 Simulator"
+  lane :run_ui_snapshots_tests_appletv_26_4 do
+    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-appletv-26_4.sh")}"
+  end
+
+  desc "Run UI Snapshot Tests on an tvOS 18.5 Simulator"
+  lane :run_ui_snapshots_tests_appletv_18_5 do
+    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-appletv-18_5.sh")}"
+  end
+
+  desc "Re-generate app store snapshots for tvOS 26.4"
+  lane :make_app_store_snapshots_appletv_26_4 do
+    sh "cd ..;#{tests_script.call("make-app-store-snapshots-appletv-26_4.sh")}"
+  end
+end
+
+platform :mac do
+
+  private_lane :build_macos_package do |options|
+    options[:sdk] = "macosx"
+    options[:destination] = "generic/platform=macOS"
+    # set signing the .app when building, because `xcodebuild` will not resign it when form .pkg.
+    # `export_options` used only to sign .pkg to get `installerSigningCertificate`, `method` and `provisioningProfiles`.
+    options[:skip_codesigning] = false
+    build_app_package(options)
+  end
+
+  lane :build_dev do
+    export_method = "development"
+    profile_path = File.join(project_dir, "/.secrets/macOS-Development-#{bundle_id}.provisionprofile")
+    install_certificate(
+      signing_certificate: development_signing_certificate,
+      export_method: export_method
+    )
+    install_provision_profile(
+      profile_path: profile_path
+    )
+    build_macos_package(
+      configuration: "Debug",
+      export_method: export_method,
+      export_options: generate_export_options(
+        export_method: export_method,
+        profile_path: profile_path
+      )
+    )
+  end
+
+  private_lane :build_distribution do
+    export_method = "app-store"
+    profile_path = File.join(project_dir, "/.secrets/macOS-Distribution-#{bundle_id}.provisionprofile")
+    install_certificate(
+      signing_certificate: distribution_signing_certificate,
+      export_method: export_method
+    )
+    install_provision_profile(
+      profile_path: profile_path
+    )
+    build_macos_package(
+      export_method: export_method,
+      export_options: generate_export_options(
+        export_method: export_method,
+        profile_path: profile_path
+      )
+    )
+  end
+
+  lane :make_testflight_release do
+    pkg = build_distribution
+    localized_app_info = localized_testflight_app_info
+    upload_to_testflight(
+      app_identifier: bundle_id,
+      api_key: api_key,
+      pkg: pkg,
+      localized_app_info: localized_app_info,
+      groups: ["Family"],
+      submit_beta_review: false
+    )
+    upload_symbols(ipa: pkg, platform: "mac")
+  end
+
+  desc "Upload metadata to the Distribution page on App Store Connect"
+  lane :upload_appstore_metadata do
+    upload_appstore_meta(
+      skip_screenshots: true,
+      skip_metadata: false
+    )
+  end
+
+  desc "Upload screenshots to the Distribution page on App Store Connect"
+  lane :upload_appstore_screenshots do
+    upload_appstore_meta(
+      skip_screenshots: false,
+      skip_metadata: true
+    )
+  end
+
+  private_lane :upload_appstore_meta do |options|
+    upload_to_app_store(
+      app_identifier: bundle_id,
+      api_key: api_key,
+      platform: "osx",
+      skip_binary_upload: true, # upload via `make_testflight_release`
+      skip_screenshots: options[:skip_screenshots],
+      overwrite_screenshots: true,
+      screenshots_path: File.join(project_dir, "AppleTVMultiplatformUITests/SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS"),
+      skip_metadata: options[:skip_metadata], # /fastlane/metadata
+      skip_app_version_update: true,
+      submit_for_review: false,
+      automatic_release: false,
+      force: true,
+      precheck_include_in_app_purchases: false,
+      run_precheck_before_submit: true
+    )
+  end
+
+  desc "Run unit tests on a host macOS machine"
+  lane :run_unit_tests do
+    sh "cd ..;#{tests_script.call("run-unit-tests-macos.sh")}"
+  end
+
+  desc "Run UI Snapshot Tests on a host macOS machine"
+  lane :run_ui_snapshots_tests_macos do
+    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-macos.sh")}"
+  end
+
+  desc "Re-generate app store snapshots for a host macOS machine"
+  lane :make_app_store_snapshots_macos do
+    sh "cd ..;#{tests_script.call("make-app-store-snapshots-macos.sh")}"
+  end
 end

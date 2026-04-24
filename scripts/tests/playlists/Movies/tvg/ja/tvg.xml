@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tv>
+    <channel id="2">
+        <display-name>アクション</display-name>
+    </channel>
+    <channel id="1">
+        <display-name>コメディ</display-name>
+    </channel>
+    <programme channel="2" start="20240101080000 +0000" stop="20241131100000 +0000">
+        <title>マッドマックス</title>
+    </programme>
+    <programme channel="2" start="20250101100000 +0000" stop="20251131120000 +0000">
+        <title>ダークナイト</title>
+    </programme>
+    <programme channel="2" start="20260101120000 +0000" stop="20301131140000 +0000">
+        <title>トップガン</title>
+    </programme>
+    <programme channel="1" start="20240101080000 +0000" stop="20241131100000 +0000">
+        <title>21ジャンプストリート</title>
+    </programme>
+    <programme channel="1" start="20250101100000 +0000" stop="20251131120000 +0000">
+        <title>パーム・スプリングス</title>
+    </programme>
+    <programme channel="1" start="20260101120000 +0000" stop="20301131140000 +0000">
+        <title>バケーション</title>
+    </programme>
+</tv>

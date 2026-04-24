@@ -1,0 +1,13 @@
+Bro IPTV Player là cách nhanh, riêng tư và dễ dùng để xem danh sách phát M3U trên iPhone, iPad, Mac và Apple TV. Chỉ cần thêm URL danh sách phát và bắt đầu xem trong vài giây, không cần tài khoản, không cần đăng ký.
+
+Tính năng chính:
+- Hoạt động trên iOS, iPadOS, macOS và tvOS
+- Hỗ trợ danh sách phát M3U và M3U8
+- Hỗ trợ EPG
+- Bảo vệ danh sách phát bằng mã PIN để tăng thêm quyền riêng tư
+- Không cần tài khoản hoặc đăng ký
+- Cho phép chia sẻ danh sách phát với các thiết bị khác
+- Giao diện nhanh, rõ ràng cho việc sử dụng hằng ngày
+
+Quan trọng:
+Bro IPTV Player không cung cấp, lưu trữ, bán hoặc bao gồm bất kỳ kênh, nội dung media hay danh sách phát nào. Ứng dụng chỉ phát nội dung do người dùng thêm vào, và bạn chịu trách nhiệm bảo đảm mình có quyền truy cập nội dung đó.

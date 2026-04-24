@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tv>
+    <channel id="2">
+        <display-name>Боевики</display-name>
+    </channel>
+    <channel id="1">
+        <display-name>Комедии</display-name>
+    </channel>
+    <programme channel="2" start="20240101080000 +0000" stop="20241131100000 +0000">
+        <title>Безумный Макс</title>
+    </programme>
+    <programme channel="2" start="20250101100000 +0000" stop="20251131120000 +0000">
+        <title>Тёмный рыцарь</title>
+    </programme>
+    <programme channel="2" start="20260101120000 +0000" stop="20301131140000 +0000">
+        <title>Топ Ган</title>
+    </programme>
+    <programme channel="1" start="20240101080000 +0000" stop="20241131100000 +0000">
+        <title>Мачо и ботан</title>
+    </programme>
+    <programme channel="1" start="20250101100000 +0000" stop="20251131120000 +0000">
+        <title>Зависнуть в Палм-Спрингс</title>
+    </programme>
+    <programme channel="1" start="20260101120000 +0000" stop="20301131140000 +0000">
+        <title>Каникулы</title>
+    </programme>
+</tv>

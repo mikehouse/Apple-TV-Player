@@ -1,0 +1,20 @@
+#EXTM3U
+
+#EXTINF:-1 tvg-id="1" group-title="फ़िल्में", कॉमेडी
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="2" group-title="फ़िल्में", एक्शन
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="3" group-title="फ़िल्में", ड्रामा
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="4" group-title="फ़िल्में", रोमांस
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="5" group-title="फ़िल्में", थ्रिलर
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="6" group-title="फ़िल्में", वेस्टर्न
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="7" group-title="फ़िल्में", सिटकॉम
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="8" group-title="फ़िल्में", क्लासिक
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="9" group-title="फ़िल्में", साइंस-फिक्शन
+https://example.tv/master.m3u8

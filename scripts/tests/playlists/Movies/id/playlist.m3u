@@ -1,0 +1,20 @@
+#EXTM3U
+
+#EXTINF:-1 tvg-id="1" group-title="Film", Komedi
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="2" group-title="Film", Aksi
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="3" group-title="Film", Drama
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="4" group-title="Film", Romansa
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="5" group-title="Film", Thriller
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="6" group-title="Film", Western
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="7" group-title="Film", Sitkom
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="8" group-title="Film", Klasik
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="9" group-title="Film", Fiksi Ilmiah
+https://example.tv/master.m3u8

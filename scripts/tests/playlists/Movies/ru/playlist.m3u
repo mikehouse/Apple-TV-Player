@@ -1,0 +1,20 @@
+#EXTM3U
+
+#EXTINF:-1 tvg-id="1" group-title="Фильмы", Комедии
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="2" group-title="Фильмы", Боевики
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="3" group-title="Фильмы", Драмы
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="4" group-title="Фильмы", Мелодрамы
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="5" group-title="Фильмы", Триллеры
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="6" group-title="Фильмы", Вестерны
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="7" group-title="Фильмы", Ситкомы
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="8" group-title="Фильмы", Классика
+https://example.tv/master.m3u8
+#EXTINF:-1 tvg-id="9" group-title="Фильмы", Научная фантастика
+https://example.tv/master.m3u8

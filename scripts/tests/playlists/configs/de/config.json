@@ -1,0 +1,58 @@
+{
+    "playlists": [
+        {
+            "original": "News",
+            "name": "Nachrichten",
+            "lang": "de",
+            "url": "http://localhost:${port}/playlist?name=News&lang=de",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=News&lang=de",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=News&lang=de",
+            "url-img": "http://localhost:${port}/playlist-images?name=News&lang=de"
+        },
+        {
+            "original": "Entertainment",
+            "name": "Unterhaltung",
+            "lang": "de",
+            "url": "http://localhost:${port}/playlist?name=Entertainment&lang=de",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Entertainment&lang=de",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Entertainment&lang=de",
+            "url-img": "http://localhost:${port}/playlist-images?name=Entertainment&lang=de"
+        },
+        {
+            "original": "Music",
+            "name": "Musik",
+            "lang": "de",
+            "url": "http://localhost:${port}/playlist?name=Music&lang=de",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Music&lang=de",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Music&lang=de",
+            "url-img": "http://localhost:${port}/playlist-images?name=Music&lang=de"
+        },
+        {
+            "original": "Sports",
+            "name": "Sport",
+            "lang": "de",
+            "url": "http://localhost:${port}/playlist?name=Sports&lang=de",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Sports&lang=de",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Sports&lang=de",
+            "url-img": "http://localhost:${port}/playlist-images?name=Sports&lang=de"
+        },
+        {
+            "original": "Travel",
+            "name": "Reisen",
+            "lang": "de",
+            "url": "http://localhost:${port}/playlist?name=Travel&lang=de",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Travel&lang=de",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Travel&lang=de",
+            "url-img": "http://localhost:${port}/playlist-images?name=Travel&lang=de"
+        },
+        {
+            "original": "Movies",
+            "name": "Filme",
+            "lang": "de",
+            "url": "http://localhost:${port}/playlist?name=Movies&lang=de",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Movies&lang=de",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Movies&lang=de",
+            "url-img": "http://localhost:${port}/playlist-images?name=Movies&lang=de"
+        }
+    ]
+}

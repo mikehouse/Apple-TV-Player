@@ -1,0 +1,58 @@
+{
+    "playlists": [
+        {
+            "original": "News",
+            "name": "ニュース",
+            "lang": "ja",
+            "url": "http://localhost:${port}/playlist?name=News&lang=ja",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=News&lang=ja",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=News&lang=ja",
+            "url-img": "http://localhost:${port}/playlist-images?name=News&lang=ja"
+        },
+        {
+            "original": "Entertainment",
+            "name": "エンターテインメント",
+            "lang": "ja",
+            "url": "http://localhost:${port}/playlist?name=Entertainment&lang=ja",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Entertainment&lang=ja",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Entertainment&lang=ja",
+            "url-img": "http://localhost:${port}/playlist-images?name=Entertainment&lang=ja"
+        },
+        {
+            "original": "Music",
+            "name": "音楽",
+            "lang": "ja",
+            "url": "http://localhost:${port}/playlist?name=Music&lang=ja",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Music&lang=ja",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Music&lang=ja",
+            "url-img": "http://localhost:${port}/playlist-images?name=Music&lang=ja"
+        },
+        {
+            "original": "Sports",
+            "name": "スポーツ",
+            "lang": "ja",
+            "url": "http://localhost:${port}/playlist?name=Sports&lang=ja",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Sports&lang=ja",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Sports&lang=ja",
+            "url-img": "http://localhost:${port}/playlist-images?name=Sports&lang=ja"
+        },
+        {
+            "original": "Travel",
+            "name": "旅行",
+            "lang": "ja",
+            "url": "http://localhost:${port}/playlist?name=Travel&lang=ja",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Travel&lang=ja",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Travel&lang=ja",
+            "url-img": "http://localhost:${port}/playlist-images?name=Travel&lang=ja"
+        },
+        {
+            "original": "Movies",
+            "name": "映画",
+            "lang": "ja",
+            "url": "http://localhost:${port}/playlist?name=Movies&lang=ja",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Movies&lang=ja",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Movies&lang=ja",
+            "url-img": "http://localhost:${port}/playlist-images?name=Movies&lang=ja"
+        }
+    ]
+}

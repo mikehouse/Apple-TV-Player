@@ -1,0 +1,58 @@
+{
+    "playlists": [
+        {
+            "original": "News",
+            "name": "Tin tức",
+            "lang": "vi",
+            "url": "http://localhost:${port}/playlist?name=News&lang=vi",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=News&lang=vi",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=News&lang=vi",
+            "url-img": "http://localhost:${port}/playlist-images?name=News&lang=vi"
+        },
+        {
+            "original": "Entertainment",
+            "name": "Giải trí",
+            "lang": "vi",
+            "url": "http://localhost:${port}/playlist?name=Entertainment&lang=vi",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Entertainment&lang=vi",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Entertainment&lang=vi",
+            "url-img": "http://localhost:${port}/playlist-images?name=Entertainment&lang=vi"
+        },
+        {
+            "original": "Music",
+            "name": "Âm nhạc",
+            "lang": "vi",
+            "url": "http://localhost:${port}/playlist?name=Music&lang=vi",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Music&lang=vi",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Music&lang=vi",
+            "url-img": "http://localhost:${port}/playlist-images?name=Music&lang=vi"
+        },
+        {
+            "original": "Sports",
+            "name": "Thể thao",
+            "lang": "vi",
+            "url": "http://localhost:${port}/playlist?name=Sports&lang=vi",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Sports&lang=vi",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Sports&lang=vi",
+            "url-img": "http://localhost:${port}/playlist-images?name=Sports&lang=vi"
+        },
+        {
+            "original": "Travel",
+            "name": "Du lịch",
+            "lang": "vi",
+            "url": "http://localhost:${port}/playlist?name=Travel&lang=vi",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Travel&lang=vi",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Travel&lang=vi",
+            "url-img": "http://localhost:${port}/playlist-images?name=Travel&lang=vi"
+        },
+        {
+            "original": "Movies",
+            "name": "Phim",
+            "lang": "vi",
+            "url": "http://localhost:${port}/playlist?name=Movies&lang=vi",
+            "tvg-logo": "http://localhost:${port}/playlist-logo?name=Movies&lang=vi",
+            "url-tvg": "http://localhost:${port}/playlist-tvg?name=Movies&lang=vi",
+            "url-img": "http://localhost:${port}/playlist-images?name=Movies&lang=vi"
+        }
+    ]
+}

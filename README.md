@@ -1,157 +1,146 @@
 
-<h1 align="center">Apple TV player</h1>
-<p align="center">
-  <img src="logo.png"  alt="" width="40%"/>
+<img src="backup-icons-svg/live-glass-tvos-top-shelf-wide.svg" alt="">
+
+# IPTV Player
+
+Bro IPTV Player is a **free**, fast, private, and simple way to watch M3U playlists on iPhone, iPad, Mac, and Apple TV.
+
+<p>
+  <a href="https://apps.apple.com/us/app/bro-iptv-player/id6762360135" target="_blank" rel="noopener noreferrer">
+    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="44">
+  </a>
 </p>
 
-### Supported formats
+Features:
+- Works across iOS, iPadOS, macOS, and tvOS
+- Supports M3U and M3U8 playlists
+- Supports EPG
+- Protect playlists with a PIN for extra privacy
+- Share playlists with other devices
+- Free
+- No account or registration required
+- No ads, no tracking (only Firebase Crashlytics to collect crash reports)
+- Open source (this repo contains the all application source code)
+- 15 languages supported (ar, de, es, fr, hi, id, it, ja, ko, pt-BR, ru, th, tr, vi, zh-Hans)
 
-- IPTV protocol (m3u, m3u8)
 
-### State
+‼️ **Important:**
 
-- Development is in progress...
-
-### Description
-
-This app can play the playlists in m3u/m3u8 formats when able to parse.
-
-### Supported playlists
-
-Over 8000 channels are available https://github.com/iptv-org/iptv (not mine, please star the project)
-
-### Localization
-
-- EN
-
-### Built-in TV providers
-
-#### ottclub.tv
-
-- Official site https://www.ottclub.tv
-- To use you need API_KEY
-- Little to modify a source code
-
-### How to Build
-
-1. Install dependencies
-
-```bash
-# Call once to configure bundler
-bundle install
-# Call every time when want to install dependencies
-bundle exec pod install
-```
-
-2. Open `Apple-TV-Player.xcworkspace` using Xcode/AppCode
-
-3. Set your Development Team and BundleID for files:
-
-- Apple-TV-Player/Configuration/Debug.xcconfig
-- Channels/Configuration/Debug-Channels.xcconfig
-
-or just change them via Xcode `Signing & Capabilities` tab for `Apple-TV-Player` and `Channels` projects.
-
-4. Select your Apple TV and hit Xcode build/run button.
-
-### How to pair Apple TV to Xcode
-
-- Make sure Mac and Apple TV have the same network ("AirPlay and HomeKit" > "Allow Access" is set to "Anyone in the Same Network")
-- In Xcode open "Devices & Simulators" window
-- On Apple TV open "Remote App And Device" > "Remote App And Device"
-- If Xcode does not see your Apple TV box then try to use 2.4 Ghz wi-fi instead of 5 Ghz
-- Click "pair" and enter code
-- If "pair" reappear again then turn off the wi-fi on your Mac for 10 seconds and then turn it on back (https://developer.apple.com/forums/thread/108459)
-- Maybe needed to delete the TV from ignored list https://stackoverflow.com/a/63195311/3614746
-
-### How to install if Xcode fails to connect to Apple TV (but paired)
-
-It is often the error found  `Xcode will continue when Apple TV is connected and unlocked`. That is freaking issue, it is better to not spend time to fix this, but just use another way to install the app to Apple TV by building IPA manually and installing it on TV directly.
-
-- Build IPA with fastlane
-
-```bash
-# Call once to configure bundler
-bundle install
-# Call every time when want to create IPA file
-bundle exec fastlane make_ipa
-```
-
-- Open Apple Configurator app
-- Find there paired Apple TV (must be on the same network, better use 2.4 Ghz wi-fi)
-- Open there `Apps` section
-- Drag-n-Drop the generated IPA file
-
-#### If Apple Configurator app does not see your paired Apple TV
-
-- Unpack generated ipa (ipa it is just zip archive)
-- Find there `****.app/` directory
-- Open Xcode -> Window -> Devices and Simulators
-- In Devices section find your Apple TV (better use 2.4 Ghz wi-fi)
-- Click `Add installed app` plus button
-- Select there `****.app/` directory
-
-<img src="010.jpg" alt=""/>
-
-### Update / Delete existed playlist (Home Screen only)
-
-Long tap on TV Remote or press Play/Pause TV Remote button.
-
-### Set / Delete playlist pin code (Home Screen only)
-
-Select a playlist and Long tap on TV Remote or press Play/Pause TV Remote button.
+Bro IPTV Player does not provide, host, sell, or include any channels, media, or playlists. The app only plays content added by the user, and you are responsible for having the rights to access that content.
 
 ----
 
-- Some app screenshots:
+## Apple TV
+<img src="/docs/tvos-dark.webp" alt="">
 
-</br><img src="001.jpg" alt=""/>
-<img src="003.jpg" alt=""/>
-<img src="002.jpg" alt=""/>
-<img src="007.jpg" alt=""/>
+----
 
-## ottclub.tv
+## macOS
+<img src="/docs/macos-dark.webp" alt="">
 
-<img src="Channels/Resources/IpTvProvider/ottclub/ottclub.bundle/favicon.png"  width="82" height="82"  alt=""/>
+----
 
-```swift
-// Open file `IpTvProvider.swift`.
-// Add there ottclub provider with your API_KEY.
-// That is change function:
+## iPad
+<img src="/docs/ipad-dark.webp" alt="">
 
-public static func builtInProviders() -> [IpTvProviderKind] {
-    return []
-}
+----
 
-// to this:
+# For Developers
 
-public static func builtInProviders() -> [IpTvProviderKind] {
-    return [.ottclub(key: "API_KEY")]
-}
+- Xcode 26.4+
+- Swift 6.2+
+- SwiftPM
+- Ruby 3+ (`fastlane`)
+- For now there is no CI/CD pipeline
+
+```bash
+bundle install
 ```
 
-<img src="009.jpg"  alt=""/>
-<img src="008.jpg"  alt=""/>
+## App Signing
 
-## Pluto TV (EN + ES)
+- Project is set for manual signing (you need to change it if you build for your own real device)
+- Build for simulators you do not need to sign the app
+- fastlane uses signing identities from `./.secrets/` directory (not committed to git)
 
-<img src="Channels/Resources/IpTvProvider/pluto/Pluto TV.bundle/favicon.png"  width="82" height="82"  alt=""/>
+## Build from Xcode
 
-```swift
-// Open file `IpTvProvider.swift`.
-// Add there plutoTv provider.
-// That is change the function:
+- Open a project in Xcode
+- For the App scheme select `Signing and Capabilities`
+- Set your `Bundle Identifier`
+- Enable `Automatically manage signing`
+- Xcode will do signing for your Team and Bundle Identifier
 
-public static func builtInProviders() -> [IpTvProviderKind] {
-    return []
-}
+## Unit Testing
 
-// to this:
+- iOS `bundle exec fastlane ios run_unit_tests` requires iOS 26.4 Simulator Runtime
+- tvOS `bundle exec fastlane tvos run_unit_tests` requires tvOS 26.4 Simulator Runtime
+- macOS `bundle exec fastlane mac run_unit_tests` runs on current machine
 
-public static func builtInProviders() -> [IpTvProviderKind] {
-    return [.plutoTv]
-}
+## UI Testing
+
+Before any UI Tests must run a python local server that will provide mock data to the app.
+
+```bash
+./scripts/tests/server.py
 ```
 
-<img src="011.jpg" alt=""/>
-<img src="012.jpg" alt=""/>
+### iOS
+
+- iOS iPhone `bundle exec fastlane ios run_ui_snapshots_tests_iphone_26_4` requires iOS 26.4 Simulator Runtime
+- iOS iPad `bundle exec fastlane ios run_ui_snapshots_tests_ipad_26_4` requires iOS 26.4 Simulator Runtime
+- iOS iPhone `bundle exec fastlane ios run_ui_snapshots_tests_iphone_18_6` requires iOS 18.6 Simulator Runtime
+- iOS iPad `bundle exec fastlane ios run_ui_snapshots_tests_ipad_18_6` requires iOS 18.6 Simulator Runtime
+
+### tvOS
+
+- tvOS `bundle exec fastlane tvos run_ui_snapshots_tests_appletv_26_4` requires tvOS 26.4 Simulator Runtime
+- tvOS `bundle exec fastlane tvos run_ui_snapshots_tests_appletv_18_5` requires tvOS 18.6 Simulator Runtime
+
+### macOS
+
+Screenshots in repo created on macOS 26.2 with macOS SDK 26.4
+
+```bash
+bundle exec fastlane mac run_ui_snapshots_tests_macos
+```
+
+## Firebase Distribution
+
+- iOS `bundle exec fastlane ios make_firebase_release`
+
+## App Store Connect Distribution
+
+1. Upload the app to testflight
+2. Add that build to the distribution group to send to review
+
+- iOS `bundle exec fastlane ios make_testflight_release`
+- tvOS `bundle exec fastlane tvos make_testflight_release`
+- macOS `bundle exec fastlane mac make_testflight_release`
+
+## App Store Connect Snapshots and Metadata
+
+### Regenerate snapshots for App Store Connect when the UI changes significantly
+
+Must use the latest Simulator Runtime, now it is 26.4
+
+- iOS iPhone `bundle exec fastlane ios make_app_store_snapshots_iphone_26_4` requires iOS 26.4 Simulator Runtime
+- iOS iPad `bundle exec fastlane ios make_app_store_snapshots_ipad_26_4` requires iOS 26.4 Simulator Runtime
+- tvOS `bundle exec fastlane tvos make_app_store_snapshots_appletv_26_4` requires tvOS 26.4 Simulator Runtime
+- macOS `bundle exec fastlane tvos make_app_store_snapshots_macos` requires macOS SDK 26.4 Simulator Runtime and macOS 26 machine
+
+### Upload snapshots to App Store Connect of new made or updated
+
+- iOS `bundle exec fastlane ios upload_appstore_screenshots`
+- tvOS `bundle exec fastlane tvos upload_appstore_screenshots`
+- macOS `bundle exec fastlane mac upload_appstore_screenshots`
+
+### If you changed metadata (description, keywords, etc.) upload it to App Store Connect
+
+- iOS `bundle exec fastlane ios upload_appstore_metadata`
+- tvOS `bundle exec fastlane tvos upload_appstore_metadata`
+- macOS `bundle exec fastlane mac upload_appstore_metadata`
+
+----
+
+If you have any questions or ideas, please open an issue on GitHub.

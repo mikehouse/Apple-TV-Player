@@ -1,0 +1,1276 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		820B1D0D2F85343200FD19C2 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 820B1D0C2F85343200FD19C2 /* SnapshotTesting */; };
+		820B1D0F2F8534C200FD19C2 /* Testing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820B1D0E2F8534C200FD19C2 /* Testing.framework */; };
+		821C3BDF2F91E66A00666D1F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 821C3BDE2F91E66A00666D1F /* FirebaseAnalytics */; };
+		821C3BE12F91E66A00666D1F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 821C3BE02F91E66A00666D1F /* FirebaseCrashlytics */; };
+		823A459B2F600E1800C3FB19 /* SWCompression in Frameworks */ = {isa = PBXBuildFile; productRef = 823A459A2F600E1800C3FB19 /* SWCompression */; };
+		82ECB5D62F61F23500C68F02 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 82ECB5D52F61F23500C68F02 /* NukeUI */; };
+		82ECB5D92F61FCAF00C68F02 /* Kanna in Frameworks */ = {isa = PBXBuildFile; productRef = 82ECB5D82F61FCAF00C68F02 /* Kanna */; };
+		82F7111B2F5F41EF0016FFCC /* FactoryKit in Frameworks */ = {isa = PBXBuildFile; productRef = 82F7111A2F5F41EF0016FFCC /* FactoryKit */; };
+		82F7111D2F5F41EF0016FFCC /* FactoryTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 82F7111C2F5F41EF0016FFCC /* FactoryTesting */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		820B7D842F5F2C5E0043DE13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 820B7D6A2F5F2C5C0043DE13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 820B7D712F5F2C5C0043DE13;
+			remoteInfo = AppleTVMultiplatform;
+		};
+		820B7D8E2F5F2C5E0043DE13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 820B7D6A2F5F2C5C0043DE13 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 820B7D712F5F2C5C0043DE13;
+			remoteInfo = AppleTVMultiplatform;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		820B1D092F85321B00FD19C2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		820B1D0E2F8534C200FD19C2 /* Testing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Testing.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/Testing.framework; sourceTree = DEVELOPER_DIR; };
+		820B7D722F5F2C5C0043DE13 /* Bro Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bro Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		820B7D832F5F2C5E0043DE13 /* AppleTVMultiplatformTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppleTVMultiplatformTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		820B7D8D2F5F2C5E0043DE13 /* AppleTVMultiplatformUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppleTVMultiplatformUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8243F9402F62413C00CE3154 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS26.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		820B7D952F5F2C5E0043DE13 /* Exceptions for "AppleTVMultiplatform" folder in "AppleTVMultiplatform" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/Info.plist,
+			);
+			target = 820B7D712F5F2C5C0043DE13 /* AppleTVMultiplatform */;
+		};
+		826C40F22F862A4D006959FD /* Exceptions for "AppleTVMultiplatformUITests" folder in "AppleTVMultiplatformUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ar-SA/App-Store-Snapshot.1_iPad-Pro-13-inch-M5_26-4_Light_Playlist-Add_ar.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ar-SA/App-Store-Snapshot.1_iPhone-17-Pro-Max_26-4_Light_Playlists_ar.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ar-SA/App-Store-Snapshot.2_iPad-Pro-13-inch-M5_26-4_Light_Stream_ar.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ar-SA/App-Store-Snapshot.2_iPhone-17-Pro-Max_26-4_Light_Playlist-Add_ar.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ar-SA/App-Store-Snapshot.3_iPad-Pro-13-inch-M5_26-4_Dark_Playlists_ar.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ar-SA/App-Store-Snapshot.3_iPhone-17-Pro-Max_26-4_Light_Playlist_ar.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ar-SA/App-Store-Snapshot.4_iPad-Pro-13-inch-M5_26-4_Dark_Playlist-Settings_ar.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ar-SA/App-Store-Snapshot.4_iPhone-17-Pro-Max_26-4_Light_Stream_ar.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ar-SA/App-Store-Snapshot.5_iPhone-17-Pro-Max_26-4_Dark_Playlists_ar.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ar-SA/App-Store-Snapshot.6_iPhone-17-Pro-Max_26-4_Dark_Playlist-Settings_ar.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/de-DE/App-Store-Snapshot.1_iPad-Pro-13-inch-M5_26-4_Light_Playlist-Add_de.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/de-DE/App-Store-Snapshot.1_iPhone-17-Pro-Max_26-4_Light_Playlists_de.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/de-DE/App-Store-Snapshot.2_iPad-Pro-13-inch-M5_26-4_Light_Stream_de.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/de-DE/App-Store-Snapshot.2_iPhone-17-Pro-Max_26-4_Light_Playlist-Add_de.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/de-DE/App-Store-Snapshot.3_iPad-Pro-13-inch-M5_26-4_Dark_Playlists_de.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/de-DE/App-Store-Snapshot.3_iPhone-17-Pro-Max_26-4_Light_Playlist_de.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/de-DE/App-Store-Snapshot.4_iPad-Pro-13-inch-M5_26-4_Dark_Playlist-Settings_de.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/de-DE/App-Store-Snapshot.4_iPhone-17-Pro-Max_26-4_Light_Stream_de.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/de-DE/App-Store-Snapshot.5_iPhone-17-Pro-Max_26-4_Dark_Playlists_de.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/de-DE/App-Store-Snapshot.6_iPhone-17-Pro-Max_26-4_Dark_Playlist-Settings_de.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/en-US/App-Store-Snapshot.1_iPad-Pro-13-inch-M5_26-4_Light_Playlist-Add_en.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/en-US/App-Store-Snapshot.1_iPhone-17-Pro-Max_26-4_Light_Playlists_en.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/en-US/App-Store-Snapshot.2_iPad-Pro-13-inch-M5_26-4_Light_Stream_en.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/en-US/App-Store-Snapshot.2_iPhone-17-Pro-Max_26-4_Light_Playlist-Add_en.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/en-US/App-Store-Snapshot.3_iPad-Pro-13-inch-M5_26-4_Dark_Playlists_en.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/en-US/App-Store-Snapshot.3_iPhone-17-Pro-Max_26-4_Light_Playlist_en.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/en-US/App-Store-Snapshot.4_iPad-Pro-13-inch-M5_26-4_Dark_Playlist-Settings_en.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/en-US/App-Store-Snapshot.4_iPhone-17-Pro-Max_26-4_Light_Stream_en.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/en-US/App-Store-Snapshot.5_iPhone-17-Pro-Max_26-4_Dark_Playlists_en.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/en-US/App-Store-Snapshot.6_iPhone-17-Pro-Max_26-4_Dark_Playlist-Settings_en.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/es-ES/App-Store-Snapshot.1_iPad-Pro-13-inch-M5_26-4_Light_Playlist-Add_es.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/es-ES/App-Store-Snapshot.1_iPhone-17-Pro-Max_26-4_Light_Playlists_es.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/es-ES/App-Store-Snapshot.2_iPad-Pro-13-inch-M5_26-4_Light_Stream_es.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/es-ES/App-Store-Snapshot.2_iPhone-17-Pro-Max_26-4_Light_Playlist-Add_es.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/es-ES/App-Store-Snapshot.3_iPad-Pro-13-inch-M5_26-4_Dark_Playlists_es.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/es-ES/App-Store-Snapshot.3_iPhone-17-Pro-Max_26-4_Light_Playlist_es.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/es-ES/App-Store-Snapshot.4_iPad-Pro-13-inch-M5_26-4_Dark_Playlist-Settings_es.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/es-ES/App-Store-Snapshot.4_iPhone-17-Pro-Max_26-4_Light_Stream_es.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/es-ES/App-Store-Snapshot.5_iPhone-17-Pro-Max_26-4_Dark_Playlists_es.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/es-ES/App-Store-Snapshot.6_iPhone-17-Pro-Max_26-4_Dark_Playlist-Settings_es.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/es-MX/App-Store-Snapshot.1_iPad-Pro-13-inch-M5_26-4_Light_Playlist-Add_es-419.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/es-MX/App-Store-Snapshot.1_iPhone-17-Pro-Max_26-4_Light_Playlists_es-419.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/es-MX/App-Store-Snapshot.2_iPad-Pro-13-inch-M5_26-4_Light_Stream_es-419.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/es-MX/App-Store-Snapshot.2_iPhone-17-Pro-Max_26-4_Light_Playlist-Add_es-419.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/es-MX/App-Store-Snapshot.3_iPad-Pro-13-inch-M5_26-4_Dark_Playlists_es-419.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/es-MX/App-Store-Snapshot.3_iPhone-17-Pro-Max_26-4_Light_Playlist_es-419.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/es-MX/App-Store-Snapshot.4_iPad-Pro-13-inch-M5_26-4_Dark_Playlist-Settings_es-419.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/es-MX/App-Store-Snapshot.4_iPhone-17-Pro-Max_26-4_Light_Stream_es-419.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/es-MX/App-Store-Snapshot.5_iPhone-17-Pro-Max_26-4_Dark_Playlists_es-419.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/es-MX/App-Store-Snapshot.6_iPhone-17-Pro-Max_26-4_Dark_Playlist-Settings_es-419.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/fr-FR/App-Store-Snapshot.1_iPad-Pro-13-inch-M5_26-4_Light_Playlist-Add_fr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/fr-FR/App-Store-Snapshot.1_iPhone-17-Pro-Max_26-4_Light_Playlists_fr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/fr-FR/App-Store-Snapshot.2_iPad-Pro-13-inch-M5_26-4_Light_Stream_fr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/fr-FR/App-Store-Snapshot.2_iPhone-17-Pro-Max_26-4_Light_Playlist-Add_fr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/fr-FR/App-Store-Snapshot.3_iPad-Pro-13-inch-M5_26-4_Dark_Playlists_fr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/fr-FR/App-Store-Snapshot.3_iPhone-17-Pro-Max_26-4_Light_Playlist_fr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/fr-FR/App-Store-Snapshot.4_iPad-Pro-13-inch-M5_26-4_Dark_Playlist-Settings_fr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/fr-FR/App-Store-Snapshot.4_iPhone-17-Pro-Max_26-4_Light_Stream_fr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/fr-FR/App-Store-Snapshot.5_iPhone-17-Pro-Max_26-4_Dark_Playlists_fr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/fr-FR/App-Store-Snapshot.6_iPhone-17-Pro-Max_26-4_Dark_Playlist-Settings_fr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/hi/App-Store-Snapshot.1_iPad-Pro-13-inch-M5_26-4_Light_Playlist-Add_hi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/hi/App-Store-Snapshot.1_iPhone-17-Pro-Max_26-4_Light_Playlists_hi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/hi/App-Store-Snapshot.2_iPad-Pro-13-inch-M5_26-4_Light_Stream_hi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/hi/App-Store-Snapshot.2_iPhone-17-Pro-Max_26-4_Light_Playlist-Add_hi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/hi/App-Store-Snapshot.3_iPad-Pro-13-inch-M5_26-4_Dark_Playlists_hi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/hi/App-Store-Snapshot.3_iPhone-17-Pro-Max_26-4_Light_Playlist_hi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/hi/App-Store-Snapshot.4_iPad-Pro-13-inch-M5_26-4_Dark_Playlist-Settings_hi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/hi/App-Store-Snapshot.4_iPhone-17-Pro-Max_26-4_Light_Stream_hi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/hi/App-Store-Snapshot.5_iPhone-17-Pro-Max_26-4_Dark_Playlists_hi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/hi/App-Store-Snapshot.6_iPhone-17-Pro-Max_26-4_Dark_Playlist-Settings_hi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/id/App-Store-Snapshot.1_iPad-Pro-13-inch-M5_26-4_Light_Playlist-Add_id.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/id/App-Store-Snapshot.1_iPhone-17-Pro-Max_26-4_Light_Playlists_id.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/id/App-Store-Snapshot.2_iPad-Pro-13-inch-M5_26-4_Light_Stream_id.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/id/App-Store-Snapshot.2_iPhone-17-Pro-Max_26-4_Light_Playlist-Add_id.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/id/App-Store-Snapshot.3_iPad-Pro-13-inch-M5_26-4_Dark_Playlists_id.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/id/App-Store-Snapshot.3_iPhone-17-Pro-Max_26-4_Light_Playlist_id.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/id/App-Store-Snapshot.4_iPad-Pro-13-inch-M5_26-4_Dark_Playlist-Settings_id.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/id/App-Store-Snapshot.4_iPhone-17-Pro-Max_26-4_Light_Stream_id.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/id/App-Store-Snapshot.5_iPhone-17-Pro-Max_26-4_Dark_Playlists_id.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/id/App-Store-Snapshot.6_iPhone-17-Pro-Max_26-4_Dark_Playlist-Settings_id.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/it/App-Store-Snapshot.1_iPad-Pro-13-inch-M5_26-4_Light_Playlist-Add_it.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/it/App-Store-Snapshot.1_iPhone-17-Pro-Max_26-4_Light_Playlists_it.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/it/App-Store-Snapshot.2_iPad-Pro-13-inch-M5_26-4_Light_Stream_it.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/it/App-Store-Snapshot.2_iPhone-17-Pro-Max_26-4_Light_Playlist-Add_it.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/it/App-Store-Snapshot.3_iPad-Pro-13-inch-M5_26-4_Dark_Playlists_it.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/it/App-Store-Snapshot.3_iPhone-17-Pro-Max_26-4_Light_Playlist_it.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/it/App-Store-Snapshot.4_iPad-Pro-13-inch-M5_26-4_Dark_Playlist-Settings_it.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/it/App-Store-Snapshot.4_iPhone-17-Pro-Max_26-4_Light_Stream_it.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/it/App-Store-Snapshot.5_iPhone-17-Pro-Max_26-4_Dark_Playlists_it.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/it/App-Store-Snapshot.6_iPhone-17-Pro-Max_26-4_Dark_Playlist-Settings_it.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ja/App-Store-Snapshot.1_iPad-Pro-13-inch-M5_26-4_Light_Playlist-Add_ja.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ja/App-Store-Snapshot.1_iPhone-17-Pro-Max_26-4_Light_Playlists_ja.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ja/App-Store-Snapshot.2_iPad-Pro-13-inch-M5_26-4_Light_Stream_ja.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ja/App-Store-Snapshot.2_iPhone-17-Pro-Max_26-4_Light_Playlist-Add_ja.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ja/App-Store-Snapshot.3_iPad-Pro-13-inch-M5_26-4_Dark_Playlists_ja.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ja/App-Store-Snapshot.3_iPhone-17-Pro-Max_26-4_Light_Playlist_ja.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ja/App-Store-Snapshot.4_iPad-Pro-13-inch-M5_26-4_Dark_Playlist-Settings_ja.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ja/App-Store-Snapshot.4_iPhone-17-Pro-Max_26-4_Light_Stream_ja.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ja/App-Store-Snapshot.5_iPhone-17-Pro-Max_26-4_Dark_Playlists_ja.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ja/App-Store-Snapshot.6_iPhone-17-Pro-Max_26-4_Dark_Playlist-Settings_ja.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ko/App-Store-Snapshot.1_iPad-Pro-13-inch-M5_26-4_Light_Playlist-Add_ko.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ko/App-Store-Snapshot.1_iPhone-17-Pro-Max_26-4_Light_Playlists_ko.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ko/App-Store-Snapshot.2_iPad-Pro-13-inch-M5_26-4_Light_Stream_ko.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ko/App-Store-Snapshot.2_iPhone-17-Pro-Max_26-4_Light_Playlist-Add_ko.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ko/App-Store-Snapshot.3_iPad-Pro-13-inch-M5_26-4_Dark_Playlists_ko.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ko/App-Store-Snapshot.3_iPhone-17-Pro-Max_26-4_Light_Playlist_ko.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ko/App-Store-Snapshot.4_iPad-Pro-13-inch-M5_26-4_Dark_Playlist-Settings_ko.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ko/App-Store-Snapshot.4_iPhone-17-Pro-Max_26-4_Light_Stream_ko.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ko/App-Store-Snapshot.5_iPhone-17-Pro-Max_26-4_Dark_Playlists_ko.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ko/App-Store-Snapshot.6_iPhone-17-Pro-Max_26-4_Dark_Playlist-Settings_ko.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/pt-BR/App-Store-Snapshot.1_iPad-Pro-13-inch-M5_26-4_Light_Playlist-Add_pt-BR.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/pt-BR/App-Store-Snapshot.1_iPhone-17-Pro-Max_26-4_Light_Playlists_pt-BR.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/pt-BR/App-Store-Snapshot.2_iPad-Pro-13-inch-M5_26-4_Light_Stream_pt-BR.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/pt-BR/App-Store-Snapshot.2_iPhone-17-Pro-Max_26-4_Light_Playlist-Add_pt-BR.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/pt-BR/App-Store-Snapshot.3_iPad-Pro-13-inch-M5_26-4_Dark_Playlists_pt-BR.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/pt-BR/App-Store-Snapshot.3_iPhone-17-Pro-Max_26-4_Light_Playlist_pt-BR.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/pt-BR/App-Store-Snapshot.4_iPad-Pro-13-inch-M5_26-4_Dark_Playlist-Settings_pt-BR.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/pt-BR/App-Store-Snapshot.4_iPhone-17-Pro-Max_26-4_Light_Stream_pt-BR.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/pt-BR/App-Store-Snapshot.5_iPhone-17-Pro-Max_26-4_Dark_Playlists_pt-BR.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/pt-BR/App-Store-Snapshot.6_iPhone-17-Pro-Max_26-4_Dark_Playlist-Settings_pt-BR.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ru/App-Store-Snapshot.1_iPad-Pro-13-inch-M5_26-4_Light_Playlist-Add_ru.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ru/App-Store-Snapshot.1_iPhone-17-Pro-Max_26-4_Light_Playlists_ru.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ru/App-Store-Snapshot.2_iPad-Pro-13-inch-M5_26-4_Light_Stream_ru.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ru/App-Store-Snapshot.2_iPhone-17-Pro-Max_26-4_Light_Playlist-Add_ru.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ru/App-Store-Snapshot.3_iPad-Pro-13-inch-M5_26-4_Dark_Playlists_ru.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ru/App-Store-Snapshot.3_iPhone-17-Pro-Max_26-4_Light_Playlist_ru.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ru/App-Store-Snapshot.4_iPad-Pro-13-inch-M5_26-4_Dark_Playlist-Settings_ru.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ru/App-Store-Snapshot.4_iPhone-17-Pro-Max_26-4_Light_Stream_ru.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ru/App-Store-Snapshot.5_iPhone-17-Pro-Max_26-4_Dark_Playlists_ru.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/ru/App-Store-Snapshot.6_iPhone-17-Pro-Max_26-4_Dark_Playlist-Settings_ru.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/th/App-Store-Snapshot.1_iPad-Pro-13-inch-M5_26-4_Light_Playlist-Add_th.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/th/App-Store-Snapshot.1_iPhone-17-Pro-Max_26-4_Light_Playlists_th.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/th/App-Store-Snapshot.2_iPad-Pro-13-inch-M5_26-4_Light_Stream_th.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/th/App-Store-Snapshot.2_iPhone-17-Pro-Max_26-4_Light_Playlist-Add_th.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/th/App-Store-Snapshot.3_iPad-Pro-13-inch-M5_26-4_Dark_Playlists_th.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/th/App-Store-Snapshot.3_iPhone-17-Pro-Max_26-4_Light_Playlist_th.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/th/App-Store-Snapshot.4_iPad-Pro-13-inch-M5_26-4_Dark_Playlist-Settings_th.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/th/App-Store-Snapshot.4_iPhone-17-Pro-Max_26-4_Light_Stream_th.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/th/App-Store-Snapshot.5_iPhone-17-Pro-Max_26-4_Dark_Playlists_th.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/th/App-Store-Snapshot.6_iPhone-17-Pro-Max_26-4_Dark_Playlist-Settings_th.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/tr/App-Store-Snapshot.1_iPad-Pro-13-inch-M5_26-4_Light_Playlist-Add_tr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/tr/App-Store-Snapshot.1_iPhone-17-Pro-Max_26-4_Light_Playlists_tr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/tr/App-Store-Snapshot.2_iPad-Pro-13-inch-M5_26-4_Light_Stream_tr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/tr/App-Store-Snapshot.2_iPhone-17-Pro-Max_26-4_Light_Playlist-Add_tr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/tr/App-Store-Snapshot.3_iPad-Pro-13-inch-M5_26-4_Dark_Playlists_tr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/tr/App-Store-Snapshot.3_iPhone-17-Pro-Max_26-4_Light_Playlist_tr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/tr/App-Store-Snapshot.4_iPad-Pro-13-inch-M5_26-4_Dark_Playlist-Settings_tr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/tr/App-Store-Snapshot.4_iPhone-17-Pro-Max_26-4_Light_Stream_tr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/tr/App-Store-Snapshot.5_iPhone-17-Pro-Max_26-4_Dark_Playlists_tr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/tr/App-Store-Snapshot.6_iPhone-17-Pro-Max_26-4_Dark_Playlist-Settings_tr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/vi/App-Store-Snapshot.1_iPad-Pro-13-inch-M5_26-4_Light_Playlist-Add_vi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/vi/App-Store-Snapshot.1_iPhone-17-Pro-Max_26-4_Light_Playlists_vi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/vi/App-Store-Snapshot.2_iPad-Pro-13-inch-M5_26-4_Light_Stream_vi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/vi/App-Store-Snapshot.2_iPhone-17-Pro-Max_26-4_Light_Playlist-Add_vi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/vi/App-Store-Snapshot.3_iPad-Pro-13-inch-M5_26-4_Dark_Playlists_vi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/vi/App-Store-Snapshot.3_iPhone-17-Pro-Max_26-4_Light_Playlist_vi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/vi/App-Store-Snapshot.4_iPad-Pro-13-inch-M5_26-4_Dark_Playlist-Settings_vi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/vi/App-Store-Snapshot.4_iPhone-17-Pro-Max_26-4_Light_Stream_vi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/vi/App-Store-Snapshot.5_iPhone-17-Pro-Max_26-4_Dark_Playlists_vi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/vi/App-Store-Snapshot.6_iPhone-17-Pro-Max_26-4_Dark_Playlist-Settings_vi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/zh-Hans/App-Store-Snapshot.1_iPad-Pro-13-inch-M5_26-4_Light_Playlist-Add_zh-Hans.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/zh-Hans/App-Store-Snapshot.1_iPhone-17-Pro-Max_26-4_Light_Playlists_zh-Hans.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/zh-Hans/App-Store-Snapshot.2_iPad-Pro-13-inch-M5_26-4_Light_Stream_zh-Hans.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/zh-Hans/App-Store-Snapshot.2_iPhone-17-Pro-Max_26-4_Light_Playlist-Add_zh-Hans.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/zh-Hans/App-Store-Snapshot.3_iPad-Pro-13-inch-M5_26-4_Dark_Playlists_zh-Hans.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/zh-Hans/App-Store-Snapshot.3_iPhone-17-Pro-Max_26-4_Light_Playlist_zh-Hans.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/zh-Hans/App-Store-Snapshot.4_iPad-Pro-13-inch-M5_26-4_Dark_Playlist-Settings_zh-Hans.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/zh-Hans/App-Store-Snapshot.4_iPhone-17-Pro-Max_26-4_Light_Stream_zh-Hans.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/zh-Hans/App-Store-Snapshot.5_iPhone-17-Pro-Max_26-4_Dark_Playlists_zh-Hans.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/iOS/zh-Hans/App-Store-Snapshot.6_iPhone-17-Pro-Max_26-4_Dark_Playlist-Settings_zh-Hans.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/ar-SA/App-Store-Snapshot.1_macosx_26_Light_Playlist-Add_ar.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/ar-SA/App-Store-Snapshot.2_macosx_26_Light_Stream_ar.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/ar-SA/App-Store-Snapshot.3_macosx_26_Light_Playlist-Settings_ar.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/de-DE/App-Store-Snapshot.1_macosx_26_Light_Playlist-Add_de.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/de-DE/App-Store-Snapshot.2_macosx_26_Light_Stream_de.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/de-DE/App-Store-Snapshot.3_macosx_26_Light_Playlist-Settings_de.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/en-US/App-Store-Snapshot.1_macosx_26_Light_Playlist-Add_en.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/en-US/App-Store-Snapshot.2_macosx_26_Light_Stream_en.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/en-US/App-Store-Snapshot.3_macosx_26_Light_Playlist-Settings_en.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/es-ES/App-Store-Snapshot.1_macosx_26_Light_Playlist-Add_es.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/es-ES/App-Store-Snapshot.2_macosx_26_Light_Stream_es.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/es-ES/App-Store-Snapshot.3_macosx_26_Light_Playlist-Settings_es.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/es-MX/App-Store-Snapshot.1_macosx_26_Light_Playlist-Add_es-419.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/es-MX/App-Store-Snapshot.2_macosx_26_Light_Stream_es-419.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/es-MX/App-Store-Snapshot.3_macosx_26_Light_Playlist-Settings_es-419.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/fr-FR/App-Store-Snapshot.1_macosx_26_Light_Playlist-Add_fr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/fr-FR/App-Store-Snapshot.2_macosx_26_Light_Stream_fr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/fr-FR/App-Store-Snapshot.3_macosx_26_Light_Playlist-Settings_fr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/hi/App-Store-Snapshot.1_macosx_26_Light_Playlist-Add_hi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/hi/App-Store-Snapshot.2_macosx_26_Light_Stream_hi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/hi/App-Store-Snapshot.3_macosx_26_Light_Playlist-Settings_hi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/id/App-Store-Snapshot.1_macosx_26_Light_Playlist-Add_id.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/id/App-Store-Snapshot.2_macosx_26_Light_Stream_id.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/id/App-Store-Snapshot.3_macosx_26_Light_Playlist-Settings_id.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/it/App-Store-Snapshot.1_macosx_26_Light_Playlist-Add_it.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/it/App-Store-Snapshot.2_macosx_26_Light_Stream_it.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/it/App-Store-Snapshot.3_macosx_26_Light_Playlist-Settings_it.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/ja/App-Store-Snapshot.1_macosx_26_Light_Playlist-Add_ja.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/ja/App-Store-Snapshot.2_macosx_26_Light_Stream_ja.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/ja/App-Store-Snapshot.3_macosx_26_Light_Playlist-Settings_ja.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/ko/App-Store-Snapshot.1_macosx_26_Light_Playlist-Add_ko.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/ko/App-Store-Snapshot.2_macosx_26_Light_Stream_ko.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/ko/App-Store-Snapshot.3_macosx_26_Light_Playlist-Settings_ko.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/pt-BR/App-Store-Snapshot.1_macosx_26_Light_Playlist-Add_pt-BR.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/pt-BR/App-Store-Snapshot.2_macosx_26_Light_Stream_pt-BR.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/pt-BR/App-Store-Snapshot.3_macosx_26_Light_Playlist-Settings_pt-BR.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/ru/App-Store-Snapshot.1_macosx_26_Light_Playlist-Add_ru.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/ru/App-Store-Snapshot.2_macosx_26_Light_Stream_ru.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/ru/App-Store-Snapshot.3_macosx_26_Light_Playlist-Settings_ru.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/th/App-Store-Snapshot.1_macosx_26_Light_Playlist-Add_th.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/th/App-Store-Snapshot.2_macosx_26_Light_Stream_th.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/th/App-Store-Snapshot.3_macosx_26_Light_Playlist-Settings_th.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/tr/App-Store-Snapshot.1_macosx_26_Light_Playlist-Add_tr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/tr/App-Store-Snapshot.2_macosx_26_Light_Stream_tr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/tr/App-Store-Snapshot.3_macosx_26_Light_Playlist-Settings_tr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/vi/App-Store-Snapshot.1_macosx_26_Light_Playlist-Add_vi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/vi/App-Store-Snapshot.2_macosx_26_Light_Stream_vi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/vi/App-Store-Snapshot.3_macosx_26_Light_Playlist-Settings_vi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/zh-Hans/App-Store-Snapshot.1_macosx_26_Light_Playlist-Add_zh-Hans.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/zh-Hans/App-Store-Snapshot.2_macosx_26_Light_Stream_zh-Hans.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/macOS/zh-Hans/App-Store-Snapshot.3_macosx_26_Light_Playlist-Settings_zh-Hans.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/ar-SA/App-Store-Snapshot.1_Apple-TV-4K-3rd-generation_26-4_Light_Playlists_ar.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/ar-SA/App-Store-Snapshot.2_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Add_ar.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/ar-SA/App-Store-Snapshot.3_Apple-TV-4K-3rd-generation_26-4_Light_Stream_ar.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/ar-SA/App-Store-Snapshot.4_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings-Menu_ar.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/ar-SA/App-Store-Snapshot.5_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings_ar.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/de-DE/App-Store-Snapshot.1_Apple-TV-4K-3rd-generation_26-4_Light_Playlists_de.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/de-DE/App-Store-Snapshot.2_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Add_de.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/de-DE/App-Store-Snapshot.3_Apple-TV-4K-3rd-generation_26-4_Light_Stream_de.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/de-DE/App-Store-Snapshot.4_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings-Menu_de.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/de-DE/App-Store-Snapshot.5_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings_de.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/en-US/App-Store-Snapshot.1_Apple-TV-4K-3rd-generation_26-4_Light_Playlists_en.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/en-US/App-Store-Snapshot.2_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Add_en.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/en-US/App-Store-Snapshot.3_Apple-TV-4K-3rd-generation_26-4_Light_Stream_en.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/en-US/App-Store-Snapshot.4_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings-Menu_en.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/en-US/App-Store-Snapshot.5_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings_en.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/es-ES/App-Store-Snapshot.1_Apple-TV-4K-3rd-generation_26-4_Light_Playlists_es.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/es-ES/App-Store-Snapshot.2_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Add_es.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/es-ES/App-Store-Snapshot.3_Apple-TV-4K-3rd-generation_26-4_Light_Stream_es.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/es-ES/App-Store-Snapshot.4_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings-Menu_es.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/es-ES/App-Store-Snapshot.5_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings_es.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/es-MX/App-Store-Snapshot.1_Apple-TV-4K-3rd-generation_26-4_Light_Playlists_es-419.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/es-MX/App-Store-Snapshot.2_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Add_es-419.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/es-MX/App-Store-Snapshot.3_Apple-TV-4K-3rd-generation_26-4_Light_Stream_es-419.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/es-MX/App-Store-Snapshot.4_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings-Menu_es-419.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/es-MX/App-Store-Snapshot.5_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings_es-419.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/fr-FR/App-Store-Snapshot.1_Apple-TV-4K-3rd-generation_26-4_Light_Playlists_fr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/fr-FR/App-Store-Snapshot.2_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Add_fr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/fr-FR/App-Store-Snapshot.3_Apple-TV-4K-3rd-generation_26-4_Light_Stream_fr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/fr-FR/App-Store-Snapshot.4_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings-Menu_fr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/fr-FR/App-Store-Snapshot.5_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings_fr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/hi/App-Store-Snapshot.1_Apple-TV-4K-3rd-generation_26-4_Light_Playlists_hi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/hi/App-Store-Snapshot.2_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Add_hi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/hi/App-Store-Snapshot.3_Apple-TV-4K-3rd-generation_26-4_Light_Stream_hi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/hi/App-Store-Snapshot.4_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings-Menu_hi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/hi/App-Store-Snapshot.5_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings_hi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/id/App-Store-Snapshot.1_Apple-TV-4K-3rd-generation_26-4_Light_Playlists_id.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/id/App-Store-Snapshot.2_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Add_id.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/id/App-Store-Snapshot.3_Apple-TV-4K-3rd-generation_26-4_Light_Stream_id.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/id/App-Store-Snapshot.4_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings-Menu_id.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/id/App-Store-Snapshot.5_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings_id.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/it/App-Store-Snapshot.1_Apple-TV-4K-3rd-generation_26-4_Light_Playlists_it.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/it/App-Store-Snapshot.2_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Add_it.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/it/App-Store-Snapshot.3_Apple-TV-4K-3rd-generation_26-4_Light_Stream_it.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/it/App-Store-Snapshot.4_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings-Menu_it.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/it/App-Store-Snapshot.5_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings_it.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/ja/App-Store-Snapshot.1_Apple-TV-4K-3rd-generation_26-4_Light_Playlists_ja.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/ja/App-Store-Snapshot.2_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Add_ja.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/ja/App-Store-Snapshot.3_Apple-TV-4K-3rd-generation_26-4_Light_Stream_ja.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/ja/App-Store-Snapshot.4_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings-Menu_ja.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/ja/App-Store-Snapshot.5_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings_ja.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/ko/App-Store-Snapshot.1_Apple-TV-4K-3rd-generation_26-4_Light_Playlists_ko.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/ko/App-Store-Snapshot.2_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Add_ko.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/ko/App-Store-Snapshot.3_Apple-TV-4K-3rd-generation_26-4_Light_Stream_ko.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/ko/App-Store-Snapshot.4_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings-Menu_ko.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/ko/App-Store-Snapshot.5_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings_ko.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/pt-BR/App-Store-Snapshot.1_Apple-TV-4K-3rd-generation_26-4_Light_Playlists_pt-BR.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/pt-BR/App-Store-Snapshot.2_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Add_pt-BR.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/pt-BR/App-Store-Snapshot.3_Apple-TV-4K-3rd-generation_26-4_Light_Stream_pt-BR.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/pt-BR/App-Store-Snapshot.4_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings-Menu_pt-BR.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/pt-BR/App-Store-Snapshot.5_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings_pt-BR.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/ru/App-Store-Snapshot.1_Apple-TV-4K-3rd-generation_26-4_Light_Playlists_ru.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/ru/App-Store-Snapshot.2_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Add_ru.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/ru/App-Store-Snapshot.3_Apple-TV-4K-3rd-generation_26-4_Light_Stream_ru.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/ru/App-Store-Snapshot.4_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings-Menu_ru.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/ru/App-Store-Snapshot.5_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings_ru.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/th/App-Store-Snapshot.1_Apple-TV-4K-3rd-generation_26-4_Light_Playlists_th.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/th/App-Store-Snapshot.2_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Add_th.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/th/App-Store-Snapshot.3_Apple-TV-4K-3rd-generation_26-4_Light_Stream_th.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/th/App-Store-Snapshot.4_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings-Menu_th.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/th/App-Store-Snapshot.5_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings_th.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/tr/App-Store-Snapshot.1_Apple-TV-4K-3rd-generation_26-4_Light_Playlists_tr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/tr/App-Store-Snapshot.2_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Add_tr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/tr/App-Store-Snapshot.3_Apple-TV-4K-3rd-generation_26-4_Light_Stream_tr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/tr/App-Store-Snapshot.4_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings-Menu_tr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/tr/App-Store-Snapshot.5_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings_tr.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/vi/App-Store-Snapshot.1_Apple-TV-4K-3rd-generation_26-4_Light_Playlists_vi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/vi/App-Store-Snapshot.2_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Add_vi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/vi/App-Store-Snapshot.3_Apple-TV-4K-3rd-generation_26-4_Light_Stream_vi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/vi/App-Store-Snapshot.4_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings-Menu_vi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/vi/App-Store-Snapshot.5_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings_vi.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/zh-Hans/App-Store-Snapshot.1_Apple-TV-4K-3rd-generation_26-4_Light_Playlists_zh-Hans.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/zh-Hans/App-Store-Snapshot.2_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Add_zh-Hans.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/zh-Hans/App-Store-Snapshot.3_Apple-TV-4K-3rd-generation_26-4_Light_Stream_zh-Hans.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/zh-Hans/App-Store-Snapshot.4_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings-Menu_zh-Hans.png",
+				"SnapshotUITests/App-Store/__Snapshots__/AppStoreSnapshotUITests/tvOS/zh-Hans/App-Store-Snapshot.5_Apple-TV-4K-3rd-generation_26-4_Light_Playlist-Settings_zh-Hans.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.1_iPad-Pro-13-inch-M4_18-6_Light_Add-Playlist-Blank_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.1_iPad-Pro-13-inch-M5_26-4_Light_Add-Playlist-Blank_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.1_iPhone-16-Pro-Max_18-6_Light_Add-Playlist-Blank_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.1_iPhone-17-Pro-Max_26-4_Light_Add-Playlist-Blank_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.2_iPad-Pro-13-inch-M4_18-6_Light_Add-Playlist-Filled_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.2_iPad-Pro-13-inch-M5_26-4_Light_Add-Playlist-Filled_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.2_iPhone-16-Pro-Max_18-6_Light_Add-Playlist-Filled_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.2_iPhone-17-Pro-Max_26-4_Light_Add-Playlist-Filled_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.3_iPad-Pro-13-inch-M4_18-6_Light_Playlists_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.3_iPad-Pro-13-inch-M5_26-4_Light_Playlists_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.3_iPhone-16-Pro-Max_18-6_Light_Playlists_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.3_iPhone-17-Pro-Max_26-4_Light_Playlists_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.4_iPad-Pro-13-inch-M4_18-6_Light_Passcode-Input_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.4_iPad-Pro-13-inch-M5_26-4_Light_Passcode-Input_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.4_iPhone-16-Pro-Max_18-6_Light_Passcode-Input_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.4_iPhone-17-Pro-Max_26-4_Light_Passcode-Input_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.5_iPad-Pro-13-inch-M4_18-6_Light_Playlist_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.5_iPad-Pro-13-inch-M5_26-4_Light_Playlist_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.5_iPhone-16-Pro-Max_18-6_Light_Playlist_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.5_iPhone-17-Pro-Max_26-4_Light_Playlist_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.6_iPad-Pro-13-inch-M4_18-6_Light_Settings_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.6_iPad-Pro-13-inch-M5_26-4_Light_Settings_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.6_iPhone-16-Pro-Max_18-6_Light_Settings_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/iOS/Regular.6_iPhone-17-Pro-Max_26-4_Light_Settings_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/macOS/Regular.1_macosx_26_Light_Add-Playlist-Blank_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/macOS/Regular.2_macosx_26_Light_Add-Playlist-Filled_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/macOS/Regular.3_macosx_26_Light_Playlists_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/macOS/Regular.4_macosx_26_Light_Passcode-Input_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/macOS/Regular.5_macosx_26_Light_Playlist_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/macOS/Regular.6_macosx_26_Light_Settings_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/tvOS/Regular.1_Apple-TV-4K-3rd-generation_18-5_Light_Playlists_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/tvOS/Regular.1_Apple-TV-4K-3rd-generation_26-4_Light_Playlists_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/tvOS/Regular.2_Apple-TV-4K-3rd-generation_18-5_Light_Add-Playlist-Blank_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/tvOS/Regular.2_Apple-TV-4K-3rd-generation_26-4_Light_Add-Playlist-Blank_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/tvOS/Regular.3_Apple-TV-4K-3rd-generation_18-5_Light_Settings_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/tvOS/Regular.3_Apple-TV-4K-3rd-generation_26-4_Light_Settings_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/tvOS/Regular.4_Apple-TV-4K-3rd-generation_18-5_Light_Stream_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/tvOS/Regular.4_Apple-TV-4K-3rd-generation_26-4_Light_Stream_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/tvOS/Regular.5_Apple-TV-4K-3rd-generation_18-5_Light_Passcode-Input_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Passcode/tvOS/Regular.5_Apple-TV-4K-3rd-generation_26-4_Light_Passcode-Input_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Stream/iOS/Regular.1_iPad-Pro-13-inch-M4_18-6_Light_Playlist-Sorted-Asc_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Stream/iOS/Regular.1_iPad-Pro-13-inch-M5_26-4_Light_Playlist-Sorted-Asc_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Stream/iOS/Regular.1_iPhone-16-Pro-Max_18-6_Light_Playlist-Sorted-Asc_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Stream/iOS/Regular.1_iPhone-17-Pro-Max_26-4_Light_Playlist-Sorted-Asc_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Stream/iOS/Regular.2_iPad-Pro-13-inch-M4_18-6_Light_Stream_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Stream/iOS/Regular.2_iPad-Pro-13-inch-M5_26-4_Light_Stream_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Stream/iOS/Regular.2_iPhone-16-Pro-Max_18-6_Light_Stream_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Stream/iOS/Regular.2_iPhone-17-Pro-Max_26-4_Light_Stream_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Stream/macOS/Regular.1_macosx_26_Light_Playlist-Sorted-Asc_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Stream/macOS/Regular.2_macosx_26_Light_Stream_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Stream/tvOS/Regular.1_Apple-TV-4K-3rd-generation_18-5_Light_Playlist_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Stream/tvOS/Regular.1_Apple-TV-4K-3rd-generation_26-4_Light_Playlist_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Stream/tvOS/Regular.2_Apple-TV-4K-3rd-generation_18-5_Light_Settings_en.png",
+				"SnapshotUITests/Regular/__Snapshots__/RegularSnapshotUITests-Stream/tvOS/Regular.2_Apple-TV-4K-3rd-generation_26-4_Light_Settings_en.png",
+			);
+			target = 820B7D8C2F5F2C5E0043DE13 /* AppleTVMultiplatformUITests */;
+		};
+		82C5BCA72F8FCFE6005612D4 /* Exceptions for "AppleTVMultiplatformTests" folder in "AppleTVMultiplatformTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AppleTVMultiplatformTests.xctestplan,
+			);
+			target = 820B7D822F5F2C5E0043DE13 /* AppleTVMultiplatformTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		820B7D742F5F2C5C0043DE13 /* AppleTVMultiplatform */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				820B7D952F5F2C5E0043DE13 /* Exceptions for "AppleTVMultiplatform" folder in "AppleTVMultiplatform" target */,
+			);
+			path = AppleTVMultiplatform;
+			sourceTree = "<group>";
+		};
+		820B7D862F5F2C5E0043DE13 /* AppleTVMultiplatformTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				82C5BCA72F8FCFE6005612D4 /* Exceptions for "AppleTVMultiplatformTests" folder in "AppleTVMultiplatformTests" target */,
+			);
+			path = AppleTVMultiplatformTests;
+			sourceTree = "<group>";
+		};
+		820B7D902F5F2C5E0043DE13 /* AppleTVMultiplatformUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				826C40F22F862A4D006959FD /* Exceptions for "AppleTVMultiplatformUITests" folder in "AppleTVMultiplatformUITests" target */,
+			);
+			path = AppleTVMultiplatformUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		820B7D6F2F5F2C5C0043DE13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82ECB5D62F61F23500C68F02 /* NukeUI in Frameworks */,
+				82F7111B2F5F41EF0016FFCC /* FactoryKit in Frameworks */,
+				82ECB5D92F61FCAF00C68F02 /* Kanna in Frameworks */,
+				821C3BE12F91E66A00666D1F /* FirebaseCrashlytics in Frameworks */,
+				821C3BDF2F91E66A00666D1F /* FirebaseAnalytics in Frameworks */,
+				823A459B2F600E1800C3FB19 /* SWCompression in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		820B7D802F5F2C5E0043DE13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82F7111D2F5F41EF0016FFCC /* FactoryTesting in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		820B7D8A2F5F2C5E0043DE13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				820B1D0F2F8534C200FD19C2 /* Testing.framework in Frameworks */,
+				820B1D0D2F85343200FD19C2 /* SnapshotTesting in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		820B7D692F5F2C5C0043DE13 = {
+			isa = PBXGroup;
+			children = (
+				820B7D742F5F2C5C0043DE13 /* AppleTVMultiplatform */,
+				820B7D862F5F2C5E0043DE13 /* AppleTVMultiplatformTests */,
+				820B7D902F5F2C5E0043DE13 /* AppleTVMultiplatformUITests */,
+				82F7111E2F5F420B0016FFCC /* Frameworks */,
+				820B7D732F5F2C5C0043DE13 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		820B7D732F5F2C5C0043DE13 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				820B7D722F5F2C5C0043DE13 /* Bro Player.app */,
+				820B7D832F5F2C5E0043DE13 /* AppleTVMultiplatformTests.xctest */,
+				820B7D8D2F5F2C5E0043DE13 /* AppleTVMultiplatformUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		82F7111E2F5F420B0016FFCC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				820B1D0E2F8534C200FD19C2 /* Testing.framework */,
+				820B1D092F85321B00FD19C2 /* XCTest.framework */,
+				8243F9402F62413C00CE3154 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		820B7D712F5F2C5C0043DE13 /* AppleTVMultiplatform */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 820B7D962F5F2C5E0043DE13 /* Build configuration list for PBXNativeTarget "AppleTVMultiplatform" */;
+			buildPhases = (
+				820B7D6E2F5F2C5C0043DE13 /* Sources */,
+				820B7D6F2F5F2C5C0043DE13 /* Frameworks */,
+				820B7D702F5F2C5C0043DE13 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				820B7D742F5F2C5C0043DE13 /* AppleTVMultiplatform */,
+			);
+			name = AppleTVMultiplatform;
+			packageProductDependencies = (
+				82F7111A2F5F41EF0016FFCC /* FactoryKit */,
+				823A459A2F600E1800C3FB19 /* SWCompression */,
+				82ECB5D52F61F23500C68F02 /* NukeUI */,
+				82ECB5D82F61FCAF00C68F02 /* Kanna */,
+				821C3BDE2F91E66A00666D1F /* FirebaseAnalytics */,
+				821C3BE02F91E66A00666D1F /* FirebaseCrashlytics */,
+			);
+			productName = "Bro Player";
+			productReference = 820B7D722F5F2C5C0043DE13 /* Bro Player.app */;
+			productType = "com.apple.product-type.application";
+		};
+		820B7D822F5F2C5E0043DE13 /* AppleTVMultiplatformTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 820B7D9B2F5F2C5E0043DE13 /* Build configuration list for PBXNativeTarget "AppleTVMultiplatformTests" */;
+			buildPhases = (
+				820B7D7F2F5F2C5E0043DE13 /* Sources */,
+				820B7D802F5F2C5E0043DE13 /* Frameworks */,
+				820B7D812F5F2C5E0043DE13 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				820B7D852F5F2C5E0043DE13 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				820B7D862F5F2C5E0043DE13 /* AppleTVMultiplatformTests */,
+			);
+			name = AppleTVMultiplatformTests;
+			packageProductDependencies = (
+				82F7111C2F5F41EF0016FFCC /* FactoryTesting */,
+			);
+			productName = AppleTVMultiplatformTests;
+			productReference = 820B7D832F5F2C5E0043DE13 /* AppleTVMultiplatformTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		820B7D8C2F5F2C5E0043DE13 /* AppleTVMultiplatformUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 820B7D9E2F5F2C5E0043DE13 /* Build configuration list for PBXNativeTarget "AppleTVMultiplatformUITests" */;
+			buildPhases = (
+				820B7D892F5F2C5E0043DE13 /* Sources */,
+				820B7D8A2F5F2C5E0043DE13 /* Frameworks */,
+				820B7D8B2F5F2C5E0043DE13 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				820B7D8F2F5F2C5E0043DE13 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				820B7D902F5F2C5E0043DE13 /* AppleTVMultiplatformUITests */,
+			);
+			name = AppleTVMultiplatformUITests;
+			packageProductDependencies = (
+				820B1D0C2F85343200FD19C2 /* SnapshotTesting */,
+			);
+			productName = AppleTVMultiplatformUITests;
+			productReference = 820B7D8D2F5F2C5E0043DE13 /* AppleTVMultiplatformUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		820B7D6A2F5F2C5C0043DE13 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2630;
+				LastUpgradeCheck = 2630;
+				TargetAttributes = {
+					820B7D712F5F2C5C0043DE13 = {
+						CreatedOnToolsVersion = 26.3;
+					};
+					820B7D822F5F2C5E0043DE13 = {
+						CreatedOnToolsVersion = 26.3;
+						TestTargetID = 820B7D712F5F2C5C0043DE13;
+					};
+					820B7D8C2F5F2C5E0043DE13 = {
+						CreatedOnToolsVersion = 26.3;
+						TestTargetID = 820B7D712F5F2C5C0043DE13;
+					};
+				};
+			};
+			buildConfigurationList = 820B7D6D2F5F2C5C0043DE13 /* Build configuration list for PBXProject "AppleTVMultiplatform" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				ru,
+				"zh-Hans",
+				de,
+				fr,
+				it,
+				es,
+				"es-419",
+				Base,
+				ja,
+				"pt-BR",
+				ko,
+				hi,
+				id,
+				tr,
+				vi,
+				th,
+				ar,
+			);
+			mainGroup = 820B7D692F5F2C5C0043DE13;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				82F711192F5F41EF0016FFCC /* XCRemoteSwiftPackageReference "Factory" */,
+				823A45992F600E1800C3FB19 /* XCRemoteSwiftPackageReference "SWCompression" */,
+				82ECB5D42F61F23500C68F02 /* XCRemoteSwiftPackageReference "Nuke" */,
+				82ECB5D72F61FCAF00C68F02 /* XCRemoteSwiftPackageReference "Kanna" */,
+				820B1D0B2F85343200FD19C2 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+				821C3BDD2F91E66A00666D1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 820B7D732F5F2C5C0043DE13 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				820B7D712F5F2C5C0043DE13 /* AppleTVMultiplatform */,
+				820B7D822F5F2C5E0043DE13 /* AppleTVMultiplatformTests */,
+				820B7D8C2F5F2C5E0043DE13 /* AppleTVMultiplatformUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		820B7D702F5F2C5C0043DE13 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		820B7D812F5F2C5E0043DE13 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		820B7D8B2F5F2C5E0043DE13 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		820B7D6E2F5F2C5C0043DE13 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		820B7D7F2F5F2C5E0043DE13 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		820B7D892F5F2C5E0043DE13 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		820B7D852F5F2C5E0043DE13 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 820B7D712F5F2C5C0043DE13 /* AppleTVMultiplatform */;
+			targetProxy = 820B7D842F5F2C5E0043DE13 /* PBXContainerItemProxy */;
+		};
+		820B7D8F2F5F2C5E0043DE13 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 820B7D712F5F2C5C0043DE13 /* AppleTVMultiplatform */;
+			targetProxy = 820B7D8E2F5F2C5E0043DE13 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		820B7D972F5F2C5E0043DE13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=appletvos*]" = "App Icon & Top Shelf Image";
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=appletvsimulator*]" = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=appletvos*]" = 4HUHB9J47M;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 4HUHB9J47M;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 4HUHB9J47M;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AppleTVMultiplatform/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Bro Player";
+				INFOPLIST_KEY_CFBundleName = "Bro Player";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0.5;
+				"MARKETING_VERSION[sdk=appletvos*]" = 1.0.5;
+				"MARKETING_VERSION[sdk=appletvsimulator*]" = 1.0.5;
+				"MARKETING_VERSION[sdk=iphoneos*]" = 1.0.5;
+				"MARKETING_VERSION[sdk=iphonesimulator*]" = 1.0.5;
+				"MARKETING_VERSION[sdk=macosx*]" = 1.0.5;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = mike.house.nsk.AppleTVMultiplatform;
+				PRODUCT_NAME = "Bro Player";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=appletvos*]" = "tv-4HUHB9J47M.mike.house.nsk.AppleTVMultiplatform";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "ios-4HUHB9J47M.mike.house.nsk.AppleTVMultiplatform";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "mac-4HUHB9J47M.mike.house.nsk.AppleTVMultiplatform";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3";
+				TVOS_DEPLOYMENT_TARGET = 17.5;
+			};
+			name = Debug;
+		};
+		820B7D982F5F2C5E0043DE13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=appletvos*]" = "App Icon & Top Shelf Image";
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=appletvsimulator*]" = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "3rd Party Mac Developer Application";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=appletvos*]" = 4HUHB9J47M;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 4HUHB9J47M;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 4HUHB9J47M;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AppleTVMultiplatform/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Bro Player";
+				INFOPLIST_KEY_CFBundleName = "Bro Player";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0.5;
+				"MARKETING_VERSION[sdk=appletvos*]" = 1.0.5;
+				"MARKETING_VERSION[sdk=appletvsimulator*]" = 1.0.5;
+				"MARKETING_VERSION[sdk=iphoneos*]" = 1.0.5;
+				"MARKETING_VERSION[sdk=iphonesimulator*]" = 1.0.5;
+				"MARKETING_VERSION[sdk=macosx*]" = 1.0.5;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = mike.house.nsk.AppleTVMultiplatform;
+				PRODUCT_NAME = "Bro Player";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=appletvos*]" = "Distr-tv-4HUHB9J47M.mike.house.nsk.AppleTVMultipla";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Distr-ios-4HUHB9J47M.mike.house.nsk.AppleTVMul";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "Distr-mac-4HUHB9J47M.mike.house.nsk.AppleTVMultipl";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3";
+				TVOS_DEPLOYMENT_TARGET = 17.5;
+			};
+			name = Release;
+		};
+		820B7D992F5F2C5E0043DE13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4HUHB9J47M;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		820B7D9A2F5F2C5E0043DE13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 4HUHB9J47M;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		820B7D9C2F5F2C5E0043DE13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4HUHB9J47M;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mike.house.nsk.AppleTVMultiplatformTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bro Player.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Bro Player";
+				TVOS_DEPLOYMENT_TARGET = 17.5;
+			};
+			name = Debug;
+		};
+		820B7D9D2F5F2C5E0043DE13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4HUHB9J47M;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mike.house.nsk.AppleTVMultiplatformTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bro Player.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Bro Player";
+				TVOS_DEPLOYMENT_TARGET = 17.5;
+			};
+			name = Release;
+		};
+		820B7D9F2F5F2C5E0043DE13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4HUHB9J47M;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_USER_SELECTED_FILES = readwrite;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AppleTVMultiplatformUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = mike.house.nsk.AppleTVMultiplatformUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3";
+				TEST_TARGET_NAME = AppleTVMultiplatform;
+				TVOS_DEPLOYMENT_TARGET = 17.5;
+			};
+			name = Debug;
+		};
+		820B7DA02F5F2C5E0043DE13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4HUHB9J47M;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_USER_SELECTED_FILES = readwrite;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AppleTVMultiplatformUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = mike.house.nsk.AppleTVMultiplatformUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3";
+				TEST_TARGET_NAME = AppleTVMultiplatform;
+				TVOS_DEPLOYMENT_TARGET = 17.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		820B7D6D2F5F2C5C0043DE13 /* Build configuration list for PBXProject "AppleTVMultiplatform" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				820B7D992F5F2C5E0043DE13 /* Debug */,
+				820B7D9A2F5F2C5E0043DE13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		820B7D962F5F2C5E0043DE13 /* Build configuration list for PBXNativeTarget "AppleTVMultiplatform" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				820B7D972F5F2C5E0043DE13 /* Debug */,
+				820B7D982F5F2C5E0043DE13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		820B7D9B2F5F2C5E0043DE13 /* Build configuration list for PBXNativeTarget "AppleTVMultiplatformTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				820B7D9C2F5F2C5E0043DE13 /* Debug */,
+				820B7D9D2F5F2C5E0043DE13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		820B7D9E2F5F2C5E0043DE13 /* Build configuration list for PBXNativeTarget "AppleTVMultiplatformUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				820B7D9F2F5F2C5E0043DE13 /* Debug */,
+				820B7DA02F5F2C5E0043DE13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		820B1D0B2F85343200FD19C2 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
+			requirement = {
+				kind = exactVersion;
+				version = 1.19.2;
+			};
+		};
+		821C3BDD2F91E66A00666D1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = exactVersion;
+				version = 12.12.1;
+			};
+		};
+		823A45992F600E1800C3FB19 /* XCRemoteSwiftPackageReference "SWCompression" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tsolomko/SWCompression";
+			requirement = {
+				kind = exactVersion;
+				version = 4.8.6;
+			};
+		};
+		82ECB5D42F61F23500C68F02 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke";
+			requirement = {
+				kind = exactVersion;
+				version = 12.9.0;
+			};
+		};
+		82ECB5D72F61FCAF00C68F02 /* XCRemoteSwiftPackageReference "Kanna" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tid-kijyun/Kanna";
+			requirement = {
+				kind = exactVersion;
+				version = 6.1.0;
+			};
+		};
+		82F711192F5F41EF0016FFCC /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory";
+			requirement = {
+				kind = revision;
+				revision = a46ce210c1535064beffd1f00caf9835507b656f;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		820B1D0C2F85343200FD19C2 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 820B1D0B2F85343200FD19C2 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+		821C3BDE2F91E66A00666D1F /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 821C3BDD2F91E66A00666D1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		821C3BE02F91E66A00666D1F /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 821C3BDD2F91E66A00666D1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		823A459A2F600E1800C3FB19 /* SWCompression */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 823A45992F600E1800C3FB19 /* XCRemoteSwiftPackageReference "SWCompression" */;
+			productName = SWCompression;
+		};
+		82ECB5D52F61F23500C68F02 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 82ECB5D42F61F23500C68F02 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
+		};
+		82ECB5D82F61FCAF00C68F02 /* Kanna */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 82ECB5D72F61FCAF00C68F02 /* XCRemoteSwiftPackageReference "Kanna" */;
+			productName = Kanna;
+		};
+		82F7111A2F5F41EF0016FFCC /* FactoryKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 82F711192F5F41EF0016FFCC /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = FactoryKit;
+		};
+		82F7111C2F5F41EF0016FFCC /* FactoryTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 82F711192F5F41EF0016FFCC /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = FactoryTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 820B7D6A2F5F2C5C0043DE13 /* Project object */;
+}

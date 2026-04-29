@@ -1,1 +1,1 @@
-iptv, m3u, playlist
+m3u,m3u8,epg,재생목록,티비

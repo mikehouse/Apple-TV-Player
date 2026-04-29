@@ -402,7 +402,7 @@ struct PlaylistViewModelTests {
     }
     
     @Test func streamsRecentOrder() async throws {
-        let expectedContent = makeContent()
+        let expectedContent = makeContent(url: "http://playlist.me")
         let playlist = makePlaylist(
             streams: [
                 .init(
@@ -683,13 +683,13 @@ private extension PlaylistViewModelTests {
         }
     }
 
-    func makeContent() -> PlaylistItem.Content {
+    func makeContent(url: String = "https://example.com/playlist.m3u") -> PlaylistItem.Content {
         PlaylistItem.Content(
             identity: .init(
                 name: "Playlist",
                 date: Date(timeIntervalSince1970: 1)
             ),
-            url: Data("https://example.com/playlist.m3u".utf8),
+            url: Data(url.utf8),
             data: Data("#EXTM3U".utf8),
             isStoredInMemoryOnly: true
         )

@@ -148,7 +148,12 @@ final class PlaylistViewModel {
     }
 
     nonisolated private func salt() -> Data {
-        var salt = Data(content.url.dropLast(content.url.count - Crypto.keyLength))
+        var salt: Data
+        if content.url.count <= Crypto.keyLength {
+          salt = Data(content.url)
+        } else {
+          salt = Data(content.url.dropLast(content.url.count - Crypto.keyLength))
+        }
         while salt.count < Crypto.keyLength {
             salt.append(0x0)
         }

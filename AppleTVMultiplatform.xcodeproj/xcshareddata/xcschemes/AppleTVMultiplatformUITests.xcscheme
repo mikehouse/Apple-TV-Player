@@ -6,6 +6,36 @@
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES"
       buildArchitectures = "Automatic">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "820B7D8C2F5F2C5E0043DE13"
+               BuildableName = "AppleTVMultiplatformUITests.xctest"
+               BlueprintName = "AppleTVMultiplatformUITests"
+               ReferencedContainer = "container:AppleTVMultiplatform.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "820B7D712F5F2C5C0043DE13"
+               BuildableName = "Bro Player.app"
+               BlueprintName = "AppleTVMultiplatform"
+               ReferencedContainer = "container:AppleTVMultiplatform.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -82,6 +112,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "820B7D712F5F2C5C0043DE13"
+            BuildableName = "Bro Player.app"
+            BlueprintName = "AppleTVMultiplatform"
+            ReferencedContainer = "container:AppleTVMultiplatform.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

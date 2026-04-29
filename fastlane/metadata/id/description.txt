@@ -5,6 +5,7 @@ Fitur utama:
 - Mendukung playlist M3U dan M3U8
 - Mendukung EPG
 - Melindungi playlist dengan PIN untuk privasi tambahan
+- Playlist dan data aplikasi Anda disimpan secara lokal di perangkat Anda
 - Tidak memerlukan akun atau pendaftaran
 - Memungkinkan berbagi playlist dengan perangkat lain
 - Antarmuka yang cepat dan jelas untuk penggunaan sehari-hari

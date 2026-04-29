@@ -5,6 +5,7 @@ Funzionalità principali:
 - Supporta playlist M3U e M3U8
 - Supporta EPG
 - Protegge le playlist con un PIN per una maggiore privacy
+- Le tue playlist e i dati dell'app sono archiviati localmente sul tuo dispositivo
 - Non richiede account né registrazione
 - Consente di condividere playlist con altri dispositivi
 - Interfaccia veloce e chiara per l'uso quotidiano

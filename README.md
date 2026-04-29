@@ -16,6 +16,7 @@ Features:
 - Supports M3U and M3U8 playlists
 - Supports EPG
 - Protect playlists with a PIN for extra privacy
+- Saved playlists and app data stay on your device and are never sent to our servers (actually we do not have servers at all)
 - Share playlists with other devices
 - Free
 - No account or registration required

@@ -5,6 +5,7 @@ Funktionen:
 - Unterstützt M3U- und M3U8-Playlists
 - Unterstützt EPG
 - Schützt Playlists mit einem PIN-Code für mehr Privatsphäre
+- Deine Playlists und App-Daten werden lokal auf deinem Gerät gespeichert
 - Kein Konto und keine Registrierung erforderlich
 - Teilen von Playlists mit anderen Geräten
 - Schnelle, übersichtliche Oberfläche für den Alltag

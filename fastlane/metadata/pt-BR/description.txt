@@ -5,6 +5,7 @@ Principais recursos:
 - Suporta playlists M3U e M3U8
 - Suporta EPG
 - Protege playlists com PIN para mais privacidade
+- Suas playlists e dados do app ficam armazenados localmente no seu dispositivo
 - Não exige conta nem cadastro
 - Permite compartilhar playlists com outros dispositivos
 - Interface rápida e clara para o uso do dia a dia

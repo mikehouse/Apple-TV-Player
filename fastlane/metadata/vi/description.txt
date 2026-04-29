@@ -5,6 +5,7 @@ Tính năng chính:
 - Hỗ trợ danh sách phát M3U và M3U8
 - Hỗ trợ EPG
 - Bảo vệ danh sách phát bằng mã PIN để tăng thêm quyền riêng tư
+- Danh sách phát và dữ liệu ứng dụng của bạn được lưu trữ cục bộ trên thiết bị
 - Không cần tài khoản hoặc đăng ký
 - Cho phép chia sẻ danh sách phát với các thiết bị khác
 - Giao diện nhanh, rõ ràng cho việc sử dụng hằng ngày

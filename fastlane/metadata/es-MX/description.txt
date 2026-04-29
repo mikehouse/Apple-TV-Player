@@ -5,6 +5,7 @@ Funciones principales:
 - Compatible con listas M3U y M3U8
 - Compatible con EPG
 - Protege las listas con un PIN para mayor privacidad
+- Tus listas y los datos de la app se guardan localmente en tu dispositivo
 - No requiere cuenta ni registro
 - Permite compartir listas con otros dispositivos
 - Interfaz rápida y clara para el uso diario

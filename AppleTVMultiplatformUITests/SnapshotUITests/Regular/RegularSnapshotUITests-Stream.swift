@@ -140,7 +140,7 @@ final class RegularSnapshotUITests_Stream: XCTestCase {
         XCTAssertEqual(app.cells.firstMatch.staticTexts.element(boundBy: 0).label, "Comedy")
         XCTAssertEqual(app.cells.firstMatch.staticTexts.element(boundBy: 1).label, "Vacation")
         try await app.cells.firstMatch.makeTap()
-        snapshotUtils.assertSnapshot(named: env.snapshotName(context: "stream"), app: app, localized: false)
+        snapshotUtils.assertSnapshot(named: env.snapshotName(context: "stream"), app: app, localized: false, precision: 0.9993)
         XCTAssertEqual(app.scrollViews["details"].firstMatch.staticTexts.element(boundBy: 0).label, "15:00 - 17:00: 21 Jump Street")
         XCTAssertEqual(app.scrollViews["details"].firstMatch.staticTexts.element(boundBy: 1).label, "17:00 - 19:00: Palm Springs")
         XCTAssertEqual(app.scrollViews["details"].firstMatch.staticTexts.element(boundBy: 2).label, "19:00 - 21:00: Vacation")

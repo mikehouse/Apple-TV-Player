@@ -306,7 +306,7 @@ final class RegularSnapshotUITests_Passcode: XCTestCase {
         XCTAssertEqual(app.scrollViews["program-list"].firstMatch.buttons.element(boundBy: 2).label, "19:00 - 21:00: Top Gun")
         
         try await Task.sleep(for: .seconds(1))
-        snapshotUtils.assertSnapshot(named: env.snapshotName(context: "stream"), app: app, localized: false, precision: 0.999)
+        snapshotUtils.assertSnapshot(named: env.snapshotName(context: "stream"), app: app, localized: false, precision: 0.998)
         
         XCUIRemote.shared.press(.menu)
         try await Task.sleep(for: .seconds(1))

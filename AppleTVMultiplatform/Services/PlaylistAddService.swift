@@ -320,33 +320,19 @@ private extension PlaylistAddService {
             return nil
         }
 
-        let attributes = parsedAttributes(in: String(line.dropFirst("#EXTM3U".count)))
-        let shouldAddURLTvg = attributes["url-tvg"] == nil
-            && attributes["x-tvg-url"] == nil
-            && urlTvg != nil
-        let shouldAddURLImg = attributes["url-img"] == nil && urlImg != nil
-        let shouldAddTvgLogo = attributes["tvg-logo"] == nil && tvgLogo != nil
-
-        guard shouldAddURLTvg || shouldAddURLImg || shouldAddTvgLogo else {
-            return nil
-        }
-
         var updatedLine = line
 
-        if shouldAddURLTvg,
-           let urlTvg {
+        if let urlTvg {
             logger.info("Set custom url-tvg", private: urlTvg)
             updatedLine += " url-tvg=\"\(urlTvg)\""
         }
 
-        if shouldAddURLImg,
-           let urlImg {
+        if let urlImg {
             logger.info("Set custom url-img", private: urlImg)
             updatedLine += " url-img=\"\(urlImg)\""
         }
 
-        if shouldAddTvgLogo,
-           let tvgLogo {
+        if let tvgLogo {
             logger.info("Set custom tvg-logo", private: tvgLogo)
             updatedLine += " tvg-logo=\"\(tvgLogo)\""
         }

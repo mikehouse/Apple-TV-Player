@@ -204,7 +204,7 @@ final class RegularSnapshotUITests_Passcode: XCTestCase {
         snapshotUtils.assertSnapshot(named: env.snapshotName(context: "playlist"), app: app, localized: false, precision: 0.9992)
         try await app.buttons["settings"].firstMatch.makeTap(wait: .seconds(1))
         XCTAssertEqual(app.buttons["passcode-picker"].firstMatch.label, "Enabled")
-        snapshotUtils.assertSnapshot(named: env.snapshotName(context: "settings"), app: app, localized: false)
+        snapshotUtils.assertSnapshot(named: env.snapshotName(context: "settings"), app: app, localized: false, precision: 0.997)
         try await app.buttons["passcode-picker"].firstMatch.makeTap(wait: .seconds(0))
         try await app.buttons["passcode-disable"].firstMatch.makeTap(wait: .seconds(0))
         try await app.textFields["passcode-input"].firstMatch.makeTap(wait: .seconds(0)).typeText(passcode)

@@ -148,7 +148,7 @@ struct PlaylistAddServiceTests {
         #expect(playlist.imageURL == "https://example.com/icon.png")
     }
 
-    @Test func keepsExistingHeaderAttributesWhenFallbackValuesAreProvided() async throws {
+    @Test func replaceExistingHeaderAttributesWhenFallbackValuesAreProvided() async throws {
         let sourceURL = try makePlaylistFile(
             named: "existing-header-values.m3u",
             contents: Self.playlistWithXTvgAndImageURLAndTvgLogo
@@ -167,11 +167,12 @@ struct PlaylistAddServiceTests {
         let restored = try await service.restorePlaylist(prepared, pin: nil)
         let playlist = try await parsedPlaylist(from: restored.data)
 
-        #expect(prepared.icon == "https://existing.example/playlist-logo.png")
-        #expect(restored.data == Data(Self.playlistWithXTvgAndImageURLAndTvgLogo.utf8))
-        #expect(playlist.tvgURL == nil)
+        #expect(prepared.icon == "https://example.com/playlist-logo.png")
+        #expect(restored.data != Data(Self.playlistWithXTvgAndImageURLAndTvgLogo.utf8))
+        #expect(playlist.tvgURL == "https://example.com/program-guide.xml")
         #expect(playlist.xTvgURL == "https://existing.example/program-guide.xml")
-        #expect(playlist.imageURL == "https://existing.example/icon.zip")
+        #expect(playlist.imageURL == "https://example.com/icon.png")
+        #expect(playlist.tvgLogo == "https://example.com/playlist-logo.png")
     }
 
     @Test func usesProvidedTvgLogoAsIconWhenPlaylistHeaderLogoIsMissing() async throws {
@@ -217,9 +218,9 @@ struct PlaylistAddServiceTests {
         let restored = try await service.restorePlaylist(prepared, pin: nil)
         let playlist = try await parsedPlaylist(from: restored.data)
 
-        #expect(prepared.icon == "https://existing.example/playlist-logo.png")
-        #expect(restored.data == Data(Self.playlistWithHeaderLogo.utf8))
-        #expect(playlist.tvgLogo == "https://existing.example/playlist-logo.png")
+        #expect(prepared.icon == "https://example.com/playlist-logo.png")
+        #expect(restored.data != Data(Self.playlistWithHeaderLogo.utf8))
+        #expect(playlist.tvgLogo == "https://example.com/playlist-logo.png")
     }
 }
 

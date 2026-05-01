@@ -29,6 +29,29 @@ struct PlaylistViewModelTests {
             #expect(title == decrypted)
         }
     }
+    
+    @Test func readIconFromDifferenctSources() async throws {
+        let service = MockPlaylistService(
+            result: .failure(NSError(domain: "", code: 0)),
+            programGuide: .init(
+                channel: .init(id: "1", displayName: "1", iconURL: "https://guide.com/icon"),
+                programs: []
+            )
+        )
+        Container.shared.playlistService.register { service }
+        let viewModel = PlaylistViewModel(content: makeContent())
+        var icon = await viewModel.iconURL(for: .init(
+            title: "", url: "", tvgLogo: nil,
+            tvgID: nil, tvgName: nil, groupTitle: nil)
+        )
+        #expect(icon == "https://guide.com/icon")
+        
+        icon = await viewModel.iconURL(for: .init(
+            title: "", url: "", tvgLogo: "https://stream.com/icon",
+            tvgID: nil, tvgName: nil, groupTitle: nil)
+        )
+        #expect(icon == "https://stream.com/icon")
+    }
 
     @Test func loadStreamsUsesFirstPlaylistFromService() async throws {
         let expectedContent = makeContent()

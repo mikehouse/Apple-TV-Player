@@ -50,6 +50,20 @@ DEFAULT_LANGUAGES=(
   en
 )
 
+ALLOWED_KEYBOARD_LAYOUT_IDS=(
+  com.apple.keylayout.ABC
+  com.apple.keylayout.USExtended
+  com.apple.keylayout.ABC-India
+  com.apple.keylayout.Australian
+  com.apple.keylayout.British
+  com.apple.keylayout.British-PC
+  com.apple.keylayout.Canadian
+  com.apple.keylayout.Irish
+  com.apple.keylayout.NewZealand
+  com.apple.keylayout.US
+  com.apple.keylayout.USInternational-PC
+)
+
 LANGUAGES=()
 
 CURRENT_PROJECT_DERIVED_DATA="${CURRENT_PROJECT_DERIVED_DATA:-}"
@@ -215,6 +229,30 @@ cleanup_current_sim() {
   SHOULD_SHUTDOWN_CURRENT_SIM=0
 }
 
+require_supported_keyboard_layout() {
+  local current_keyboard_layout_id
+  local allowed_keyboard_layout_id
+
+  current_keyboard_layout_id="$(defaults read com.apple.HIToolbox AppleCurrentKeyboardLayoutInputSourceID 2>/dev/null || true)"
+
+  if [[ -z "$current_keyboard_layout_id" ]]; then
+    die "unable to determine the current macOS keyboard layout via defaults"
+  fi
+
+  for allowed_keyboard_layout_id in "${ALLOWED_KEYBOARD_LAYOUT_IDS[@]}"; do
+    if [[ "$current_keyboard_layout_id" == "$allowed_keyboard_layout_id" ]]; then
+      return
+    fi
+  done
+
+  {
+    echo "Error: unsupported macOS keyboard layout: $current_keyboard_layout_id"
+    echo "Switch the system keyboard layout to one of:"
+    printf '  %s\n' "${ALLOWED_KEYBOARD_LAYOUT_IDS[@]}"
+  } >&2
+  exit 1
+}
+
 reset_testplan() {
   git -C "$PROJECT_DIR" checkout -- "$TESTPLAN_REPO_PATH"
 }
@@ -272,6 +310,7 @@ require_tool git
 require_tool xcbeautify
 require_project
 require_testplan
+require_supported_keyboard_layout
 initialize_derived_data_path
 initialize_languages
 

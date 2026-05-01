@@ -172,7 +172,7 @@ struct PlaylistView: View {
 
     private func row(for stream: PlaylistParser.Stream) -> some View {
         StreamRowView(
-            logo: stream.tvgLogo,
+            logo: { await viewModel.iconURL(for: stream) },
             title: { viewModel.title(for: stream) },
             subtitle: { await viewModel.subtitle(for: stream) },
             reloadCurrentProgram: $reloadCurrentProgram
@@ -204,16 +204,17 @@ struct PlaylistView: View {
 
 private struct StreamRowView: View {
 
-    let logo: String?
+    let logo: @MainActor () async -> String?
     let title: @MainActor () -> String
     let subtitle: @MainActor () async -> String?
     @Binding var reloadCurrentProgram: UUID
+    @State private var icon: String?
     @State private var programTitle: String?
     @InjectedObservable(\.logger) var logger
 
     var body: some View {
         HStack(spacing: 16) {
-            if let icon = logo, let url = URL(string: icon) {
+            if let icon, let url = URL(string: icon) {
                 LazyImage(url: url) { phase in
                     if let image = phase.image {
                         image.resizable()
@@ -236,6 +237,7 @@ private struct StreamRowView: View {
 #endif
                     .task {
                         programTitle = await subtitle()
+                        icon = await logo()
                     }
                     .id(reloadCurrentProgram)
                 if let programTitle {

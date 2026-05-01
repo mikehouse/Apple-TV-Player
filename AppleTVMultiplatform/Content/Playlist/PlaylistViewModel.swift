@@ -138,6 +138,13 @@ final class PlaylistViewModel {
         return guide.programs.first(where: { $0.start <= now && now < $0.stop })?.title
     }
 
+    func iconURL(for stream: PlaylistParser.Stream) async -> String? {
+        if let icon = stream.tvgLogo {
+            return icon
+        }
+        return await playlistService.programGuide(for: content, stream: stream)?.channel.iconURL
+    }
+
     func selectedStream(_ stream: PlaylistParser.Stream) {
         if let playlist, let settings = playlist.settings {
             let (hmac, encrypted) = encode(title: title(for: stream))

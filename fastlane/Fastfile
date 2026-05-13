@@ -17,7 +17,7 @@ firebase_enabled = true
 
 private_lane :build_app_package do |options|
   xcodes(
-    version: "26.4.1",
+    version: "26.5",
     select_for_current_build_only: true
   )
   build_app(
@@ -277,24 +277,24 @@ platform :ios do
     sh "cd ..;#{tests_script.call("run-unit-tests-iphone.sh")}"
   end
 
-  desc "Run UI Snapshot Tests on an iOS 26.4 iPhone Simulator"
-  lane :run_ui_snapshots_tests_iphone_26_4 do
-    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-iphone-26_4.sh")}"
+  desc "Run UI Snapshot Tests on an iOS 26 iPhone Simulator"
+  lane :run_ui_snapshots_tests_iphone_26 do
+    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-iphone-26.sh")}"
   end
 
-  desc "Run UI Snapshot Tests on an iOS 26.4 iPad Simulator"
-  lane :run_ui_snapshots_tests_ipad_26_4 do
-    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-ipad-26_4.sh")}"
+  desc "Run UI Snapshot Tests on an iOS 26 iPad Simulator"
+  lane :run_ui_snapshots_tests_ipad_26 do
+    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-ipad-26.sh")}"
   end
 
-  desc "Run UI Snapshot Tests on an iOS 18.6 iPhone Simulator"
-  lane :run_ui_snapshots_tests_iphone_18_6 do
-    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-iphone-18_6.sh")}"
+  desc "Run UI Snapshot Tests on an iOS 18 iPhone Simulator"
+  lane :run_ui_snapshots_tests_iphone_18 do
+    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-iphone-18.sh")}"
   end
 
-  desc "Run UI Snapshot Tests on an iOS 18.6 iPad Simulator"
-  lane :run_ui_snapshots_tests_ipad_18_6 do
-    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-ipad-18_6.sh")}"
+  desc "Run UI Snapshot Tests on an iOS 18 iPad Simulator"
+  lane :run_ui_snapshots_tests_ipad_18 do
+    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-ipad-18.sh")}"
   end
 
   desc "Re-generate app store snapshots for iOS 26.4 on iPhone"
@@ -435,14 +435,14 @@ platform :tvos do
     sh "cd ..;#{tests_script.call("run-unit-tests-appletv.sh")}"
   end
 
-  desc "Run UI Snapshot Tests on an tvOS 26.4 Simulator"
-  lane :run_ui_snapshots_tests_appletv_26_4 do
-    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-appletv-26_4.sh")}"
+  desc "Run UI Snapshot Tests on an tvOS 26 Simulator"
+  lane :run_ui_snapshots_tests_appletv_26 do
+    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-appletv-26.sh")}"
   end
 
-  desc "Run UI Snapshot Tests on an tvOS 18.5 Simulator"
-  lane :run_ui_snapshots_tests_appletv_18_5 do
-    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-appletv-18_5.sh")}"
+  desc "Run UI Snapshot Tests on an tvOS 18 Simulator"
+  lane :run_ui_snapshots_tests_appletv_18 do
+    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-appletv-18.sh")}"
   end
 
   desc "Re-generate app store snapshots for tvOS 26.4"

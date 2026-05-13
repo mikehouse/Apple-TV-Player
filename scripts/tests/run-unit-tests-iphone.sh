@@ -8,8 +8,8 @@ LOCAL_PORT="${LOCAL_PORT:-8000}"
   "AppleTVMultiplatformTests" \
   "AppleTVMultiplatformTests" \
   "AppleTVMultiplatformTests/AppleTVMultiplatformTests.xctestplan" \
-  "com.apple.CoreSimulator.SimRuntime.iOS-26-4" \
-  "iOS 26.4" \
+  "com.apple.CoreSimulator.SimRuntime.iOS-26-5" \
+  "iOS 26.5" \
   "com.apple.CoreSimulator.SimDeviceType.iPhone-17-Pro-Max" \
   "iOS Simulator" \
   "Tests-iPhone-17-Pro-Max" \

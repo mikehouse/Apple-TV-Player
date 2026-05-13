@@ -96,6 +96,7 @@ final class MockAppEnv {
             osVersion = fullMatch
                 .replacingOccurrences(of: #"Runtime:\s+(?:iOS|tvOS)\s+"#, with: "", options: .regularExpression)
                 .trimmingCharacters(in: .whitespaces)
+                .components(separatedBy: ".")[0]
         }
 
         if let match = string.range(of: deviceTypePattern, options: .regularExpression) {

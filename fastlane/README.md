@@ -63,37 +63,37 @@ Upload screenshots to the Distribution page on App Store Connect
 
 Run unit tests on an iOS iPhone simulator
 
-### ios run_ui_snapshots_tests_iphone_26_4
+### ios run_ui_snapshots_tests_iphone_26
 
 ```sh
-[bundle exec] fastlane ios run_ui_snapshots_tests_iphone_26_4
+[bundle exec] fastlane ios run_ui_snapshots_tests_iphone_26
 ```
 
-Run UI Snapshot Tests on an iOS 26.4 iPhone Simulator
+Run UI Snapshot Tests on an iOS 26 iPhone Simulator
 
-### ios run_ui_snapshots_tests_ipad_26_4
+### ios run_ui_snapshots_tests_ipad_26
 
 ```sh
-[bundle exec] fastlane ios run_ui_snapshots_tests_ipad_26_4
+[bundle exec] fastlane ios run_ui_snapshots_tests_ipad_26
 ```
 
-Run UI Snapshot Tests on an iOS 26.4 iPad Simulator
+Run UI Snapshot Tests on an iOS 26 iPad Simulator
 
-### ios run_ui_snapshots_tests_iphone_18_6
+### ios run_ui_snapshots_tests_iphone_18
 
 ```sh
-[bundle exec] fastlane ios run_ui_snapshots_tests_iphone_18_6
+[bundle exec] fastlane ios run_ui_snapshots_tests_iphone_18
 ```
 
-Run UI Snapshot Tests on an iOS 18.6 iPhone Simulator
+Run UI Snapshot Tests on an iOS 18 iPhone Simulator
 
-### ios run_ui_snapshots_tests_ipad_18_6
+### ios run_ui_snapshots_tests_ipad_18
 
 ```sh
-[bundle exec] fastlane ios run_ui_snapshots_tests_ipad_18_6
+[bundle exec] fastlane ios run_ui_snapshots_tests_ipad_18
 ```
 
-Run UI Snapshot Tests on an iOS 18.6 iPad Simulator
+Run UI Snapshot Tests on an iOS 18 iPad Simulator
 
 ### ios make_app_store_snapshots_iphone_26_4
 
@@ -156,21 +156,21 @@ Upload screenshots to the Distribution page on App Store Connect
 
 Run unit tests on an tvOS simulator
 
-### tvos run_ui_snapshots_tests_appletv_26_4
+### tvos run_ui_snapshots_tests_appletv_26
 
 ```sh
-[bundle exec] fastlane tvos run_ui_snapshots_tests_appletv_26_4
+[bundle exec] fastlane tvos run_ui_snapshots_tests_appletv_26
 ```
 
-Run UI Snapshot Tests on an tvOS 26.4 Simulator
+Run UI Snapshot Tests on an tvOS 26 Simulator
 
-### tvos run_ui_snapshots_tests_appletv_18_5
+### tvos run_ui_snapshots_tests_appletv_18
 
 ```sh
-[bundle exec] fastlane tvos run_ui_snapshots_tests_appletv_18_5
+[bundle exec] fastlane tvos run_ui_snapshots_tests_appletv_18
 ```
 
-Run UI Snapshot Tests on an tvOS 18.5 Simulator
+Run UI Snapshot Tests on an tvOS 18 Simulator
 
 ### tvos make_app_store_snapshots_appletv_26_4
 

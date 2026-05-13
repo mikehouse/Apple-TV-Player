@@ -48,7 +48,7 @@ Bro IPTV Player does not provide, host, sell, or include any channels, media, or
 
 # For Developers
 
-- Xcode 26.4+
+- Xcode 26.5+
 - Swift 6.2+
 - SwiftPM
 - Ruby 3+ (`fastlane`)
@@ -74,8 +74,8 @@ bundle install
 
 ## Unit Testing
 
-- iOS `bundle exec fastlane ios run_unit_tests` requires iOS 26.4 Simulator Runtime
-- tvOS `bundle exec fastlane tvos run_unit_tests` requires tvOS 26.4 Simulator Runtime
+- iOS `bundle exec fastlane ios run_unit_tests` requires iOS 26.5 Simulator Runtime
+- tvOS `bundle exec fastlane tvos run_unit_tests` requires tvOS 26.5 Simulator Runtime
 - macOS `bundle exec fastlane mac run_unit_tests` runs on current machine
 
 ## UI Testing
@@ -88,19 +88,19 @@ Before any UI Tests must run a python local server that will provide mock data t
 
 ### iOS
 
-- iOS iPhone `bundle exec fastlane ios run_ui_snapshots_tests_iphone_26_4` requires iOS 26.4 Simulator Runtime
-- iOS iPad `bundle exec fastlane ios run_ui_snapshots_tests_ipad_26_4` requires iOS 26.4 Simulator Runtime
-- iOS iPhone `bundle exec fastlane ios run_ui_snapshots_tests_iphone_18_6` requires iOS 18.6 Simulator Runtime
-- iOS iPad `bundle exec fastlane ios run_ui_snapshots_tests_ipad_18_6` requires iOS 18.6 Simulator Runtime
+- iOS iPhone `bundle exec fastlane ios run_ui_snapshots_tests_iphone_26` requires iOS 26.5 Simulator Runtime
+- iOS iPad `bundle exec fastlane ios run_ui_snapshots_tests_ipad_26` requires iOS 26.5 Simulator Runtime
+- iOS iPhone `bundle exec fastlane ios run_ui_snapshots_tests_iphone_18` requires iOS 18.6 Simulator Runtime
+- iOS iPad `bundle exec fastlane ios run_ui_snapshots_tests_ipad_18` requires iOS 18.6 Simulator Runtime
 
 ### tvOS
 
-- tvOS `bundle exec fastlane tvos run_ui_snapshots_tests_appletv_26_4` requires tvOS 26.4 Simulator Runtime
-- tvOS `bundle exec fastlane tvos run_ui_snapshots_tests_appletv_18_5` requires tvOS 18.6 Simulator Runtime
+- tvOS `bundle exec fastlane tvos run_ui_snapshots_tests_appletv_26` requires tvOS 26.5 Simulator Runtime
+- tvOS `bundle exec fastlane tvos run_ui_snapshots_tests_appletv_18` requires tvOS 18.5 Simulator Runtime
 
 ### macOS
 
-Screenshots in repo created on macOS 26.2 with macOS SDK 26.4
+Screenshots in repo created on macOS 26.5 with macOS SDK 26.5
 
 ```bash
 bundle exec fastlane mac run_ui_snapshots_tests_macos

@@ -241,6 +241,14 @@ Run UI Snapshot Tests on a host macOS machine
 
 Re-generate app store snapshots for a host macOS machine
 
+### mac make_code_coverage
+
+```sh
+[bundle exec] fastlane mac make_code_coverage
+```
+
+Runs code coverage measurement on macOS source code
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.

@@ -1,6 +1,8 @@
 
 <img src="backup-icons-svg/live-glass-tvos-top-shelf-wide.svg" alt="">
 
+[![codecov](https://codecov.io/github/mikehouse/Apple-TV-Player/graph/badge.svg?token=3OPT05N2IP)](https://codecov.io/github/mikehouse/Apple-TV-Player)
+
 # IPTV Player
 
 Bro IPTV Player is a **free**, fast, private, and simple way to watch M3U playlists on iPhone, iPad, Mac, and Apple TV.

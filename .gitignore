@@ -7,5 +7,7 @@ vendor/bundle
 Gemfile.lock
 fastlane/report.xml
 fastlane/builds
+fastlane/coverage
+fastlane/test_output
 scripts/tests/__pycache__/server.cpython-314.pyc
 .secrets

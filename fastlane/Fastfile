@@ -564,4 +564,47 @@ platform :mac do
   lane :make_app_store_snapshots_macos do
     sh "cd ..;#{tests_script.call("make-app-store-snapshots-macos.sh")}"
   end
+
+  desc "Runs code coverage measurement on macOS source code"
+  lane :make_code_coverage do
+    derived_data = derived_data_path
+    scan(
+      project: project,
+      scheme: scheme,
+      sdk: "macosx",
+      code_coverage: true,
+      skip_detect_devices: true,
+      destination: "platform=macOS",
+      xcargs: "CODE_SIGNING_ALLOWED=NO",
+      skip_package_dependencies_resolution: false,
+      disable_package_automatic_updates: true,
+      skip_package_repository_fetches: false,
+      derived_data_path: derived_data
+    )
+    slather(
+      build_directory: File.join(derived_data, "/Build/ProfileData"),
+      configuration: "Debug",
+      scheme: scheme,
+      proj: project,
+      html: true,
+      cobertura_xml: true,
+      source_directory: File.join(project_dir, scheme),
+      source_files: [
+        File.join(scheme, "**/*.swift").to_s
+      ],
+      output_directory: File.join(project_dir, "fastlane/coverage"),
+      verbose: true,
+      ignore: [
+        File.join(scheme, "**/*View.swift").to_s,
+        File.join(scheme, "App/AppleTVMultiplatformApp.swift").to_s,
+        File.join(scheme, "Models/AppSettings.swift").to_s,
+        File.join(scheme, "Models/PlaylistItem.swift").to_s,
+        File.join(scheme, "Models/PlaylistSettingsItem.swift").to_s,
+        File.join(scheme, "Utils/ContinuousClock+.swift").to_s,
+        File.join(scheme, "Utils/LocalizableError.swift").to_s,
+        File.join(scheme, "Utils/ProcessInfo+.swift").to_s,
+        File.join(scheme, "Utils/StringIdentifiable.swift").to_s
+      ]
+    )
+  end
 end

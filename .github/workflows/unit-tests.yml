@@ -1,10 +1,13 @@
 name: Unit Tests
 
 on:
+  pull_request:
+    types: [labeled]
   workflow_dispatch:
 
 jobs:
-  coverage:
+  unit-tests:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.pull_request.labels.*.name, 'run-tests')
     runs-on: macos-latest
     
     steps:

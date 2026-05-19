@@ -575,6 +575,7 @@ platform :mac do
       code_coverage: true,
       skip_detect_devices: true,
       destination: "platform=macOS",
+      xcargs: "CODE_SIGNING_ALLOWED=NO",
       skip_package_dependencies_resolution: false,
       disable_package_automatic_updates: true,
       skip_package_repository_fetches: false,

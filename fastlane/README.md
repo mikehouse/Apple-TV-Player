@@ -225,6 +225,14 @@ Upload screenshots to the Distribution page on App Store Connect
 
 Run unit tests on a host macOS machine
 
+### mac run_unit_tests_ci
+
+```sh
+[bundle exec] fastlane mac run_unit_tests_ci
+```
+
+Run unit tests on a host macOS machine
+
 ### mac run_ui_snapshots_tests_macos
 
 ```sh

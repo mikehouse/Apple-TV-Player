@@ -1,0 +1,26 @@
+name: Unit Tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  coverage:
+    runs-on: macos-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '26.3.0'
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '4.0'
+          bundler-cache: true
+
+      - name: Run Unit Tests
+        run: bundle exec fastlane mac run_unit_tests_ci

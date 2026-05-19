@@ -555,6 +555,24 @@ platform :mac do
     sh "cd ..;#{tests_script.call("run-unit-tests-macos.sh")}"
   end
 
+  desc "Run unit tests on a host macOS machine"
+  lane :run_unit_tests_ci do
+    scan(
+      project: project,
+      scheme: scheme,
+      testplan: "AppleTVMultiplatformTests",
+      sdk: "macosx",
+      code_coverage: true,
+      skip_detect_devices: true,
+      destination: "platform=macOS",
+      xcargs: "CODE_SIGNING_ALLOWED=NO",
+      skip_package_dependencies_resolution: false,
+      disable_package_automatic_updates: true,
+      skip_package_repository_fetches: false,
+      derived_data_path: derived_data_path
+    )
+  end
+
   desc "Run UI Snapshot Tests on a host macOS machine"
   lane :run_ui_snapshots_tests_macos do
     sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-macos.sh")}"
@@ -567,22 +585,9 @@ platform :mac do
 
   desc "Runs code coverage measurement on macOS source code"
   lane :make_code_coverage do
-    derived_data = derived_data_path
-    scan(
-      project: project,
-      scheme: scheme,
-      sdk: "macosx",
-      code_coverage: true,
-      skip_detect_devices: true,
-      destination: "platform=macOS",
-      xcargs: "CODE_SIGNING_ALLOWED=NO",
-      skip_package_dependencies_resolution: false,
-      disable_package_automatic_updates: true,
-      skip_package_repository_fetches: false,
-      derived_data_path: derived_data
-    )
+    run_unit_tests_ci
     slather(
-      build_directory: File.join(derived_data, "/Build/ProfileData"),
+      build_directory: File.join(derived_data_path, "/Build/ProfileData"),
       configuration: "Debug",
       scheme: scheme,
       proj: project,

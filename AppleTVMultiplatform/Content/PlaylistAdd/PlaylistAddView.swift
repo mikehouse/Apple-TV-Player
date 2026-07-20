@@ -172,7 +172,7 @@ private struct KeyboardURLTypeModifier: ViewModifier {
 struct PlaylistAddViewPreviews: PreviewProvider {
     
     static var previews: some View {
-        Container.preview { container in
+        Container.shared { container in
             container.playlistAddService.register {
                 PlaylistAddErrorServicePreviewMock()
             }

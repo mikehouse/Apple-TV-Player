@@ -125,8 +125,6 @@ initialize_derived_data_path() {
     -scheme "$SCHEME"
     -testPlan "$TESTPLAN_NAME"
     -derivedDataPath "$TESTPLAN_DERIVED_DATA"
-    -skipPackageUpdates
-    -disableAutomaticPackageResolution
   )
 }
 

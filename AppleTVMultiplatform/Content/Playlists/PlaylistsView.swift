@@ -276,7 +276,7 @@ import SwiftData
 struct PlaylistsViewPreviews: PreviewProvider {
     
     static var previews: some View {
-        Container.preview { container in
+        Container.shared { container in
             container.databaseService.register {
                 let database = DatabaseService(isStoredInMemoryOnly: true)
                 let now = Date()

@@ -334,7 +334,7 @@ private struct iOSPlayerView: UIViewControllerRepresentable {
 struct StreamViewPreviews: PreviewProvider {
     
     static var previews: some View {
-        Container.preview { container in
+        Container.shared { container in
             container.playlistService.register {
                 ProgramGuidePlaylistServicePreviewMock()
             }

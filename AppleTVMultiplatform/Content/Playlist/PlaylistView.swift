@@ -262,7 +262,7 @@ private struct StreamRowView: View {
 struct PlaylistViewPreviews: PreviewProvider {
     
     static var previews: some View {
-        let _ = Container.preview { container in
+        let _ = Container.shared { container in
             container.playlistService.register {
                 PlaylistServicePreviewMock()
             }

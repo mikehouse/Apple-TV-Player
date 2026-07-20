@@ -552,11 +552,6 @@ platform :mac do
 
   desc "Run unit tests on a host macOS machine"
   lane :run_unit_tests do
-    sh "cd ..;#{tests_script.call("run-unit-tests-macos.sh")}"
-  end
-
-  desc "Run unit tests on a host macOS machine"
-  lane :run_unit_tests_ci do
     scan(
       project: project,
       scheme: scheme,
@@ -585,7 +580,7 @@ platform :mac do
 
   desc "Runs code coverage measurement on macOS source code"
   lane :make_code_coverage do
-    run_unit_tests_ci
+    run_unit_tests
     slather(
       build_directory: File.join(derived_data_path, "/Build/ProfileData"),
       configuration: "Debug",

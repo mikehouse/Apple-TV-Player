@@ -1090,7 +1090,7 @@
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = mike.house.nsk.AppleTVMultiplatformUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
+				SDKROOT = macosx;
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
@@ -1122,7 +1122,7 @@
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = mike.house.nsk.AppleTVMultiplatformUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
+				SDKROOT = macosx;
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
@@ -1184,7 +1184,7 @@
 			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
 			requirement = {
 				kind = exactVersion;
-				version = 1.19.2;
+				version = 1.19.3;
 			};
 		};
 		821C3BDD2F91E66A00666D1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
@@ -1192,7 +1192,7 @@
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
 				kind = exactVersion;
-				version = 12.12.1;
+				version = 12.16.0;
 			};
 		};
 		823A45992F600E1800C3FB19 /* XCRemoteSwiftPackageReference "SWCompression" */ = {
@@ -1200,7 +1200,7 @@
 			repositoryURL = "https://github.com/tsolomko/SWCompression";
 			requirement = {
 				kind = exactVersion;
-				version = 4.8.6;
+				version = 4.9.1;
 			};
 		};
 		82ECB5D42F61F23500C68F02 /* XCRemoteSwiftPackageReference "Nuke" */ = {
@@ -1208,7 +1208,7 @@
 			repositoryURL = "https://github.com/kean/Nuke";
 			requirement = {
 				kind = exactVersion;
-				version = 12.9.0;
+				version = 13.0.6;
 			};
 		};
 		82ECB5D72F61FCAF00C68F02 /* XCRemoteSwiftPackageReference "Kanna" */ = {
@@ -1224,7 +1224,7 @@
 			repositoryURL = "https://github.com/hmlongco/Factory";
 			requirement = {
 				kind = exactVersion;
-				version = 3.0.1;
+				version = 3.3.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

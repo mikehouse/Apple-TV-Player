@@ -95,8 +95,6 @@ initialize_build_args() {
     -project "$PROJECT_PATH"
     -scheme "$SCHEME"
     -testPlan "$TESTPLAN_NAME"
-    -skipPackageUpdates
-    -disableAutomaticPackageResolution
   )
 }
 

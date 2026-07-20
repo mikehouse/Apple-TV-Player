@@ -26,4 +26,4 @@ jobs:
           bundler-cache: true
 
       - name: Run Unit Tests
-        run: bundle exec fastlane mac run_unit_tests_ci
+        run: bundle exec fastlane mac run_unit_tests

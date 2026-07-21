@@ -45,14 +45,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		820B7D952F5F2C5E0043DE13 /* Exceptions for "AppleTVMultiplatform" folder in "AppleTVMultiplatform" target */ = {
+		820B7D952F5F2C5E0043DE13 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Resources/Info.plist,
 			);
 			target = 820B7D712F5F2C5C0043DE13 /* AppleTVMultiplatform */;
 		};
-		826C40F22F862A4D006959FD /* Exceptions for "AppleTVMultiplatformUITests" folder in "AppleTVMultiplatformUITests" target */ = {
+		826C40F22F862A4D006959FD /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -419,7 +419,7 @@
 			);
 			target = 820B7D8C2F5F2C5E0043DE13 /* AppleTVMultiplatformUITests */;
 		};
-		82C5BCA72F8FCFE6005612D4 /* Exceptions for "AppleTVMultiplatformTests" folder in "AppleTVMultiplatformTests" target */ = {
+		82C5BCA72F8FCFE6005612D4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				AppleTVMultiplatformTests.xctestplan,
@@ -432,7 +432,11 @@
 		820B7D742F5F2C5C0043DE13 /* AppleTVMultiplatform */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				820B7D952F5F2C5E0043DE13 /* Exceptions for "AppleTVMultiplatform" folder in "AppleTVMultiplatform" target */,
+				820B7D952F5F2C5E0043DE13 /* PBXFileSystemSynchronizedBuildFileExceptionSet */,
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
 			);
 			path = AppleTVMultiplatform;
 			sourceTree = "<group>";
@@ -440,7 +444,11 @@
 		820B7D862F5F2C5E0043DE13 /* AppleTVMultiplatformTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				82C5BCA72F8FCFE6005612D4 /* Exceptions for "AppleTVMultiplatformTests" folder in "AppleTVMultiplatformTests" target */,
+				82C5BCA72F8FCFE6005612D4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */,
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
 			);
 			path = AppleTVMultiplatformTests;
 			sourceTree = "<group>";
@@ -448,7 +456,11 @@
 		820B7D902F5F2C5E0043DE13 /* AppleTVMultiplatformUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				826C40F22F862A4D006959FD /* Exceptions for "AppleTVMultiplatformUITests" folder in "AppleTVMultiplatformUITests" target */,
+				826C40F22F862A4D006959FD /* PBXFileSystemSynchronizedBuildFileExceptionSet */,
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
 			);
 			path = AppleTVMultiplatformUITests;
 			sourceTree = "<group>";

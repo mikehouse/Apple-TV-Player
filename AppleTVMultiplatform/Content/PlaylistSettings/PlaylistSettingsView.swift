@@ -269,6 +269,7 @@ struct PlaylistSettingsView: View {
                 Image(systemName: "arrow.down.circle")
             }
             .buttonStyle(.bordered)
+            .accessibilityIdentifier("update-playlist-btn")
         }
     }
 }

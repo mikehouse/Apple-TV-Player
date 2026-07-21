@@ -1,0 +1,36 @@
+{
+  "configurations" : [
+    {
+      "id" : "427EFCDD-0E68-4804-A6C0-4D567F2E9812",
+      "name" : "Configuration",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "defaultTestExecutionTimeAllowance" : 100,
+    "environmentVariableEntries" : [
+
+    ],
+    "language" : "en",
+    "preferredScreenCaptureFormat" : "screenshot",
+    "region" : "US",
+    "testTimeoutsEnabled" : true,
+    "uiTestingScreenshotsLifetime" : "keepNever",
+    "userAttachmentLifetime" : "keepNever"
+  },
+  "testTargets" : [
+    {
+      "selectedTests" : [
+        "RegularSnapshotUITests_PlaylistUpdate\/test()"
+      ],
+      "target" : {
+        "containerPath" : "container:AppleTVMultiplatform.xcodeproj",
+        "identifier" : "820B7D8C2F5F2C5E0043DE13",
+        "name" : "AppleTVMultiplatformUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

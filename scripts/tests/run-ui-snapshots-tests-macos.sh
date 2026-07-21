@@ -40,10 +40,28 @@ open "${APP_PATH}"
 sleep 3
 osascript -e 'quit app "Bro Player"'
 
+TEST_PLAN_NAME="RegularSnapshotUITests-Passcode-macOS"
+
 "$SCRIPT_DIR/macos-tests-runner.sh" \
   "AppleTVMultiplatformUITests" \
-  "RegularSnapshotUITests-Passcode-macOS" \
-  "AppleTVMultiplatformUITests/SnapshotUITests/Regular/RegularSnapshotUITests-Passcode-macOS.xctestplan" \
+  "$TEST_PLAN_NAME" \
+  "AppleTVMultiplatformUITests/SnapshotUITests/Regular/$TEST_PLAN_NAME.xctestplan" \
+  "macOS" \
+  "macOS" \
+  "$LOCAL_PORT" \
+  "en"
+
+
+open "${APP_PATH}"
+sleep 3
+osascript -e 'quit app "Bro Player"'
+
+TEST_PLAN_NAME="RegularSnapshotUITests-PlaylistUpdate-macOS"
+
+"$SCRIPT_DIR/macos-tests-runner.sh" \
+  "AppleTVMultiplatformUITests" \
+  "$TEST_PLAN_NAME" \
+  "AppleTVMultiplatformUITests/SnapshotUITests/Regular/$TEST_PLAN_NAME.xctestplan" \
   "macOS" \
   "macOS" \
   "$LOCAL_PORT" \

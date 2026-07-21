@@ -34,6 +34,8 @@ final class RegularSnapshotUITests_Stream: XCTestCase {
         let testConfig = try await apiClient.config()
         let app = XCUIApplication()
 #if !os(tvOS)
+        // iOS, macOS it is easy to type the data into create playlist controls,
+        // that is why we create a playlist with data in the test from scratch in in memory database.
         app.launchArguments.append("--in-memory-database-only")
 #endif
 #if os(macOS)
@@ -41,6 +43,8 @@ final class RegularSnapshotUITests_Stream: XCTestCase {
 #endif
 #if os(tvOS)
         let databaseConfig = try await apiClient.databaseConfig()
+        // on tvOS it is hard to type long text with tvOS keyboard.
+        // Use prefilled database.
         app.launchArguments.append(
             "DATABASE_PATH=\(databaseConfig.path)"
         )
@@ -65,7 +69,7 @@ final class RegularSnapshotUITests_Stream: XCTestCase {
             XCTFail("Unsupported device = \(UIDevice.current.userInterfaceIdiom.rawValue)")
         }
 #elseif os(tvOS)
-        try await tvOS(app: app, playlistCount: playlists.count)
+        try await tvOS(app: app, playlist: testPlaylist)
 #else
         try await macOS(app: app, playlist: testPlaylist)
 #endif
@@ -147,7 +151,7 @@ final class RegularSnapshotUITests_Stream: XCTestCase {
     }
 #endif
 #if os(tvOS)
-    private func tvOS(app: XCUIApplication, playlistCount: Int) async throws {
+    private func tvOS(app: XCUIApplication, playlist: Playlist) async throws {
         XCTAssert(UIDevice.current.userInterfaceIdiom == .tv)
         continueAfterFailure = true
         func openSettings() async throws {

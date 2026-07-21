@@ -63,6 +63,16 @@ actor MockApiClient {
         let _ = try await session.data(from: url)
     }
 
+    func playlistChange(_ playlist: Playlist) async throws {
+        let url = URL(string: "http://localhost:\(env.port)/playlist-change?lang=\(playlist.lang)&name=\(playlist.name)")!
+        let _ = try await session.data(from: url)
+    }
+
+    func playlistReset(_ playlist: Playlist) async throws {
+        let url = URL(string: "http://localhost:\(env.port)/playlist-reset?lang=\(playlist.lang)&name=\(playlist.name)")!
+        let _ = try await session.data(from: url)
+    }
+
 #if os(macOS)
     func copySnapshot(from: String, to dir: String) async throws  {
         let url = URL(string: "http://localhost:\(env.port)/copy-snapshot?snapshot=\(from)&destination=\(dir)")!

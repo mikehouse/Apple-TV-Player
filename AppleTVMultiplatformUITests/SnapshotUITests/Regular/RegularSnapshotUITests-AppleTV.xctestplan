@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "F7CE1318-FFF3-4260-AA82-8B42AD8BDB07",
+      "id" : "939FF7EA-11DB-47F6-BF0B-DB7C90DC548C",
       "name" : "Configuration",
       "options" : {
 
@@ -24,6 +24,7 @@
     {
       "selectedTests" : [
         "RegularSnapshotUITests_Passcode\/test()",
+        "RegularSnapshotUITests_PlaylistUpdate\/test()",
         "RegularSnapshotUITests_Stream\/test()"
       ],
       "target" : {

@@ -80,6 +80,9 @@
          <TestPlanReference
             reference = "container:AppleTVMultiplatformUITests/SnapshotUITests/Regular/RegularSnapshotUITests-Stream-macOS.xctestplan">
          </TestPlanReference>
+         <TestPlanReference
+            reference = "container:AppleTVMultiplatformUITests/SnapshotUITests/Regular/RegularSnapshotUITests-PlaylistUpdate-macOS.xctestplan">
+         </TestPlanReference>
       </TestPlans>
       <Testables>
          <TestableReference

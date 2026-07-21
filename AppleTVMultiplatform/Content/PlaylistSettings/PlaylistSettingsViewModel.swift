@@ -213,10 +213,9 @@ extension PlaylistSettingsViewModel {
         guard let mainPlaylist = playlistsCache.first else {
             return false
         }
-        // Create new playlist from cached playlist url and merge `EXTM3U` with cached one
-        // as `urlTvg`, `urlImg` and `tvgLogo` might be absent in source url, at the same time
-        // might be presented in cached version via `Add Playlist` flow.
-        let preparedUpdatedPlaylist = try await playlistAddService.preparePlaylist(
+        // Download an updated playlist from original url. If new playlist version does not have
+        // `urlTvg`, `urlImg` and `tvgLogo` then use old cached playlist values.
+        var preparedUpdatedPlaylist = try await playlistAddService.preparePlaylist(
             name: content.identity.name,
             urlString: String(data: content.url, encoding: .utf8)!,
             pin: nil,
@@ -233,6 +232,16 @@ extension PlaylistSettingsViewModel {
                 }
             }
         }
+        preparedUpdatedPlaylist = PreparedPlaylist(
+            name: preparedUpdatedPlaylist.name,
+            // Set date from original playlist as Date is an identity, should not be changed.
+            date: playlist.date ?? preparedUpdatedPlaylist.date,
+            icon: preparedUpdatedPlaylist.icon,
+            url: preparedUpdatedPlaylist.url,
+            data: preparedUpdatedPlaylist.data,
+            salt: preparedUpdatedPlaylist.salt,
+            encrypted: preparedUpdatedPlaylist.encrypted
+        )
         let newContent = try await playlistAddService.restorePlaylist(preparedUpdatedPlaylist, pin: nil).content
         // Update cache with new playlist + update program guide + update images.
         let playlists = try await playlistService.playlists(for: newContent, reloadPlaylist: true, progress: { [weak self] _, step in

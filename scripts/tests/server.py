@@ -15,6 +15,7 @@ from urllib.parse import parse_qs, urlparse
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent
+REPOSITORY_ROOT = PROJECT_ROOT.parent.parent
 SAFE_SEGMENT = re.compile(r"^[A-Za-z0-9._-]+$")
 UUID_PATTERN = re.compile(r"^[0-9A-Fa-f-]+$")
 
@@ -27,7 +28,7 @@ DB_FILES = (DB_FILE, DB_SHM_FILE, DB_WAL_FILE)
 
 
 def is_safe_segment(value: str) -> bool:
-    return bool(value) and bool(SAFE_SEGMENT.fullmatch(value))
+    return value not in {"", ".", ".."} and bool(SAFE_SEGMENT.fullmatch(value))
 
 
 def resolve_file(*parts: str) -> Path | None:
@@ -53,6 +54,8 @@ class PlaylistRequestHandler(BaseHTTPRequestHandler):
             "/playlist-logo": self.handle_playlist_logo,
             "/playlist-tvg": self.handle_playlist_tvg,
             "/playlist-images": self.handle_playlist_images,
+            "/playlist-change": self.handle_playlist_change,
+            "/playlist-reset": self.handle_playlist_reset,
             "/set-appearance": self.handle_set_appearance,
             "/shutdown": self.handle_shutdown,
             "/copy-database": self.handle_copy_database,
@@ -161,6 +164,77 @@ class PlaylistRequestHandler(BaseHTTPRequestHandler):
             return
 
         self.send_file(archive_path, "application/zip")
+
+    def handle_playlist_change(self, params: dict[str, str]) -> None:
+        name = params.get("name")
+        lang = params.get("lang")
+        if not name or not is_safe_segment(name):
+            self.send_error(HTTPStatus.BAD_REQUEST, "Missing or invalid name")
+            return
+        if not lang or not is_safe_segment(lang):
+            self.send_error(HTTPStatus.BAD_REQUEST, "Missing or invalid lang")
+            return
+
+        changed_path = resolve_file("playlists", name, lang, "playlist-change.m3u")
+        if changed_path is None:
+            self.send_error(HTTPStatus.NOT_FOUND, "Changed playlist not found")
+            return
+
+        playlist_path = resolve_file("playlists", name, lang, "playlist.m3u")
+        if playlist_path is None:
+            self.send_error(HTTPStatus.NOT_FOUND, "Playlist not found")
+            return
+
+        try:
+            logger.info("Replace playlist %s with %s", playlist_path, changed_path)
+            shutil.copy2(changed_path, playlist_path)
+        except OSError as exc:
+            logger.exception("Failed to replace playlist %s", playlist_path)
+            self.send_error(HTTPStatus.INTERNAL_SERVER_ERROR, f"Failed to change playlist: {exc}")
+            return
+
+        self.send_text("OK\n", "text/plain; charset=utf-8")
+
+    def handle_playlist_reset(self, params: dict[str, str]) -> None:
+        name = params.get("name")
+        lang = params.get("lang")
+        if not name or not is_safe_segment(name):
+            self.send_error(HTTPStatus.BAD_REQUEST, "Missing or invalid name")
+            return
+        if not lang or not is_safe_segment(lang):
+            self.send_error(HTTPStatus.BAD_REQUEST, "Missing or invalid lang")
+            return
+
+        playlist_path = Path("scripts", "tests", "playlists", name, lang, "playlist.m3u")
+        command = [
+            "git",
+            "-C",
+            str(REPOSITORY_ROOT),
+            "checkout",
+            "--",
+            playlist_path.as_posix(),
+        ]
+        try:
+            result = subprocess.run(
+                command,
+                capture_output=True,
+                text=True,
+                check=False,
+                timeout=30,
+            )
+        except (OSError, subprocess.SubprocessError) as exc:
+            logger.exception("Failed to run playlist reset command")
+            self.send_error(HTTPStatus.INTERNAL_SERVER_ERROR, f"Failed to reset playlist: {exc}")
+            return
+
+        if result.returncode != 0:
+            detail = result.stderr.strip() or result.stdout.strip() or "git checkout failed"
+            logger.error("Playlist reset failed: %s", detail)
+            self.send_error(HTTPStatus.INTERNAL_SERVER_ERROR, f"Failed to reset playlist: {detail}")
+            return
+
+        logger.info("Playlist reset successfully: %s", playlist_path)
+        self.send_text("OK\n", "text/plain; charset=utf-8")
 
     def handle_set_appearance(self, params: dict[str, str]) -> None:
         mode = params.get("mode", "")

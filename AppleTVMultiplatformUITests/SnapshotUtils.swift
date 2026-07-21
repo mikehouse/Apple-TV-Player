@@ -23,16 +23,16 @@ struct SnapshotUtils {
         line: UInt = #line, column: UInt = #column
     ) {
         let image: UIImage
-#if os(iOS)
+    #if os(iOS)
         if UIDevice.current.userInterfaceIdiom == .pad {
             XCTAssert(XCUIDevice.shared.orientation == .landscapeLeft)
             image = flattenOrientation(XCUIScreen.main.screenshot().image)
         } else {
             image = app.screenshot().image
         }
-#else
+    #else
         image = app.screenshot().image
-#endif
+    #endif
         var snapshotDirectory = URL(fileURLWithPath: String(describing: filePath))
             .deletingLastPathComponent()
             .appendingPathComponent("__Snapshots__", isDirectory: true)

@@ -2,7 +2,7 @@ Bro IPTV Player는 iPhone, iPad, Mac, Apple TV에서 M3U 재생목록을 볼 수
 
 주요 기능:
 - iOS, iPadOS, macOS, tvOS 지원
-- M3U 및 M3U8 재생목록 지원
+- 로컬에 저장되거나 원격으로 이용할 수 있는 M3U 및 M3U8 재생목록 지원
 - EPG 지원
 - 추가 개인 정보 보호를 위해 PIN으로 재생목록 보호
 - 재생목록과 앱 데이터는 기기에 로컬로 저장됩니다

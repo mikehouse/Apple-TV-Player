@@ -2,7 +2,7 @@ Bro IPTV Player est un moyen rapide, privé et agréable de regarder des playlis
 
 Fonctionnalités principales :
 - Fonctionne sur iOS, iPadOS, macOS et tvOS
-- Prend en charge les playlists M3U et M3U8
+- Prend en charge les playlists M3U et M3U8 stockées localement ou accessibles à distance
 - Prend en charge l'EPG
 - Protège les playlists avec un code PIN pour plus de confidentialité
 - Vos playlists et les données de l'app sont stockées localement sur votre appareil

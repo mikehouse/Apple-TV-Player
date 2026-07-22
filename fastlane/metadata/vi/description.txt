@@ -2,7 +2,7 @@ Bro IPTV Player là cách nhanh, riêng tư và dễ dùng để xem danh sách 
 
 Tính năng chính:
 - Hoạt động trên iOS, iPadOS, macOS và tvOS
-- Hỗ trợ danh sách phát M3U và M3U8
+- Hỗ trợ danh sách phát M3U và M3U8 được lưu cục bộ hoặc truy cập từ xa
 - Hỗ trợ EPG
 - Bảo vệ danh sách phát bằng mã PIN để tăng thêm quyền riêng tư
 - Danh sách phát và dữ liệu ứng dụng của bạn được lưu trữ cục bộ trên thiết bị

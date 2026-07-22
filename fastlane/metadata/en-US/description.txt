@@ -2,7 +2,7 @@ Bro IPTV Player is a fast, private, and beautifully simple way to watch M3U play
 
 Features:
 - Works across iOS, iPadOS, macOS, and tvOS
-- Supports M3U and M3U8 playlists
+- Supports M3U and M3U8 playlists stored locally or accessed remotely
 - Supports EPG
 - Protect playlists with a PIN for extra privacy
 - Your playlists and app data are stored locally on your device

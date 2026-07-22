@@ -2,7 +2,7 @@ Bro IPTV Player, iPhone, iPad, Mac ve Apple TV'de M3U oynatma listelerini izleme
 
 Öne çıkan özellikler:
 - iOS, iPadOS, macOS ve tvOS üzerinde çalışır
-- M3U ve M3U8 oynatma listelerini destekler
+- Yerel olarak depolanan veya uzaktan erişilebilen M3U ve M3U8 oynatma listelerini destekler
 - EPG desteği
 - Ek gizlilik için oynatma listelerini PIN ile korur
 - Oynatma listeleriniz ve uygulama verileriniz cihazınızda yerel olarak saklanır

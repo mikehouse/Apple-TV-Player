@@ -84,6 +84,14 @@ final class RegularSnapshotUITests_Stream: XCTestCase {
             try await app.buttons["ToggleSidebar"].firstMatch.makeTap(wait: .seconds(1))
         }
         try await app.buttons["add"].firstMatch.makeTap(wait: .seconds(1))
+        try await app.buttons["playlist-file-picker"].firstMatch.makeTap(wait: .seconds(7))
+        if #available(iOS 26.0, *) {
+            XCTAssertEqual(app.navigationBars["DOCSidebarView"].buttons.firstMatch.label, "Cancel")
+            try await app.navigationBars["DOCSidebarView"].buttons.firstMatch.makeTap(wait: .seconds(2))
+        } else {
+            XCTAssertEqual(app.navigationBars["com_apple_DocumentManager_Service.DOCSidebarView"].buttons.firstMatch.label, "Cancel")
+            try await app.navigationBars["com_apple_DocumentManager_Service.DOCSidebarView"].buttons.firstMatch.makeTap(wait: .seconds(2))
+        }
         try await app.textFields["name"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.name)
         try await app.textFields["url"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.url)
         try await app.textFields["tvg-logo"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.tvgLogo)
@@ -119,6 +127,9 @@ final class RegularSnapshotUITests_Stream: XCTestCase {
         XCTAssert(UIDevice.current.userInterfaceIdiom == .phone)
         continueAfterFailure = true
         try await app.buttons["add"].firstMatch.makeTap()
+        try await app.buttons["playlist-file-picker"].firstMatch.makeTap(wait: .seconds(7))
+        XCTAssertEqual(app.navigationBars["FullDocumentManagerViewControllerNavigationBar"].buttons.firstMatch.label, "Cancel")
+        try await app.navigationBars["FullDocumentManagerViewControllerNavigationBar"].buttons.firstMatch.makeTap(wait: .seconds(2))
         try await app.textFields["name"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.name)
         try await app.textFields["url"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.url)
         try await app.textFields["tvg-logo"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.tvgLogo)
@@ -219,6 +230,9 @@ final class RegularSnapshotUITests_Stream: XCTestCase {
     private func macOS(app: XCUIApplication, playlist: Playlist) async throws {
         continueAfterFailure = true
         try await app.buttons["add"].firstMatch.makeTap(wait: .seconds(0))
+        try await app.buttons["playlist-file-picker"].firstMatch.makeTap(wait: .seconds(4))
+        XCTAssertEqual(app.sheets["open-panel"].firstMatch.buttons["CancelButton"].firstMatch.title, "Cancel")
+        try await app.sheets["open-panel"].firstMatch.buttons["CancelButton"].firstMatch.makeTap(wait: .seconds(2))
         try await app.textFields["name"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.name)
         try await app.textFields["url"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.url)
         try await app.textFields["tvg-logo"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.tvgLogo)
@@ -245,7 +259,7 @@ final class RegularSnapshotUITests_Stream: XCTestCase {
         XCTAssertEqual(app.outlines["content"].firstMatch.cells.element(boundBy: 1).staticTexts.element(boundBy: 0).value as? String, "Comedy")
         XCTAssertEqual(app.outlines["content"].firstMatch.cells.element(boundBy: 1).staticTexts.element(boundBy: 1).value as? String, "Vacation")
         try await app.outlines["content"].firstMatch.cells.element(boundBy: 1).makeTap()
-        try await snapshotUtils.assertSnapshot(named: env.snapshotName(context: "stream"), app: app, localized: false)
+        try await snapshotUtils.assertSnapshot(named: env.snapshotName(context: "stream"), app: app, localized: false, precision: 0.9993)
         
         XCTAssertEqual(app.scrollViews["details"].firstMatch.staticTexts.element(boundBy: 0).value as? String, "15:00 - 17:00: 21 Jump Street")
         XCTAssertEqual(app.scrollViews["details"].firstMatch.staticTexts.element(boundBy: 1).value as? String, "17:00 - 19:00: Palm Springs")

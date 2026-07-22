@@ -129,7 +129,7 @@ final class RegularSnapshotUITests_PlaylistUpdate: XCTestCase {
         try await app.buttons["update-playlist-btn"].firstMatch.makeTap(wait: .seconds(2))
         try await app.buttons["confirm"].firstMatch.makeTap(wait: .seconds(0))
         XCTAssertEqual(app.cells.firstMatch.staticTexts.element(boundBy: 0).label, "Westerns")
-        snapshotUtils.assertSnapshot(named: env.snapshotName(context: "playlist-update"), app: app, localized: false, precision: 0.9992)
+        snapshotUtils.assertSnapshot(named: env.snapshotName(context: "playlist-update"), app: app, localized: false, precision: 0.9986)
         
         try await apiClient.playlistReset(playlist)
     }

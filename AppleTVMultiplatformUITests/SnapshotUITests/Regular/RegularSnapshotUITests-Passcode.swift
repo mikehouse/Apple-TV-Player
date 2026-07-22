@@ -105,15 +105,15 @@ final class RegularSnapshotUITests_Passcode: XCTestCase {
         // Last added always first in a list.
         XCTAssertEqual(app.collectionViews["sidebar"].firstMatch.cells.firstMatch.staticTexts.element(boundBy: 0).label, "Movies")
         try await app.collectionViews["sidebar"].firstMatch.cells.firstMatch.makeTap(wait: .seconds(0))
-        try await app.buttons["cancel"].firstMatch.makeTap(wait: .seconds(0))
+        try await app.buttons["cancel"].firstMatch.makeTap(wait: .seconds(1))
         XCTAssertEqual(app.staticTexts["select-playlist"].firstMatch.label, "Select a playlist")
         XCTAssertEqual(app.collectionViews["sidebar"].firstMatch.cells.firstMatch.staticTexts.element(boundBy: 0).label, "Movies")
-        try await app.collectionViews["sidebar"].firstMatch.cells.firstMatch.makeTap(wait: .seconds(0))
+        try await app.collectionViews["sidebar"].firstMatch.cells.firstMatch.makeTap(wait: .seconds(1))
         try await app.textFields["passcode-input"].firstMatch.makeTap(wait: .seconds(0)).typeText(String(passcode.dropLast(2)))
         snapshotUtils.assertSnapshot(named: env.snapshotName(context: "passcode-input"), app: app, localized: false)
         try await app.buttons["confirm"].firstMatch.makeTap(wait: .seconds(0))
         XCTAssertEqual(app.alerts.firstMatch.staticTexts.element(boundBy: 1).label, "Enter the correct playlist PIN.")
-        try await app.buttons["ok"].firstMatch.makeTap(wait: .seconds(0))
+        try await app.buttons["ok"].firstMatch.makeTap(wait: .seconds(1))
         try await app.textFields["passcode-input"].firstMatch.makeTap(wait: .seconds(0)).typeText(String(passcode.dropFirst(4)))
         try await app.buttons["confirm"].firstMatch.makeTap(wait: .seconds(1))
         XCTAssertEqual(app.collectionViews["content"].firstMatch.cells.firstMatch.staticTexts.element(boundBy: 0).label, "Comedy")
@@ -123,7 +123,7 @@ final class RegularSnapshotUITests_Passcode: XCTestCase {
         XCTAssertEqual(app.buttons["passcode-picker"].firstMatch.label, "Enabled")
         snapshotUtils.assertSnapshot(named: env.snapshotName(context: "settings"), app: app, localized: false, precision: 0.9965)
         try await app.buttons["passcode-picker"].firstMatch.makeTap(wait: .seconds(0))
-        try await app.buttons["passcode-disable"].firstMatch.makeTap(wait: .seconds(0))
+        try await app.buttons["passcode-disable"].firstMatch.makeTap(wait: .seconds(1))
         try await app.textFields["passcode-input"].firstMatch.makeTap(wait: .seconds(0)).typeText(passcode)
         if #available(iOS 26.0, *) {
             try await app.buttons["confirm"].firstMatch.makeTap(wait: .seconds(0))
@@ -293,7 +293,7 @@ final class RegularSnapshotUITests_Passcode: XCTestCase {
         XCTAssertEqual(app.scrollViews["program-list"].firstMatch.buttons.element(boundBy: 2).label, "19:00 - 21:00: Vacation")
         
         XCUIRemote.shared.press(.down)
-        try await Task.sleep(for: .seconds(1))
+        try await Task.sleep(for: .seconds(2))
         
         XCTAssertEqual(app.tables.firstMatch.cells.firstMatch.hasFocus, false)
         XCTAssertEqual(app.tables.firstMatch.cells.element(boundBy: 1).hasFocus, true)

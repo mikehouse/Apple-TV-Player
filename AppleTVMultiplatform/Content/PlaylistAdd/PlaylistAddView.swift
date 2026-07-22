@@ -1,5 +1,8 @@
 import FactoryKit
 import SwiftUI
+#if os(iOS) || os(macOS)
+import UniformTypeIdentifiers
+#endif
 
 struct PlaylistAddView: View {
 
@@ -8,6 +11,10 @@ struct PlaylistAddView: View {
     @State private var viewModel = PlaylistAddViewModel()
     @State private var task: Task<Void, Error>?
     @FocusState private var isTextFieldFocused: Bool
+#if os(iOS) || os(macOS)
+    @State private var isFileImporterPresented = false
+    @State private var securityScopedURLs: [URL] = []
+#endif
 
     var body: some View {
         VStack {
@@ -30,6 +37,9 @@ struct PlaylistAddView: View {
                         textField("Required", text: $viewModel.urlString)
                             .modifier(KeyboardURLTypeModifier())
                             .accessibilityIdentifier("url")
+#if os(iOS) || os(macOS)
+                        playlistFilePickerButtonView()
+#endif
                     }
                     HStack {
                         Text("Passcode")
@@ -84,6 +94,19 @@ struct PlaylistAddView: View {
             }
         }
 #endif
+#if os(iOS) || os(macOS)
+        .fileImporter(
+            isPresented: $isFileImporterPresented,
+            allowedContentTypes: [.m3uPlaylist]
+        ) { result in
+            switch result {
+            case .success(let url):
+                selectPlaylistFile(url)
+            case .failure(let error):
+                logger.error(error)
+            }
+        }
+#endif
         .overlay {
             if viewModel.isLoading {
                 BlurProgressView(viewModel.progress)
@@ -106,6 +129,9 @@ struct PlaylistAddView: View {
 #endif
         .onDisappear {
             task?.cancel()
+#if os(iOS) || os(macOS)
+            releaseSecurityScopedURLs()
+#endif
         }
     }
     
@@ -155,6 +181,30 @@ struct PlaylistAddView: View {
             }
         }
     }
+
+#if os(iOS) || os(macOS)
+    private func playlistFilePickerButtonView() -> some View {
+        Button {
+            isFileImporterPresented = true
+        } label: {
+            Image(systemName: "doc.badge.plus")
+        }
+        .buttonStyle(.bordered)
+        .accessibilityIdentifier("playlist-file-picker")
+    }
+
+    private func selectPlaylistFile(_ url: URL) {
+        if url.startAccessingSecurityScopedResource() {
+            securityScopedURLs.append(url)
+        }
+        viewModel.urlString = url.absoluteString
+    }
+
+    private func releaseSecurityScopedURLs() {
+        securityScopedURLs.forEach { $0.stopAccessingSecurityScopedResource() }
+        securityScopedURLs.removeAll()
+    }
+#endif
 }
 
 private struct KeyboardURLTypeModifier: ViewModifier {

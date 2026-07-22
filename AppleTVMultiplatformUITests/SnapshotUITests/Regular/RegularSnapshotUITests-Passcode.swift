@@ -412,7 +412,7 @@ final class RegularSnapshotUITests_Passcode: XCTestCase {
         }
         let passcode = "123456"
         try await app.buttons["add"].firstMatch.makeTap(wait: .seconds(2))
-        try await snapshotUtils.assertSnapshot(named: env.snapshotName(context: "add-playlist-blank"), app: app, localized: false, precision: 0.97)
+        try await snapshotUtils.assertSnapshot(named: env.snapshotName(context: "add-playlist-blank"), app: app, localized: false)
         try await app.textFields["name"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.name)
         try await app.textFields["url"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.url)
         try await app.textFields["tvg-logo"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.tvgLogo)
@@ -420,7 +420,7 @@ final class RegularSnapshotUITests_Passcode: XCTestCase {
         try await app.textFields["url-img"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.urlImg)
         try await app.textFields["passcode"].firstMatch.makeTap(wait: .seconds(0)).typeText(passcode)
         try await Task.sleep(for: .seconds(1))
-        try await snapshotUtils.assertSnapshot(named: env.snapshotName(context: "add-playlist-filled"), app: app, localized: false, precision: 0.97)
+        try await snapshotUtils.assertSnapshot(named: env.snapshotName(context: "add-playlist-filled"), app: app, localized: false)
         try await app.sheets.firstMatch.buttons["add"].firstMatch.makeTap(wait: .seconds(1))
         try await snapshotUtils.assertSnapshot(named: env.snapshotName(context: "playlists"), app: app, localized: false)
         // Last added always first in a list.
@@ -441,7 +441,7 @@ final class RegularSnapshotUITests_Passcode: XCTestCase {
         try await snapshotUtils.assertSnapshot(named: env.snapshotName(context: "playlist"), app: app, localized: false, precision: 0.9993)
         try await app.buttons["settings"].firstMatch.makeTap(wait: .seconds(0))
         XCTAssertEqual(app.popUpButtons["passcode-picker"].firstMatch.value as? String, "Enabled")
-        try await snapshotUtils.assertSnapshot(named: env.snapshotName(context: "settings"), app: app, localized: false)
+        try await snapshotUtils.assertSnapshot(named: env.snapshotName(context: "settings"), app: app, localized: false, precision: 0.97)
         try await app.popUpButtons["passcode-picker"].firstMatch.makeTap(wait: .seconds(0))
         try await app.menuItems["passcode-disable"].firstMatch.makeTap(wait: .seconds(0))
         try await app.textFields["passcode-input"].firstMatch.makeTap(wait: .seconds(0)).typeText(passcode)

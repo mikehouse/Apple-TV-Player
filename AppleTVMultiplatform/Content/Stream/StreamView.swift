@@ -212,6 +212,7 @@ private struct MacOsPlayerView: NSViewRepresentable {
     func makeNSView(context: Context) -> AVPlayerView {
         let view = AVPlayerView()
         view.player = URL(string: urlString).map { AVPlayer(url: $0) }
+        view.player?.preventsDisplaySleepDuringVideoPlayback = true
         view.showsFullScreenToggleButton = true
         view.controlsStyle = .inline
         view.delegate = context.coordinator

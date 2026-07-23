@@ -11,6 +11,9 @@ struct StreamView: View {
     @InjectedObservable(\.logger) var logger
     @State private var viewModel: StreamViewModel
     @Binding private var reloadCurrentProgram: UUID
+#if os(iOS)
+    @State private var showAppSettings = false
+#endif
 #if os(tvOS)
     @FocusState private var isButtonFocused: Bool
     @State private var showFullScreen = false
@@ -89,6 +92,23 @@ struct StreamView: View {
 #if os(iOS)
         .navigationBarTitle(viewModel.title)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem {
+                SettingsButtonView {
+                    let _ = logger.info("Open App Settings button event")
+                    showAppSettings = true
+                }
+            }
+        }
+        .sheet(isPresented: $showAppSettings, onDismiss: {
+            logger.info("Dismiss App Settings event")
+        }, content: {
+            NavigationStack {
+                AppSettingsView()
+            }
+            .presentationDetents([.medium, .large])
+            .interactiveDismissDisabled(false)
+        })
 #endif
         .task(id: reloadCurrentProgram) {
             await viewModel.loadPrograms()
@@ -160,7 +180,10 @@ struct StreamView: View {
         }
         .ignoresSafeArea()
 #else
-        iOSPlayerView(urlString: viewModel.stream.url)
+        iOSPlayerView(
+            urlString: viewModel.stream.url,
+            pictureInPictureEnabled: viewModel.pictureInPictureEnabled
+        )
 #endif
     }
 
@@ -213,6 +236,7 @@ private struct MacOsPlayerView: NSViewRepresentable {
         let view = AVPlayerView()
         view.player = URL(string: urlString).map { AVPlayer(url: $0) }
         view.player?.preventsDisplaySleepDuringVideoPlayback = true
+        view.allowsPictureInPicturePlayback = true
         view.showsFullScreenToggleButton = true
         view.controlsStyle = .inline
         view.delegate = context.coordinator
@@ -300,6 +324,11 @@ private final class TvOSPlayer {
 private struct iOSPlayerView: UIViewControllerRepresentable {
 
     let urlString: String
+    let pictureInPictureEnabled: Bool
+
+    func makeCoordinator() -> Self.Coordinator {
+        return Coordinator(isPictureInPictureEnabled: pictureInPictureEnabled)
+    }
 
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         do {
@@ -311,6 +340,11 @@ private struct iOSPlayerView: UIViewControllerRepresentable {
         }
         let controller = AVPlayerViewController()
         controller.player = AVPlayer(url: URL(string: urlString)!)
+        controller.allowsPictureInPicturePlayback = pictureInPictureEnabled
+        controller.canStartPictureInPictureAutomaticallyFromInline = pictureInPictureEnabled
+        if !pictureInPictureEnabled {
+            context.coordinator.attach(to: controller)
+        }
         return controller
     }
 
@@ -321,6 +355,7 @@ private struct iOSPlayerView: UIViewControllerRepresentable {
     static func dismantleUIViewController(_ uiViewController: AVPlayerViewController, coordinator: Self.Coordinator) {
         uiViewController.player?.pause()
         uiViewController.player = nil
+        coordinator.detach()
     }
 
     func sizeThatFits(_ proposal: ProposedViewSize, uiViewController: Self.UIViewControllerType, context: Self.Context) -> CGSize? {
@@ -328,6 +363,43 @@ private struct iOSPlayerView: UIViewControllerRepresentable {
         return .init(width: width, height: width * (9.0 / 16.0))
     }
 }
+
+private extension iOSPlayerView {
+
+    @MainActor
+    final class Coordinator: NSObject {
+
+        let isPictureInPictureEnabled: Bool
+
+        init(isPictureInPictureEnabled: Bool) {
+            self.isPictureInPictureEnabled = isPictureInPictureEnabled
+        }
+
+        private var backgroundObserver: NSObjectProtocol?
+
+        func attach(to controller: AVPlayerViewController) {
+            backgroundObserver = NotificationCenter.default.addObserver(
+                forName: UIApplication.didEnterBackgroundNotification,
+                object: nil,
+                queue: .main
+            ) { [weak controller] _ in
+                MainActor.assumeIsolated {
+                    Container.shared.logger().debug("App backgrounded, pause the player.")
+                    controller?.player?.pause()
+                }
+            }
+        }
+
+        func detach() {
+            backgroundObserver = nil
+        }
+
+        deinit {
+            Container.shared.logger().debug("deinit \(self)")
+        }
+    }
+}
+
 #endif
 
 #if DEBUG

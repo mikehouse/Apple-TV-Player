@@ -190,16 +190,6 @@ struct ContentView: View {
             StreamView(content: content, stream: stream, reloadCurrentProgram: $reloadCurrentProgram)
                 .id(stream)
                 .accessibilityIdentifier("details")
-#if os(iOS)
-                .onAppear {
-                    guard UIDevice.current.userInterfaceIdiom == .phone else { return }
-                    UIApplication.shared.isIdleTimerDisabled = true
-                }
-                .onDisappear {
-                    guard UIDevice.current.userInterfaceIdiom == .phone else { return }
-                    UIApplication.shared.isIdleTimerDisabled = false
-                }
-#endif
         }
     }
 #endif

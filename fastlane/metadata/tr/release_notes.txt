@@ -1,1 +1,5 @@
-Hata düzeltmeleri ve performans iyileştirmeleri
+Bu güncelleme şunları içerir:
+• iPhone, iPad ve Mac’te Resim İçinde Resim desteği.
+• iPhone, iPad ve Mac’te yerel dosyalardan çalma listelerini içe aktarma özelliği.
+• Mac’te video oynatılırken ekran artık açık kalır.
+• Kararlılık iyileştirmeleri, performans geliştirmeleri ve hata düzeltmeleri.

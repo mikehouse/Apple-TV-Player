@@ -1,1 +1,5 @@
-Fehlerbehebungen und Leistungsverbesserungen
+Dieses Update enthält:
+• Unterstützung für Bild-in-Bild auf iPhone, iPad und Mac.
+• Möglichkeit, Playlists aus lokalen Dateien auf iPhone, iPad und Mac zu importieren.
+• Das Display bleibt während der Videowiedergabe auf dem Mac eingeschaltet.
+• Verbesserungen der Stabilität und der Leistung sowie Fehlerbehebungen.

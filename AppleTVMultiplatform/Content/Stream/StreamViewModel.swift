@@ -1,6 +1,7 @@
 import FactoryKit
 import Foundation
 import Observation
+import SwiftData
 
 @Observable
 final class StreamViewModel {
@@ -21,6 +22,7 @@ final class StreamViewModel {
         }
     }
 
+    @ObservationIgnored @Injected(\.databaseService) private var databaseService
     @ObservationIgnored @Injected(\.playlistService) private var playlistService
     @ObservationIgnored @Injected(\.logger) private var logger
     @ObservationIgnored private let timeFormatter: DateFormatter
@@ -49,6 +51,12 @@ final class StreamViewModel {
         formatter.dateFormat = "HH:mm"
         timeFormatter = formatter
     }
+#if os(iOS)
+    var pictureInPictureEnabled: Bool {
+        let fetch = FetchDescriptor<AppSettings>()
+        return (try? databaseService.mainContext.fetch(fetch))?.first?.iOSPictureInPictureEnabled ?? true
+    }
+#endif
 
     func loadPrograms() async {
         _ = await loadPrograms(stream)

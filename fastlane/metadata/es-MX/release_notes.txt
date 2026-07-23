@@ -1,1 +1,5 @@
-Corrección de errores y mejoras de rendimiento
+Esta actualización incluye:
+• Compatibilidad con Imagen dentro de otra en iPhone, iPad y Mac.
+• Posibilidad de importar listas de reproducción desde archivos locales en iPhone, iPad y Mac.
+• La pantalla permanece encendida durante la reproducción de video en Mac.
+• Mejoras de estabilidad y de rendimiento, además de corrección de errores.

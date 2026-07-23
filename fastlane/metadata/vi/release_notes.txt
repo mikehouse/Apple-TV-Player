@@ -1,1 +1,5 @@
-Sửa lỗi và cải thiện hiệu suất
+Bản cập nhật này bao gồm:
+• Hỗ trợ Hình trong hình trên iPhone, iPad và máy Mac.
+• Khả năng nhập danh sách phát từ các tệp cục bộ trên iPhone, iPad và máy Mac.
+• Màn hình không chuyển sang chế độ ngủ trong khi phát video trên máy Mac.
+• Cải tiến về độ ổn định, cải thiện hiệu năng và phần sửa lỗi.

@@ -1,1 +1,5 @@
-Correções de bugs e melhorias de desempenho
+Esta atualização inclui:
+• Compatibilidade com PIP no iPhone, iPad e Mac.
+• Possibilidade de importar playlists de arquivos locais no iPhone, iPad e Mac.
+• A tela permanece ligada durante a reprodução de vídeo no Mac.
+• Melhorias de estabilidade e de desempenho e correções de erros.

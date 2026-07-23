@@ -1,1 +1,5 @@
-Perbaikan bug dan peningkatan performa
+Pembaruan ini mencakup:
+• Dukungan Gambar dalam Gambar di iPhone, iPad, dan Mac.
+• Kemampuan untuk mengimpor playlist dari file lokal di iPhone, iPad, dan Mac.
+• Layar kini tetap menyala selama pemutaran video di Mac.
+• Peningkatan stabilitas dan kinerja serta perbaikan bug.

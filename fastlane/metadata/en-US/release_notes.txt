@@ -1,1 +1,5 @@
-Bug fixes and performance improvements
+This update includes:
+• Picture in Picture support on iPhone, iPad, and Mac.
+• The ability to import playlists from local files on iPhone, iPad, and Mac.
+• The display now stays awake during video playback on Mac.
+• Stability improvements, performance enhancements, and bug fixes.

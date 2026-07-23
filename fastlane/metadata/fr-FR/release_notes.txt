@@ -1,1 +1,5 @@
-Corrections de bugs et améliorations des performances
+Cette mise à jour apporte :
+• Prise en charge d’Image dans l’image sur iPhone, iPad et Mac.
+• Possibilité d’importer des playlists à partir de fichiers locaux sur iPhone, iPad et Mac.
+• L’écran reste allumé pendant la lecture vidéo sur Mac.
+• Des améliorations de stabilité, des optimisations de performances et des correctifs.

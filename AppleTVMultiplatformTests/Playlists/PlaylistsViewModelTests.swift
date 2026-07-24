@@ -126,6 +126,114 @@ struct PlaylistsViewModelTests {
         #expect(viewModel.onPlaylistSelection() == .init(name: "Earlier", date: earlierDate))
     }
 
+    @MainActor
+    @Test func deletePlaylistDeletesSelectedPlaylistAndClearsCache() async throws {
+        let deletedIdentity = PlaylistItem.Identity(
+            name: "Deleted",
+            date: Date(timeIntervalSince1970: 100)
+        )
+        let remainingIdentity = PlaylistItem.Identity(
+            name: "Remaining",
+            date: Date(timeIntervalSince1970: 200)
+        )
+        let deletedPlaylist = makePlaylist(
+            identity: deletedIdentity,
+            icon: "https://example.com/deleted.png",
+            url: Data("https://example.com/deleted.m3u".utf8),
+            data: Data("stored-deleted-data".utf8)
+        )
+        let remainingPlaylist = makePlaylist(identity: remainingIdentity)
+        let database = try makeDatabaseService(items: [deletedPlaylist, remainingPlaylist])
+        let restoredPlaylist = RestoredPlaylist(
+            name: deletedIdentity.name,
+            date: deletedIdentity.date,
+            icon: deletedPlaylist.icon,
+            url: Data("https://example.com/deleted.m3u".utf8),
+            data: Data("#EXTM3U deleted".utf8),
+            isStoredInMemoryOnly: false
+        )
+        let playlistAddService = DeletePlaylistMockPlaylistAddService(
+            restoredPlaylist: restoredPlaylist
+        )
+        let playlistService = DeletePlaylistMockPlaylistService()
+        let expectedPreparedPlaylist = try #require(PreparedPlaylist(deletedPlaylist))
+        Container.shared.databaseService.register { database }
+        Container.shared.playlistAddService.register { playlistAddService }
+        Container.shared.playlistService.register { playlistService }
+        let viewModel = PlaylistsViewModel()
+        viewModel.updatePlaylists()
+        viewModel.selectedPlaylist = deletedPlaylist
+
+        viewModel.deletePlaylist(deletedPlaylist)
+
+        let storedPlaylists = try database.mainContext.fetch(FetchDescriptor<PlaylistItem>())
+
+        #expect(storedPlaylists.compactMap(\.identity) == [remainingIdentity])
+        #expect(viewModel.playlists.compactMap(\.identity) == [remainingIdentity])
+        #expect(viewModel.selectedPlaylist == nil)
+
+        try await waitForClearCache(on: playlistService)
+
+        let restoreCalls = await playlistAddService.recordedRestoreCalls()
+        let restoreCall = try #require(restoreCalls.first)
+        let clearCacheCalls = await playlistService.recordedClearCacheCalls()
+        let clearedContent = try #require(clearCacheCalls.first)
+
+        #expect(restoreCalls.count == 1)
+        #expect(restoreCall.preparedPlaylist == expectedPreparedPlaylist)
+        #expect(restoreCall.pin == nil)
+        #expect(clearCacheCalls.count == 1)
+        #expect(clearedContent.identity == restoredPlaylist.content.identity)
+        #expect(clearedContent.url == restoredPlaylist.content.url)
+        #expect(clearedContent.data == restoredPlaylist.content.data)
+        #expect(clearedContent.isStoredInMemoryOnly == restoredPlaylist.content.isStoredInMemoryOnly)
+    }
+
+    @MainActor
+    @Test func deletePlaylistKeepsDifferentSelection() async throws {
+        let deletedIdentity = PlaylistItem.Identity(
+            name: "Deleted",
+            date: Date(timeIntervalSince1970: 100)
+        )
+        let selectedIdentity = PlaylistItem.Identity(
+            name: "Selected",
+            date: Date(timeIntervalSince1970: 200)
+        )
+        let deletedPlaylist = makePlaylist(identity: deletedIdentity)
+        let selectedPlaylist = makePlaylist(identity: selectedIdentity)
+        let database = try makeDatabaseService(items: [deletedPlaylist, selectedPlaylist])
+        let playlistAddService = DeletePlaylistMockPlaylistAddService(
+            restoredPlaylist: RestoredPlaylist(
+                name: deletedIdentity.name,
+                date: deletedIdentity.date,
+                icon: nil,
+                url: Data("https://example.com/deleted.m3u".utf8),
+                data: Data("#EXTM3U deleted".utf8),
+                isStoredInMemoryOnly: false
+            )
+        )
+        let playlistService = DeletePlaylistMockPlaylistService()
+        Container.shared.databaseService.register { database }
+        Container.shared.playlistAddService.register { playlistAddService }
+        Container.shared.playlistService.register { playlistService }
+        let viewModel = PlaylistsViewModel()
+        viewModel.updatePlaylists()
+        viewModel.selectedPlaylist = selectedPlaylist
+
+        viewModel.deletePlaylist(deletedPlaylist)
+
+        let storedPlaylists = try database.mainContext.fetch(FetchDescriptor<PlaylistItem>())
+
+        #expect(storedPlaylists.compactMap(\.identity) == [selectedIdentity])
+        #expect(viewModel.playlists.compactMap(\.identity) == [selectedIdentity])
+        #expect(viewModel.selectedPlaylist?.identity == selectedIdentity)
+
+        try await waitForClearCache(on: playlistService)
+
+        #expect(await playlistAddService.recordedRestoreCalls().count == 1)
+        #expect(await playlistService.recordedClearCacheCalls().count == 1)
+    }
+
     private func makeDatabaseService(items: [PlaylistItem]) throws -> DatabaseService {
         let database = DatabaseService(isStoredInMemoryOnly: true)
 
@@ -136,5 +244,132 @@ struct PlaylistsViewModelTests {
         try database.mainContext.save()
 
         return database
+    }
+
+    private func makePlaylist(
+        identity: PlaylistItem.Identity,
+        icon: String? = nil,
+        url: Data = Data("https://example.com/playlist.m3u".utf8),
+        data: Data = Data("stored-playlist-data".utf8)
+    ) -> PlaylistItem {
+        PlaylistItem(
+            name: identity.name,
+            date: identity.date,
+            icon: icon,
+            url: url,
+            data: data,
+            salt: nil,
+            encrypted: false
+        )
+    }
+
+    private func waitForClearCache(
+        on playlistService: DeletePlaylistMockPlaylistService
+    ) async throws {
+        let clock = ContinuousClock()
+        let deadline = clock.now.advanced(by: .seconds(1))
+
+        while await playlistService.recordedClearCacheCalls().isEmpty {
+            guard clock.now < deadline else {
+                Issue.record("Timed out waiting for clearCache.")
+                return
+            }
+            try await Task.sleep(for: .milliseconds(1))
+        }
+    }
+}
+
+private actor DeletePlaylistMockPlaylistAddService: PlaylistAddServiceInterface {
+
+    struct RestoreCall: Sendable {
+        let preparedPlaylist: PreparedPlaylist
+        let pin: String?
+    }
+
+    private let restoredPlaylist: RestoredPlaylist
+    private var restoreCalls: [RestoreCall] = []
+
+    init(restoredPlaylist: RestoredPlaylist) {
+        self.restoredPlaylist = restoredPlaylist
+    }
+
+    func recordedRestoreCalls() -> [RestoreCall] {
+        restoreCalls
+    }
+
+    func preparePlaylist(
+        name: String?,
+        urlString: String,
+        pin: String?,
+        urlTvg: String?,
+        urlImg: String?,
+        tvgLogo: String?,
+        progress: ProgressHandler
+    ) async throws -> PreparedPlaylist {
+        Issue.record("Unexpected preparePlaylist call.")
+        throw PlaylistAddService.Error.invalidPreparedPlaylist
+    }
+
+    func encryptPlaylist(
+        _ preparedPlaylist: PreparedPlaylist,
+        pin: String
+    ) async throws -> PreparedPlaylist {
+        Issue.record("Unexpected encryptPlaylist call.")
+        throw PlaylistAddService.Error.invalidPreparedPlaylist
+    }
+
+    func restorePlaylist(
+        _ preparedPlaylist: PreparedPlaylist,
+        pin: String?
+    ) async throws -> RestoredPlaylist {
+        restoreCalls.append(.init(preparedPlaylist: preparedPlaylist, pin: pin))
+        return restoredPlaylist
+    }
+}
+
+private actor DeletePlaylistMockPlaylistService: PlaylistServiceInterface {
+
+    private var clearCacheCalls: [PlaylistItem.Content] = []
+
+    func recordedClearCacheCalls() -> [PlaylistItem.Content] {
+        clearCacheCalls
+    }
+
+    func playlists(
+        for content: PlaylistItem.Content,
+        reloadProgramGuide: Bool,
+        progress: @escaping ProgressHandler
+    ) async throws -> [PlaylistParser.Playlist] {
+        Issue.record("Unexpected playlists(reloadProgramGuide:) call.")
+        return []
+    }
+
+    func playlists(
+        for content: PlaylistItem.Content,
+        reloadPlaylist: Bool,
+        progress: @escaping ProgressHandler
+    ) async throws -> [PlaylistParser.Playlist] {
+        Issue.record("Unexpected playlists(reloadPlaylist:) call.")
+        return []
+    }
+
+    func programGuide(
+        for content: PlaylistItem.Content,
+        stream: PlaylistParser.Stream
+    ) async -> ProgramGuide? {
+        Issue.record("Unexpected programGuide call.")
+        return nil
+    }
+
+    func programGuides(
+        for content: PlaylistItem.Content,
+        since: Date
+    ) async -> [ProgramGuide] {
+        Issue.record("Unexpected programGuides call.")
+        return []
+    }
+
+    func clearCache(for content: PlaylistItem.Content) {
+        clearCacheCalls.append(content)
     }
 }

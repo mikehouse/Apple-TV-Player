@@ -51,7 +51,7 @@ Bro IPTV Player does not provide, host, sell, or include any channels, media, or
 
 # For Developers
 
-- Xcode 26.5+
+- Xcode 26.6+
 - Swift 6.2+
 - SwiftPM
 - Ruby 3+ (`fastlane`)

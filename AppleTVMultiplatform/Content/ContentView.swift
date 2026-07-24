@@ -91,12 +91,6 @@ struct ContentView: View {
                     .frame(width: UIScreen.main.bounds.width / 2.8)
                     .padding(32)
                     .ignoresSafeArea()
-                    .onAppear {
-                        UIApplication.shared.isIdleTimerDisabled = true
-                    }
-                    .onDisappear {
-                        UIApplication.shared.isIdleTimerDisabled = false
-                    }
 
                     if let stream = viewModel.selectedPlaylistStream {
                         StreamView(

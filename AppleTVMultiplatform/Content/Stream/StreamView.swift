@@ -3,14 +3,12 @@ import FactoryKit
 import SwiftUI
 import Combine
 
-// Some members of my family used to old layout on Apple TV.
-private let homeTvOSStreamLayout = false
-
 struct StreamView: View {
 
     @InjectedObservable(\.logger) var logger
     @State private var viewModel: StreamViewModel
     @Binding private var reloadCurrentProgram: UUID
+    @State private var skipProgramLoading = false
 #if os(iOS)
     @State private var showAppSettings = false
 #endif
@@ -57,30 +55,11 @@ struct StreamView: View {
 
                 VStack(alignment: .leading, spacing: 16) {
 #if os(tvOS)
-                    if !homeTvOSStreamLayout {
-                        headerView(now: context.date)
-                            .padding(.trailing, 22)
-                        videoPlayer()
-                        programList()
-                            .id(reloadProgramGuide)
-                    } else {
-                        ZStack {
-                            VStack {
-                                headerView(now: context.date)
-                                    .padding(.trailing, 22)
-                                programList()
-                                    .id(reloadProgramGuide)
-                                    .padding(.bottom, 24)
-                            }
-                            VStack {
-                                Spacer()
-                                HStack {
-                                    videoPlayer()
-                                    Spacer()
-                                }
-                            }
-                        }
-                    }
+                    headerView(now: context.date)
+                        .padding(.trailing, 22)
+                    videoPlayer()
+                    programList()
+                        .id(reloadProgramGuide)
 #else
                     videoPlayer()
                     programList()
@@ -111,7 +90,18 @@ struct StreamView: View {
         })
 #endif
         .task(id: reloadCurrentProgram) {
-            await viewModel.loadPrograms()
+            if !skipProgramLoading {
+                await viewModel.loadPrograms()
+            }
+        }
+        .onChange(of: viewModel.originStreamCurrentProgram) {
+            if viewModel.originStreamCurrentProgram != nil {
+                skipProgramLoading = true
+                reloadCurrentProgram = .init()
+                Task {
+                    skipProgramLoading = false
+                }
+            }
         }
 #if os(tvOS)
         .fullScreenCover(isPresented: $showFullScreen, onDismiss: {
@@ -140,8 +130,7 @@ struct StreamView: View {
 #if os(tvOS)
     private func headerView(now: Date) -> some View {
         HStack {
-            if !homeTvOSStreamLayout,
-               focusedStream != viewModel.stream,
+            if focusedStream != viewModel.stream,
                let currentProgram = viewModel.originStreamCurrentProgram {
                 Text(currentProgram.text)
                     .lineLimit(1)
@@ -174,7 +163,7 @@ struct StreamView: View {
                 tvOSPlayer.compactView()
             }
             .buttonStyle(.borderless)
-            .cornerRadius(homeTvOSStreamLayout ? 0 : 24)
+            .cornerRadius(24)
             .shadow(color: (isButtonFocused ? Color.white : Color.black).opacity(0.4), radius: 12, x: 0, y: 0)
             .focused($isButtonFocused)
         }
@@ -292,7 +281,7 @@ private struct TvOSPlayerView: UIViewControllerRepresentable {
     }
 
     func sizeThatFits(_ proposal: ProposedViewSize, uiViewController: Self.UIViewControllerType, context: Self.Context) -> CGSize? {
-        let multiplier: CGFloat = homeTvOSStreamLayout ? 1 : 2.8 / 3.0
+        let multiplier: CGFloat = 2.8 / 3.0
         guard compact, let width = proposal.width.map({ $0 * multiplier }) else { return nil }
         return .init(width: width, height: width * (9.0 / 16.0))
     }

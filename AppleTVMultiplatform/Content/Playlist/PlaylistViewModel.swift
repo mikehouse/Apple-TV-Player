@@ -131,6 +131,7 @@ final class PlaylistViewModel {
     }
 
     func subtitle(for stream: PlaylistParser.Stream) async -> String? {
+        logger.info("Reload subtitle for stream", private: stream.title)
         guard let guide = await playlistService.programGuide(for: content, stream: stream) else {
             return nil
         }

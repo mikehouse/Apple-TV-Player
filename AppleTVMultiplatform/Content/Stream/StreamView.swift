@@ -8,6 +8,7 @@ struct StreamView: View {
     @InjectedObservable(\.logger) var logger
     @State private var viewModel: StreamViewModel
     @Binding private var reloadCurrentProgram: UUID
+    @State private var skipProgramLoading = false
 #if os(iOS)
     @State private var showAppSettings = false
 #endif
@@ -89,7 +90,18 @@ struct StreamView: View {
         })
 #endif
         .task(id: reloadCurrentProgram) {
-            await viewModel.loadPrograms()
+            if !skipProgramLoading {
+                await viewModel.loadPrograms()
+            }
+        }
+        .onChange(of: viewModel.originStreamCurrentProgram) {
+            if viewModel.originStreamCurrentProgram != nil {
+                skipProgramLoading = true
+                reloadCurrentProgram = .init()
+                Task {
+                    skipProgramLoading = false
+                }
+            }
         }
 #if os(tvOS)
         .fullScreenCover(isPresented: $showFullScreen, onDismiss: {

@@ -16,9 +16,13 @@ final class StreamViewModel {
         let program: ProgramGuide.Program
         let state: ProgramState
         let text: String
+        let id: String
 
-        var id: String {
-            "\(program.start.timeIntervalSince1970)-\(program.stop.timeIntervalSince1970)-\(program.title)"
+        init(program: ProgramGuide.Program, state: ProgramState, text: String) {
+            self.program = program
+            self.state = state
+            self.text = text
+            self.id = "\(program.start.timeIntervalSince1970)-\(program.stop.timeIntervalSince1970)-\(program.title)"
         }
     }
 
@@ -74,6 +78,7 @@ final class StreamViewModel {
     }
 
     func displayedPrograms(at now: Date, stream: PlaylistParser.Stream) {
+        logger.info("Display program guide for stream", private: stream.title)
         guard !programs.isEmpty else {
             displayProgram = []
             return
@@ -96,12 +101,15 @@ final class StreamViewModel {
                 text: formattedText(for: currentProgram)
             )
         }
-        displayProgram = (previousPrograms + [currentProgram].compactMap({ $0 }) + futurePrograms).map {
+        let displayProgram = (previousPrograms + [currentProgram].compactMap({ $0 }) + futurePrograms).map {
             DisplayProgram(
                 program: $0,
                 state: programState(for: $0, at: now),
                 text: formattedText(for: $0)
             )
+        }
+        if self.displayProgram != displayProgram {
+            self.displayProgram = displayProgram
         }
     }
 

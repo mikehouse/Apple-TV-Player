@@ -122,6 +122,14 @@ bundle exec fastlane mac run_ui_snapshots_tests_macos
 - tvOS `bundle exec fastlane tvos make_testflight_release`
 - macOS `bundle exec fastlane mac make_testflight_release`
 
+Before using these lanes, make sure you have these setups:
+
+1. Certificate Trust is set to "Use System Defaults"
+2. MARKETING_VERSION is incremented
+3. CURRENT_PROJECT_VERSION is reset or incremented
+4. You have "Apple Distribution" certificate in the keychain for iOS and tvOS builds
+5. You have a "3rd Party Mac Developer Installer" certificate in the keychain for macOS build to distribute it via macOS App Store
+
 ## App Store Connect Snapshots and Metadata
 
 ### Regenerate snapshots for App Store Connect when the UI changes significantly

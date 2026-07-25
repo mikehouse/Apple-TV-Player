@@ -1,7 +1,7 @@
 
 import Foundation
 
-struct LocalizableError: LocalizedError, ExpressibleByStringLiteral {
+struct LocalizableError: LocalizedError, ExpressibleByStringLiteral, Equatable {
 
     let error: NSError
 
@@ -19,6 +19,10 @@ struct LocalizableError: LocalizedError, ExpressibleByStringLiteral {
 
     var helpAnchor: String? {
         error.helpAnchor
+    }
+
+    static func == (lhs: LocalizableError, rhs: LocalizableError) -> Bool {
+        lhs.error == rhs.error
     }
 }
 

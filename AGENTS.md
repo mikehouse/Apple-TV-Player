@@ -8,5 +8,5 @@ Application has app-shared scheme/target `AppleTVMultiplatform` and unit tests a
 
 ## Enabled Skills
 
-@import ./skills/application-architect/SKILL.md
-@import ./skills/xcode-build-configuration/SKILL.md
+@import .agents/skills/application-architect/SKILL.md
+@import .agents/skills/xcode-build-configuration/SKILL.md

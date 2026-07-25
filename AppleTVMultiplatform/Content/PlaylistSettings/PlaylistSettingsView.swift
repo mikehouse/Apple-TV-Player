@@ -8,6 +8,7 @@ struct PlaylistSettingsView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var viewModel: PlaylistSettingsViewModel
     @InjectedObservable(\.logger) var logger
+    @State private var showErrorAlert: Bool = false
 
     init(identity: PlaylistItem.Identity, onUpdate: Binding<UUID>) {
         _viewModel = State(initialValue: PlaylistSettingsViewModel(identity: identity))
@@ -23,6 +24,9 @@ struct PlaylistSettingsView: View {
             }
             .onChange(of: viewModel.pinEnabled) { _, _ in
                 viewModel.onPinChange()
+            }
+            .onChange(of: viewModel.error) { _, _ in
+                showErrorAlert = viewModel.error != nil
             }
             .disabled(viewModel.progress)
             .overlay {
@@ -70,8 +74,9 @@ struct PlaylistSettingsView: View {
                     pinCodeDecryptSheet(viewModel.identity)
                 }
             }
-            .alert(isPresented: .constant(false), error: viewModel.error, actions: {
+            .alert(isPresented: $showErrorAlert, error: viewModel.error, actions: {
                 Button("OK") {
+                    viewModel.error = nil
                 }
             })
     }

@@ -88,7 +88,7 @@ struct PlaylistsView: View {
                             .frame(height: 44)
 #endif
                     } else if let error = phase.error {
-                        let _ = logger.error(error)
+                        let _ = logger.error(error, private: icon)
                         EmptyView()
                     } else {
                         ProgressView()

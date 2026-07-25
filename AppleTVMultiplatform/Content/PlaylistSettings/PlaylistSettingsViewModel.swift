@@ -23,6 +23,8 @@ final class PlaylistSettingsViewModel {
     var showPinCodeEncryptView = false
     var showPinCodeDecryptProgramGuideView = false
     var showPinCodeDecryptPlaylistView = false
+    var isPlaylistFileImporterPresented = false
+    var selectedPlaylistFileURL: URL?
     var playlistDecryptedContent: PlaylistItem.Content?
     var pin: String = ""
     var progressText: StringIdentifiable?
@@ -205,6 +207,16 @@ extension PlaylistSettingsViewModel {
         defer {
             progressText = nil
         }
+        let originalURLString = String(data: content.url, encoding: .utf8)!
+        let isLocalFile = URL(string: originalURLString)?.isFileURL == true
+        if isLocalFile && selectedPlaylistFileURL == nil {
+            isPlaylistFileImporterPresented = true
+            return false
+        }
+        let updateURLString = isLocalFile
+            ? selectedPlaylistFileURL!.absoluteString
+            : originalURLString
+
         logger.info("Updating playlist", private: identity)
         // Read cached playlist.
         let playlistsCache = try await playlistService.playlists(
@@ -217,7 +229,7 @@ extension PlaylistSettingsViewModel {
         // `urlTvg`, `urlImg` and `tvgLogo` then use old cached playlist values.
         var preparedUpdatedPlaylist = try await playlistAddService.preparePlaylist(
             name: content.identity.name,
-            urlString: String(data: content.url, encoding: .utf8)!,
+            urlString: updateURLString,
             pin: nil,
             urlTvg: mainPlaylist.tvgURL ?? mainPlaylist.xTvgURL,
             urlImg: mainPlaylist.imageURL,

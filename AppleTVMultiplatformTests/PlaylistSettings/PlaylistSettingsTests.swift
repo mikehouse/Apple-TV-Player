@@ -166,6 +166,182 @@ struct PlaylistSettingsTests {
         #expect(viewModel.dataChanged == false)
     }
 
+    @Test func updatePlaylistShowsFileImporterForLocalPlaylist() async throws {
+        let identity = makeIdentity()
+        let originalFileURL = URL(
+            fileURLWithPath: "/private/var/mobile/Library/Mobile Documents/com~apple~CloudDocs/Downloads/playlist.m3u"
+        )
+        let playlist = makePlaylistItem(
+            identity: identity,
+            encrypted: false,
+            urlString: originalFileURL.absoluteString
+        )
+        let database = try makeDatabaseService(items: [playlist])
+        let initialPreparedPlaylist = try #require(PreparedPlaylist(playlist))
+        let restoredCachedPlaylist = makeRestoredPlaylist(
+            identity: identity,
+            urlString: originalFileURL.absoluteString,
+            data: Data("#EXTM3U cached".utf8)
+        )
+        let playlistAddService = MockPlaylistAddService()
+        playlistAddService.restoreHandler = { preparedPlaylist, pin in
+            #expect(preparedPlaylist == initialPreparedPlaylist)
+            #expect(pin == nil)
+            return restoredCachedPlaylist
+        }
+        let playlistService = MockPlaylistService()
+        Container.shared.databaseService.register { database }
+        Container.shared.playlistAddService.register { playlistAddService }
+        Container.shared.playlistService.register { playlistService }
+
+        let viewModel = PlaylistSettingsViewModel(identity: identity)
+
+        #expect(viewModel.isPlaylistFileImporterPresented == false)
+
+        let didUpdate = await viewModel.updatePlaylist()
+
+        #expect(didUpdate == false)
+        #expect(viewModel.isPlaylistFileImporterPresented == true)
+        #expect(viewModel.selectedPlaylistFileURL == nil)
+        #expect(viewModel.progress == false)
+        #expect(viewModel.dataChanged == false)
+        #expect(viewModel.error == nil)
+        #expect(playlistAddService.restoreCalls.count == 1)
+        #expect(playlistAddService.prepareCalls.isEmpty)
+        #expect(playlistService.reloadPlaylistCalls.isEmpty)
+    }
+
+    @Test func updatePlaylistDecryptedShowsFileImporterForLocalPlaylist() async throws {
+        let identity = makeIdentity()
+        let originalFileURL = URL(
+            fileURLWithPath: "/private/var/mobile/Library/Mobile Documents/com~apple~CloudDocs/Downloads/playlist.m3u"
+        )
+        let database = try makeDatabaseService(items: [
+            makePlaylistItem(identity: identity, encrypted: true)
+        ])
+        let decryptedContent = makeContent(
+            identity: identity,
+            urlString: originalFileURL.absoluteString,
+            data: Data("#EXTM3U decrypted".utf8),
+            isStoredInMemoryOnly: true
+        )
+        let playlistAddService = MockPlaylistAddService()
+        let playlistService = MockPlaylistService()
+        Container.shared.databaseService.register { database }
+        Container.shared.playlistAddService.register { playlistAddService }
+        Container.shared.playlistService.register { playlistService }
+
+        let viewModel = PlaylistSettingsViewModel(identity: identity)
+        viewModel.playlistDecryptedContent = decryptedContent
+
+        let didUpdate = await viewModel.updatePlaylistDecrypted()
+
+        #expect(didUpdate == false)
+        #expect(viewModel.isPlaylistFileImporterPresented == true)
+        #expect(viewModel.selectedPlaylistFileURL == nil)
+        #expect(viewModel.playlistDecryptedContent == nil)
+        #expect(viewModel.progress == false)
+        #expect(viewModel.dataChanged == false)
+        #expect(viewModel.error == nil)
+        #expect(playlistAddService.restoreCalls.isEmpty)
+        #expect(playlistAddService.prepareCalls.isEmpty)
+        #expect(playlistService.reloadPlaylistCalls.isEmpty)
+    }
+
+    @Test func updateLocalPlaylistUsesSelectedFileAndPreservesOriginalURL() async throws {
+        let identity = makeIdentity()
+        let originalFileURL = URL(
+            fileURLWithPath: "/private/var/mobile/Library/Mobile Documents/com~apple~CloudDocs/Downloads/playlist.m3u"
+        )
+        let selectedFileURL = URL(
+            fileURLWithPath: "/private/var/mobile/Library/Mobile Documents/com~apple~CloudDocs/Downloads/playlist-updated.m3u"
+        )
+        let playlist = makePlaylistItem(
+            identity: identity,
+            encrypted: false,
+            urlString: originalFileURL.absoluteString
+        )
+        let originalURL = try #require(playlist.url)
+        let originalData = try #require(playlist.data)
+        let database = try makeDatabaseService(items: [playlist])
+        let initialPreparedPlaylist = try #require(PreparedPlaylist(playlist))
+        let restoredCachedPlaylist = makeRestoredPlaylist(
+            identity: identity,
+            urlString: originalFileURL.absoluteString,
+            data: Data("#EXTM3U cached".utf8)
+        )
+        let cachedPlaylist = makePlaylist(
+            streams: [makeStream(title: "Cached")]
+        )
+        let preparedUpdatedPlaylist = makePreparedPlaylist(
+            identity: identity,
+            urlString: selectedFileURL.absoluteString,
+            data: Data("updated-prepared-data".utf8),
+            encrypted: false
+        )
+        let restoredUpdatedPlaylist = makeRestoredPlaylist(
+            identity: identity,
+            urlString: selectedFileURL.absoluteString,
+            data: Data("#EXTM3U refreshed".utf8)
+        )
+        let playlistAddService = MockPlaylistAddService()
+        playlistAddService.prepareHandler = { name, urlString, pin, urlTvg, urlImg, tvgLogo in
+            #expect(name == identity.name)
+            #expect(urlString == selectedFileURL.absoluteString)
+            #expect(pin == nil)
+            #expect(urlTvg == nil)
+            #expect(urlImg == nil)
+            #expect(tvgLogo == nil)
+            return preparedUpdatedPlaylist
+        }
+        playlistAddService.restoreHandler = { preparedPlaylist, pin in
+            #expect(pin == nil)
+            if preparedPlaylist == initialPreparedPlaylist {
+                return restoredCachedPlaylist
+            }
+            if preparedPlaylist == preparedUpdatedPlaylist {
+                return restoredUpdatedPlaylist
+            }
+            Issue.record("Unexpected prepared playlist in restoreHandler.")
+            throw MockFailure.unexpectedCall
+        }
+        let playlistService = MockPlaylistService()
+        playlistService.reloadPlaylistHandler = { content, reloadPlaylist in
+            if playlistService.reloadPlaylistCalls.count == 1 {
+                self.expectContent(content, equals: restoredCachedPlaylist.content)
+                #expect(reloadPlaylist == false)
+                return [cachedPlaylist]
+            }
+
+            self.expectContent(content, equals: restoredUpdatedPlaylist.content)
+            #expect(reloadPlaylist == true)
+            return [self.makePlaylist(streams: [self.makeStream(title: "Updated")])]
+        }
+        Container.shared.databaseService.register { database }
+        Container.shared.playlistAddService.register { playlistAddService }
+        Container.shared.playlistService.register { playlistService }
+
+        let viewModel = PlaylistSettingsViewModel(identity: identity)
+        viewModel.selectedPlaylistFileURL = selectedFileURL
+
+        let didUpdate = await viewModel.updatePlaylist()
+        let storedPlaylist = try fetchPlaylist(from: database, identity: identity)
+
+        #expect(didUpdate == true)
+        #expect(storedPlaylist.url == originalURL)
+        #expect(storedPlaylist.data == preparedUpdatedPlaylist.data)
+        #expect(storedPlaylist.data != originalData)
+        #expect(viewModel.isPlaylistFileImporterPresented == false)
+        #expect(viewModel.selectedPlaylistFileURL == selectedFileURL)
+        #expect(viewModel.progress == false)
+        #expect(viewModel.progressText == nil)
+        #expect(viewModel.dataChanged == true)
+        #expect(viewModel.error == nil)
+        #expect(playlistAddService.prepareCalls.count == 1)
+        #expect(playlistAddService.restoreCalls.count == 2)
+        #expect(playlistService.reloadPlaylistCalls.count == 2)
+    }
+
     @Test func updatePlaylistRefreshesStoredDataUsingMergedHeaderValues() async throws {
         let identity = makeIdentity()
         let playlist = makePlaylistItem(identity: identity, encrypted: false)

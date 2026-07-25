@@ -1,6 +1,9 @@
 
 import FactoryKit
 import SwiftUI
+#if os(iOS) || os(macOS)
+import UniformTypeIdentifiers
+#endif
 
 struct PlaylistSettingsView: View {
 
@@ -9,6 +12,9 @@ struct PlaylistSettingsView: View {
     @State private var viewModel: PlaylistSettingsViewModel
     @InjectedObservable(\.logger) var logger
     @State private var showErrorAlert: Bool = false
+#if os(iOS) || os(macOS)
+    @State private var securityScopedURLs: [URL] = []
+#endif
 
     init(identity: PlaylistItem.Identity, onUpdate: Binding<UUID>) {
         _viewModel = State(initialValue: PlaylistSettingsViewModel(identity: identity))
@@ -74,11 +80,29 @@ struct PlaylistSettingsView: View {
                     pinCodeDecryptSheet(viewModel.identity)
                 }
             }
+#if os(iOS) || os(macOS)
+            .fileImporter(
+                isPresented: $viewModel.isPlaylistFileImporterPresented,
+                allowedContentTypes: [.m3uPlaylist]
+            ) { result in
+                switch result {
+                case .success(let url):
+                    selectPlaylistFile(url)
+                case .failure(let error):
+                    logger.error(error)
+                }
+            }
+#endif
             .alert(isPresented: $showErrorAlert, error: viewModel.error, actions: {
                 Button("OK") {
                     viewModel.error = nil
                 }
             })
+#if os(iOS) || os(macOS)
+            .onDisappear {
+                releaseSecurityScopedURLs()
+            }
+#endif
     }
 
     private func pinCodeDecryptSheet(_ identity: PlaylistItem.Identity) -> some View {
@@ -265,11 +289,7 @@ struct PlaylistSettingsView: View {
             Text("Update Playlist")
             Spacer()
             Button {
-                Task {
-                    if await viewModel.updatePlaylist() {
-                        onUpdate = .init()
-                    }
-                }
+                updatePlaylist()
             } label: {
                 Image(systemName: "arrow.down.circle")
             }
@@ -277,6 +297,29 @@ struct PlaylistSettingsView: View {
             .accessibilityIdentifier("update-playlist-btn")
         }
     }
+
+    private func updatePlaylist() {
+        Task { @MainActor in
+            if await viewModel.updatePlaylist() {
+                onUpdate = .init()
+            }
+        }
+    }
+
+#if os(iOS) || os(macOS)
+    private func selectPlaylistFile(_ url: URL) {
+        if url.startAccessingSecurityScopedResource() {
+            securityScopedURLs.append(url)
+        }
+        viewModel.selectedPlaylistFileURL = url
+        updatePlaylist()
+    }
+
+    private func releaseSecurityScopedURLs() {
+        securityScopedURLs.forEach { $0.stopAccessingSecurityScopedResource() }
+        securityScopedURLs.removeAll()
+    }
+#endif
 }
 
 #if DEBUG

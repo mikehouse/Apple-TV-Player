@@ -47,7 +47,7 @@ final class DatabaseService: DatabaseServiceInterface {
             }) {
                 let url = URL(fileURLWithPath: path, isDirectory: false)
                 modelConfiguration = ModelConfiguration(
-                    schema: schema, url: url, allowsSave: true, cloudKitDatabase: cloudKitDatabase)
+                    schema: schema, url: url, allowsSave: false, cloudKitDatabase: cloudKitDatabase)
             } else if ProcessInfo.processInfo.arguments.contains("--in-memory-database-only") {
                 modelConfiguration = ModelConfiguration(
                     schema: schema, isStoredInMemoryOnly: true, cloudKitDatabase: cloudKitDatabase)

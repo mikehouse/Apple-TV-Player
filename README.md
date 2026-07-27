@@ -105,8 +105,6 @@ Before any UI Tests must run a python local server that will provide mock data t
 
 Screenshots in repo created on macOS 26.5 with macOS SDK 26.5
 
-Should be run when Night Shift is off
-
 ```bash
 bundle exec fastlane mac run_ui_snapshots_tests_macos
 ```
@@ -136,12 +134,14 @@ Before using these lanes, make sure you have these setups:
 
 ### Regenerate snapshots for App Store Connect when the UI changes significantly
 
-Must use the latest Simulator Runtime, now it is 26.4
+Must use the latest Simulator Runtime, now it is 26.5
 
-- iOS iPhone `bundle exec fastlane ios make_app_store_snapshots_iphone_26_4` requires iOS 26.4 Simulator Runtime
-- iOS iPad `bundle exec fastlane ios make_app_store_snapshots_ipad_26_4` requires iOS 26.4 Simulator Runtime
-- tvOS `bundle exec fastlane tvos make_app_store_snapshots_appletv_26_4` requires tvOS 26.4 Simulator Runtime
-- macOS `bundle exec fastlane tvos make_app_store_snapshots_macos` requires macOS SDK 26.4 Simulator Runtime and macOS 26 machine
+- iOS iPhone `bundle exec fastlane ios make_app_store_snapshots_iphone_26` requires iOS 26 Simulator Runtime
+- iOS iPad `bundle exec fastlane ios make_app_store_snapshots_ipad_26` requires iOS 26 Simulator Runtime
+- tvOS `bundle exec fastlane tvos make_app_store_snapshots_appletv_26` requires tvOS 26 Simulator Runtime
+
+For macOS must disable sandbox via Xcode Build Settings to allow using a test database file.
+- macOS `bundle exec fastlane mac make_app_store_snapshots_macos` requires macOS SDK 26 Simulator Runtime and macOS 26 machine
 
 ### Upload snapshots to App Store Connect of new made or updated
 

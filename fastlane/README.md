@@ -95,21 +95,21 @@ Run UI Snapshot Tests on an iOS 18 iPhone Simulator
 
 Run UI Snapshot Tests on an iOS 18 iPad Simulator
 
-### ios make_app_store_snapshots_iphone_26_4
+### ios make_app_store_snapshots_iphone_26
 
 ```sh
-[bundle exec] fastlane ios make_app_store_snapshots_iphone_26_4
+[bundle exec] fastlane ios make_app_store_snapshots_iphone_26
 ```
 
-Re-generate app store snapshots for iOS 26.4 on iPhone
+Re-generate app store snapshots for iOS 26 on iPhone
 
-### ios make_app_store_snapshots_ipad_26_4
+### ios make_app_store_snapshots_ipad_26
 
 ```sh
-[bundle exec] fastlane ios make_app_store_snapshots_ipad_26_4
+[bundle exec] fastlane ios make_app_store_snapshots_ipad_26
 ```
 
-Re-generate app store snapshots for iOS 26.4 on iPad
+Re-generate app store snapshots for iOS 26 on iPad
 
 ----
 
@@ -172,13 +172,13 @@ Run UI Snapshot Tests on an tvOS 26 Simulator
 
 Run UI Snapshot Tests on an tvOS 18 Simulator
 
-### tvos make_app_store_snapshots_appletv_26_4
+### tvos make_app_store_snapshots_appletv_26
 
 ```sh
-[bundle exec] fastlane tvos make_app_store_snapshots_appletv_26_4
+[bundle exec] fastlane tvos make_app_store_snapshots_appletv_26
 ```
 
-Re-generate app store snapshots for tvOS 26.4
+Re-generate app store snapshots for tvOS 26
 
 ----
 

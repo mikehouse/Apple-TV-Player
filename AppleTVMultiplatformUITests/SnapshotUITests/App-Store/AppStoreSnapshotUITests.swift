@@ -127,8 +127,7 @@ final class AppStoreSnapshotUITests: XCTestCase {
         try await app.cells.element(boundBy: playlistId).makeTap()
         snapshotUtils.assertSnapshot(named: env.snapshotName(dark: false, context: "playlist"), app: app, localized: true, precision: 0.9994)
         try await app.cells.element(boundBy: 0).makeTap()
-        // Set precision 0.995 (< 0.9994) because Apple Video Player has baggy background.
-        snapshotUtils.assertSnapshot(named: env.snapshotName(dark: false, context: "stream"), app: app, localized: true, precision: 0.995)
+        snapshotUtils.assertSnapshot(named: env.snapshotName(dark: false, context: "stream"), app: app, localized: true, precision: 0.976)
         try await apiClient.setSimAppearance(dark: true)
         try await app.buttons["BackButton"].firstMatch.makeTap(wait: .seconds(1))
         try await app.buttons["BackButton"].firstMatch.makeTap()

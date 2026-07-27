@@ -84,6 +84,7 @@ struct PlaylistsView: View {
                     } else if let error = phase.error {
                         let _ = logger.error(error, private: icon)
                         if let localURL = viewModel.localLogoURL(for: icon) {
+                            let _ = logger.info("Try load icon from local backup", private: localURL)
                             localLogoView(localURL)
                         }
                     } else {

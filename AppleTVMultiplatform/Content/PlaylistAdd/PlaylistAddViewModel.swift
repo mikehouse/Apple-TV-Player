@@ -6,6 +6,7 @@ import SwiftUI
 final class PlaylistAddViewModel {
 
     @ObservationIgnored @Injected(\.playlistAddService) private var playlistAddService
+    @ObservationIgnored @Injected(\.playlistLogoStorageService) private var playlistLogoStorageService
     @ObservationIgnored @Injected(\.databaseService) private var databaseService
     @ObservationIgnored @Injected(\.logger) private var logger
 
@@ -67,6 +68,15 @@ final class PlaylistAddViewModel {
                 return false
             }
 
+            if let icon = prepared.icon {
+                _ = try await playlistLogoStorageService.backupLogo(from: icon)
+            }
+
+            if Task.isCancelled {
+                logger.info("Playlist creation task cancelled")
+                return false
+            }
+
             let playlist = PlaylistItem(
                 name: prepared.name,
                 date: prepared.date,
@@ -81,6 +91,9 @@ final class PlaylistAddViewModel {
             databaseService.mainContext.insert(playlist)
             try databaseService.mainContext.save()
             return true
+        }  catch is CancellationError {
+            logger.info("Playlist creation task cancelled")
+            return false
         } catch {
             logger.error(error)
             databaseService.mainContext.rollback()
@@ -88,6 +101,10 @@ final class PlaylistAddViewModel {
             isShowingError = true
             return false
         }
+    }
+
+    func selectLogoFile(_ url: URL) {
+        tvgLogo = url.absoluteString
     }
 
     isolated deinit {

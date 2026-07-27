@@ -80,19 +80,15 @@ struct PlaylistsView: View {
             if let icon = playlist.icon, let url = URL(string: icon) {
                 LazyImage(url: url) { phase in
                     if let image = phase.image {
-                        image.resizable()
-                            .aspectRatio(contentMode: .fit)
-#if os(tvOS)
-                            .frame(height: 64)
-#else
-                            .frame(height: 44)
-#endif
+                        logoView(image)
                     } else if let error = phase.error {
                         let _ = logger.error(error, private: icon)
-                        EmptyView()
+                        if let localURL = viewModel.localLogoURL(for: icon) {
+                            let _ = logger.info("Try load icon from local backup", private: localURL)
+                            localLogoView(localURL)
+                        }
                     } else {
-                        ProgressView()
-                            .controlSize(.mini)
+                        logoProgressView()
                     }
                 }
             }
@@ -100,6 +96,34 @@ struct PlaylistsView: View {
                 .padding([.top, .bottom], 10)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    private func localLogoView(_ url: URL) -> some View {
+        LazyImage(url: url) { phase in
+            if let image = phase.image {
+                logoView(image)
+            } else if let error = phase.error {
+                let _ = logger.error(error, private: url)
+                EmptyView()
+            } else {
+                logoProgressView()
+            }
+        }
+    }
+
+    private func logoView(_ image: Image) -> some View {
+        image.resizable()
+            .aspectRatio(contentMode: .fit)
+#if os(tvOS)
+            .frame(height: 64)
+#else
+            .frame(height: 44)
+#endif
+    }
+
+    private func logoProgressView() -> some View {
+        ProgressView()
+            .controlSize(.mini)
     }
 }
 

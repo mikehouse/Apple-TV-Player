@@ -105,6 +105,8 @@ Before any UI Tests must run a python local server that will provide mock data t
 
 Screenshots in repo created on macOS 26.5 with macOS SDK 26.5
 
+Should be run when Night Shift is off
+
 ```bash
 bundle exec fastlane mac run_ui_snapshots_tests_macos
 ```

@@ -12,6 +12,7 @@ struct PlaylistAddView: View {
     @State private var task: Task<Void, Error>?
     @FocusState private var isTextFieldFocused: Bool
 #if os(iOS) || os(macOS)
+    @State private var fileImportTarget: FileImportTarget = .playlist
     @State private var isFileImporterPresented = false
     @State private var securityScopedURLs: [URL] = []
 #endif
@@ -54,6 +55,9 @@ struct PlaylistAddView: View {
                         textField("Optional", text: $viewModel.tvgLogo)
                             .modifier(KeyboardURLTypeModifier())
                             .accessibilityIdentifier("tvg-logo")
+#if os(iOS) || os(macOS)
+                        logoFilePickerButtonView()
+#endif
                     }
                     HStack {
                         Text(verbatim: "url-tvg")
@@ -97,11 +101,16 @@ struct PlaylistAddView: View {
 #if os(iOS) || os(macOS)
         .fileImporter(
             isPresented: $isFileImporterPresented,
-            allowedContentTypes: [.m3uPlaylist]
+            allowedContentTypes: fileImportTarget.allowedContentTypes
         ) { result in
             switch result {
             case .success(let url):
-                selectPlaylistFile(url)
+                switch fileImportTarget {
+                case .playlist:
+                    selectPlaylistFile(url)
+                case .logo:
+                    selectLogoFile(url)
+                }
             case .failure(let error):
                 logger.error(error)
             }
@@ -185,7 +194,7 @@ struct PlaylistAddView: View {
 #if os(iOS) || os(macOS)
     private func playlistFilePickerButtonView() -> some View {
         Button {
-            isFileImporterPresented = true
+            showFileImporter(for: .playlist)
         } label: {
             Image(systemName: "doc.badge.plus")
         }
@@ -193,11 +202,36 @@ struct PlaylistAddView: View {
         .accessibilityIdentifier("playlist-file-picker")
     }
 
-    private func selectPlaylistFile(_ url: URL) {
-        if url.startAccessingSecurityScopedResource() {
-            securityScopedURLs.append(url)
+    private func logoFilePickerButtonView() -> some View {
+        Button {
+            showFileImporter(for: .logo)
+        } label: {
+            Image(systemName: "doc.badge.plus")
         }
+        .buttonStyle(.bordered)
+        .accessibilityIdentifier("tvg-logo-file-picker")
+    }
+
+    private func showFileImporter(for target: FileImportTarget) {
+        fileImportTarget = target
+        isFileImporterPresented = true
+    }
+
+    private func selectPlaylistFile(_ url: URL) {
+        retainSecurityScopedAccess(to: url)
         viewModel.urlString = url.absoluteString
+    }
+
+    private func selectLogoFile(_ url: URL) {
+        retainSecurityScopedAccess(to: url)
+        viewModel.selectLogoFile(url)
+    }
+
+    private func retainSecurityScopedAccess(to url: URL) {
+        guard url.startAccessingSecurityScopedResource() else {
+            return
+        }
+        securityScopedURLs.append(url)
     }
 
     private func releaseSecurityScopedURLs() {
@@ -206,6 +240,22 @@ struct PlaylistAddView: View {
     }
 #endif
 }
+
+#if os(iOS) || os(macOS)
+private enum FileImportTarget {
+    case playlist
+    case logo
+
+    var allowedContentTypes: [UTType] {
+        switch self {
+        case .playlist:
+            return [.m3uPlaylist]
+        case .logo:
+            return [.image]
+        }
+    }
+}
+#endif
 
 private struct KeyboardURLTypeModifier: ViewModifier {
 

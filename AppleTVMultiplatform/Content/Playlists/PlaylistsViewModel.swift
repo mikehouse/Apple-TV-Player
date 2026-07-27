@@ -9,6 +9,7 @@ final class PlaylistsViewModel {
     @ObservationIgnored @Injected(\.databaseService) private var databaseService
     @ObservationIgnored @Injected(\.playlistAddService) private var playlistAddService
     @ObservationIgnored @Injected(\.playlistService) private var playlistService
+    @ObservationIgnored @Injected(\.playlistLogoStorageService) private var playlistLogoStorageService
     @ObservationIgnored @Injected(\.logger) private var logger
     var playlists: [PlaylistItem] = []
     var selectedPlaylist: PlaylistItem?
@@ -65,6 +66,10 @@ final class PlaylistsViewModel {
         guard let name = playlist?.name,
               let date = playlist?.date else { return nil }
         return PlaylistItem.Identity(name: name, date: date)
+    }
+
+    func localLogoURL(for source: String) -> URL? {
+        playlistLogoStorageService.localLogoURL(for: source)
     }
 
     isolated deinit {

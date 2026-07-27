@@ -3,6 +3,7 @@ import SwiftData
 import Testing
 import FactoryKit
 import FactoryTesting
+import os
 #if canImport(UIKit)
 import UIKit
 #endif
@@ -124,6 +125,39 @@ struct PlaylistsViewModelTests {
         viewModel.updateSelection(.init(name: "Earlier", date: earlierDate))
 
         #expect(viewModel.onPlaylistSelection() == .init(name: "Earlier", date: earlierDate))
+    }
+
+    @Test func localLogoURLReturnsAvailableBackupURL() {
+        let source = "https://example.com/logo.png"
+        let expectedURL = URL(fileURLWithPath: "/permanent/logos/logo.png")
+        let service = LocalLogoMockPlaylistLogoStorageService(
+            localURLs: [source: expectedURL]
+        )
+        Container.shared.databaseService.register {
+            DatabaseService(isStoredInMemoryOnly: true)
+        }
+        Container.shared.playlistLogoStorageService.register { service }
+        let viewModel = PlaylistsViewModel()
+
+        let result = viewModel.localLogoURL(for: source)
+
+        #expect(result == expectedURL)
+        #expect(service.recordedLocalLogoURLSources() == [source])
+    }
+
+    @Test func localLogoURLReturnsNilWhenBackupIsUnavailable() {
+        let source = "https://example.com/missing-logo.png"
+        let service = LocalLogoMockPlaylistLogoStorageService(localURLs: [:])
+        Container.shared.databaseService.register {
+            DatabaseService(isStoredInMemoryOnly: true)
+        }
+        Container.shared.playlistLogoStorageService.register { service }
+        let viewModel = PlaylistsViewModel()
+
+        let result = viewModel.localLogoURL(for: source)
+
+        #expect(result == nil)
+        #expect(service.recordedLocalLogoURLSources() == [source])
     }
 
     @MainActor
@@ -276,6 +310,31 @@ struct PlaylistsViewModelTests {
             }
             try await Task.sleep(for: .milliseconds(1))
         }
+    }
+}
+
+private nonisolated final class LocalLogoMockPlaylistLogoStorageService:
+    PlaylistLogoStorageServiceInterface {
+
+    private let localURLs: [String: URL]
+    private let localLogoURLSources = OSAllocatedUnfairLock(initialState: [String]())
+
+    init(localURLs: [String: URL]) {
+        self.localURLs = localURLs
+    }
+
+    func recordedLocalLogoURLSources() -> [String] {
+        localLogoURLSources.withLock { $0 }
+    }
+
+    func backupLogo(from source: String) async throws -> URL {
+        Issue.record("Unexpected backupLogo call.")
+        throw PlaylistLogoStorageService.Error.invalidSource
+    }
+
+    func localLogoURL(for source: String) -> URL? {
+        localLogoURLSources.withLock { $0.append(source) }
+        return localURLs[source]
     }
 }
 

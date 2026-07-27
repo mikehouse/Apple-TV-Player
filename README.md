@@ -138,10 +138,12 @@ Before using these lanes, make sure you have these setups:
 
 Must use the latest Simulator Runtime, now it is 26.5
 
-- iOS iPhone `bundle exec fastlane ios make_app_store_snapshots_iphone_26_5` requires iOS 26.5 Simulator Runtime
-- iOS iPad `bundle exec fastlane ios make_app_store_snapshots_ipad_26_5` requires iOS 26.5 Simulator Runtime
-- tvOS `bundle exec fastlane tvos make_app_store_snapshots_appletv_26_5` requires tvOS 26.5 Simulator Runtime
-- macOS `bundle exec fastlane tvos make_app_store_snapshots_macos` requires macOS SDK 26.5 Simulator Runtime and macOS 26 machine
+- iOS iPhone `bundle exec fastlane ios make_app_store_snapshots_iphone_26` requires iOS 26 Simulator Runtime
+- iOS iPad `bundle exec fastlane ios make_app_store_snapshots_ipad_26` requires iOS 26 Simulator Runtime
+- tvOS `bundle exec fastlane tvos make_app_store_snapshots_appletv_26` requires tvOS 26 Simulator Runtime
+
+For macOS must disable sandbox via Xcode Build Settings to allow using a test database file.
+- macOS `bundle exec fastlane mac make_app_store_snapshots_macos` requires macOS SDK 26 Simulator Runtime and macOS 26 machine
 
 ### Upload snapshots to App Store Connect of new made or updated
 

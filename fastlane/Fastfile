@@ -297,13 +297,13 @@ platform :ios do
     sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-ipad-18.sh")}"
   end
 
-  desc "Re-generate app store snapshots for iOS 26.5 on iPhone"
-  lane :make_app_store_snapshots_iphone_26_5 do
+  desc "Re-generate app store snapshots for iOS 26 on iPhone"
+  lane :make_app_store_snapshots_iphone_26 do
     sh "cd ..;#{tests_script.call("make-app-store-snapshots-iphone-26.sh")}"
   end
 
-  desc "Re-generate app store snapshots for iOS 26.5 on iPad"
-  lane :make_app_store_snapshots_ipad_26_5 do
+  desc "Re-generate app store snapshots for iOS 26 on iPad"
+  lane :make_app_store_snapshots_ipad_26 do
     sh "cd ..;#{tests_script.call("make-app-store-snapshots-ipad-26.sh")}"
   end
 end
@@ -445,9 +445,9 @@ platform :tvos do
     sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-appletv-18.sh")}"
   end
 
-  desc "Re-generate app store snapshots for tvOS 26.4"
-  lane :make_app_store_snapshots_appletv_26_4 do
-    sh "cd ..;#{tests_script.call("make-app-store-snapshots-appletv-26_4.sh")}"
+  desc "Re-generate app store snapshots for tvOS 26"
+  lane :make_app_store_snapshots_appletv_26 do
+    sh "cd ..;#{tests_script.call("make-app-store-snapshots-appletv-26.sh")}"
   end
 end
 

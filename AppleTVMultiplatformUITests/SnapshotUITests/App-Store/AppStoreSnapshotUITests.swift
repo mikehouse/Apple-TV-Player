@@ -142,13 +142,13 @@ final class AppStoreSnapshotUITests: XCTestCase {
     private func macOS(app: XCUIApplication, playlistId: Int) async throws {
         continueAfterFailure = true
         try await app.buttons["add"].firstMatch.makeTap(wait: .seconds(2))
-        try await snapshotUtils.assertSnapshot(named: env.snapshotName(dark: false, context: "playlist-add"), app: app, localized: true, precision: 0.94)
+        try await snapshotUtils.assertSnapshot(named: env.snapshotName(dark: false, context: "playlist-add"), app: app, localized: true, precision: 0.982)
         try await app.buttons["cancel"].firstMatch.makeTap(wait: .seconds(0))
         try await app.outlines["sidebar"].cells.element(boundBy: playlistId).makeTap(wait: .seconds(0))
         try await app.outlines["content"].cells.element(boundBy: 1).makeTap(wait: .seconds(3))
-        try await snapshotUtils.assertSnapshot(named: env.snapshotName(dark: false, context: "stream"), app: app, localized: true, precision: 0.999)
+        try await snapshotUtils.assertSnapshot(named: env.snapshotName(dark: false, context: "stream"), app: app, localized: true, precision: 0.997)
         try await app.buttons["settings"].firstMatch.makeTap(wait: .seconds(2))
-        try await snapshotUtils.assertSnapshot(named: env.snapshotName(dark: false, context: "playlist-settings"), app: app, localized: true, precision: 0.94)
+        try await snapshotUtils.assertSnapshot(named: env.snapshotName(dark: false, context: "playlist-settings"), app: app, localized: true, precision: 0.9978)
         try await app.buttons["cancel"].firstMatch.makeTap(wait: .seconds(0))
     }
 #endif

@@ -297,14 +297,14 @@ platform :ios do
     sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-ipad-18.sh")}"
   end
 
-  desc "Re-generate app store snapshots for iOS 26.4 on iPhone"
-  lane :make_app_store_snapshots_iphone_26_4 do
-    sh "cd ..;#{tests_script.call("make-app-store-snapshots-iphone-26_4.sh")}"
+  desc "Re-generate app store snapshots for iOS 26.5 on iPhone"
+  lane :make_app_store_snapshots_iphone_26_5 do
+    sh "cd ..;#{tests_script.call("make-app-store-snapshots-iphone-26.sh")}"
   end
 
-  desc "Re-generate app store snapshots for iOS 26.4 on iPad"
-  lane :make_app_store_snapshots_ipad_26_4 do
-    sh "cd ..;#{tests_script.call("make-app-store-snapshots-ipad-26_4.sh")}"
+  desc "Re-generate app store snapshots for iOS 26.5 on iPad"
+  lane :make_app_store_snapshots_ipad_26_5 do
+    sh "cd ..;#{tests_script.call("make-app-store-snapshots-ipad-26.sh")}"
   end
 end
 

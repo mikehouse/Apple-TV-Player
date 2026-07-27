@@ -136,12 +136,12 @@ Before using these lanes, make sure you have these setups:
 
 ### Regenerate snapshots for App Store Connect when the UI changes significantly
 
-Must use the latest Simulator Runtime, now it is 26.4
+Must use the latest Simulator Runtime, now it is 26.5
 
-- iOS iPhone `bundle exec fastlane ios make_app_store_snapshots_iphone_26_4` requires iOS 26.4 Simulator Runtime
-- iOS iPad `bundle exec fastlane ios make_app_store_snapshots_ipad_26_4` requires iOS 26.4 Simulator Runtime
-- tvOS `bundle exec fastlane tvos make_app_store_snapshots_appletv_26_4` requires tvOS 26.4 Simulator Runtime
-- macOS `bundle exec fastlane tvos make_app_store_snapshots_macos` requires macOS SDK 26.4 Simulator Runtime and macOS 26 machine
+- iOS iPhone `bundle exec fastlane ios make_app_store_snapshots_iphone_26_5` requires iOS 26.5 Simulator Runtime
+- iOS iPad `bundle exec fastlane ios make_app_store_snapshots_ipad_26_5` requires iOS 26.5 Simulator Runtime
+- tvOS `bundle exec fastlane tvos make_app_store_snapshots_appletv_26_5` requires tvOS 26.5 Simulator Runtime
+- macOS `bundle exec fastlane tvos make_app_store_snapshots_macos` requires macOS SDK 26.5 Simulator Runtime and macOS 26 machine
 
 ### Upload snapshots to App Store Connect of new made or updated
 

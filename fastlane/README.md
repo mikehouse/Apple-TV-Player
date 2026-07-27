@@ -95,21 +95,21 @@ Run UI Snapshot Tests on an iOS 18 iPhone Simulator
 
 Run UI Snapshot Tests on an iOS 18 iPad Simulator
 
-### ios make_app_store_snapshots_iphone_26_4
+### ios make_app_store_snapshots_iphone_26_5
 
 ```sh
-[bundle exec] fastlane ios make_app_store_snapshots_iphone_26_4
+[bundle exec] fastlane ios make_app_store_snapshots_iphone_26_5
 ```
 
-Re-generate app store snapshots for iOS 26.4 on iPhone
+Re-generate app store snapshots for iOS 26.5 on iPhone
 
-### ios make_app_store_snapshots_ipad_26_4
+### ios make_app_store_snapshots_ipad_26_5
 
 ```sh
-[bundle exec] fastlane ios make_app_store_snapshots_ipad_26_4
+[bundle exec] fastlane ios make_app_store_snapshots_ipad_26_5
 ```
 
-Re-generate app store snapshots for iOS 26.4 on iPad
+Re-generate app store snapshots for iOS 26.5 on iPad
 
 ----
 

@@ -8,8 +8,8 @@ exec "$SCRIPT_DIR/simulator-tests-runner.sh" \
   "AppleTVMultiplatformUITests" \
   "AppStoreSnapshotUITests-AppleTV" \
   "AppleTVMultiplatformUITests/SnapshotUITests/App-Store/AppStoreSnapshotUITests-AppleTV.xctestplan" \
-  "com.apple.CoreSimulator.SimRuntime.tvOS-26-4" \
-  "tvOS 26.4" \
+  "com.apple.CoreSimulator.SimRuntime.tvOS-26-5" \
+  "tvOS 26.5" \
   "com.apple.CoreSimulator.SimDeviceType.Apple-TV-4K-3rd-generation-4K" \
   "tvOS Simulator" \
   "UITests-Apple-TV-4K-3rd-Gen" \

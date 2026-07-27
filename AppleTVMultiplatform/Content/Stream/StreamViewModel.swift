@@ -78,7 +78,7 @@ final class StreamViewModel {
     }
 
     func displayedPrograms(at now: Date, stream: PlaylistParser.Stream) {
-        logger.info("Display program guide for stream", private: stream.title)
+        logger.debug("Try update program guide for stream", private: stream.title)
         guard !programs.isEmpty else {
             displayProgram = []
             return
@@ -110,6 +110,9 @@ final class StreamViewModel {
         }
         if self.displayProgram != displayProgram {
             self.displayProgram = displayProgram
+            logger.debug("Now playing program guide changed for stream", private: stream.title)
+        } else {
+            logger.debug("Now playing program guide didn't change for stream", private: stream.title)
         }
     }
 

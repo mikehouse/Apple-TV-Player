@@ -8,8 +8,8 @@ exec "$SCRIPT_DIR/simulator-tests-runner.sh" \
   "AppleTVMultiplatformUITests" \
   "AppStoreSnapshotUITests-iPad" \
   "AppleTVMultiplatformUITests/SnapshotUITests/App-Store/AppStoreSnapshotUITests-iPad.xctestplan" \
-  "com.apple.CoreSimulator.SimRuntime.iOS-26-4" \
-  "iOS 26.4" \
+  "com.apple.CoreSimulator.SimRuntime.iOS-26-5" \
+  "iOS 26.5" \
   "com.apple.CoreSimulator.SimDeviceType.iPad-Pro-13-inch-M5-12GB" \
   "iOS Simulator" \
   "UITests-iPad-Pro-13-inch-M5" \

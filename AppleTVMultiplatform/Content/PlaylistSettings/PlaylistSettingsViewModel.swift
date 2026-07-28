@@ -249,7 +249,10 @@ extension PlaylistSettingsViewModel {
             // Set date from original playlist as Date is an identity, should not be changed.
             date: playlist.date ?? preparedUpdatedPlaylist.date,
             icon: preparedUpdatedPlaylist.icon,
-            url: preparedUpdatedPlaylist.url,
+            // A newly selected local file URL is temporary. Keep the original playlist URL
+            // as original URL is used for encryption and decryption when encryption enabled,
+            // else we won't be able to decrypt the old data.
+            url: content.url,
             data: preparedUpdatedPlaylist.data,
             salt: preparedUpdatedPlaylist.salt,
             encrypted: preparedUpdatedPlaylist.encrypted

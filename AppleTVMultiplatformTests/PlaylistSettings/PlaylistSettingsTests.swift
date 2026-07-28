@@ -273,15 +273,21 @@ struct PlaylistSettingsTests {
         let cachedPlaylist = makePlaylist(
             streams: [makeStream(title: "Cached")]
         )
-        let preparedUpdatedPlaylist = makePreparedPlaylist(
+        let preparedSelectedFilePlaylist = makePreparedPlaylist(
             identity: identity,
             urlString: selectedFileURL.absoluteString,
             data: Data("updated-prepared-data".utf8),
             encrypted: false
         )
+        let expectedPreparedUpdatedPlaylist = makePreparedPlaylist(
+            identity: identity,
+            urlString: originalFileURL.absoluteString,
+            data: preparedSelectedFilePlaylist.data,
+            encrypted: false
+        )
         let restoredUpdatedPlaylist = makeRestoredPlaylist(
             identity: identity,
-            urlString: selectedFileURL.absoluteString,
+            urlString: originalFileURL.absoluteString,
             data: Data("#EXTM3U refreshed".utf8)
         )
         let playlistAddService = MockPlaylistAddService()
@@ -292,14 +298,14 @@ struct PlaylistSettingsTests {
             #expect(urlTvg == nil)
             #expect(urlImg == nil)
             #expect(tvgLogo == nil)
-            return preparedUpdatedPlaylist
+            return preparedSelectedFilePlaylist
         }
         playlistAddService.restoreHandler = { preparedPlaylist, pin in
             #expect(pin == nil)
             if preparedPlaylist == initialPreparedPlaylist {
                 return restoredCachedPlaylist
             }
-            if preparedPlaylist == preparedUpdatedPlaylist {
+            if preparedPlaylist == expectedPreparedUpdatedPlaylist {
                 return restoredUpdatedPlaylist
             }
             Issue.record("Unexpected prepared playlist in restoreHandler.")
@@ -329,7 +335,7 @@ struct PlaylistSettingsTests {
 
         #expect(didUpdate == true)
         #expect(storedPlaylist.url == originalURL)
-        #expect(storedPlaylist.data == preparedUpdatedPlaylist.data)
+        #expect(storedPlaylist.data == preparedSelectedFilePlaylist.data)
         #expect(storedPlaylist.data != originalData)
         #expect(viewModel.isPlaylistFileImporterPresented == false)
         #expect(viewModel.selectedPlaylistFileURL == selectedFileURL)

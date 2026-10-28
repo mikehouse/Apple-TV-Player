@@ -263,6 +263,7 @@ private extension PlaylistAddService {
             }
             return playlists
         } catch let error as Error {
+            logger.error(error)
             throw error
         } catch {
             throw Error.invalidPlaylist
@@ -415,8 +416,14 @@ private extension PlaylistAddService {
 
             do {
                 restoredURLData = try crypto.decrypt(preparedPlaylist.url, pin: normalizedPin, salt: salt)
+            } catch {
+                logger.error(error)
+                throw Error.invalidPin
+            }
+            do {
                 compressedData = try crypto.decrypt(preparedPlaylist.data, pin: normalizedPin, salt: salt)
             } catch {
+                logger.error(error)
                 throw Error.invalidPin
             }
         } else {
@@ -430,6 +437,7 @@ private extension PlaylistAddService {
                 data: try await compressor.decompress(compressedData)
             )
         } catch {
+            logger.error(error)
             throw Error.invalidPreparedPlaylist
         }
     }

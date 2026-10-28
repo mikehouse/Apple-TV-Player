@@ -63,6 +63,11 @@ actor MockApiClient {
         let _ = try await session.data(from: url)
     }
 
+    func resetDatabase() async throws {
+        let url = URL(string: "http://localhost:\(env.port)/reset-database?lang=\(env.lang)")!
+        let _ = try await session.data(from: url)
+    }
+
     func playlistChange(_ playlist: Playlist) async throws {
         let url = URL(string: "http://localhost:\(env.port)/playlist-change?lang=\(playlist.lang)&name=\(playlist.name)")!
         let _ = try await session.data(from: url)

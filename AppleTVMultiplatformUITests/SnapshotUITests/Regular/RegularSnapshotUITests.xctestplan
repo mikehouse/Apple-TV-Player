@@ -28,6 +28,7 @@
       "selectedTests" : [
         "RegularSnapshotUITests_Passcode\/test()",
         "RegularSnapshotUITests_PlaylistUpdate\/test()",
+        "RegularSnapshotUITests_SecuredPlaylistUpdate\/test()",
         "RegularSnapshotUITests_Stream\/test()"
       ],
       "target" : {

@@ -244,18 +244,21 @@ extension PlaylistSettingsViewModel {
                 }
             }
         }
+        assert(preparedUpdatedPlaylist.salt == nil)
+        assert(!preparedUpdatedPlaylist.encrypted)
         preparedUpdatedPlaylist = PreparedPlaylist(
             name: preparedUpdatedPlaylist.name,
             // Set date from original playlist as Date is an identity, should not be changed.
-            date: playlist.date ?? preparedUpdatedPlaylist.date,
+            date: identity.date,
             icon: preparedUpdatedPlaylist.icon,
             // A newly selected local file URL is temporary. Keep the original playlist URL
             // as original URL is used for encryption and decryption when encryption enabled,
             // else we won't be able to decrypt the old data.
             url: content.url,
+            // Plain text not encrypted data.
             data: preparedUpdatedPlaylist.data,
-            salt: preparedUpdatedPlaylist.salt,
-            encrypted: preparedUpdatedPlaylist.encrypted
+            salt: preparedUpdatedPlaylist.salt, // nil
+            encrypted: preparedUpdatedPlaylist.encrypted // false
         )
         let newContent = try await playlistAddService.restorePlaylist(preparedUpdatedPlaylist, pin: nil).content
         // Update cache with new playlist + update program guide + update images.
@@ -278,6 +281,10 @@ extension PlaylistSettingsViewModel {
             return false
         }
         playlist.data = preparedUpdatedPlaylist.data
+        if playlistDecryptedContent == content || playlist.encrypted {
+            // Encrypt data back.
+            onPinChange()
+        }
         return true
     }
 }
@@ -327,7 +334,6 @@ extension PlaylistSettingsViewModel {
               let data = playlist.data else {
             return false
         }
-        assert(!playlist.encrypted)
         do {
             let preparedPlaylist = PreparedPlaylist(
                 name: name,
@@ -336,7 +342,7 @@ extension PlaylistSettingsViewModel {
                 url: url,
                 data: data,
                 salt: nil,
-                encrypted: playlist.encrypted
+                encrypted: false
             )
             let encryptedPlaylist = try await playlistAddService.encryptPlaylist(preparedPlaylist, pin: pin)
             playlist.url = encryptedPlaylist.url

@@ -40,6 +40,7 @@ final class RegularSnapshotUITests_Passcode: XCTestCase {
         app.launchArguments.append("--window-fixed-size")
 #endif
 #if os(tvOS)
+        try await apiClient.resetDatabase()
         let databaseConfig = try await apiClient.databaseConfig()
         app.launchArguments.append(
             "DATABASE_PATH=\(databaseConfig.path)"

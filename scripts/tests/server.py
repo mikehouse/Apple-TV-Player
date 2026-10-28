@@ -59,6 +59,7 @@ class PlaylistRequestHandler(BaseHTTPRequestHandler):
             "/set-appearance": self.handle_set_appearance,
             "/shutdown": self.handle_shutdown,
             "/copy-database": self.handle_copy_database,
+            "/reset-database": self.handle_reset_database,
             "/copy-snapshot": self.handle_copy_snapshot,
         }
 
@@ -357,6 +358,43 @@ class PlaylistRequestHandler(BaseHTTPRequestHandler):
             shutil.copy2(src, dst)
 
         logger.info("Database copied successfully for lang=%s", lang)
+        self.send_text("OK\n", "text/plain; charset=utf-8")
+
+    def handle_reset_database(self, params: dict[str, str]) -> None:
+        lang = params.get("lang")
+        if not lang or not is_safe_segment(lang):
+            self.send_error(HTTPStatus.BAD_REQUEST, "Missing or invalid lang")
+            return
+
+        database_dir = Path("scripts", "tests", "playlists", "database", lang)
+        command = [
+            "git",
+            "-C",
+            str(REPOSITORY_ROOT),
+            "checkout",
+            "--",
+            *((database_dir / name).as_posix() for name in DB_FILES),
+        ]
+        try:
+            result = subprocess.run(
+                command,
+                capture_output=True,
+                text=True,
+                check=False,
+                timeout=30,
+            )
+        except (OSError, subprocess.SubprocessError) as exc:
+            logger.exception("Failed to run database reset command")
+            self.send_error(HTTPStatus.INTERNAL_SERVER_ERROR, f"Failed to reset database: {exc}")
+            return
+
+        if result.returncode != 0:
+            detail = result.stderr.strip() or result.stdout.strip() or "git checkout failed"
+            logger.error("Database reset failed: %s", detail)
+            self.send_error(HTTPStatus.INTERNAL_SERVER_ERROR, f"Failed to reset database: {detail}")
+            return
+
+        logger.info("Database reset successfully for lang=%s", lang)
         self.send_text("OK\n", "text/plain; charset=utf-8")
 
     def handle_copy_snapshot(self, params: dict[str, str]) -> None:

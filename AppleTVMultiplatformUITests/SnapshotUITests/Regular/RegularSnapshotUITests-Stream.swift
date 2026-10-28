@@ -42,6 +42,7 @@ final class RegularSnapshotUITests_Stream: XCTestCase {
         app.launchArguments.append("--window-fixed-size")
 #endif
 #if os(tvOS)
+        try await apiClient.resetDatabase()
         let databaseConfig = try await apiClient.databaseConfig()
         // on tvOS it is hard to type long text with tvOS keyboard.
         // Use prefilled database.

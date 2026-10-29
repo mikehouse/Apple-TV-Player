@@ -791,7 +791,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=appletvos*]" = 4HUHB9J47M;
@@ -832,12 +832,12 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 1.1.0;
-				"MARKETING_VERSION[sdk=appletvos*]" = 1.1.0;
-				"MARKETING_VERSION[sdk=appletvsimulator*]" = 1.1.0;
-				"MARKETING_VERSION[sdk=iphoneos*]" = 1.1.0;
-				"MARKETING_VERSION[sdk=iphonesimulator*]" = 1.1.0;
-				"MARKETING_VERSION[sdk=macosx*]" = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
+				"MARKETING_VERSION[sdk=appletvos*]" = 1.2.0;
+				"MARKETING_VERSION[sdk=appletvsimulator*]" = 1.2.0;
+				"MARKETING_VERSION[sdk=iphoneos*]" = 1.2.0;
+				"MARKETING_VERSION[sdk=iphonesimulator*]" = 1.2.0;
+				"MARKETING_VERSION[sdk=macosx*]" = 1.2.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = mike.house.nsk.AppleTVMultiplatform;
 				PRODUCT_NAME = "Bro Player";
@@ -873,7 +873,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "3rd Party Mac Developer Application";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=appletvos*]" = 4HUHB9J47M;
@@ -914,12 +914,12 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 1.1.0;
-				"MARKETING_VERSION[sdk=appletvos*]" = 1.1.0;
-				"MARKETING_VERSION[sdk=appletvsimulator*]" = 1.1.0;
-				"MARKETING_VERSION[sdk=iphoneos*]" = 1.1.0;
-				"MARKETING_VERSION[sdk=iphonesimulator*]" = 1.1.0;
-				"MARKETING_VERSION[sdk=macosx*]" = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
+				"MARKETING_VERSION[sdk=appletvos*]" = 1.2.0;
+				"MARKETING_VERSION[sdk=appletvsimulator*]" = 1.2.0;
+				"MARKETING_VERSION[sdk=iphoneos*]" = 1.2.0;
+				"MARKETING_VERSION[sdk=iphonesimulator*]" = 1.2.0;
+				"MARKETING_VERSION[sdk=macosx*]" = 1.2.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = mike.house.nsk.AppleTVMultiplatform;
 				PRODUCT_NAME = "Bro Player";
@@ -1080,7 +1080,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 4HUHB9J47M;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1109,7 +1109,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 4HUHB9J47M;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1136,7 +1136,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 4HUHB9J47M;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
@@ -1169,7 +1169,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 4HUHB9J47M;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;

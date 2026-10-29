@@ -17,7 +17,7 @@ firebase_enabled = true
 
 private_lane :build_app_package do |options|
   xcodes(
-    version: "26.6",
+    version: "27.1",
     select_for_current_build_only: true
   )
   build_app(

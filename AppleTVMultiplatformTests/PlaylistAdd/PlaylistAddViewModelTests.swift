@@ -222,7 +222,8 @@ private final class MockPlaylistAddService: PlaylistAddServiceInterface {
     }
 }
 
-private actor MockPlaylistLogoStorageService: PlaylistLogoStorageServiceInterface {
+@MainActor
+private class MockPlaylistLogoStorageService: PlaylistLogoStorageServiceInterface {
 
     enum Behavior: Sendable {
         case succeed

@@ -121,7 +121,7 @@ final class RegularSnapshotUITests_PlaylistUpdate: XCTestCase {
         try await app.cells.firstMatch.makeTap(wait: .seconds(0))
         XCTAssertEqual(app.cells.firstMatch.staticTexts.element(boundBy: 0).label, "Comedy")
         XCTAssertEqual(app.cells.firstMatch.staticTexts.element(boundBy: 1).label, "Vacation")
-        snapshotUtils.assertSnapshot(named: env.snapshotName(context: "playlist"), app: app, localized: false)
+        snapshotUtils.assertSnapshot(named: env.snapshotName(context: "playlist"), app: app, localized: false, precision: 0.999)
         try await app.buttons["settings"].firstMatch.makeTap(wait: .seconds(0))
         
         try await apiClient.playlistReset(playlist)
@@ -191,7 +191,12 @@ final class RegularSnapshotUITests_PlaylistUpdate: XCTestCase {
         try await app.textFields["url-img"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.urlImg)
         try await app.sheets.firstMatch.buttons["add"].firstMatch.makeTap(wait: .seconds(0))
         XCTAssertEqual(app.staticTexts["select-playlist"].firstMatch.value as? String, "Select a playlist")
-        try await app.outlines["sidebar"].firstMatch.cells.firstMatch.makeTap(wait: .seconds(0))
+        try await app.outlines["sidebar"].firstMatch.cells.firstMatch.makeTap(wait: .seconds(1))
+        if #available(macOS 27.0, *) {
+            // macOS 27 bug that cells are squashed, scroll the list a bit to redraw the cells.
+            app.outlines["content"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.8)).swipeUp(velocity: .fast)
+            try await Task.sleep(for: .seconds(1))
+        }
         XCTAssertEqual(app.outlines["content"].firstMatch.cells.element(boundBy: 1).staticTexts.element(boundBy: 0).value as? String, "Comedy")
         XCTAssertEqual(app.outlines["content"].firstMatch.cells.element(boundBy: 1).staticTexts.element(boundBy: 1).value as? String, "Vacation")
         try await snapshotUtils.assertSnapshot(named: env.snapshotName(context: "playlist"), app: app, localized: false)

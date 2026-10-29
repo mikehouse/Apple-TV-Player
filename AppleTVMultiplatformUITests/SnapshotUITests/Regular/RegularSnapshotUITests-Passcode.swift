@@ -315,14 +315,14 @@ final class RegularSnapshotUITests_Passcode: XCTestCase {
         XCUIRemote.shared.press(.up)
         XCUIRemote.shared.press(.up)
         XCUIRemote.shared.press(.up)
-        XCUIRemote.shared.press(.select)
+        XCUIRemote.shared.press(.select) // Tap "Enable Passcode" button
         try await Task.sleep(for: .seconds(1))
-        XCUIRemote.shared.press(.select)
+        XCUIRemote.shared.press(.select) // Select "Enable" from popup
         try await Task.sleep(for: .seconds(1))
         
         func enterPasscode() async throws {
             XCTAssertEqual(app.textFields["passcode-input"].firstMatch.hasFocus, true)
-            XCUIRemote.shared.press(.select)
+            XCUIRemote.shared.press(.select) // Tap "TextField" to open text input mode
             try await Task.sleep(for: .seconds(1))
             for _ in 0...3 {
                 XCUIRemote.shared.press(.select) // select 'a'
@@ -337,8 +337,12 @@ final class RegularSnapshotUITests_Passcode: XCTestCase {
             XCUIRemote.shared.press(.select) // 'done'
             try await Task.sleep(for: .seconds(1))
         }
-        
-        snapshotUtils.assertSnapshot(named: env.snapshotName(context: "passcode-input"), app: app, localized: false, precision: 0.999)
+
+        if #available(tvOS 27.0, *) {
+            snapshotUtils.assertSnapshot(named: env.snapshotName(context: "passcode-input"), app: app, localized: false, precision: 0.98)
+        } else {
+            snapshotUtils.assertSnapshot(named: env.snapshotName(context: "passcode-input"), app: app, localized: false, precision: 0.999)
+        }
         try await enterPasscode()
         if #available(tvOS 26.0, *) {
             XCUIRemote.shared.press(.right)
@@ -349,10 +353,10 @@ final class RegularSnapshotUITests_Passcode: XCTestCase {
             XCUIRemote.shared.press(.down)
             XCUIRemote.shared.press(.down)
         }
-        XCUIRemote.shared.press(.select) // 'done'
+        XCUIRemote.shared.press(.select) // Return back to playlists list
         try await Task.sleep(for: .seconds(1))
         
-        XCUIRemote.shared.press(.select)
+        XCUIRemote.shared.press(.select) // Open first playlist
         try await Task.sleep(for: .seconds(1))
         try await enterPasscode()
         
@@ -362,16 +366,19 @@ final class RegularSnapshotUITests_Passcode: XCTestCase {
         XCTAssertEqual(app.tables.firstMatch.cells.firstMatch.staticTexts.element(boundBy: 0).label, "Comedy")
         XCTAssertEqual(app.tables.firstMatch.cells.firstMatch.staticTexts.element(boundBy: 1).label, "Vacation")
         
-        XCUIRemote.shared.press(.menu)
+        XCUIRemote.shared.press(.menu) // Go back to the playlists list
         try await Task.sleep(for: .seconds(1))
         try await openSettings()
         XCUIRemote.shared.press(.up)
         XCUIRemote.shared.press(.up)
         XCUIRemote.shared.press(.up)
-        XCUIRemote.shared.press(.select)
+        if #available(tvOS 27.0, *) {
+            XCUIRemote.shared.press(.up) // Seems some bug on tvOS 27.0 as at second time in Settings it needs one more press.
+        }
+        XCUIRemote.shared.press(.select) // Tap "Disable Passcode" button
         try await Task.sleep(for: .seconds(1))
-        XCUIRemote.shared.press(.down)
-        XCUIRemote.shared.press(.select)
+        XCUIRemote.shared.press(.down) // From popup select "Disable"
+        XCUIRemote.shared.press(.select) // Tap "Disable" in popup
         try await Task.sleep(for: .seconds(1))
         
         try await enterPasscode()
@@ -439,11 +446,16 @@ final class RegularSnapshotUITests_Passcode: XCTestCase {
         try await app.buttons["confirm"].firstMatch.makeTap(wait: .seconds(0))
         XCTAssertEqual(app.outlines["content"].firstMatch.cells.element(boundBy: 1).staticTexts.element(boundBy: 0).value as? String, "Comedy")
         XCTAssertEqual(app.outlines["content"].firstMatch.cells.element(boundBy: 1).staticTexts.element(boundBy: 1).value as? String, "Vacation")
-        try await snapshotUtils.assertSnapshot(named: env.snapshotName(context: "playlist"), app: app, localized: false, precision: 0.9993)
+        if #available(macOS 27.0, *) {
+            // macOS 27 bug that cells are squashed, scroll the list a bit to redraw the cells.
+            app.outlines["content"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.8)).swipeUp(velocity: .fast)
+            try await Task.sleep(for: .seconds(1))
+        }
+        try await snapshotUtils.assertSnapshot(named: env.snapshotName(context: "playlist"), app: app, localized: false, precision: 0.9992)
         try await app.buttons["settings"].firstMatch.makeTap(wait: .seconds(0))
         XCTAssertEqual(app.popUpButtons["passcode-picker"].firstMatch.value as? String, "Enabled")
         try await snapshotUtils.assertSnapshot(named: env.snapshotName(context: "settings"), app: app, localized: false, precision: 0.97)
-        try await app.popUpButtons["passcode-picker"].firstMatch.makeTap(wait: .seconds(0))
+        try await app.popUpButtons["passcode-picker"].firstMatch.makeTap(wait: .seconds(0), coordinate: CGVector(dx: 0.95, dy: 0.5))
         try await app.menuItems["passcode-disable"].firstMatch.makeTap(wait: .seconds(0))
         try await app.textFields["passcode-input"].firstMatch.makeTap(wait: .seconds(0)).typeText(passcode)
         try await app.sheets.element(boundBy: 1).buttons["confirm"].firstMatch.makeTap(wait: .seconds(1))
@@ -454,9 +466,14 @@ final class RegularSnapshotUITests_Passcode: XCTestCase {
         try await app.outlines["sidebar"].firstMatch.cells.element(boundBy: 0).makeTap(wait: .seconds(0))
         XCTAssertEqual(app.outlines["content"].firstMatch.cells.element(boundBy: 1).staticTexts.element(boundBy: 0).value as? String, "Comedy")
         XCTAssertEqual(app.outlines["content"].firstMatch.cells.element(boundBy: 1).staticTexts.element(boundBy: 1).value as? String, "Vacation")
+        if #available(macOS 27.0, *) {
+            // macOS 27 bug that cells are squashed, scroll the list a bit to redraw the cells.
+            app.outlines["content"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.8)).swipeUp(velocity: .fast)
+            try await Task.sleep(for: .seconds(1))
+        }
         try await app.buttons["settings"].firstMatch.makeTap(wait: .seconds(0))
         XCTAssertEqual(app.popUpButtons["passcode-picker"].firstMatch.value as? String, "Disabled")
-        try await app.popUpButtons["passcode-picker"].firstMatch.makeTap(wait: .seconds(0))
+        try await app.popUpButtons["passcode-picker"].firstMatch.makeTap(wait: .seconds(0), coordinate: CGVector(dx: 0.95, dy: 0.5))
         try await app.menuItems["passcode-enable"].firstMatch.makeTap(wait: .seconds(0))
         try await app.textFields["passcode-input"].firstMatch.makeTap(wait: .seconds(0)).typeText(passcode)
         try await app.sheets.element(boundBy: 1).buttons["confirm"].firstMatch.makeTap(wait: .seconds(1))

@@ -338,7 +338,8 @@ private nonisolated final class LocalLogoMockPlaylistLogoStorageService:
     }
 }
 
-private actor DeletePlaylistMockPlaylistAddService: PlaylistAddServiceInterface {
+@MainActor
+private class DeletePlaylistMockPlaylistAddService: PlaylistAddServiceInterface {
 
     struct RestoreCall: Sendable {
         let preparedPlaylist: PreparedPlaylist
@@ -386,7 +387,8 @@ private actor DeletePlaylistMockPlaylistAddService: PlaylistAddServiceInterface 
     }
 }
 
-private actor DeletePlaylistMockPlaylistService: PlaylistServiceInterface {
+@MainActor
+private class DeletePlaylistMockPlaylistService: PlaylistServiceInterface {
 
     private var clearCacheCalls: [PlaylistItem.Content] = []
 

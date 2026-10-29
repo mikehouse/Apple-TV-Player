@@ -48,7 +48,7 @@ struct PlaylistAddViewModelTests {
         #expect(storedPlaylist.data == preparedPlaylist.data)
         #expect(storedPlaylist.salt == preparedPlaylist.salt)
         #expect(storedPlaylist.encrypted == preparedPlaylist.encrypted)
-        #expect(await logoStorageService.recordedSources() == [preparedIcon])
+        #expect(logoStorageService.recordedSources() == [preparedIcon])
     }
 
     @MainActor
@@ -69,7 +69,7 @@ struct PlaylistAddViewModelTests {
         #expect(viewModel.isShowingError == true)
         #expect(viewModel.errorMessage == PlaylistAddService.Error.invalidPlaylist.errorDescription)
         #expect(storedPlaylists.isEmpty)
-        #expect(await logoStorageService.recordedSources().isEmpty)
+        #expect(logoStorageService.recordedSources().isEmpty)
     }
 
     @MainActor
@@ -137,7 +137,7 @@ struct PlaylistAddViewModelTests {
         #expect(viewModel.isShowingError == true)
         #expect(viewModel.errorMessage == PlaylistLogoStorageService.Error.localFileUnavailable.errorDescription)
         #expect(storedPlaylists.isEmpty)
-        #expect(await logoStorageService.recordedSources() == [preparedIcon])
+        #expect(logoStorageService.recordedSources() == [preparedIcon])
     }
 
     @MainActor
@@ -169,7 +169,7 @@ struct PlaylistAddViewModelTests {
         #expect(viewModel.isLoading == false)
         #expect(viewModel.isShowingError == false)
         #expect(storedPlaylists.isEmpty)
-        #expect(await logoStorageService.recordedSources() == [preparedIcon])
+        #expect(logoStorageService.recordedSources() == [preparedIcon])
     }
 
     @MainActor

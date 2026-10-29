@@ -196,6 +196,11 @@ final class RegularSnapshotUITests_SecuredPlaylistUpdate: XCTestCase {
         try await app.buttons["confirm"].firstMatch.makeTap(wait: .seconds(1))
         XCTAssertEqual(app.outlines["content"].firstMatch.cells.element(boundBy: 1).staticTexts.element(boundBy: 0).value as? String, "Comedy")
         XCTAssertEqual(app.outlines["content"].firstMatch.cells.element(boundBy: 1).staticTexts.element(boundBy: 1).value as? String, "Vacation")
+        if #available(macOS 27.0, *) {
+            // macOS 27 bug that cells are squashed, scroll the list a bit to redraw the cells.
+            app.outlines["content"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.8)).swipeUp(velocity: .fast)
+            try await Task.sleep(for: .seconds(1))
+        }
         try await app.buttons["settings"].firstMatch.makeTap(wait: .seconds(0))
         
         try await apiClient.playlistReset(playlist)
@@ -213,6 +218,11 @@ final class RegularSnapshotUITests_SecuredPlaylistUpdate: XCTestCase {
         try await app.outlines["sidebar"].firstMatch.cells.element(boundBy: 0).makeTap(wait: .seconds(1))
         try await app.textFields["passcode-input"].firstMatch.makeTap(wait: .seconds(0)).typeText(String(passcode))
         try await app.buttons["confirm"].firstMatch.makeTap(wait: .seconds(1))
+        if #available(macOS 27.0, *) {
+            // macOS 27 bug that cells are squashed, scroll the list a bit to redraw the cells.
+            app.outlines["content"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.8)).swipeUp(velocity: .fast)
+            try await Task.sleep(for: .seconds(1))
+        }
         XCTAssertEqual(app.outlines["content"].firstMatch.cells.element(boundBy: 1).staticTexts.element(boundBy: 0).value as? String, "Westerns")
         
         try await apiClient.playlistReset(playlist)

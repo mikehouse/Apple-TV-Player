@@ -63,6 +63,22 @@ Upload screenshots to the Distribution page on App Store Connect
 
 Run unit tests on an iOS iPhone simulator
 
+### ios run_ui_snapshots_tests_iphone_27
+
+```sh
+[bundle exec] fastlane ios run_ui_snapshots_tests_iphone_27
+```
+
+Run UI Snapshot Tests on an iOS 27 iPhone Simulator
+
+### ios run_ui_snapshots_tests_ipad_27
+
+```sh
+[bundle exec] fastlane ios run_ui_snapshots_tests_ipad_27
+```
+
+Run UI Snapshot Tests on an iOS 27 iPad Simulator
+
 ### ios run_ui_snapshots_tests_iphone_26
 
 ```sh
@@ -155,6 +171,14 @@ Upload screenshots to the Distribution page on App Store Connect
 ```
 
 Run unit tests on an tvOS simulator
+
+### tvos run_ui_snapshots_tests_appletv_27
+
+```sh
+[bundle exec] fastlane tvos run_ui_snapshots_tests_appletv_27
+```
+
+Run UI Snapshot Tests on an tvOS 27 Simulator
 
 ### tvos run_ui_snapshots_tests_appletv_26
 

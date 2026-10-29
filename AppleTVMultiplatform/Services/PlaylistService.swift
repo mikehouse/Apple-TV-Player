@@ -184,17 +184,17 @@ actor PlaylistService: PlaylistServiceInterface {
         if !reloadPlaylist, let cachedPlaylists = cache[cacheKey]?.playlists {
             playlists = cachedPlaylists
         } else {
-            await logger.info("Parse playlist data", private: content.id.description)
+            logger.info("Parse playlist data", private: content.id.description)
             playlists = try await parsePlaylists(from: content.data, progress: progress)
         }
-        await logger.info("Load program guide", private: content.id.description)
+        logger.info("Load program guide", private: content.id.description)
         let (programGuides, guideCacheURLs) = try await loadProgramGuides(
             for: playlists,
             reload: reloadProgramGuide || reloadPlaylist,
             storeOnDisk: !content.isStoredInMemoryOnly,
             progress: progress
         )
-        await logger.info("Load streams logos", private: content.id.description)
+        logger.info("Load streams logos", private: content.id.description)
         let (resolvedPlaylists, imageCacheURLs) = await resolvePlaylistImages(
             for: playlists,
             reload: reloadPlaylist,

@@ -61,6 +61,17 @@ Bro IPTV Player does not provide, host, sell, or include any channels, media, or
 bundle install
 ```
 
+## IntelliJ IDEA Last Working Setup
+
+- IntelliJ IDEA 2026.2.3
+- Kotlin Multiplatform 262.10968.207-IJ
+- Xcode 27.1 (27A9275)
+- MacOS 27.2 (Golden Gate)
+
+```text
+Starting with IntelliJ IDEA 2026.3 and Android Studio Rabbit 2 | 2026.2.2, we’re discontinuing Swift language IDE features in the Kotlin Multiplatform (KMP) plugin. 
+```
+
 ## App Signing
 
 - Project is set for manual signing (you need to change it if you build for your own real device)
@@ -77,8 +88,8 @@ bundle install
 
 ## Unit Testing
 
-- iOS `bundle exec fastlane ios run_unit_tests` requires iOS 26.5 Simulator Runtime
-- tvOS `bundle exec fastlane tvos run_unit_tests` requires tvOS 26.5 Simulator Runtime
+- iOS `bundle exec fastlane ios run_unit_tests` requires iOS 27.0 Simulator Runtime
+- tvOS `bundle exec fastlane tvos run_unit_tests` requires tvOS 27.0 Simulator Runtime
 - macOS `bundle exec fastlane mac run_unit_tests` runs on current machine
 
 ## UI Testing
@@ -91,6 +102,8 @@ Before any UI Tests must run a python local server that will provide mock data t
 
 ### iOS
 
+- iOS iPhone `bundle exec fastlane ios run_ui_snapshots_tests_iphone_27` requires iOS 27.0 Simulator Runtime
+- iOS iPad `bundle exec fastlane ios run_ui_snapshots_tests_ipad_27` requires iOS 27.0 Simulator Runtime
 - iOS iPhone `bundle exec fastlane ios run_ui_snapshots_tests_iphone_26` requires iOS 26.5 Simulator Runtime
 - iOS iPad `bundle exec fastlane ios run_ui_snapshots_tests_ipad_26` requires iOS 26.5 Simulator Runtime
 - iOS iPhone `bundle exec fastlane ios run_ui_snapshots_tests_iphone_18` requires iOS 18.6 Simulator Runtime
@@ -98,12 +111,13 @@ Before any UI Tests must run a python local server that will provide mock data t
 
 ### tvOS
 
+- tvOS `bundle exec fastlane tvos run_ui_snapshots_tests_appletv_27` requires tvOS 27.0 Simulator Runtime
 - tvOS `bundle exec fastlane tvos run_ui_snapshots_tests_appletv_26` requires tvOS 26.5 Simulator Runtime
 - tvOS `bundle exec fastlane tvos run_ui_snapshots_tests_appletv_18` requires tvOS 18.5 Simulator Runtime
 
 ### macOS
 
-Screenshots in repo created on macOS 26.5 with macOS SDK 26.5
+Screenshots in repo created on macOS 27.2 with macOS SDK 27.2
 
 ```bash
 bundle exec fastlane mac run_ui_snapshots_tests_macos

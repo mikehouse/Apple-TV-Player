@@ -117,7 +117,9 @@ private_lane :upload_symbols do |options|
     dsym_path: File.join(File.dirname(ipa), File.basename(ipa, File.extname(ipa)) + ".app.dSYM.zip"),
     gsp_path: googleservice_info_plist_path,
     platform: options[:platform],
-    binary_path: File.join(derived_data_path, "SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/upload-symbols")
+    binary_path: File.join(derived_data_path, "SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/upload-symbols"),
+    fail_on_error: true,
+    debug: true
   )
 end
 
@@ -277,6 +279,16 @@ platform :ios do
     sh "cd ..;#{tests_script.call("run-unit-tests-iphone.sh")}"
   end
 
+  desc "Run UI Snapshot Tests on an iOS 27 iPhone Simulator"
+  lane :run_ui_snapshots_tests_iphone_27 do
+    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-iphone-27.sh")}"
+  end
+
+  desc "Run UI Snapshot Tests on an iOS 27 iPad Simulator"
+  lane :run_ui_snapshots_tests_ipad_27 do
+    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-ipad-27.sh")}"
+  end
+
   desc "Run UI Snapshot Tests on an iOS 26 iPhone Simulator"
   lane :run_ui_snapshots_tests_iphone_26 do
     sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-iphone-26.sh")}"
@@ -299,11 +311,13 @@ platform :ios do
 
   desc "Re-generate app store snapshots for iOS 26 on iPhone"
   lane :make_app_store_snapshots_iphone_26 do
+    raise "Update to latest iOS"
     sh "cd ..;#{tests_script.call("make-app-store-snapshots-iphone-26.sh")}"
   end
 
   desc "Re-generate app store snapshots for iOS 26 on iPad"
   lane :make_app_store_snapshots_ipad_26 do
+    raise "Update to latest iOS"
     sh "cd ..;#{tests_script.call("make-app-store-snapshots-ipad-26.sh")}"
   end
 end
@@ -435,6 +449,11 @@ platform :tvos do
     sh "cd ..;#{tests_script.call("run-unit-tests-appletv.sh")}"
   end
 
+  desc "Run UI Snapshot Tests on an tvOS 27 Simulator"
+  lane :run_ui_snapshots_tests_appletv_27 do
+    sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-appletv-27.sh")}"
+  end
+
   desc "Run UI Snapshot Tests on an tvOS 26 Simulator"
   lane :run_ui_snapshots_tests_appletv_26 do
     sh "cd ..;#{tests_script.call("run-ui-snapshots-tests-appletv-26.sh")}"
@@ -447,6 +466,7 @@ platform :tvos do
 
   desc "Re-generate app store snapshots for tvOS 26"
   lane :make_app_store_snapshots_appletv_26 do
+    raise "Update to latest tvOS"
     sh "cd ..;#{tests_script.call("make-app-store-snapshots-appletv-26.sh")}"
   end
 end

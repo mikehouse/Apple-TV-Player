@@ -287,13 +287,13 @@ run_tests_on_simulator() {
     echo "Configuring test plan for $LABEL language $language..."
     configure_testplan "$language" "$LOCAL_PORT"
 
-    echo "Running UI tests on $LABEL for language $language..."
+    echo "Running tests on $LABEL for language $language..."
     if ! xcodebuild test \
       "${XCODEBUILD_ARGS[@]}" \
       -destination "platform=$DESTINATION_PLATFORM,id=$CURRENT_UDID" \
       | xcbeautify
     then
-      echo "Error: UI tests failed on $LABEL for language $language" >&2
+      echo "Error: tests failed on $LABEL for language $language" >&2
       FAILED=1
     fi
   done

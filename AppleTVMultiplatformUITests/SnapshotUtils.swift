@@ -112,6 +112,11 @@ struct SnapshotUtils {
         
         switch message {
         case let message where message.contains("No reference was found on disk."):
+            // We are here when no a snapshot found in xctest sandbox (ex after DerivedData clean up)
+            // because "snapshot-testing" library stores snapshots in test's sandbox as we said to do.
+            // But we already may have snapshot in our project directory.
+            // That is why we do not fail, but try to copy already existed snapshot from repo to
+            // test's sandbox and rerun a snapshot verification one more time.
             guard let start = message.range(of: #"open ""#),
                 let end = message[start.upperBound...].firstIndex(of: "\""),
                 let snapshotPath = URL(string: String(message[start.upperBound..<end])) else {
@@ -129,6 +134,10 @@ struct SnapshotUtils {
                 )
             } catch {
                 // There is no .git version yet, copy new generated there.
+                // Be aware to copy the api client may not have rights to read images from app sandbox,
+                // give a read access to test's sandbox directory first for terminal (as we run api client there) like:
+                // 1. Open System Settings → Privacy & Security → Full Disk Access.
+                // 2. Enable Terminal. If it isn’t listed, click + and add it from /Applications/Utilities/Terminal.app
                 try await apiClient.copySnapshot(from: snapshotPath.path, to: gitSnapshotsDir.path)
                 return XCTFail("New snapshot copied to .git, rerun test.", file: filePath, line: line)
             }

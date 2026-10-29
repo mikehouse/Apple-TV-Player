@@ -158,16 +158,16 @@ final class RegularSnapshotUITests_Stream: XCTestCase {
         continueAfterFailure = true
         try await app.buttons["add"].firstMatch.makeTap()
         try await app.buttons["playlist-file-picker"].firstMatch.makeTap(wait: .seconds(5))
-        XCTAssertEqual(app.navigationBars["FullDocumentManagerViewControllerNavigationBar"].buttons.firstMatch.label, "Cancel")
-        try await app.navigationBars["FullDocumentManagerViewControllerNavigationBar"].buttons.firstMatch.makeTap(wait: .seconds(2))
+        try await app.navigationBars["FullDocumentManagerViewControllerNavigationBar"]
+            .buttons.matching(NSPredicate(format: "label == 'Cancel'")).firstMatch.makeTap(wait: .seconds(2))
         try await app.textFields["name"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.name)
         try await app.textFields["url"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.url)
         try await app.textFields["tvg-logo"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.tvgLogo)
         try await app.textFields["url-tvg"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.urlTvg)
         try await app.textFields["url-img"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.urlImg)
         try await app.buttons["tvg-logo-file-picker"].firstMatch.makeTap(wait: .seconds(5))
-        XCTAssertEqual(app.navigationBars["FullDocumentManagerViewControllerNavigationBar"].buttons.firstMatch.label, "Cancel")
-        try await app.navigationBars["FullDocumentManagerViewControllerNavigationBar"].buttons.firstMatch.makeTap(wait: .seconds(2))
+        try await app.navigationBars["FullDocumentManagerViewControllerNavigationBar"]
+            .buttons.matching(NSPredicate(format: "label == 'Cancel'")).firstMatch.makeTap(wait: .seconds(2))
         try await app.buttons["confirm"].firstMatch.makeTap(wait: .seconds(1))
         try await app.cells.firstMatch.makeTap(wait: .seconds(0))
         XCTAssertEqual(app.cells.firstMatch.staticTexts.element(boundBy: 0).label, "Comedy")
@@ -300,9 +300,14 @@ final class RegularSnapshotUITests_Stream: XCTestCase {
         try await app.outlines["sidebar"].firstMatch.cells.firstMatch.makeTap(wait: .seconds(0))
         XCTAssertEqual(app.outlines["content"].firstMatch.cells.element(boundBy: 1).staticTexts.element(boundBy: 0).value as? String, "Comedy")
         XCTAssertEqual(app.outlines["content"].firstMatch.cells.element(boundBy: 1).staticTexts.element(boundBy: 1).value as? String, "Vacation")
+        if #available(macOS 27.0, *) {
+            // macOS 27 bug that cells are squashed, scroll the list a bit to redraw the cells.
+            app.outlines["content"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.8)).swipeUp(velocity: .fast)
+            try await Task.sleep(for: .seconds(1))
+        }
         try await app.buttons["settings"].firstMatch.makeTap(wait: .seconds(0))
         XCTAssertEqual(app.popUpButtons["sort-by-picker"].firstMatch.value as? String, "Default")
-        try await app.popUpButtons["sort-by-picker"].firstMatch.makeTap(wait: .seconds(0))
+        try await app.popUpButtons["sort-by-picker"].firstMatch.makeTap(wait: .seconds(0), coordinate: CGVector(dx: 0.95, dy: 0.5))
         try await app.menuItems["Alphabetical"].firstMatch.makeTap(wait: .seconds(0))
         try await app.buttons["confirm"].firstMatch.makeTap(wait: .seconds(0))
         XCTAssertEqual(app.outlines["content"].firstMatch.cells.element(boundBy: 1).staticTexts.element(boundBy: 0).value as? String, "Action")
@@ -310,7 +315,7 @@ final class RegularSnapshotUITests_Stream: XCTestCase {
         try await snapshotUtils.assertSnapshot(named: env.snapshotName(context: "playlist-sorted-asc"), app: app, localized: false)
         try await app.buttons["settings"].firstMatch.makeTap(wait: .seconds(0))
         XCTAssertEqual(app.popUpButtons["sort-by-picker"].firstMatch.value as? String, "Alphabetical")
-        try await app.popUpButtons["sort-by-picker"].firstMatch.makeTap(wait: .seconds(0))
+        try await app.popUpButtons["sort-by-picker"].firstMatch.makeTap(wait: .seconds(0), coordinate: CGVector(dx: 0.95, dy: 0.5))
         try await app.menuItems["Default"].firstMatch.makeTap(wait: .seconds(0))
         try await app.buttons["confirm"].firstMatch.makeTap(wait: .seconds(0))
         XCTAssertEqual(app.outlines["content"].firstMatch.cells.element(boundBy: 1).staticTexts.element(boundBy: 0).value as? String, "Comedy")

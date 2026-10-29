@@ -12,7 +12,6 @@
 		821C3BDF2F91E66A00666D1F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 821C3BDE2F91E66A00666D1F /* FirebaseAnalytics */; };
 		821C3BE12F91E66A00666D1F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 821C3BE02F91E66A00666D1F /* FirebaseCrashlytics */; };
 		823A459B2F600E1800C3FB19 /* SWCompression in Frameworks */ = {isa = PBXBuildFile; productRef = 823A459A2F600E1800C3FB19 /* SWCompression */; };
-		82ECB5D62F61F23500C68F02 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 82ECB5D52F61F23500C68F02 /* NukeUI */; };
 		82ECB5D92F61FCAF00C68F02 /* Kanna in Frameworks */ = {isa = PBXBuildFile; productRef = 82ECB5D82F61FCAF00C68F02 /* Kanna */; };
 		82F7111B2F5F41EF0016FFCC /* FactoryKit in Frameworks */ = {isa = PBXBuildFile; productRef = 82F7111A2F5F41EF0016FFCC /* FactoryKit */; };
 		82F7111D2F5F41EF0016FFCC /* FactoryTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 82F7111C2F5F41EF0016FFCC /* FactoryTesting */; };
@@ -513,7 +512,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82ECB5D62F61F23500C68F02 /* NukeUI in Frameworks */,
 				82F7111B2F5F41EF0016FFCC /* FactoryKit in Frameworks */,
 				82ECB5D92F61FCAF00C68F02 /* Kanna in Frameworks */,
 				821C3BE12F91E66A00666D1F /* FirebaseCrashlytics in Frameworks */,
@@ -595,7 +593,6 @@
 			packageProductDependencies = (
 				82F7111A2F5F41EF0016FFCC /* FactoryKit */,
 				823A459A2F600E1800C3FB19 /* SWCompression */,
-				82ECB5D52F61F23500C68F02 /* NukeUI */,
 				82ECB5D82F61FCAF00C68F02 /* Kanna */,
 				821C3BDE2F91E66A00666D1F /* FirebaseAnalytics */,
 				821C3BE02F91E66A00666D1F /* FirebaseCrashlytics */,
@@ -703,7 +700,6 @@
 			packageReferences = (
 				82F711192F5F41EF0016FFCC /* XCRemoteSwiftPackageReference "Factory" */,
 				823A45992F600E1800C3FB19 /* XCRemoteSwiftPackageReference "SWCompression" */,
-				82ECB5D42F61F23500C68F02 /* XCRemoteSwiftPackageReference "Nuke" */,
 				82ECB5D72F61FCAF00C68F02 /* XCRemoteSwiftPackageReference "Kanna" */,
 				820B1D0B2F85343200FD19C2 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 				821C3BDD2F91E66A00666D1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
@@ -1249,7 +1245,7 @@
 			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
 			requirement = {
 				kind = exactVersion;
-				version = 1.19.3;
+				version = 1.19.7;
 			};
 		};
 		821C3BDD2F91E66A00666D1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
@@ -1257,7 +1253,7 @@
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
 				kind = exactVersion;
-				version = 12.16.0;
+				version = 13.1.0;
 			};
 		};
 		823A45992F600E1800C3FB19 /* XCRemoteSwiftPackageReference "SWCompression" */ = {
@@ -1266,14 +1262,6 @@
 			requirement = {
 				kind = exactVersion;
 				version = 4.9.1;
-			};
-		};
-		82ECB5D42F61F23500C68F02 /* XCRemoteSwiftPackageReference "Nuke" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kean/Nuke";
-			requirement = {
-				kind = exactVersion;
-				version = 13.0.6;
 			};
 		};
 		82ECB5D72F61FCAF00C68F02 /* XCRemoteSwiftPackageReference "Kanna" */ = {
@@ -1289,7 +1277,7 @@
 			repositoryURL = "https://github.com/hmlongco/Factory";
 			requirement = {
 				kind = exactVersion;
-				version = 3.3.2;
+				version = 3.5.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1314,11 +1302,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 823A45992F600E1800C3FB19 /* XCRemoteSwiftPackageReference "SWCompression" */;
 			productName = SWCompression;
-		};
-		82ECB5D52F61F23500C68F02 /* NukeUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 82ECB5D42F61F23500C68F02 /* XCRemoteSwiftPackageReference "Nuke" */;
-			productName = NukeUI;
 		};
 		82ECB5D82F61FCAF00C68F02 /* Kanna */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -1,5 +1,4 @@
 import FactoryKit
-import NukeUI
 import SwiftUI
 
 struct PlaylistView: View {
@@ -215,7 +214,7 @@ private struct StreamRowView: View {
     var body: some View {
         HStack(spacing: 16) {
             if let icon, let url = URL(string: icon) {
-                LazyImage(url: url) { phase in
+                AsyncImage(url: url) { phase in
                     if let image = phase.image {
                         image.resizable()
                             .aspectRatio(contentMode: .fit)

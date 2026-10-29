@@ -208,9 +208,9 @@ struct PlaylistsViewModelTests {
 
         try await waitForClearCache(on: playlistService)
 
-        let restoreCalls = await playlistAddService.recordedRestoreCalls()
+        let restoreCalls = playlistAddService.recordedRestoreCalls()
         let restoreCall = try #require(restoreCalls.first)
-        let clearCacheCalls = await playlistService.recordedClearCacheCalls()
+        let clearCacheCalls = playlistService.recordedClearCacheCalls()
         let clearedContent = try #require(clearCacheCalls.first)
 
         #expect(restoreCalls.count == 1)
@@ -264,8 +264,8 @@ struct PlaylistsViewModelTests {
 
         try await waitForClearCache(on: playlistService)
 
-        #expect(await playlistAddService.recordedRestoreCalls().count == 1)
-        #expect(await playlistService.recordedClearCacheCalls().count == 1)
+        #expect(playlistAddService.recordedRestoreCalls().count == 1)
+        #expect(playlistService.recordedClearCacheCalls().count == 1)
     }
 
     private func makeDatabaseService(items: [PlaylistItem]) throws -> DatabaseService {
@@ -303,7 +303,7 @@ struct PlaylistsViewModelTests {
         let clock = ContinuousClock()
         let deadline = clock.now.advanced(by: .seconds(1))
 
-        while await playlistService.recordedClearCacheCalls().isEmpty {
+        while playlistService.recordedClearCacheCalls().isEmpty {
             guard clock.now < deadline else {
                 Issue.record("Timed out waiting for clearCache.")
                 return

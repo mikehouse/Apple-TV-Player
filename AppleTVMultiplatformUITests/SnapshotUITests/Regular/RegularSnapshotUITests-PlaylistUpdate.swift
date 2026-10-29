@@ -91,7 +91,7 @@ final class RegularSnapshotUITests_PlaylistUpdate: XCTestCase {
         try await app.textFields["url-tvg"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.urlTvg)
         try await app.textFields["url-img"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.urlImg)
         try await app.buttons["confirm"].firstMatch.makeTap(wait: .seconds(1))
-        try await app.collectionViews["sidebar"].firstMatch.cells.firstMatch.makeTap(wait: .seconds(0))
+        try await app.collectionViews["sidebar"].firstMatch.cells.firstMatch.makeTap(wait: .seconds(2))
         XCTAssertEqual(app.collectionViews["content"].firstMatch.cells.firstMatch.staticTexts.element(boundBy: 0).label, "Comedy")
         XCTAssertEqual(app.collectionViews["content"].firstMatch.cells.firstMatch.staticTexts.element(boundBy: 1).label, "Vacation")
         snapshotUtils.assertSnapshot(named: env.snapshotName(context: "playlist"), app: app, localized: false, precision: 0.999)
@@ -101,7 +101,7 @@ final class RegularSnapshotUITests_PlaylistUpdate: XCTestCase {
         try await apiClient.playlistChange(playlist)
         
         try await app.buttons["update-playlist-btn"].firstMatch.makeTap(wait: .seconds(2))
-        try await app.buttons["confirm"].firstMatch.makeTap(wait: .seconds(0))
+        try await app.buttons["confirm"].firstMatch.makeTap(wait: .seconds(2))
         XCTAssertEqual(app.collectionViews["content"].firstMatch.cells.firstMatch.staticTexts.element(boundBy: 0).label, "Westerns")
         snapshotUtils.assertSnapshot(named: env.snapshotName(context: "playlist-update"), app: app, localized: false, precision: 0.999)
         

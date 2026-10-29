@@ -1,5 +1,2 @@
 Questo aggiornamento include:
-• Supporto per Picture in Picture su iPhone, iPad e Mac.
-• Possibilità di importare playlist da file locali su iPhone, iPad e Mac.
-• Lo schermo rimane acceso durante la riproduzione video sul Mac.
 • Miglioramenti alla stabilità e alle prestazioni e risoluzioni di problemi.

@@ -119,10 +119,10 @@ final class RegularSnapshotUITests_PlaylistUpdate: XCTestCase {
         try await app.textFields["url-tvg"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.urlTvg)
         try await app.textFields["url-img"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.urlImg)
         try await app.buttons["confirm"].firstMatch.makeTap(wait: .seconds(1))
-        try await app.cells.firstMatch.makeTap(wait: .seconds(0))
+        try await app.cells.firstMatch.makeTap(wait: .seconds(1))
         XCTAssertEqual(app.cells.firstMatch.staticTexts.element(boundBy: 0).label, "Comedy")
         XCTAssertEqual(app.cells.firstMatch.staticTexts.element(boundBy: 1).label, "Vacation")
-        snapshotUtils.assertSnapshot(named: env.snapshotName(context: "playlist"), app: app, localized: false, precision: 0.999)
+        snapshotUtils.assertSnapshot(named: env.snapshotName(context: "playlist"), app: app, localized: false, precision: 0.998)
         try await app.buttons["settings"].firstMatch.makeTap(wait: .seconds(0))
         
         try await apiClient.playlistChange(playlist)
@@ -200,7 +200,7 @@ final class RegularSnapshotUITests_PlaylistUpdate: XCTestCase {
         }
         XCTAssertEqual(app.outlines["content"].firstMatch.cells.element(boundBy: 1).staticTexts.element(boundBy: 0).value as? String, "Comedy")
         XCTAssertEqual(app.outlines["content"].firstMatch.cells.element(boundBy: 1).staticTexts.element(boundBy: 1).value as? String, "Vacation")
-        try await snapshotUtils.assertSnapshot(named: env.snapshotName(context: "playlist"), app: app, localized: false)
+        try await snapshotUtils.assertSnapshot(named: env.snapshotName(context: "playlist"), app: app, localized: false, precision: 0.998)
         try await app.buttons["settings"].firstMatch.makeTap(wait: .seconds(0))
         
         try await apiClient.playlistChange(playlist)

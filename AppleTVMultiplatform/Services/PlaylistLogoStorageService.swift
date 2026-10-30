@@ -33,8 +33,13 @@ actor PlaylistLogoStorageService: PlaylistLogoStorageServiceInterface {
 
     init(directoryURL: URL? = nil, urlSession: URLSession = .shared) {
         let fileManager = FileManager.default
+#if os(tvOS)
+let location: FileManager.SearchPathDirectory = .cachesDirectory
+#else
+let location: FileManager.SearchPathDirectory = .applicationSupportDirectory
+#endif
         let applicationSupportURL = fileManager.urls(
-            for: .applicationSupportDirectory,
+            for: location,
             in: .userDomainMask
         )[0]
         let appDirectoryName = Bundle.main.bundleIdentifier ?? "AppleTVMultiplatform"

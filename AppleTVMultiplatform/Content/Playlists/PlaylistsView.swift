@@ -1,4 +1,4 @@
-
+import NukeUI
 import SwiftUI
 import FactoryKit
 
@@ -77,7 +77,7 @@ struct PlaylistsView: View {
     private func contentView(_ playlist: PlaylistItem) -> some View {
         HStack(spacing: 6) {
             if let icon = playlist.icon, let url = URL(string: icon) {
-                AsyncImage(url: url) { phase in
+                LazyImage(url: url) { phase in
                     if let image = phase.image {
                         logoView(image)
                     } else if let error = phase.error {
@@ -98,7 +98,7 @@ struct PlaylistsView: View {
     }
 
     private func localLogoView(_ url: URL) -> some View {
-        AsyncImage(url: url) { phase in
+        LazyImage(url: url) { phase in
             if let image = phase.image {
                 logoView(image)
             } else if let error = phase.error {

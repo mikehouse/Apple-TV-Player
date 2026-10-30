@@ -58,6 +58,15 @@ struct PlaylistSettingsView: View {
                     pinCodeEncryptSheet()
                 }
             }
+            .sheet(isPresented: $viewModel.showPinCodeReEncryptView, onDismiss: {
+                Task {
+                    _ = await viewModel.onReEncrypt()
+                }
+            }) {
+                sheetView {
+                    pinCodeReEncryptSheet()
+                }
+            }
             .sheet(isPresented: $viewModel.showPinCodeDecryptProgramGuideView, onDismiss: {
                 Task {
                     if await viewModel.updateProgramGuideDecrypted() {
@@ -115,6 +124,12 @@ struct PlaylistSettingsView: View {
     private func pinCodeEncryptSheet() -> some View {
         EnterPinView(pin: $viewModel.pin) {
             viewModel.showPinCodeEncryptView = false
+        }
+    }
+    
+    private func pinCodeReEncryptSheet() -> some View {
+        EnterPinView(pin: $viewModel.pin) {
+            viewModel.showPinCodeReEncryptView = false
         }
     }
 

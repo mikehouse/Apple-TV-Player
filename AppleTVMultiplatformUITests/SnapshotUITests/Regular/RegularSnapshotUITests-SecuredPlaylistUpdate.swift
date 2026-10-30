@@ -72,6 +72,7 @@ final class RegularSnapshotUITests_SecuredPlaylistUpdate: XCTestCase {
     private func iPad(app: XCUIApplication, playlist: Playlist, tempPlaylist: Playlist) async throws {
         XCTAssert(UIDevice.current.userInterfaceIdiom == .pad)
         continueAfterFailure = true
+        try await apiClient.playlistReset(playlist)
         if #available(iOS 26.0, *) {
         } else {
             try await app.buttons["ToggleSidebar"].firstMatch.makeTap(wait: .seconds(1))
@@ -96,7 +97,6 @@ final class RegularSnapshotUITests_SecuredPlaylistUpdate: XCTestCase {
         XCTAssertEqual(app.collectionViews["content"].firstMatch.cells.firstMatch.staticTexts.element(boundBy: 1).label, "Vacation")
         try await app.buttons["settings"].firstMatch.makeTap(wait: .seconds(0))
         
-        try await apiClient.playlistReset(playlist)
         try await apiClient.playlistChange(playlist)
         
         try await app.buttons["update-playlist-btn"].firstMatch.makeTap(wait: .seconds(2))
@@ -120,6 +120,7 @@ final class RegularSnapshotUITests_SecuredPlaylistUpdate: XCTestCase {
         try await app.textFields["passcode-input"].firstMatch.makeTap(wait: .seconds(0)).typeText(String(passcode))
         try await app.buttons["confirm"].firstMatch.makeTap(wait: .seconds(1))
         XCTAssertEqual(app.collectionViews["content"].firstMatch.cells.firstMatch.staticTexts.element(boundBy: 0).label, "Westerns")
+        try await app.collectionViews["content"].firstMatch.cells.firstMatch.makeTap(wait: .seconds(1))
         
         try await apiClient.playlistReset(playlist)
     }
@@ -127,6 +128,7 @@ final class RegularSnapshotUITests_SecuredPlaylistUpdate: XCTestCase {
     private func iPhone(app: XCUIApplication, playlist: Playlist, tempPlaylist: Playlist) async throws {
         XCTAssert(UIDevice.current.userInterfaceIdiom == .phone)
         continueAfterFailure = true
+        try await apiClient.playlistReset(playlist)
         let passcode = "1234"
         for playlist in [tempPlaylist, playlist] {
             try await app.buttons["add"].firstMatch.makeTap()
@@ -148,7 +150,6 @@ final class RegularSnapshotUITests_SecuredPlaylistUpdate: XCTestCase {
         XCTAssertEqual(app.cells.firstMatch.staticTexts.element(boundBy: 1).label, "Vacation")
         try await app.buttons["settings"].firstMatch.makeTap(wait: .seconds(0))
         
-        try await apiClient.playlistReset(playlist)
         try await apiClient.playlistChange(playlist)
         
         try await app.buttons["update-playlist-btn"].firstMatch.makeTap(wait: .seconds(2))
@@ -170,6 +171,7 @@ final class RegularSnapshotUITests_SecuredPlaylistUpdate: XCTestCase {
         try await app.textFields["passcode-input"].firstMatch.makeTap(wait: .seconds(0)).typeText(String(passcode))
         try await app.buttons["confirm"].firstMatch.makeTap(wait: .seconds(0))
         XCTAssertEqual(app.cells.firstMatch.staticTexts.element(boundBy: 0).label, "Westerns")
+        try await app.cells.firstMatch.makeTap(wait: .seconds(2))
         
         try await apiClient.playlistReset(playlist)
     }
@@ -177,6 +179,7 @@ final class RegularSnapshotUITests_SecuredPlaylistUpdate: XCTestCase {
 #if os(macOS)
     private func macOS(app: XCUIApplication, playlist: Playlist, tempPlaylist: Playlist) async throws {
         continueAfterFailure = true
+        try await apiClient.playlistReset(playlist)
         let passcode = "1234"
         for playlist in [tempPlaylist, playlist] {
             try await app.buttons["add"].firstMatch.makeTap(wait: .seconds(0))
@@ -203,7 +206,6 @@ final class RegularSnapshotUITests_SecuredPlaylistUpdate: XCTestCase {
         }
         try await app.buttons["settings"].firstMatch.makeTap(wait: .seconds(0))
         
-        try await apiClient.playlistReset(playlist)
         try await apiClient.playlistChange(playlist)
         
         try await app.buttons["update-playlist-btn"].firstMatch.makeTap(wait: .seconds(1))
@@ -224,6 +226,7 @@ final class RegularSnapshotUITests_SecuredPlaylistUpdate: XCTestCase {
             try await Task.sleep(for: .seconds(1))
         }
         XCTAssertEqual(app.outlines["content"].firstMatch.cells.element(boundBy: 1).staticTexts.element(boundBy: 0).value as? String, "Westerns")
+        try await app.outlines["content"].firstMatch.cells.element(boundBy: 1).makeTap(wait: .seconds(1))
         
         try await apiClient.playlistReset(playlist)
     }

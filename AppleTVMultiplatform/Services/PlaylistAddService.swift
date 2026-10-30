@@ -198,7 +198,7 @@ actor PlaylistAddService: PlaylistAddServiceInterface {
 
     func encryptPlaylist(_ preparedPlaylist: PreparedPlaylist, pin: String) async throws -> PreparedPlaylist {
         assert(preparedPlaylist.encrypted == false)
-        let salt = Crypto.generateSalt()
+        let salt = preparedPlaylist.salt ?? Crypto.generateSalt()
         let encryptedURLData = try crypto.encrypt(preparedPlaylist.url, pin: pin, salt: salt)
         let encryptedPlaylistData = try crypto.encrypt(preparedPlaylist.data, pin: pin, salt: salt)
 

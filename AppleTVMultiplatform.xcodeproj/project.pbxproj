@@ -12,6 +12,7 @@
 		821C3BDF2F91E66A00666D1F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 821C3BDE2F91E66A00666D1F /* FirebaseAnalytics */; };
 		821C3BE12F91E66A00666D1F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 821C3BE02F91E66A00666D1F /* FirebaseCrashlytics */; };
 		823A459B2F600E1800C3FB19 /* SWCompression in Frameworks */ = {isa = PBXBuildFile; productRef = 823A459A2F600E1800C3FB19 /* SWCompression */; };
+		828F48343094832200609424 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 828F48333094832200609424 /* NukeUI */; };
 		82ECB5D92F61FCAF00C68F02 /* Kanna in Frameworks */ = {isa = PBXBuildFile; productRef = 82ECB5D82F61FCAF00C68F02 /* Kanna */; };
 		82F7111B2F5F41EF0016FFCC /* FactoryKit in Frameworks */ = {isa = PBXBuildFile; productRef = 82F7111A2F5F41EF0016FFCC /* FactoryKit */; };
 		82F7111D2F5F41EF0016FFCC /* FactoryTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 82F7111C2F5F41EF0016FFCC /* FactoryTesting */; };
@@ -515,6 +516,7 @@
 				82F7111B2F5F41EF0016FFCC /* FactoryKit in Frameworks */,
 				82ECB5D92F61FCAF00C68F02 /* Kanna in Frameworks */,
 				821C3BE12F91E66A00666D1F /* FirebaseCrashlytics in Frameworks */,
+				828F48343094832200609424 /* NukeUI in Frameworks */,
 				821C3BDF2F91E66A00666D1F /* FirebaseAnalytics in Frameworks */,
 				823A459B2F600E1800C3FB19 /* SWCompression in Frameworks */,
 			);
@@ -596,6 +598,7 @@
 				82ECB5D82F61FCAF00C68F02 /* Kanna */,
 				821C3BDE2F91E66A00666D1F /* FirebaseAnalytics */,
 				821C3BE02F91E66A00666D1F /* FirebaseCrashlytics */,
+				828F48333094832200609424 /* NukeUI */,
 			);
 			productName = "Bro Player";
 			productReference = 820B7D722F5F2C5C0043DE13 /* Bro Player.app */;
@@ -703,6 +706,7 @@
 				82ECB5D72F61FCAF00C68F02 /* XCRemoteSwiftPackageReference "Kanna" */,
 				820B1D0B2F85343200FD19C2 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 				821C3BDD2F91E66A00666D1F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				828F48323094832200609424 /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 820B7D732F5F2C5C0043DE13 /* Products */;
@@ -1264,6 +1268,14 @@
 				version = 4.9.1;
 			};
 		};
+		828F48323094832200609424 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke";
+			requirement = {
+				kind = exactVersion;
+				version = 13.2.0;
+			};
+		};
 		82ECB5D72F61FCAF00C68F02 /* XCRemoteSwiftPackageReference "Kanna" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/tid-kijyun/Kanna";
@@ -1302,6 +1314,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 823A45992F600E1800C3FB19 /* XCRemoteSwiftPackageReference "SWCompression" */;
 			productName = SWCompression;
+		};
+		828F48333094832200609424 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 828F48323094832200609424 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
 		};
 		82ECB5D82F61FCAF00C68F02 /* Kanna */ = {
 			isa = XCSwiftPackageProductDependency;

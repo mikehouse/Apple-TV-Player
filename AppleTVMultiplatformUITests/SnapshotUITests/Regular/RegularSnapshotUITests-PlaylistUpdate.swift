@@ -80,6 +80,7 @@ final class RegularSnapshotUITests_PlaylistUpdate: XCTestCase {
     private func iPad(app: XCUIApplication, playlist: Playlist) async throws {
         XCTAssert(UIDevice.current.userInterfaceIdiom == .pad)
         continueAfterFailure = true
+        try await apiClient.playlistReset(playlist)
         if #available(iOS 26.0, *) {
         } else {
             try await app.buttons["ToggleSidebar"].firstMatch.makeTap(wait: .seconds(1))
@@ -97,7 +98,6 @@ final class RegularSnapshotUITests_PlaylistUpdate: XCTestCase {
         snapshotUtils.assertSnapshot(named: env.snapshotName(context: "playlist"), app: app, localized: false, precision: 0.999)
         try await app.buttons["settings"].firstMatch.makeTap(wait: .seconds(0))
         
-        try await apiClient.playlistReset(playlist)
         try await apiClient.playlistChange(playlist)
         
         try await app.buttons["update-playlist-btn"].firstMatch.makeTap(wait: .seconds(2))
@@ -111,6 +111,7 @@ final class RegularSnapshotUITests_PlaylistUpdate: XCTestCase {
     private func iPhone(app: XCUIApplication, playlist: Playlist) async throws {
         XCTAssert(UIDevice.current.userInterfaceIdiom == .phone)
         continueAfterFailure = true
+        try await apiClient.playlistReset(playlist)
         try await app.buttons["add"].firstMatch.makeTap()
         try await app.textFields["name"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.name)
         try await app.textFields["url"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.url)
@@ -124,7 +125,6 @@ final class RegularSnapshotUITests_PlaylistUpdate: XCTestCase {
         snapshotUtils.assertSnapshot(named: env.snapshotName(context: "playlist"), app: app, localized: false, precision: 0.999)
         try await app.buttons["settings"].firstMatch.makeTap(wait: .seconds(0))
         
-        try await apiClient.playlistReset(playlist)
         try await apiClient.playlistChange(playlist)
         
         try await app.buttons["update-playlist-btn"].firstMatch.makeTap(wait: .seconds(2))
@@ -139,6 +139,7 @@ final class RegularSnapshotUITests_PlaylistUpdate: XCTestCase {
     private func tvOS(app: XCUIApplication, playlist: Playlist) async throws {
         XCTAssert(UIDevice.current.userInterfaceIdiom == .tv)
         continueAfterFailure = true
+        try await apiClient.playlistReset(playlist)
         func openSettings() async throws {
             XCUIRemote.shared.press(.select, forDuration: 1)
             XCUIRemote.shared.press(.down)
@@ -158,7 +159,6 @@ final class RegularSnapshotUITests_PlaylistUpdate: XCTestCase {
         XCUIRemote.shared.press(.menu)
          try await Task.sleep(for: .seconds(1))
 
-        try await apiClient.playlistReset(playlist)
         try await apiClient.playlistChange(playlist)
         
         try await openSettings()
@@ -183,6 +183,7 @@ final class RegularSnapshotUITests_PlaylistUpdate: XCTestCase {
 #if os(macOS)
     private func macOS(app: XCUIApplication, playlist: Playlist) async throws {
         continueAfterFailure = true
+        try await apiClient.playlistReset(playlist)
         try await app.buttons["add"].firstMatch.makeTap(wait: .seconds(0))
         try await app.textFields["name"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.name)
         try await app.textFields["url"].firstMatch.makeTap(wait: .seconds(0)).typeText(playlist.url)
@@ -202,7 +203,6 @@ final class RegularSnapshotUITests_PlaylistUpdate: XCTestCase {
         try await snapshotUtils.assertSnapshot(named: env.snapshotName(context: "playlist"), app: app, localized: false)
         try await app.buttons["settings"].firstMatch.makeTap(wait: .seconds(0))
         
-        try await apiClient.playlistReset(playlist)
         try await apiClient.playlistChange(playlist)
         
         try await app.buttons["update-playlist-btn"].firstMatch.makeTap(wait: .seconds(2))

@@ -21,11 +21,13 @@ final class PlaylistSettingsViewModel {
     var dataChanged = false
     var showPinCodeDecryptView = false
     var showPinCodeEncryptView = false
+    var showPinCodeReEncryptView = false
     var showPinCodeDecryptProgramGuideView = false
     var showPinCodeDecryptPlaylistView = false
     var isPlaylistFileImporterPresented = false
     var selectedPlaylistFileURL: URL?
     var playlistDecryptedContent: PlaylistItem.Content?
+    var playlistUpdateContent: PlaylistItem.Content?
     var pin: String = ""
     var progressText: StringIdentifiable?
     var error: LocalizableError?
@@ -247,7 +249,7 @@ extension PlaylistSettingsViewModel {
         assert(preparedUpdatedPlaylist.salt == nil)
         assert(!preparedUpdatedPlaylist.encrypted)
         preparedUpdatedPlaylist = PreparedPlaylist(
-            name: preparedUpdatedPlaylist.name,
+            name: identity.name,
             // Set date from original playlist as Date is an identity, should not be changed.
             date: identity.date,
             icon: preparedUpdatedPlaylist.icon,
@@ -280,10 +282,76 @@ extension PlaylistSettingsViewModel {
             )
             return false
         }
-        playlist.data = preparedUpdatedPlaylist.data
+        logger.info("Update playlist data for URL", private: String(data: content.url, encoding: .utf8)!)
         if playlistDecryptedContent == content || playlist.encrypted {
-            // Encrypt data back.
-            onPinChange()
+            // Database now has old playlist (playlist.data and playlist.url) that is encrypted.
+            // We here have new playlist (data and url) that is not yet encrypted.
+            // To encrypt we need ask a user a pin code first, then encrypt data and
+            // replace in database old one.
+            // We do not replace `url` as we agreed to use old/first one always, only playlist
+            // data needs to be updated.
+            playlistUpdateContent = .init(
+                identity: content.identity,
+                url: content.url,
+                data: preparedUpdatedPlaylist.data,
+                isStoredInMemoryOnly: content.isStoredInMemoryOnly
+            )
+            showPinCodeReEncryptView = true
+            logger.info("New playlist ready to be encrypted, waiting for user pin entry.")
+        } else {
+            // Database's playlist without encryption, just replace it with new data.
+            playlist.data = preparedUpdatedPlaylist.data
+        }
+        return true
+    }
+}
+
+// MARK: - Playlist data update
+extension PlaylistSettingsViewModel {
+    
+    func onReEncrypt() async -> Bool {
+        defer {
+            self.playlistUpdateContent = nil
+            self.pin = ""
+        }
+        guard let playlistUpdateContent, let playlist, !pin.isEmpty else {
+            logger.error("Unexpected flow: New playlist content absent.")
+            return false
+        }
+        guard let preparedPlaylist = PreparedPlaylist(playlist) else {
+            return false
+        }
+        do {
+            // Check that a user provided correct pin code
+            let content = try await playlistAddService.restorePlaylist(preparedPlaylist, pin: pin).content
+            logger.info("Pin is correct:", private: pin)
+            logger.info("Encrypt new playlist data for url:", private: String(data: content.url, encoding: .utf8)!)
+        } catch {
+            logger.error("Unexpected flow: pin provided is not correct")
+            logger.error(error)
+            self.error = .init(error: error)
+            return false
+        }
+        guard let salt = playlist.salt, playlist.encrypted else {
+            logger.error("Unexpected flow: Playlist is not encrypted.")
+            return false
+        }
+        do {
+            let preparedPlaylist = PreparedPlaylist(
+                name: playlistUpdateContent.identity.name,
+                date: playlistUpdateContent.identity.date,
+                icon: nil,
+                url: playlistUpdateContent.url,
+                data: playlistUpdateContent.data,
+                salt: salt,
+                encrypted: false
+            )
+            let encryptedPlaylist = try await playlistAddService.encryptPlaylist(preparedPlaylist, pin: pin)
+            playlist.data = encryptedPlaylist.data
+        } catch {
+            logger.error(error)
+            self.error = .init(error: error)
+            return false
         }
         return true
     }

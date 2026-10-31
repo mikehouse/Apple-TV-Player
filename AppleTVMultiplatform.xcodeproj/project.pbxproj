@@ -48,6 +48,7 @@
 		820B7D952F5F2C5E0043DE13 /* Exceptions for "AppleTVMultiplatform" folder in "AppleTVMultiplatform" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"Resources/Info-tvOS.plist",
 				Resources/Info.plist,
 			);
 			target = 820B7D712F5F2C5C0043DE13 /* AppleTVMultiplatform */;
@@ -795,7 +796,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=appletvos*]" = 4HUHB9J47M;
@@ -817,6 +818,8 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppleTVMultiplatform/Resources/Info.plist;
+				"INFOPLIST_FILE[sdk=appletvos*]" = "AppleTVMultiplatform/Resources/Info-tvOS.plist";
+				"INFOPLIST_FILE[sdk=appletvsimulator*]" = "AppleTVMultiplatform/Resources/Info-tvOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Bro Player";
 				INFOPLIST_KEY_CFBundleName = "Bro Player";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
@@ -877,7 +880,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "3rd Party Mac Developer Application";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=appletvos*]" = 4HUHB9J47M;
@@ -899,6 +902,8 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppleTVMultiplatform/Resources/Info.plist;
+				"INFOPLIST_FILE[sdk=appletvos*]" = "AppleTVMultiplatform/Resources/Info-tvOS.plist";
+				"INFOPLIST_FILE[sdk=appletvsimulator*]" = "AppleTVMultiplatform/Resources/Info-tvOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Bro Player";
 				INFOPLIST_KEY_CFBundleName = "Bro Player";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
@@ -1084,7 +1089,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 4HUHB9J47M;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1113,7 +1118,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 4HUHB9J47M;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1140,7 +1145,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 4HUHB9J47M;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
@@ -1173,7 +1178,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 4HUHB9J47M;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;

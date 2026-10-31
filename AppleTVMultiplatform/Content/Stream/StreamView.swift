@@ -273,6 +273,7 @@ private struct TvOSPlayerView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let controller = AVPlayerViewController()
         controller.player = player
+        controller.allowsPictureInPicturePlayback = false
         return controller
     }
 
